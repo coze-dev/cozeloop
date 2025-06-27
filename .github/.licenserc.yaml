@@ -37,4 +37,25 @@ header:
 dependency:
   files:
     - ../backend/go.mod
+  allowed-licenses:
+    - Apache-2.0
+    - MIT
+    - BSD-2-Clause
+    - BSD-3-Clause
+    - ISC
+    - Unlicense
+    - CC0-1.0
+    - WTFPL
+    - MPL-2.0
+  license-mapping:
+    github.com/cloudwego/eino-ext/components/model/ark: Apache-2.0
+    github.com/cloudwego/eino-ext/components/model/arkbot: Apache-2.0
+    github.com/cloudwego/eino-ext/components/model/claude: Apache-2.0
+    github.com/cloudwego/eino-ext/components/model/deepseek: Apache-2.0
+    github.com/cloudwego/eino-ext/components/model/gemini: Apache-2.0
+    github.com/cloudwego/eino-ext/components/model/ollama: Apache-2.0
+    github.com/cloudwego/eino-ext/components/model/openai: Apache-2.0
+    github.com/cloudwego/eino-ext/components/model/qianfan: Apache-2.0
+    github.com/cloudwego/eino-ext/components/model/qwen: Apache-2.0
+    github.com/cloudwego/eino-ext/libs/acl/openai: Apache-2.0
   

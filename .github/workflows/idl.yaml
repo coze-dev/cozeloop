@@ -32,7 +32,7 @@ jobs:
           while IFS= read -r -d '' thrift_file; do
             echo "Validating $thrift_file..."
             if ! docker run --rm -v "$PWD:/data" --entrypoint sh apache/thrift:latest \
-              -c "mkdir -p /data/gen && thrift --gen xml -I /data/include -out /data/gen /data/$thrift_file" 2>&1; then
+              -c "mkdir -p /data/gen && thrift --gen go -I /data/include -out /data/gen /data/$thrift_file" 2>&1; then
               echo "Error in file: $thrift_file"
               ERROR_FOUND=1
             fi
