@@ -15,19 +15,22 @@ on:
       - '.github/workflows/backend-ci.yaml'
 
 jobs:
-  golangci-lint:
+  golang-lint:
     name: Golang CI Lint
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./backend
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Go
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
         uses: actions/setup-go@v5
         with:
           go-version: "1.23.4"
-      - name: Golangci Lint
+
+      - name: Golang Lint
         # https://golangci-lint.run/
         uses: golangci/golangci-lint-action@v6
         with:
@@ -43,18 +46,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Set up Go
+
+      - name: Setup Go
         uses: actions/setup-go@v5
         with:
           go-version: "1.23.4"
+
       - name: Build
         run: go build -v ./...
+
       - name: Run Unit Tests
-        run: go test -gcflags="all=-N -l" -race -v -coverprofile=coverage.out -coverpkg=./... ./...
+        run: |
+          go test -gcflags="all=-N -l" -race -v -coverprofile=coverage.out -coverpkg=./... ./...
+
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
-          file: ./coverage.out
+          files: ./coverage.out
           flags: unittests
           fail_ci_if_error: false
           verbose: true
