@@ -1,19 +1,35 @@
+name: License Check
+
 on:
   push:
-    branches:
-      - main
+    branches: ['main']
   pull_request:
-    branches:
-      - main
-
+    branches: ['main']
+  workflow_dispatch:
+    
 jobs:
   license-check:
     name: License Check
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.23
+          
+      - name: Install license-eye
+        run: |
+          go install github.com/apache/skywalking-eyes/cmd/license-eye@main
+      
+      - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
       - name: License Header Check
-        uses: apache/skywalking-eyes/header@v0.7.0
+        run: |
+          license-eye header check -c .github/.licenserc.yaml
+      
       - name: License Dependency Check
-        uses: apache/skywalking-eyes/dependency@v0.7.0
+        run: |
+          license-eye dependency check -c .github/.licenserc.yaml

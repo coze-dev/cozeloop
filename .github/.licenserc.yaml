@@ -7,10 +7,18 @@ header:
 
   paths:
     - '**/*.go'
-    - '**/*.ts'
-    - '**/*.tsx'
+    - frontend/apps/**/*.{ts,tsx,less,css}
+    - frontend/packages/cozeloop/**/*.{ts,tsx,less,css}
 
   paths-ignore:
+    - 'node_modules'
+    - 'dist'
+    - 'licenses'
+    - '**/*.md'
+    - '**/*.hz'
+    - '**/*.yaml'
+    - 'LICENSE'
+    - 'NOTICE'
     - "**/mocks/**"
     - "**/gorm_gen/**"
     - "**/kitex_gen/**"
@@ -22,10 +30,11 @@ header:
     - "backend/api/router/coze/loop/apis/coze.loop.apis.go"
     - "backend/modules/observability/domain/trace/entity/collector/**/*.go"
     - "backend/modules/observability/domain/trace/service/collector/processor/queueprocessor/queue_processor.go"
+    - 'frontend/packages/cozeloop/api-schema/src/api/idl'
 
   comment: on-failure
 
 dependency:
   files:
-    - go.mod
-    - package.json
+    - ../backend/go.mod
+  
