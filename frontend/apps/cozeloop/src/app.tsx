@@ -14,10 +14,12 @@ import './index.css';
 
 const router = createBrowserRouter(routeConfig);
 
-export const App = () => (
-  <Suspense fallback={<PageLoading />}>
-    <CDLocaleProvider locale={zh_CN} i18n={I18n}>
-      <RouterProvider router={router} />
-    </CDLocaleProvider>
-  </Suspense>
-);
+export function App() {
+  return (
+    <Suspense fallback={<PageLoading />}>
+      <CDLocaleProvider locale={zh_CN} i18n={I18n}>
+        <RouterProvider router={router} />
+      </CDLocaleProvider>
+    </Suspense>
+  );
+}
