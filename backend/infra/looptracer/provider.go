@@ -6,7 +6,7 @@ package looptracer
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop-go"
+	cozeloop "github.com/coze-dev/cozeloop-go"
 )
 
 var tracer Tracer = &noopTracer{c: &cozeloop.NoopClient{}}

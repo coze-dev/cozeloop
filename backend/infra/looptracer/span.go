@@ -7,7 +7,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/coze-dev/cozeloop-go"
+	cozeloop "github.com/coze-dev/cozeloop-go"
 	"github.com/coze-dev/cozeloop-go/entity"
 	"github.com/coze-dev/cozeloop-go/spec/tracespec"
 )

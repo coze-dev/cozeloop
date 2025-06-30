@@ -6,7 +6,7 @@ package looptracer
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop-go"
+	cozeloop "github.com/coze-dev/cozeloop-go"
 )
 
 var _ Tracer = (*TracerImpl)(nil)
@@ -19,21 +19,21 @@ func NewTracer(client cozeloop.Client) Tracer {
 	return &TracerImpl{Client: client}
 }
 
-func (t TracerImpl) StartSpan(ctx context.Context, name, spanType string, opts ...cozeloop.StartSpanOption) (context.Context, Span) {
+func (t *TracerImpl) StartSpan(ctx context.Context, name, spanType string, opts ...cozeloop.StartSpanOption) (context.Context, Span) {
 	ctx, span := t.Client.StartSpan(ctx, name, spanType, opts...)
 	return ctx, SpanImpl{
 		LoopSpan: span,
 	}
 }
 
-func (t TracerImpl) GetSpanFromContext(ctx context.Context) Span {
+func (t *TracerImpl) GetSpanFromContext(ctx context.Context) Span {
 	span := t.Client.GetSpanFromContext(ctx)
 	return SpanImpl{
 		LoopSpan: span,
 	}
 }
 
-func (t TracerImpl) Inject(ctx context.Context) context.Context {
+func (t *TracerImpl) Inject(ctx context.Context) context.Context {
 	return ctx
 }
 

@@ -3,7 +3,9 @@
 
 package vdutil
 
-import "github.com/go-playground/validator/v10"
+import (
+	validator "github.com/go-playground/validator/v10"
+)
 
 var validate = validator.New()
 

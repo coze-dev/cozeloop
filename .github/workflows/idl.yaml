@@ -1,6 +1,14 @@
 name: Thrift Syntax Validation
 
-on: [push, pull_request]
+on: 
+  push:
+    paths:
+      - 'idl/**'
+      - '.github/workflows/idl.yaml'
+  pull_request:
+    paths:
+      - 'idl/**'
+      - '.github/workflows/idl.yaml'
 
 jobs:
   validate-thrift:
@@ -9,34 +17,43 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Cache Docker layers
-        uses: actions/cache@v3
+      - name: Set up Go
+        uses: actions/setup-go@v4
         with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
+          go-version: '1.21'
 
-      - name: Pull Thrift Docker image
-        run: docker pull apache/thrift:latest
+      - name: Install kitex tools
+        run: |
+          go install github.com/cloudwego/thriftgo@v0.4.1
+          go install github.com/cloudwego/kitex/tool/cmd/kitex@v0.13.1
+          go install github.com/cloudwego/thrift-gen-validator@v0.2.6
 
-      - name: Validate Thrift Files via Docker
+      - name: Validate Thrift Files via kitex
         run: |
           # Initialize error flag
           ERROR_FOUND=0
           
+          # Create temporary working directory
+          TEMP_DIR=$(mktemp -d)
+          echo "Created temporary working directory: $TEMP_DIR"
+          
+          # Initialize go mod in temp directory
+          cd "$TEMP_DIR"
+          go mod init dummy
+          
           # Find all thrift files and validate them
           while IFS= read -r -d '' thrift_file; do
             echo "Validating $thrift_file..."
-            if ! docker run --rm -v "$PWD:/data" --entrypoint sh apache/thrift:latest \
-              -c "mkdir -p /data/gen && thrift --gen go -I /data/include -out /data/gen /data/$thrift_file" 2>&1; then
-              echo "Error in file: $thrift_file"
+            if ! kitex -streamx -thrift ignore_initialisms=false -module=dummy "$thrift_file" 2>&1; then
+              echo "IDL gen code error in file: $thrift_file"
               ERROR_FOUND=1
             fi
-          done < <(find ./idl -name '*.thrift' -print0)
+          done < <(find "$GITHUB_WORKSPACE/idl" -name '*.thrift' -print0)
+          
+          # Clean up temporary directory
+          cd "$GITHUB_WORKSPACE"
+          rm -rf "$TEMP_DIR"
+          echo "Cleaned up temporary working directory"
           
           # Exit with appropriate status
           if [ $ERROR_FOUND -eq 1 ]; then

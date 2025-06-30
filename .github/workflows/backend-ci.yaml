@@ -2,14 +2,10 @@ name: CI@backend
 
 on:
   push:
-    branches:
-      - main
     paths:
       - 'backend/**'
       - '.github/workflows/backend-ci.yaml'
   pull_request:
-    branches:
-      - main
     paths:
       - 'backend/**'
       - '.github/workflows/backend-ci.yaml'
@@ -32,10 +28,15 @@ jobs:
 
       - name: Golang Lint
         # https://golangci-lint.run/
-        uses: golangci/golangci-lint-action@v6
-        with:
-          version: latest
-          only-new-issues: true
+        run: |
+          # Install golangci-lint
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.57.2
+          
+          # Add golangci-lint to PATH
+          export PATH=$PATH:$(go env GOPATH)/bin
+          
+          # Run golangci-lint
+          golangci-lint run --config ../.github/.golangci.yaml
 
   build-and-unittest:
     name: Build and Unit Test

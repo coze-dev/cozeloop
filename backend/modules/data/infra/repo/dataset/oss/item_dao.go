@@ -8,11 +8,10 @@ import (
 	"context"
 	"io"
 
-	"github.com/bytedance/sonic"
-	"github.com/hashicorp/go-multierror"
-	"github.com/pkg/errors"
-
 	"github.com/bytedance/gg/gslice"
+	"github.com/bytedance/sonic"
+	multierror "github.com/hashicorp/go-multierror"
+	"github.com/pkg/errors"
 
 	"github.com/coze-dev/cozeloop/backend/infra/fileserver"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
