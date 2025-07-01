@@ -1,14 +1,14 @@
-name: CI@frontend - Main
+name: CI@frontend - TS Check
 
 on:
   push:
     paths:
       - 'frontend/**'
-      - '.github/workflows/frontend-ci.yaml'
+      - '.github/workflows/frontend-tsc-ci.yaml'
   pull_request:
     paths:
       - 'frontend/**'
-      - '.github/workflows/frontend-ci.yaml'
+      - '.github/workflows/frontend-tsc-ci.yaml'
 
 jobs:
   setup: 
@@ -57,13 +57,13 @@ jobs:
       
       - name: Install Dependencies
         run: |
-          node common/scripts/install-run-rush.js install
+          node common/scripts/install-run-rush.js increment --action install -p ${{ steps.branch-diff.outputs.file }}
 
-      - name: Build All
+      - name: Prepare Basic Packages
         run: |
-          node common/scripts/install-run-rush.js rebuild --verbose --timeline
+          node common/scripts/install-run-rush.js pre-build -v
     
       - name: Lint & Style
         run: |
-          node common/scripts/install-run-rush.js increment --action lint -p ${{ steps.branch-diff.outputs.file }}
+          node common/scripts/install-run-rush.js increment --action ts-check -p ${{ steps.branch-diff.outputs.file }}
           node common/scripts/install-run-rush.js increment --action style -p ${{ steps.branch-diff.outputs.file }}
