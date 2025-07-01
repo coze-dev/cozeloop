@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 # 如果未提供目标分支,使用 main 分支
 if [ -z "$1" ]; then
   target_branch="origin/main"

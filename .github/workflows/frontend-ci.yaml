@@ -50,10 +50,9 @@ jobs:
       - name: Branch Diff
         id: branch-diff
         run: |
-          git branch -a
-          git fetch origin main
-          git diff --name-only origin/main -- 'common/*' 'frontend/*'
-          sh .github/scripts/branch-diff.sh > changed.json
+          TARGET_BRANCH="${GITHUB_BASE_REF:-main}"
+          git fetch origin $TARGET_BRANCH
+          sh .github/scripts/branch-diff.sh origin/$TARGET_BRANCH > changed.json
           echo "file=changed.json" >> "$GITHUB_OUTPUT"
       
       - name: Install Dependencies
