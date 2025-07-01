@@ -6,7 +6,6 @@ package mysql
 import (
 	"context"
 
-	"fmt"
 	"github.com/coze-dev/cozeloop/backend/infra/db"
 	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/repo/mysql/gorm_gen/model"
 	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/repo/mysql/gorm_gen/query"
@@ -54,8 +53,4 @@ func (d *DebugContextDAOImpl) Get(ctx context.Context, promptID int64, userID st
 		return nil, nil
 	}
 	return debugContexts[0], nil
-}
-
-func Test() {
-	fmt.Println("test")
 }
