@@ -67,6 +67,7 @@ jobs:
         with:
           files: ./coverage.out
           flags: unittests
+          slug: coze-dev/cozeloop
           fail_ci_if_error: false
           verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
