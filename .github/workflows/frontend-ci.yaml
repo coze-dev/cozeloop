@@ -19,7 +19,6 @@ jobs:
       # should be ci trigger user
       GIT_USER_NAME: 'mocayo'
       GIT_USER_EMAIL: 'qihai@bytedance.com'
-      CHANGE_FILE: ${{ github.workspace }}/temp/change.json
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,20 +48,21 @@ jobs:
             ${{ runner.os }}-rush-store
 
       - name: Branch Diff
+        id: branch-diff
         run: |
-          sh .github/scripts/branch-diff.sh --changed-files-path=$CHANGE_FILE
+          git branch -a
+          git fetch origin main
+          git diff --name-only origin/main -- 'common/*' 'frontend/*'
+          sh .github/scripts/branch-diff.sh > changed.json
+          echo "file=changed.json" >> "$GITHUB_OUTPUT"
       
       - name: Install Dependencies
         run: node common/scripts/install-run-rush.js install
 
-      - name: Lint
-        run: |
-
-  
       - name: Build All
         run: node common/scripts/install-run-rush.js rebuild --verbose --timeline
     
       - name: Lint & Style
         run: |
-          node common/scripts/install-run-rush.js increment --action lint -p $CHANGE_FILE
-          node common/scripts/install-run-rush.js increment --action style -p $CHANGE_FILE
+          node common/scripts/install-run-rush.js increment --action lint -p ${{ steps.branch-diff.outputs.file }}
+          node common/scripts/install-run-rush.js increment --action style -p ${{ steps.branch-diff.outputs.file }}

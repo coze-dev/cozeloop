@@ -23,6 +23,7 @@ export async function render() {
     initFlags(),
     dynamicImportMdBoxStyle(),
   ]);
+  
   const dom = document.getElementById('cozeloop-root');
 
   if (dom) {
