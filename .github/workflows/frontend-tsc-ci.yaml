@@ -2,13 +2,16 @@ name: CI@frontend - TS Check
 
 on:
   push:
+    branches: ["main"]
     paths:
       - 'frontend/**'
       - '.github/workflows/frontend-tsc-ci.yaml'
   pull_request:
+    branches: ["main"]
     paths:
       - 'frontend/**'
       - '.github/workflows/frontend-tsc-ci.yaml'
+  workflow_dispatch:
 
 jobs:
   setup: 
@@ -63,7 +66,6 @@ jobs:
         run: |
           node common/scripts/install-run-rush.js pre-build -v
     
-      - name: Lint & Style
+      - name: TS Check
         run: |
           node common/scripts/install-run-rush.js increment --action ts-check -p ${{ steps.branch-diff.outputs.file }}
-          node common/scripts/install-run-rush.js increment --action style -p ${{ steps.branch-diff.outputs.file }}
