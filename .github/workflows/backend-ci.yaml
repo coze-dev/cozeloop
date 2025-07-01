@@ -30,7 +30,7 @@ jobs:
         # https://golangci-lint.run/
         run: |
           # Install golangci-lint
-          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.57.2
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.2.1
           
           # Add golangci-lint to PATH
           export PATH=$PATH:$(go env GOPATH)/bin
