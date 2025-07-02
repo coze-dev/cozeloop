@@ -10,12 +10,10 @@ import (
 	"strconv"
 	"testing"
 
+	"github.com/bytedance/gg/gptr"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/bytedance/gg/gptr"
-
-	"github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
 	idgenmock "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/base"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/common"
@@ -26,13 +24,11 @@ import (
 	exptpb "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/expt"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
-	authmock "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc/mocks"
 	rpcmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/userinfo"
 	userinfomocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/userinfo/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 	servicemocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
-	svcmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 )
@@ -44,7 +40,7 @@ func TestExperimentApplication_CreateExperiment(t *testing.T) {
 	// 创建 mock 对象
 	mockManager := servicemocks.NewMockIExptManager(ctrl)
 	mockResultSvc := servicemocks.NewMockExptResultService(ctrl)
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 
 	// 测试数据
 	validWorkspaceID := int64(123)
@@ -167,7 +163,7 @@ func TestExperimentApplication_SubmitExperiment(t *testing.T) {
 	// 创建 mock 对象
 	mockManager := servicemocks.NewMockIExptManager(ctrl)
 	mockResultSvc := servicemocks.NewMockExptResultService(ctrl)
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 	mockScheduler := servicemocks.NewMockExptSchedulerEvent(ctrl)
 	mockIDGen := idgenmock.NewMockIIDGenerator(ctrl)
 
@@ -403,7 +399,7 @@ func TestExperimentApplication_BatchGetExperiments(t *testing.T) {
 
 	// 创建 mock 对象
 	mockManager := servicemocks.NewMockIExptManager(ctrl)
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 	mockUserInfoService := userinfomocks.NewMockUserInfoService(ctrl)
 
 	// 测试数据
@@ -549,7 +545,7 @@ func TestExperimentApplication_ListExperiments(t *testing.T) {
 
 	// 创建 mock 对象
 	mockManager := servicemocks.NewMockIExptManager(ctrl)
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 	mockUserInfoService := userinfomocks.NewMockUserInfoService(ctrl)
 	mockEvalTargetService := servicemocks.NewMockIEvalTargetService(ctrl)
 
@@ -735,7 +731,7 @@ func TestExperimentApplication_UpdateExperiment(t *testing.T) {
 
 	// 创建 mock 对象
 	mockManager := servicemocks.NewMockIExptManager(ctrl)
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 	mockUserInfoService := userinfomocks.NewMockUserInfoService(ctrl)
 
 	// 测试数据
@@ -940,7 +936,7 @@ func TestExperimentApplication_DeleteExperiment(t *testing.T) {
 
 	// 创建 mock 对象
 	mockManager := servicemocks.NewMockIExptManager(ctrl)
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 
 	// 测试数据
 	validWorkspaceID := int64(123)
@@ -1105,7 +1101,7 @@ func TestExperimentApplication_BatchDeleteExperiments(t *testing.T) {
 
 	// 创建 mock 对象
 	mockManager := servicemocks.NewMockIExptManager(ctrl)
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 
 	// 测试数据
 	validWorkspaceID := int64(123)
@@ -1297,7 +1293,7 @@ func TestExperimentApplication_CloneExperiment(t *testing.T) {
 
 	// 创建 mock 对象
 	mockManager := servicemocks.NewMockIExptManager(ctrl)
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 	mockIDGen := idgenmock.NewMockIIDGenerator(ctrl)
 	mockResultSvc := servicemocks.NewMockExptResultService(ctrl)
 	mockUserInfoService := userinfomocks.NewMockUserInfoService(ctrl)
@@ -1508,7 +1504,7 @@ func TestExperimentApplication_RunExperiment(t *testing.T) {
 
 	// 创建 mock 对象
 	mockManager := servicemocks.NewMockIExptManager(ctrl)
-	mockIDGen := mocks.NewMockIIDGenerator(ctrl)
+	mockIDGen := idgenmock.NewMockIIDGenerator(ctrl)
 
 	// 测试数据
 	validWorkspaceID := int64(123)
@@ -1643,7 +1639,7 @@ func TestExperimentApplication_RetryExperiment(t *testing.T) {
 
 	// 创建 mock 对象
 	mockManager := servicemocks.NewMockIExptManager(ctrl)
-	mockIDGen := mocks.NewMockIIDGenerator(ctrl)
+	mockIDGen := idgenmock.NewMockIIDGenerator(ctrl)
 	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 
 	// 测试数据
@@ -2191,7 +2187,7 @@ func TestExperimentApplication_AuthReadExperiments(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 	app := &experimentApplication{
 		auth: mockAuth,
 	}
@@ -2283,7 +2279,7 @@ func TestExperimentApplication_InvokeExperiment(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 	mockManager := servicemocks.NewMockIExptManager(ctrl)
 	mockEvalSetItemService := servicemocks.NewMockEvaluationSetItemService(ctrl)
 
@@ -2446,8 +2442,8 @@ func TestExperimentApplication_FinishExperiment(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
-	mockManager := svcmocks.NewMockIExptManager(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
+	mockManager := servicemocks.NewMockIExptManager(ctrl)
 
 	app := &experimentApplication{
 		auth:    mockAuth,

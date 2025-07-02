@@ -19,7 +19,6 @@ import (
 	platestwritemocks "github.com/coze-dev/cozeloop/backend/infra/platestwrite/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo"
-	repoeval "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql/gorm_gen/model"
 	evaluatormocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql/mocks"
@@ -704,7 +703,7 @@ func TestEvaluatorRepoImpl_ListEvaluatorVersion(t *testing.T) {
 		name           string
 		request        *entity.ListEvaluatorVersionRequest
 		mockSetup      func()
-		expectedResult *repoeval.ListEvaluatorVersionResponse
+		expectedResult *repo.ListEvaluatorVersionResponse
 		expectedError  error
 	}{
 		{
@@ -745,7 +744,7 @@ func TestEvaluatorRepoImpl_ListEvaluatorVersion(t *testing.T) {
 						},
 					}, nil)
 			},
-			expectedResult: &repoeval.ListEvaluatorVersionResponse{
+			expectedResult: &repo.ListEvaluatorVersionResponse{
 				TotalCount: 1,
 				Versions: []*entity.Evaluator{
 					{
@@ -796,7 +795,7 @@ func TestEvaluatorRepoImpl_ListEvaluatorVersion(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			tt.mockSetup()
 			// 这里需要将 entity.ListEvaluatorVersionRequest 转换为 repoeval.ListEvaluatorVersionRequest
-			req := &repoeval.ListEvaluatorVersionRequest{
+			req := &repo.ListEvaluatorVersionRequest{
 				EvaluatorID:   tt.request.EvaluatorID,
 				QueryVersions: tt.request.QueryVersions,
 				PageSize:      tt.request.PageSize,

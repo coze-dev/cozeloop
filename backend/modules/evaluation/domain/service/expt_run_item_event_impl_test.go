@@ -21,7 +21,6 @@ import (
 	eventmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/events/mocks"
 	repoMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo/mocks"
 	svcmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
-	targetMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
 )
 
 func TestNewExptRecordEvalService(t *testing.T) {
@@ -42,7 +41,7 @@ func TestNewExptRecordEvalService(t *testing.T) {
 		auditmocks.NewMockIAuditService(ctrl),
 		metricsmocks.NewMockExptMetric(ctrl),
 		svcmocks.NewMockExptResultService(ctrl),
-		targetMocks.NewMockIEvalTargetService(ctrl),
+		svcmocks.NewMockIEvalTargetService(ctrl),
 		svcmocks.NewMockEvaluationSetItemService(ctrl),
 		svcmocks.NewMockEvaluatorRecordService(ctrl),
 		svcmocks.NewMockEvaluatorService(ctrl),
@@ -69,7 +68,7 @@ func TestExptItemEventEvalServiceImpl_Eval(t *testing.T) {
 	mockAudit := auditmocks.NewMockIAuditService(ctrl)
 	mockMetric := metricsmocks.NewMockExptMetric(ctrl)
 	mockResultSvc := svcmocks.NewMockExptResultService(ctrl)
-	mockEvalTargetSvc := targetMocks.NewMockIEvalTargetService(ctrl)
+	mockEvalTargetSvc := svcmocks.NewMockIEvalTargetService(ctrl)
 	mockEvalSetItemSvc := svcmocks.NewMockEvaluationSetItemService(ctrl)
 	mockEvaluatorRecordSvc := svcmocks.NewMockEvaluatorRecordService(ctrl)
 	mockEvaluatorSvc := svcmocks.NewMockEvaluatorService(ctrl)

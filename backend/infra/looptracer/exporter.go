@@ -70,7 +70,7 @@ func (e *MultiSpaceSpanExporter) ExportSpans(ctx context.Context, spans []*entit
 	}
 
 	if env := os.Getenv(XttEnv); env != "" {
-		ctx = context.WithValue(ctx, CtxKeyEnv, env)
+		ctx = context.WithValue(ctx, CtxKeyEnv, env) //nolint:staticcheck,SA1029
 	}
 	resp, err := rpc.GetLoopTracerHandler().LocalTraceService.IngestTracesInner(ctx, req)
 	if err != nil {

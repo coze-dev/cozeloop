@@ -8,7 +8,6 @@ import (
 
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/common"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_target"
-
 	commonconvertor "github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/common"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 )
@@ -152,7 +151,7 @@ func StatusDTO2DO(src *eval_target.EvalTargetRunStatus) *entity.EvalTargetRunSta
 // 类型安全转换（假设底层类型相同）
 func MessagesDO2DTOs(src []*entity.Message) []*common.Message {
 	res := make([]*common.Message, 0)
-	if src == nil || len(src) == 0 {
+	if len(src) == 0 {
 		return res
 	}
 	for _, message := range src {
@@ -163,7 +162,7 @@ func MessagesDO2DTOs(src []*entity.Message) []*common.Message {
 
 func ContentDOToDTOs(src map[string]*entity.Content) map[string]*common.Content {
 	res := make(map[string]*common.Content)
-	if src == nil || len(src) == 0 {
+	if len(src) == 0 {
 		return res
 	}
 	for k, v := range src {
@@ -174,7 +173,7 @@ func ContentDOToDTOs(src map[string]*entity.Content) map[string]*common.Content 
 
 func MessagesDTO2DO(src []*common.Message) []*entity.Message {
 	res := make([]*entity.Message, 0)
-	if src == nil || len(src) == 0 {
+	if len(src) == 0 {
 		return res
 	}
 	for _, message := range src {
@@ -189,7 +188,7 @@ func MessagesDTO2DO(src []*common.Message) []*entity.Message {
 
 func ContentDTO2DOs(src map[string]*common.Content) map[string]*entity.Content {
 	res := make(map[string]*entity.Content)
-	if src == nil || len(src) == 0 {
+	if len(src) == 0 {
 		return res
 	}
 	for k, v := range src {

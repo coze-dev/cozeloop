@@ -47,7 +47,7 @@ func (dao *AuthNDAOImpl) DeleteAPIKey(ctx context.Context, apiKeyID int64) (err 
 		"deleted_at": time.Now().Unix(),
 	})
 
-	return nil
+	return err
 }
 
 func (dao *AuthNDAOImpl) GetAPIKeyByIDs(ctx context.Context, apiKeyIDs []int64) (apiKeys []*model.APIKey, err error) {
@@ -64,7 +64,7 @@ func (dao *AuthNDAOImpl) UpdateAPIKeyName(ctx context.Context, apiKeyID int64, n
 			"name": name,
 		})
 
-	return nil
+	return err
 }
 
 func (dao *AuthNDAOImpl) GetAPIKeyByUser(ctx context.Context, userID int64, pageNumber, pageSize int) (apiKeys []*model.APIKey, err error) {
@@ -98,5 +98,5 @@ func (dao *AuthNDAOImpl) FlushAPIKeyUsedTime(ctx context.Context, apiKeyID int64
 			"last_used_at": time.Now().Unix(),
 		})
 
-	return nil
+	return err
 }

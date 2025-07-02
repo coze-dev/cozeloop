@@ -4,13 +4,11 @@
 package target
 
 import (
-	commondto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/common"
-	dto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_target"
-
 	"github.com/bytedance/gg/gptr"
 
+	commondto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/common"
+	dto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_target"
 	commonconvertor "github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/common"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 	do "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 )
 
@@ -76,6 +74,7 @@ func EvalTargetVersionDTO2DO(targetVersionDTO *dto.EvalTargetVersion) (targetVer
 
 	return targetVersionDO
 }
+
 func EvalTargetListDO2DTO(targetDOList []*do.EvalTarget) (targetDTOList []*dto.EvalTarget) {
 	res := make([]*dto.EvalTarget, 0)
 	for _, evalTarget := range targetDOList {
@@ -83,6 +82,7 @@ func EvalTargetListDO2DTO(targetDOList []*do.EvalTarget) (targetDTOList []*dto.E
 	}
 	return res
 }
+
 func EvalTargetDO2DTO(targetDO *do.EvalTarget) (targetDTO *dto.EvalTarget) {
 	if targetDO == nil {
 		return nil
@@ -118,7 +118,7 @@ func EvalTargetVersionDO2DTO(targetVersionDO *do.EvalTargetVersion) (targetVersi
 		SourceTargetVersion: &targetVersionDO.SourceTargetVersion,
 	}
 	switch targetVersionDO.EvalTargetType {
-	case entity.EvalTargetTypeCozeBot:
+	case do.EvalTargetTypeCozeBot:
 		targetVersionDTO.EvalTargetContent = &dto.EvalTargetContent{
 			InputSchemas:  make([]*commondto.ArgsSchema, 0),
 			OutputSchemas: make([]*commondto.ArgsSchema, 0),
@@ -134,7 +134,7 @@ func EvalTargetVersionDO2DTO(targetVersionDO *do.EvalTargetVersion) (targetVersi
 				BaseInfo:    commonconvertor.ConvertBaseInfoDO2DTO(targetVersionDO.CozeBot.BaseInfo),
 			}
 		}
-	case entity.EvalTargetTypeLoopPrompt:
+	case do.EvalTargetTypeLoopPrompt:
 		targetVersionDTO.EvalTargetContent = &dto.EvalTargetContent{
 			InputSchemas:  make([]*commondto.ArgsSchema, 0),
 			OutputSchemas: make([]*commondto.ArgsSchema, 0),

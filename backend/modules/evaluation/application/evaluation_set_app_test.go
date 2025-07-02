@@ -11,30 +11,25 @@ import (
 	"strconv"
 	"testing"
 
+	"github.com/bytedance/gg/gptr"
 	"github.com/stretchr/testify/assert"
-
 	"go.uber.org/mock/gomock"
 
+	domain_eval_set "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_set"
+	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_set"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/evaluation_set"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-
-	"github.com/bytedance/gg/gptr"
-
-	domain_eval_set "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_set"
-	domainset "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_set"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_set"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics"
 	metricsmock "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
-	authmock "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc/mocks"
 	rpcmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/userinfo"
 	userinfomocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/userinfo/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
+	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 )
 
 func TestEvaluationSetApplicationImpl_CreateEvaluationSet(t *testing.T) {
@@ -56,7 +51,7 @@ func TestEvaluationSetApplicationImpl_CreateEvaluationSet(t *testing.T) {
 	defer ctrl.Finish()
 
 	// 创建 mock 实例
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 	mockEvaluationSetService := mocks.NewMockIEvaluationSetService(ctrl)
 	mockEvaluationSetMetrics := metricsmock.NewMockEvaluationSetMetrics(ctrl)
 
@@ -80,7 +75,7 @@ func TestEvaluationSetApplicationImpl_CreateEvaluationSet(t *testing.T) {
 				req: &eval_set.CreateEvaluationSetRequest{
 					// 填充请求参数
 					Name:                gptr.Of("test"),
-					EvaluationSetSchema: &domainset.EvaluationSetSchema{},
+					EvaluationSetSchema: &domain_eval_set.EvaluationSetSchema{},
 				},
 			},
 			wantResp: &eval_set.CreateEvaluationSetResponse{
@@ -101,7 +96,7 @@ func TestEvaluationSetApplicationImpl_CreateEvaluationSet(t *testing.T) {
 				req: &eval_set.CreateEvaluationSetRequest{
 					// 填充请求参数
 					Name:                gptr.Of("test"),
-					EvaluationSetSchema: &domainset.EvaluationSetSchema{},
+					EvaluationSetSchema: &domain_eval_set.EvaluationSetSchema{},
 				},
 			},
 			wantResp: nil,
@@ -164,7 +159,7 @@ func TestEvaluationSetApplicationImpl_UpdateEvaluationSet(t *testing.T) {
 	defer ctrl.Finish()
 
 	// 创建 mock 实例
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 	mockEvaluationSetService := mocks.NewMockIEvaluationSetService(ctrl)
 	mockEvaluationSetMetrics := metricsmock.NewMockEvaluationSetMetrics(ctrl)
 
@@ -273,7 +268,7 @@ func TestEvaluationSetApplicationImpl_DeleteEvaluationSet(t *testing.T) {
 	defer ctrl.Finish()
 
 	// 创建 mock 实例
-	mockAuth := authmock.NewMockIAuthProvider(ctrl)
+	mockAuth := rpcmocks.NewMockIAuthProvider(ctrl)
 	mockEvaluationSetService := mocks.NewMockIEvaluationSetService(ctrl)
 	mockEvaluationSetMetrics := metricsmock.NewMockEvaluationSetMetrics(ctrl)
 

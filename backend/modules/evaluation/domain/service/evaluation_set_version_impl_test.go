@@ -9,7 +9,6 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
 	"go.uber.org/mock/gomock"
 
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
@@ -184,7 +183,7 @@ func TestListEvaluationSetVersions(t *testing.T) {
 
 	expectedSets := []*entity.EvaluationSetVersion{}
 	var total int64 = 0
-	var nextCursor string = ""
+	var nextCursor = ""
 
 	// 模拟成功情况
 	mockAdapter.EXPECT().ListDatasetVersions(gomock.Any(), param.SpaceID, param.EvaluationSetID, param.PageToken, param.PageNumber, param.PageSize, param.VersionLike).Return(expectedSets, &total, &nextCursor, nil)
