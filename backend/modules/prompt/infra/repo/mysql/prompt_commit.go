@@ -9,8 +9,6 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/samber/lo"
-	"gorm.io/gen/field"
 	"gorm.io/gorm"
 
 	"github.com/coze-dev/cozeloop/backend/infra/db"
@@ -155,17 +153,4 @@ func (d *PromptCommitDAOImpl) List(ctx context.Context, param ListCommitParam, o
 		return nil, nil
 	}
 	return commitPOs, nil
-}
-
-func (d *PromptCommitDAOImpl) normalOrder(q *query.Query, orderBy int, orderDesc bool) field.Expr {
-	var orderExpr field.OrderExpr
-	switch orderBy {
-	default:
-		orderExpr = q.PromptCommit.ID
-	}
-	return lo.TernaryF(
-		orderDesc,
-		func() field.Expr { return orderExpr.Desc() },
-		func() field.Expr { return orderExpr.Asc() },
-	)
 }

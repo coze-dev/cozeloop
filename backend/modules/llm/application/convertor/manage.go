@@ -70,8 +70,8 @@ func AbilityImageDO2DTO(a *entity.AbilityImage) *manage.AbilityImage {
 	return &manage.AbilityImage{
 		URLEnabled:    ptr.Of(a.URLEnabled),
 		BinaryEnabled: ptr.Of(a.BinaryEnabled),
-		MaxImageSize:  ptr.Of(int64(a.MaxImageSize)),
-		MaxImageCount: ptr.Of(int64(a.MaxImageCount)),
+		MaxImageSize:  ptr.Of(a.MaxImageSize),
+		MaxImageCount: ptr.Of(a.MaxImageCount),
 	}
 }
 

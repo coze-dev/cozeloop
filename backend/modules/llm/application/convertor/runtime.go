@@ -159,7 +159,7 @@ func ToolCallDO2DTO(do *entity.ToolCall) (dto *druntime.ToolCall) {
 	return &druntime.ToolCall{
 		Index:        do.Index,
 		ID:           ptr.Of(do.ID),
-		Type:         ptr.Of(druntime.ToolType(do.Type)),
+		Type:         ptr.Of(do.Type),
 		FunctionCall: FunctionCallDO2DTO(do.Function),
 	}
 }
