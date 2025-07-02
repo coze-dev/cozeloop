@@ -68,23 +68,22 @@ func (p *pool) exec(ctx context.Context, ignoreErr bool) error {
 
 		wg.Add(1)
 		if err := p.p.Submit(func() {
-			err := func() (err error) {
-				defer wg.Done()
-				defer Recover(ctx, &err)
+			defer wg.Done()
+			defer Recovery(ctx)
 
-				select {
-				case <-ctx.Done():
-					return ctx.Err()
+			select {
+			case <-ctx.Done():
+				gerr.Store(ctx.Err())
+				return
 
-				default:
-					if !ignoreErr && gerr.Load() != nil {
-						return gerr.Load().(error)
-					}
-					return t()
+			default:
+				if !ignoreErr && gerr.Load() != nil {
+					return
 				}
-			}()
-			if err != nil {
-				gerr.Store(err)
+				if err := t(); err != nil {
+					gerr.Store(err)
+				}
+				return
 			}
 		}); err != nil {
 			return fmt.Errorf("pool submit fail, err=%w", err)
