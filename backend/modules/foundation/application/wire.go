@@ -29,9 +29,9 @@ var (
 	userDomainSet = wire.NewSet(
 		service.NewUserService,
 		repo.NewUserRepo,
-		mysql.NewUserDaoImpl,
-		mysql.NewSpaceDaoImpl,
-		mysql.NewSpaceUserDaoImpl,
+		mysql.NewUserDAOImpl,
+		mysql.NewSpaceDAOImpl,
+		mysql.NewSpaceUserDAOImpl,
 	)
 
 	userSet = wire.NewSet(
@@ -52,7 +52,7 @@ var (
 	authNSet = wire.NewSet(
 		NewAuthNApplication,
 		repo.NewAuthNRepo,
-		mysql.NewAuthNDaoImpl,
+		mysql.NewAuthNDAOImpl,
 	)
 
 	fileSet = wire.NewSet(

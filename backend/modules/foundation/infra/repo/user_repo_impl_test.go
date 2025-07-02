@@ -29,9 +29,9 @@ func TestUserRepoImpl_CreateUser(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx  context.Context
@@ -47,9 +47,9 @@ func TestUserRepoImpl_CreateUser(t *testing.T) {
 		{
 			name: "success_create_user",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
-				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
+				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDAO(ctrl)
 				mockIDGen := idgenmocks.NewMockIIDGenerator(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 
@@ -126,9 +126,9 @@ func TestUserRepoImpl_CreateUser(t *testing.T) {
 		{
 			name: "transaction_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
-				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
+				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDAO(ctrl)
 				mockIDGen := idgenmocks.NewMockIIDGenerator(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 
@@ -157,7 +157,7 @@ func TestUserRepoImpl_CreateUser(t *testing.T) {
 		{
 			name: "space_id_gen_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockIDGen := idgenmocks.NewMockIIDGenerator(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 
@@ -207,7 +207,7 @@ func TestUserRepoImpl_CreateUser(t *testing.T) {
 		{
 			name: "create_user_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockIDGen := idgenmocks.NewMockIIDGenerator(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 
@@ -236,8 +236,8 @@ func TestUserRepoImpl_CreateUser(t *testing.T) {
 		{
 			name: "create_space_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
 				mockIDGen := idgenmocks.NewMockIIDGenerator(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 
@@ -269,9 +269,9 @@ func TestUserRepoImpl_CreateUser(t *testing.T) {
 		{
 			name: "create_member_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
-				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
+				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDAO(ctrl)
 				mockIDGen := idgenmocks.NewMockIIDGenerator(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 
@@ -305,9 +305,9 @@ func TestUserRepoImpl_CreateUser(t *testing.T) {
 		{
 			name: "create_user_duplicate_error",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
-				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
+				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDAO(ctrl)
 				mockIDGen := idgenmocks.NewMockIIDGenerator(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 
@@ -360,9 +360,9 @@ func TestUserRepoImpl_GetUserByID(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx    context.Context
@@ -378,7 +378,7 @@ func TestUserRepoImpl_GetUserByID(t *testing.T) {
 		{
 			name: "success_get_user",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().GetByID(gomock.Any(), int64(123)).Return(&model.User{
 					ID:         123,
 					Email:      "test@example.com",
@@ -417,7 +417,7 @@ func TestUserRepoImpl_GetUserByID(t *testing.T) {
 		{
 			name: "user_not_found",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().GetByID(gomock.Any(), int64(123)).Return(nil, gorm.ErrRecordNotFound)
 
 				return fields{
@@ -458,9 +458,9 @@ func TestUserRepoImpl_GetUserByEmail(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx   context.Context
@@ -476,7 +476,7 @@ func TestUserRepoImpl_GetUserByEmail(t *testing.T) {
 		{
 			name: "success_get_user_by_email",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().FindByEmail(gomock.Any(), "test@example.com").Return(&model.User{
 					ID:         123,
 					Email:      "test@example.com",
@@ -515,7 +515,7 @@ func TestUserRepoImpl_GetUserByEmail(t *testing.T) {
 		{
 			name: "user_not_found",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().FindByEmail(gomock.Any(), "test@example.com").Return(nil, gorm.ErrRecordNotFound)
 
 				return fields{
@@ -556,9 +556,9 @@ func TestUserRepoImpl_UpdateSessionKey(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx        context.Context
@@ -574,7 +574,7 @@ func TestUserRepoImpl_UpdateSessionKey(t *testing.T) {
 		{
 			name: "success_update_session_key",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 				nilDB, _ := gorm.Open(nil)
 				mockDB.EXPECT().NewSession(gomock.Any()).Return(nilDB)
@@ -609,7 +609,7 @@ func TestUserRepoImpl_UpdateSessionKey(t *testing.T) {
 		{
 			name: "update_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 				nilDB, _ := gorm.Open(nil)
 				mockDB.EXPECT().NewSession(gomock.Any()).Return(nilDB)
@@ -650,9 +650,9 @@ func TestUserRepoImpl_MGetUserByIDs(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx     context.Context
@@ -668,7 +668,7 @@ func TestUserRepoImpl_MGetUserByIDs(t *testing.T) {
 		{
 			name: "success_mget_users",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().MGetByIDs(gomock.Any(), []int64{123, 456}).Return([]*model.User{
 					{
 						ID:         123,
@@ -723,7 +723,7 @@ func TestUserRepoImpl_MGetUserByIDs(t *testing.T) {
 		{
 			name: "mget_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().MGetByIDs(gomock.Any(), []int64{123, 456}).Return(nil, errorx.NewByCode(errno.CommonInternalErrorCode))
 
 				return fields{
@@ -767,9 +767,9 @@ func TestUserRepoImpl_ClearSessionKey(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx    context.Context
@@ -784,7 +784,7 @@ func TestUserRepoImpl_ClearSessionKey(t *testing.T) {
 		{
 			name: "success_clear_session_key",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 				nilDB, _ := gorm.Open(nil)
 				mockDB.EXPECT().NewSession(gomock.Any()).Return(nilDB)
@@ -804,7 +804,7 @@ func TestUserRepoImpl_ClearSessionKey(t *testing.T) {
 		{
 			name: "update_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 				nilDB, _ := gorm.Open(nil)
 				mockDB.EXPECT().NewSession(gomock.Any()).Return(nilDB)
@@ -842,9 +842,9 @@ func TestUserRepoImpl_UpdatePassword(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx      context.Context
@@ -860,7 +860,7 @@ func TestUserRepoImpl_UpdatePassword(t *testing.T) {
 		{
 			name: "success_update_password",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 				nilDB, _ := gorm.Open(nil)
 				mockDB.EXPECT().NewSession(gomock.Any()).Return(nilDB)
@@ -881,7 +881,7 @@ func TestUserRepoImpl_UpdatePassword(t *testing.T) {
 		{
 			name: "update_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 				nilDB, _ := gorm.Open(nil)
 				mockDB.EXPECT().NewSession(gomock.Any()).Return(nilDB)
@@ -920,9 +920,9 @@ func TestUserRepoImpl_CheckUniqueNameExist(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx        context.Context
@@ -938,7 +938,7 @@ func TestUserRepoImpl_CheckUniqueNameExist(t *testing.T) {
 		{
 			name: "unique_name_exists",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().FindByUniqueName(gomock.Any(), "testuser").Return(&model.User{
 					ID:         123,
 					UniqueName: "testuser",
@@ -958,7 +958,7 @@ func TestUserRepoImpl_CheckUniqueNameExist(t *testing.T) {
 		{
 			name: "unique_name_not_exists",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().FindByUniqueName(gomock.Any(), "testuser").Return(nil, gorm.ErrRecordNotFound)
 
 				return fields{
@@ -975,7 +975,7 @@ func TestUserRepoImpl_CheckUniqueNameExist(t *testing.T) {
 		{
 			name: "check_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().FindByUniqueName(gomock.Any(), "testuser").Return(nil, errorx.NewByCode(errno.CommonInternalErrorCode))
 
 				return fields{
@@ -1013,9 +1013,9 @@ func TestUserRepoImpl_CheckEmailExist(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx   context.Context
@@ -1031,7 +1031,7 @@ func TestUserRepoImpl_CheckEmailExist(t *testing.T) {
 		{
 			name: "email_exists",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().FindByEmail(gomock.Any(), "test@example.com").Return(&model.User{
 					ID:    123,
 					Email: "test@example.com",
@@ -1051,7 +1051,7 @@ func TestUserRepoImpl_CheckEmailExist(t *testing.T) {
 		{
 			name: "email_not_exists",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().FindByEmail(gomock.Any(), "test@example.com").Return(nil, gorm.ErrRecordNotFound)
 
 				return fields{
@@ -1068,7 +1068,7 @@ func TestUserRepoImpl_CheckEmailExist(t *testing.T) {
 		{
 			name: "check_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().FindByEmail(gomock.Any(), "test@example.com").Return(nil, errorx.NewByCode(errno.CommonInternalErrorCode))
 
 				return fields{
@@ -1106,9 +1106,9 @@ func TestUserRepoImpl_UpdateProfile(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx    context.Context
@@ -1125,7 +1125,7 @@ func TestUserRepoImpl_UpdateProfile(t *testing.T) {
 		{
 			name: "success_update_profile",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 				nilDB, _ := gorm.Open(nil)
 				mockDB.EXPECT().NewSession(gomock.Any()).Return(nilDB)
@@ -1180,7 +1180,7 @@ func TestUserRepoImpl_UpdateProfile(t *testing.T) {
 		{
 			name: "no_updates",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 				nilDB, _ := gorm.Open(nil)
 				mockDB.EXPECT().NewSession(gomock.Any()).Return(nilDB)
@@ -1200,7 +1200,7 @@ func TestUserRepoImpl_UpdateProfile(t *testing.T) {
 		{
 			name: "update_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockDB := dbmocks.NewMockProvider(ctrl)
 				nilDB, _ := gorm.Open(nil)
 				mockDB.EXPECT().NewSession(gomock.Any()).Return(nilDB)
@@ -1250,9 +1250,9 @@ func TestUserRepoImpl_UpdateAvatar(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx     context.Context
@@ -1272,7 +1272,7 @@ func TestUserRepoImpl_UpdateAvatar(t *testing.T) {
 				nilDB, _ := gorm.Open(nil)
 				mockDB.EXPECT().NewSession(gomock.Any()).Return(nilDB)
 
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().Update(gomock.Any(), int64(123), map[string]interface{}{
 					"icon_uri": "http://example.com/avatar.jpg",
 				}).Return(nil)
@@ -1320,7 +1320,7 @@ func TestUserRepoImpl_UpdateAvatar(t *testing.T) {
 				nilDB, _ := gorm.Open(nil)
 				mockDB.EXPECT().NewSession(gomock.Any()).Return(nilDB)
 
-				mockUserDao := mysqlmocks.NewMockIUserDao(ctrl)
+				mockUserDao := mysqlmocks.NewMockIUserDAO(ctrl)
 				mockUserDao.EXPECT().Update(gomock.Any(), int64(123), map[string]interface{}{
 					"icon_uri": "http://example.com/avatar.jpg",
 				}).Return(gorm.ErrInvalidDB)
@@ -1357,9 +1357,9 @@ func TestUserRepoImpl_ListUserSpace(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx      context.Context
@@ -1378,8 +1378,8 @@ func TestUserRepoImpl_ListUserSpace(t *testing.T) {
 		{
 			name: "success_list_user_space",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDao(ctrl)
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
+				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDAO(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
 
 				mockSpaceMemberDao.EXPECT().List(gomock.Any(), int64(123), int32(10), int32(1)).Return([]*model.SpaceUser{
 					{SpaceID: 1, UserID: 123, RoleType: 1},
@@ -1440,7 +1440,7 @@ func TestUserRepoImpl_ListUserSpace(t *testing.T) {
 		{
 			name: "list_member_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDao(ctrl)
+				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDAO(ctrl)
 				mockSpaceMemberDao.EXPECT().List(gomock.Any(), int64(123), int32(10), int32(1)).Return(nil, int32(0), errorx.NewByCode(errno.CommonInternalErrorCode))
 
 				return fields{
@@ -1460,8 +1460,8 @@ func TestUserRepoImpl_ListUserSpace(t *testing.T) {
 		{
 			name: "get_spaces_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDao(ctrl)
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
+				mockSpaceMemberDao := mysqlmocks.NewMockISpaceUserDAO(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
 
 				mockSpaceMemberDao.EXPECT().List(gomock.Any(), int64(123), int32(10), int32(1)).Return([]*model.SpaceUser{
 					{SpaceID: 1, UserID: 123, RoleType: 1},
@@ -1517,9 +1517,9 @@ func TestUserRepoImpl_CreateSpace(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx   context.Context
@@ -1536,7 +1536,7 @@ func TestUserRepoImpl_CreateSpace(t *testing.T) {
 			name: "success_create_space",
 			fields: func(ctrl *gomock.Controller) fields {
 				mockIDGen := idgenmocks.NewMockIIDGenerator(ctrl)
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
 
 				mockIDGen.EXPECT().GenID(gomock.Any()).Return(int64(456), nil)
 				mockSpaceDao.EXPECT().Create(gomock.Any(), gomock.Any()).Return(nil)
@@ -1598,7 +1598,7 @@ func TestUserRepoImpl_CreateSpace(t *testing.T) {
 			name: "create_space_failed",
 			fields: func(ctrl *gomock.Controller) fields {
 				mockIDGen := idgenmocks.NewMockIIDGenerator(ctrl)
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
 
 				mockIDGen.EXPECT().GenID(gomock.Any()).Return(int64(456), nil)
 				mockSpaceDao.EXPECT().Create(gomock.Any(), gomock.Any()).Return(errorx.NewByCode(errno.CommonInternalErrorCode))
@@ -1625,7 +1625,7 @@ func TestUserRepoImpl_CreateSpace(t *testing.T) {
 			name: "create_space_duplicate_error",
 			fields: func(ctrl *gomock.Controller) fields {
 				mockIDGen := idgenmocks.NewMockIIDGenerator(ctrl)
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
 
 				mockIDGen.EXPECT().GenID(gomock.Any()).Return(int64(456), nil)
 				mockSpaceDao.EXPECT().Create(gomock.Any(), gomock.Any()).Return(gorm.ErrDuplicatedKey)
@@ -1670,9 +1670,9 @@ func TestUserRepoImpl_GetSpaceByID(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx     context.Context
@@ -1688,7 +1688,7 @@ func TestUserRepoImpl_GetSpaceByID(t *testing.T) {
 		{
 			name: "success_get_space",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
 				mockSpaceDao.EXPECT().GetByID(gomock.Any(), int64(123)).Return(&model.Space{
 					ID:          123,
 					Name:        "test_space",
@@ -1731,7 +1731,7 @@ func TestUserRepoImpl_GetSpaceByID(t *testing.T) {
 		{
 			name: "space_not_found",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
 				mockSpaceDao.EXPECT().GetByID(gomock.Any(), int64(123)).Return(nil, gorm.ErrRecordNotFound)
 
 				return fields{
@@ -1767,9 +1767,9 @@ func TestUserRepoImpl_MGetSpaceByIDs(t *testing.T) {
 	type fields struct {
 		db             db.Provider
 		idgen          idgen.IIDGenerator
-		userDao        mysql.IUserDao
-		spaceDao       mysql.ISpaceDao
-		spaceMemberDao mysql.ISpaceUserDao
+		userDao        mysql.IUserDAO
+		spaceDao       mysql.ISpaceDAO
+		spaceMemberDao mysql.ISpaceUserDAO
 	}
 	type args struct {
 		ctx      context.Context
@@ -1785,7 +1785,7 @@ func TestUserRepoImpl_MGetSpaceByIDs(t *testing.T) {
 		{
 			name: "success_get_spaces",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
 				mockSpaceDao.EXPECT().MGetByIDs(gomock.Any(), []int64{123, 456}).Return([]*model.Space{
 					{
 						ID:          123,
@@ -1848,7 +1848,7 @@ func TestUserRepoImpl_MGetSpaceByIDs(t *testing.T) {
 		{
 			name: "get_spaces_failed",
 			fields: func(ctrl *gomock.Controller) fields {
-				mockSpaceDao := mysqlmocks.NewMockISpaceDao(ctrl)
+				mockSpaceDao := mysqlmocks.NewMockISpaceDAO(ctrl)
 				mockSpaceDao.EXPECT().MGetByIDs(gomock.Any(), []int64{123, 456}).Return(nil, errorx.NewByCode(errno.CommonInternalErrorCode))
 
 				return fields{

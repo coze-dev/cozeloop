@@ -11,8 +11,8 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/foundation/infra/repo/mysql/gorm_gen/query"
 )
 
-//go:generate mockgen -destination=mocks/space_user_dao.go -package=mocks . ISpaceUserDao
-type ISpaceUserDao interface {
+//go:generate mockgen -destination=mocks/space_user_dao.go -package=mocks . ISpaceUserDAO
+type ISpaceUserDAO interface {
 	Create(ctx context.Context, spaceUser *model.SpaceUser, opts ...db.Option) error
 	List(ctx context.Context, userID int64, pageSize, pageNumber int32, opts ...db.Option) ([]*model.SpaceUser, int32, error)
 }
@@ -22,24 +22,24 @@ const (
 	defaultPageNum  = 1
 )
 
-type SpaceUserDaoImpl struct {
+type SpaceUserDAOImpl struct {
 	db    db.Provider
 	query *query.Query
 }
 
-func NewSpaceUserDaoImpl(db db.Provider) ISpaceUserDao {
-	return &SpaceUserDaoImpl{
+func NewSpaceUserDAOImpl(db db.Provider) ISpaceUserDAO {
+	return &SpaceUserDAOImpl{
 		db:    db,
 		query: query.Use(db.NewSession(context.Background())),
 	}
 }
 
-func (dao *SpaceUserDaoImpl) Create(ctx context.Context, spaceUser *model.SpaceUser, opts ...db.Option) error {
+func (dao *SpaceUserDAOImpl) Create(ctx context.Context, spaceUser *model.SpaceUser, opts ...db.Option) error {
 	dao.query = query.Use(dao.db.NewSession(ctx, opts...))
 	return dao.query.SpaceUser.WithContext(ctx).Create(spaceUser)
 }
 
-func (dao *SpaceUserDaoImpl) List(ctx context.Context, userID int64, pageSize, pageNumber int32, opts ...db.Option) ([]*model.SpaceUser, int32, error) {
+func (dao *SpaceUserDAOImpl) List(ctx context.Context, userID int64, pageSize, pageNumber int32, opts ...db.Option) ([]*model.SpaceUser, int32, error) {
 	dao.query = query.Use(dao.db.NewSession(ctx, opts...))
 
 	q := dao.query.SpaceUser.WithContext(ctx).Where(

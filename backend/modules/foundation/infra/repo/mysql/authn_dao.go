@@ -13,7 +13,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/foundation/infra/repo/mysql/gorm_gen/query"
 )
 
-type IAuthNDao interface {
+type IAuthNDAO interface {
 	CreateAPIKey(ctx context.Context, apiKeyEntity *model.APIKey) (err error)
 	DeleteAPIKey(ctx context.Context, apiKeyID int64) (err error)
 	GetAPIKeyByIDs(ctx context.Context, apiKeyIDs []int64) (apiKeys []*model.APIKey, err error)
@@ -23,23 +23,23 @@ type IAuthNDao interface {
 	FlushAPIKeyUsedTime(ctx context.Context, apiKeyID int64) (err error)
 }
 
-type AuthNDaoImpl struct {
+type AuthNDAOImpl struct {
 	db    db.Provider
 	query *query.Query
 }
 
-func NewAuthNDaoImpl(db db.Provider) IAuthNDao {
-	return &AuthNDaoImpl{
+func NewAuthNDAOImpl(db db.Provider) IAuthNDAO {
+	return &AuthNDAOImpl{
 		db:    db,
 		query: query.Use(db.NewSession(context.Background())),
 	}
 }
 
-func (dao *AuthNDaoImpl) CreateAPIKey(ctx context.Context, apiKeyPO *model.APIKey) (err error) {
+func (dao *AuthNDAOImpl) CreateAPIKey(ctx context.Context, apiKeyPO *model.APIKey) (err error) {
 	return dao.query.APIKey.WithContext(ctx).Create(apiKeyPO)
 }
 
-func (dao *AuthNDaoImpl) DeleteAPIKey(ctx context.Context, apiKeyID int64) (err error) {
+func (dao *AuthNDAOImpl) DeleteAPIKey(ctx context.Context, apiKeyID int64) (err error) {
 	_, err = dao.query.APIKey.WithContext(ctx).Where(
 		dao.query.APIKey.ID.Eq(apiKeyID),
 	).Updates(map[string]interface{}{
@@ -50,14 +50,14 @@ func (dao *AuthNDaoImpl) DeleteAPIKey(ctx context.Context, apiKeyID int64) (err 
 	return nil
 }
 
-func (dao *AuthNDaoImpl) GetAPIKeyByIDs(ctx context.Context, apiKeyIDs []int64) (apiKeys []*model.APIKey, err error) {
+func (dao *AuthNDAOImpl) GetAPIKeyByIDs(ctx context.Context, apiKeyIDs []int64) (apiKeys []*model.APIKey, err error) {
 	return dao.query.APIKey.WithContext(ctx).
 		Where(dao.query.APIKey.ID.In(apiKeyIDs...)).
 		Where(dao.query.APIKey.Status.Eq(entity.APIKeyStatusNormal)).
 		Find()
 }
 
-func (dao *AuthNDaoImpl) UpdateAPIKeyName(ctx context.Context, apiKeyID int64, name string) (err error) {
+func (dao *AuthNDAOImpl) UpdateAPIKeyName(ctx context.Context, apiKeyID int64, name string) (err error) {
 	_, err = dao.query.APIKey.WithContext(ctx).
 		Where(dao.query.APIKey.ID.Eq(apiKeyID)).
 		Updates(map[string]interface{}{
@@ -67,7 +67,7 @@ func (dao *AuthNDaoImpl) UpdateAPIKeyName(ctx context.Context, apiKeyID int64, n
 	return nil
 }
 
-func (dao *AuthNDaoImpl) GetAPIKeyByUser(ctx context.Context, userID int64, pageNumber, pageSize int) (apiKeys []*model.APIKey, err error) {
+func (dao *AuthNDAOImpl) GetAPIKeyByUser(ctx context.Context, userID int64, pageNumber, pageSize int) (apiKeys []*model.APIKey, err error) {
 	return dao.query.APIKey.WithContext(ctx).
 		Where(dao.query.APIKey.UserID.Eq(userID)).
 		Where(dao.query.APIKey.Status.Eq(entity.APIKeyStatusNormal)).
@@ -76,7 +76,7 @@ func (dao *AuthNDaoImpl) GetAPIKeyByUser(ctx context.Context, userID int64, page
 		Find()
 }
 
-func (dao *AuthNDaoImpl) GetAPIKeyByKey(ctx context.Context, key string) (apiKey *model.APIKey, err error) {
+func (dao *AuthNDAOImpl) GetAPIKeyByKey(ctx context.Context, key string) (apiKey *model.APIKey, err error) {
 	apiKeys, err := dao.query.APIKey.WithContext(ctx).
 		Where(dao.query.APIKey.Key.Eq(key)).
 		Where(dao.query.APIKey.Status.Eq(entity.APIKeyStatusNormal)).
@@ -91,7 +91,7 @@ func (dao *AuthNDaoImpl) GetAPIKeyByKey(ctx context.Context, key string) (apiKey
 	return apiKeys[0], nil
 }
 
-func (dao *AuthNDaoImpl) FlushAPIKeyUsedTime(ctx context.Context, apiKeyID int64) (err error) {
+func (dao *AuthNDAOImpl) FlushAPIKeyUsedTime(ctx context.Context, apiKeyID int64) (err error) {
 	_, err = dao.query.APIKey.WithContext(ctx).
 		Where(dao.query.APIKey.ID.Eq(apiKeyID)).
 		Updates(map[string]interface{}{

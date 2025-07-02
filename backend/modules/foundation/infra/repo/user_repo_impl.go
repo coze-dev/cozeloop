@@ -26,17 +26,17 @@ import (
 type UserRepoImpl struct {
 	db             db.Provider
 	idgen          idgen.IIDGenerator
-	userDao        mysql.IUserDao
-	spaceDao       mysql.ISpaceDao
-	spaceMemberDao mysql.ISpaceUserDao
+	userDao        mysql.IUserDAO
+	spaceDao       mysql.ISpaceDAO
+	spaceMemberDao mysql.ISpaceUserDAO
 }
 
 func NewUserRepo(
 	db db.Provider,
 	idgen idgen.IIDGenerator,
-	userDao mysql.IUserDao,
-	spaceDao mysql.ISpaceDao,
-	spaceMemberDao mysql.ISpaceUserDao,
+	userDao mysql.IUserDAO,
+	spaceDao mysql.ISpaceDAO,
+	spaceMemberDao mysql.ISpaceUserDAO,
 ) repo.IUserRepo {
 
 	return &UserRepoImpl{

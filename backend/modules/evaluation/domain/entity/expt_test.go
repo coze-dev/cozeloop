@@ -103,7 +103,7 @@ func TestResultErrConvert_ConvertErrMsg(t *testing.T) {
 	ok, msg := c.ConvertErrMsg("foo")
 	assert.True(t, ok)
 	assert.Equal(t, "bar", msg)
-	ok, msg = c.ConvertErrMsg("baz")
+	ok, _ = c.ConvertErrMsg("baz")
 	assert.False(t, ok)
 }
 

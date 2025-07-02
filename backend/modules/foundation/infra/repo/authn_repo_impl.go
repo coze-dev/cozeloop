@@ -20,12 +20,12 @@ import (
 
 type AuthNRepoImpl struct {
 	idgen    idgen.IIDGenerator
-	authNDao mysql.IAuthNDao
+	authNDao mysql.IAuthNDAO
 }
 
 func NewAuthNRepo(
 	idgen idgen.IIDGenerator,
-	authNDao mysql.IAuthNDao,
+	authNDao mysql.IAuthNDAO,
 ) repo.IAuthNRepo {
 	return &AuthNRepoImpl{
 		idgen:    idgen,

@@ -27,26 +27,26 @@ import (
 // Injectors from wire.go:
 
 func InitAuthApplication(idgen2 idgen.IIDGenerator, db2 db.Provider) (auth.AuthService, error) {
-	iUserDao := mysql.NewUserDaoImpl(db2)
-	iSpaceDao := mysql.NewSpaceDaoImpl(db2)
-	iSpaceUserDao := mysql.NewSpaceUserDaoImpl(db2)
-	iUserRepo := repo.NewUserRepo(db2, idgen2, iUserDao, iSpaceDao, iSpaceUserDao)
+	iUserDAO := mysql.NewUserDAOImpl(db2)
+	iSpaceDAO := mysql.NewSpaceDAOImpl(db2)
+	iSpaceUserDAO := mysql.NewSpaceUserDAOImpl(db2)
+	iUserRepo := repo.NewUserRepo(db2, idgen2, iUserDAO, iSpaceDAO, iSpaceUserDAO)
 	authService := NewAuthApplication(iUserRepo)
 	return authService, nil
 }
 
 func InitAuthNApplication(idgen2 idgen.IIDGenerator, db2 db.Provider) (authn.AuthNService, error) {
-	iAuthNDao := mysql.NewAuthNDaoImpl(db2)
-	iAuthNRepo := repo.NewAuthNRepo(idgen2, iAuthNDao)
+	iAuthNDAO := mysql.NewAuthNDAOImpl(db2)
+	iAuthNRepo := repo.NewAuthNRepo(idgen2, iAuthNDAO)
 	authNService := NewAuthNApplication(iAuthNRepo)
 	return authNService, nil
 }
 
 func InitSpaceApplication(idgen2 idgen.IIDGenerator, db2 db.Provider) (space.SpaceService, error) {
-	iUserDao := mysql.NewUserDaoImpl(db2)
-	iSpaceDao := mysql.NewSpaceDaoImpl(db2)
-	iSpaceUserDao := mysql.NewSpaceUserDaoImpl(db2)
-	iUserRepo := repo.NewUserRepo(db2, idgen2, iUserDao, iSpaceDao, iSpaceUserDao)
+	iUserDAO := mysql.NewUserDAOImpl(db2)
+	iSpaceDAO := mysql.NewSpaceDAOImpl(db2)
+	iSpaceUserDAO := mysql.NewSpaceUserDAOImpl(db2)
+	iUserRepo := repo.NewUserRepo(db2, idgen2, iUserDAO, iSpaceDAO, iSpaceUserDAO)
 	spaceService, err := NewSpaceApplication(iUserRepo)
 	if err != nil {
 		return nil, err
@@ -55,10 +55,10 @@ func InitSpaceApplication(idgen2 idgen.IIDGenerator, db2 db.Provider) (space.Spa
 }
 
 func InitUserApplication(idgen2 idgen.IIDGenerator, db2 db.Provider) (user.UserService, error) {
-	iUserDao := mysql.NewUserDaoImpl(db2)
-	iSpaceDao := mysql.NewSpaceDaoImpl(db2)
-	iSpaceUserDao := mysql.NewSpaceUserDaoImpl(db2)
-	iUserRepo := repo.NewUserRepo(db2, idgen2, iUserDao, iSpaceDao, iSpaceUserDao)
+	iUserDAO := mysql.NewUserDAOImpl(db2)
+	iSpaceDAO := mysql.NewSpaceDAOImpl(db2)
+	iSpaceUserDAO := mysql.NewSpaceUserDAOImpl(db2)
+	iUserRepo := repo.NewUserRepo(db2, idgen2, iUserDAO, iSpaceDAO, iSpaceUserDAO)
 	iUserService := service.NewUserService(db2, iUserRepo, idgen2)
 	userService := NewUserApplication(iUserService)
 	return userService, nil
@@ -79,7 +79,7 @@ func InitFoundationOpenAPIApplication(objectStorage fileserver.BatchObjectStorag
 // wire.go:
 
 var (
-	userDomainSet = wire.NewSet(service.NewUserService, repo.NewUserRepo, mysql.NewUserDaoImpl, mysql.NewSpaceDaoImpl, mysql.NewSpaceUserDaoImpl)
+	userDomainSet = wire.NewSet(service.NewUserService, repo.NewUserRepo, mysql.NewUserDAOImpl, mysql.NewSpaceDAOImpl, mysql.NewSpaceUserDAOImpl)
 
 	userSet = wire.NewSet(
 		NewUserApplication,
@@ -97,7 +97,7 @@ var (
 	)
 
 	authNSet = wire.NewSet(
-		NewAuthNApplication, repo.NewAuthNRepo, mysql.NewAuthNDaoImpl,
+		NewAuthNApplication, repo.NewAuthNRepo, mysql.NewAuthNDAOImpl,
 	)
 
 	fileSet = wire.NewSet(

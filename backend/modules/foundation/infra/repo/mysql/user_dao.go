@@ -11,8 +11,8 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/foundation/infra/repo/mysql/gorm_gen/query"
 )
 
-//go:generate mockgen -destination=mocks/user_dao.go -package=mocks . IUserDao
-type IUserDao interface {
+//go:generate mockgen -destination=mocks/user_dao.go -package=mocks . IUserDAO
+type IUserDAO interface {
 	Create(ctx context.Context, user *model.User, opts ...db.Option) error
 	Save(ctx context.Context, user *model.User, opts ...db.Option) error
 
@@ -24,36 +24,36 @@ type IUserDao interface {
 	Update(ctx context.Context, userID int64, updates map[string]interface{}, opts ...db.Option) error
 }
 
-type UserDaoImpl struct {
+type UserDAOImpl struct {
 	db    db.Provider
 	query *query.Query
 }
 
-func NewUserDaoImpl(db db.Provider) IUserDao {
-	return &UserDaoImpl{
+func NewUserDAOImpl(db db.Provider) IUserDAO {
+	return &UserDAOImpl{
 		db:    db,
 		query: query.Use(db.NewSession(context.Background())),
 	}
 }
 
-func (dao *UserDaoImpl) Create(ctx context.Context, user *model.User, opts ...db.Option) error {
+func (dao *UserDAOImpl) Create(ctx context.Context, user *model.User, opts ...db.Option) error {
 	dao.query = query.Use(dao.db.NewSession(ctx, opts...))
 	return dao.query.User.WithContext(ctx).Create(user)
 }
 
-func (dao *UserDaoImpl) Save(ctx context.Context, user *model.User, opts ...db.Option) error {
+func (dao *UserDAOImpl) Save(ctx context.Context, user *model.User, opts ...db.Option) error {
 	dao.query = query.Use(dao.db.NewSession(ctx, opts...))
 	return dao.query.User.WithContext(ctx).Save(user)
 }
 
-func (dao *UserDaoImpl) FindByUniqueName(ctx context.Context, uniqueName string, opts ...db.Option) (*model.User, error) {
+func (dao *UserDAOImpl) FindByUniqueName(ctx context.Context, uniqueName string, opts ...db.Option) (*model.User, error) {
 	dao.query = query.Use(dao.db.NewSession(ctx, opts...))
 	return dao.query.User.WithContext(ctx).Where(
 		dao.query.User.UniqueName.Eq(uniqueName),
 	).First()
 }
 
-func (dao *UserDaoImpl) FindByEmail(ctx context.Context, email string, opts ...db.Option) (*model.User, error) {
+func (dao *UserDAOImpl) FindByEmail(ctx context.Context, email string, opts ...db.Option) (*model.User, error) {
 	dao.query = query.Use(dao.db.NewSession(ctx, opts...))
 
 	return dao.query.User.WithContext(ctx).Where(
@@ -61,7 +61,7 @@ func (dao *UserDaoImpl) FindByEmail(ctx context.Context, email string, opts ...d
 	).First()
 }
 
-func (dao *UserDaoImpl) Update(ctx context.Context, userID int64, updates map[string]interface{}, opts ...db.Option) error {
+func (dao *UserDAOImpl) Update(ctx context.Context, userID int64, updates map[string]interface{}, opts ...db.Option) error {
 	dao.query = query.Use(dao.db.NewSession(ctx, opts...))
 
 	_, err := dao.query.User.WithContext(ctx).Where(
@@ -71,7 +71,7 @@ func (dao *UserDaoImpl) Update(ctx context.Context, userID int64, updates map[st
 	return err
 }
 
-func (dao *UserDaoImpl) GetByID(ctx context.Context, userID int64, opts ...db.Option) (*model.User, error) {
+func (dao *UserDAOImpl) GetByID(ctx context.Context, userID int64, opts ...db.Option) (*model.User, error) {
 	dao.query = query.Use(dao.db.NewSession(ctx, opts...))
 
 	return dao.query.User.WithContext(ctx).Where(
@@ -79,7 +79,7 @@ func (dao *UserDaoImpl) GetByID(ctx context.Context, userID int64, opts ...db.Op
 	).First()
 }
 
-func (dao *UserDaoImpl) MGetByIDs(ctx context.Context, userIDs []int64, opts ...db.Option) ([]*model.User, error) {
+func (dao *UserDAOImpl) MGetByIDs(ctx context.Context, userIDs []int64, opts ...db.Option) ([]*model.User, error) {
 	dao.query = query.Use(dao.db.NewSession(ctx, opts...))
 	return dao.query.User.WithContext(ctx).Where(
 		dao.query.User.ID.In(userIDs...),

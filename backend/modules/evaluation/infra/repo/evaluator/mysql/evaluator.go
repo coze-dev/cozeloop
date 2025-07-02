@@ -9,9 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"gorm.io/gorm"
-
 	"github.com/bytedance/gg/gptr"
+	"gorm.io/gorm"
 
 	"github.com/coze-dev/cozeloop/backend/infra/db"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
@@ -119,9 +118,9 @@ func (dao *EvaluatorDAOImpl) UpdateEvaluatorMeta(ctx context.Context, po *model.
 	updateMap["description"] = po.Description
 	updateMap["updated_by"] = po.UpdatedBy
 	return dbsession.WithContext(ctx).Model(&model.Evaluator{}).
-		Where("id = ?", po.ID). // 添加ID筛选条件
+		Where("id = ?", po.ID).      // 添加ID筛选条件
 		Where("deleted_at IS NULL"). // 添加软删除筛选条件
-		Updates(updateMap). // 使用Updates代替Save，避免全字段覆盖
+		Updates(updateMap).          // 使用Updates代替Save，避免全字段覆盖
 		Error
 }
 

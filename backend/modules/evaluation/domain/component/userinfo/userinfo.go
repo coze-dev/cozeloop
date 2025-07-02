@@ -6,6 +6,8 @@ package userinfo
 import (
 	"context"
 
+	"github.com/bytedance/gg/gptr"
+
 	commondto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/common"
 	common_convertor "github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/common"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
@@ -14,7 +16,6 @@ import (
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 	"github.com/coze-dev/cozeloop/backend/pkg/json"
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
-	"github.com/bytedance/gg/gptr"
 )
 
 type UserInfoCarrier interface {
