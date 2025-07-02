@@ -1,7 +1,7 @@
 version: "2"
 
 run:
-  timeout: 5m
+  timeout: 10m
   skip-dirs:
     - kitex_gen
     - loop_gen
