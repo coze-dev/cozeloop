@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 	"gorm.io/gen"
 	"gorm.io/gen/field"
 	"gorm.io/gorm"
@@ -161,11 +163,12 @@ func generateForEvaluationExpt(db *gorm.DB) {
 	}
 
 	var models []any
+	titleCaser := cases.Title(language.English)
 	for _, tn := range tables {
 		parts := strings.Split(tn, "_")
 		for i := range parts {
 			if len(parts[i]) > 0 {
-				parts[i] = strings.Title(parts[i])
+				parts[i] = titleCaser.String(parts[i])
 			}
 		}
 		name := strings.Join(parts, "")
