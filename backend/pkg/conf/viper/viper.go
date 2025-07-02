@@ -17,7 +17,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
 )
 
-var stopWalkErr = fmt.Errorf("stop walking")
+var errStopWalk = fmt.Errorf("stop walking")
 
 func NewFileConfLoader(file string, opts ...FileConfLoaderOpt) (conf.IConfigLoader, error) {
 	opt := &fileConfLoaderOpt{}
@@ -42,10 +42,10 @@ func NewFileConfLoader(file string, opts ...FileConfLoaderOpt) (conf.IConfigLoad
 				if err != nil {
 					return err
 				}
-				return stopWalkErr
+				return errStopWalk
 			}
 			return nil
-		}); err != nil && !errors.Is(err, stopWalkErr) {
+		}); err != nil && !errors.Is(err, errStopWalk) {
 			return nil, err
 		}
 

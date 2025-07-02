@@ -389,8 +389,7 @@ func TestDatasetServiceImpl_GetItem(t *testing.T) {
 	// 验证结果
 	if result == nil {
 		t.Error("Expected item to be non-nil")
-	}
-	if result.ID != itemID {
+	} else if result.ID != itemID {
 		t.Errorf("Expected item ID %d, got %d", itemID, result.ID)
 	}
 }

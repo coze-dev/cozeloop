@@ -8,8 +8,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
-
 	"github.com/bytedance/sonic"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
@@ -17,9 +15,9 @@ import (
 
 	infra_mq "github.com/coze-dev/cozeloop/backend/infra/mq"
 	mock_infra_mq "github.com/coze-dev/cozeloop/backend/infra/mq/mocks" // 使用这个路径
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
 	mock_config "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf/mocks"
 	component_mq "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/component/mq"
-	imq "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/component/mq"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 )
 
@@ -188,7 +186,7 @@ func TestNewDatasetJobPublisher(t *testing.T) {
 		setupMocks     func()
 		expectedPanic  bool
 		expectedError  error
-		validateResult func(t *testing.T, publisher imq.IDatasetJobPublisher, err error)
+		validateResult func(t *testing.T, publisher component_mq.IDatasetJobPublisher, err error)
 	}{
 		{
 			name: "成功创建Publisher",
@@ -199,7 +197,7 @@ func TestNewDatasetJobPublisher(t *testing.T) {
 			},
 			expectedPanic: false,
 			expectedError: nil,
-			validateResult: func(t *testing.T, publisher imq.IDatasetJobPublisher, err error) {
+			validateResult: func(t *testing.T, publisher component_mq.IDatasetJobPublisher, err error) {
 				assert.NoError(t, err)
 				assert.NotNil(t, publisher)
 				// Check if the returned publisher is of the concrete type and has correct fields
@@ -222,7 +220,7 @@ func TestNewDatasetJobPublisher(t *testing.T) {
 			},
 			expectedPanic: true, // Expecting a panic due to nil pointer dereference
 			expectedError: nil,  // No error returned, but panic
-			validateResult: func(t *testing.T, publisher imq.IDatasetJobPublisher, err error) {
+			validateResult: func(t *testing.T, publisher component_mq.IDatasetJobPublisher, err error) {
 				// Validated by assert.Panics in the loop
 				assert.Nil(t, publisher) // Publisher should be nil if panic occurred before return
 			},
@@ -237,7 +235,7 @@ func TestNewDatasetJobPublisher(t *testing.T) {
 			},
 			expectedPanic: false,
 			expectedError: errors.New("new producer failed"),
-			validateResult: func(t *testing.T, publisher imq.IDatasetJobPublisher, err error) {
+			validateResult: func(t *testing.T, publisher component_mq.IDatasetJobPublisher, err error) {
 				assert.Error(t, err)
 				assert.Contains(t, err.Error(), "new producer failed")
 				assert.Nil(t, publisher)
@@ -252,7 +250,7 @@ func TestNewDatasetJobPublisher(t *testing.T) {
 			},
 			expectedPanic: false,
 			expectedError: errors.New("producer start failed"),
-			validateResult: func(t *testing.T, publisher imq.IDatasetJobPublisher, err error) {
+			validateResult: func(t *testing.T, publisher component_mq.IDatasetJobPublisher, err error) {
 				assert.Error(t, err)
 				assert.Contains(t, err.Error(), "producer start failed")
 				assert.Nil(t, publisher)
@@ -265,7 +263,7 @@ func TestNewDatasetJobPublisher(t *testing.T) {
 			// Setup mocks for the current test case
 			tc.setupMocks()
 
-			var publisher imq.IDatasetJobPublisher
+			var publisher component_mq.IDatasetJobPublisher
 			var err error
 
 			if tc.expectedPanic {

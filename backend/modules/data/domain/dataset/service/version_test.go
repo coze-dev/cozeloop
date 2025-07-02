@@ -7,14 +7,12 @@ import (
 	"context"
 	"testing"
 
+	"github.com/bytedance/gg/gptr"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 	"gorm.io/gorm"
 
-	"github.com/bytedance/gg/gptr"
-
 	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/infra/db/mocks"
 	dbmock "github.com/coze-dev/cozeloop/backend/infra/db/mocks"
 	mqmock "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/component/mq/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
@@ -257,7 +255,7 @@ func TestDatasetServiceImpl_createVersion(t *testing.T) {
 	defer ctrl.Finish()
 
 	mockRepo := mock_repo.NewMockIDatasetAPI(ctrl)
-	mockProvider := mocks.NewMockProvider(ctrl)
+	mockProvider := dbmock.NewMockProvider(ctrl)
 	service := &DatasetServiceImpl{
 		repo: mockRepo,
 		txDB: mockProvider,
