@@ -7,15 +7,10 @@ import (
 	"testing"
 
 	"github.com/bytedance/gg/gptr"
-
-	// 第三方断言库
 	"github.com/stretchr/testify/assert"
 
-	// Kitex 生成的类型 (DTOs 和相关类型)
 	kitexDataset "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset"
 	jobPKG "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset_job"
-
-	// 领域实体类型 (DOs)
 	datasetEntity "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 	domainEntity "github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
 )

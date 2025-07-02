@@ -8,21 +8,17 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/coze-dev/cozeloop/backend/infra/idgen"
-
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo"
-
+	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
-
-	"github.com/stretchr/testify/assert"
-
+	"github.com/coze-dev/cozeloop/backend/infra/idgen"
 	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics"
 	metrics_mocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo"
 	repo_mocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 )

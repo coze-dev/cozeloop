@@ -9,8 +9,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity"
 	"golang.org/x/sync/errgroup"
+
+	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity"
 )
 
 // 权益相关, 每一批上报的数据的元信息不同, 不能简单合并

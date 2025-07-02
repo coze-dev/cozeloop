@@ -8,11 +8,12 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
+
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/rpc"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/rpc/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
 )
 
 func TestAttrTosProcessor_Transform(t *testing.T) {

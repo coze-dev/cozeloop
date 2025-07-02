@@ -9,11 +9,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
+
 	"github.com/coze-dev/cozeloop/backend/infra/external/benefit"
 	benefitmock "github.com/coze-dev/cozeloop/backend/infra/external/benefit/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
 )
 
 func TestExpireErrorProcessor_Transform(t *testing.T) {

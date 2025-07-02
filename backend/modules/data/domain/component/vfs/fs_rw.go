@@ -10,12 +10,12 @@ import (
 	"io"
 	"io/fs"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-
 	"github.com/bytedance/sonic"
 	"github.com/bytedance/sonic/decoder"
 	"github.com/parquet-go/parquet-go"
 	"github.com/pkg/errors"
+
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 )
 
 type FileReader struct {

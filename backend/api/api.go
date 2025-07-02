@@ -8,8 +8,6 @@ package api
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/validator"
-
 	"github.com/cloudwego/hertz/pkg/app/server"
 	"github.com/cloudwego/hertz/pkg/app/server/binding"
 	"github.com/cloudwego/hertz/pkg/app/server/render"
@@ -23,6 +21,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/infra/idgen"
 	"github.com/coze-dev/cozeloop/backend/infra/limiter"
 	"github.com/coze-dev/cozeloop/backend/infra/metrics"
+	"github.com/coze-dev/cozeloop/backend/infra/middleware/validator"
 	"github.com/coze-dev/cozeloop/backend/infra/mq"
 	"github.com/coze-dev/cozeloop/backend/infra/redis"
 	"github.com/coze-dev/cozeloop/backend/loop_gen/coze/loop/data/lodataset"

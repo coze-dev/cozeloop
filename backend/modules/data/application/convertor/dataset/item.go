@@ -5,7 +5,6 @@ package dataset
 
 import (
 	"github.com/bytedance/gg/gptr"
-
 	"github.com/bytedance/gg/gslice"
 
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset"

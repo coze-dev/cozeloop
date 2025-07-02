@@ -10,7 +10,6 @@ import (
 	"testing"
 
 	"github.com/bytedance/gg/gptr"
-
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 

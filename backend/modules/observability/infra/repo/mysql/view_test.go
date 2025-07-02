@@ -7,15 +7,16 @@ import (
 	"context"
 	"testing"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	dbmock "github.com/coze-dev/cozeloop/backend/infra/db/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+
+	"github.com/coze-dev/cozeloop/backend/infra/db"
+	dbmock "github.com/coze-dev/cozeloop/backend/infra/db/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/mysql/gorm_gen/model"
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 )
 
 func TestViewRepoImpl_ListViews(t *testing.T) {

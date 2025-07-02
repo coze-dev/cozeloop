@@ -6,13 +6,14 @@ package convertor
 import (
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
 	"github.com/bytedance/gg/gcond"
 	"github.com/bytedance/gg/gptr"
 	"github.com/bytedance/sonic"
 	"github.com/pkg/errors"
+
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
+	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
 )
 
 func IoJobPO2DO(p *model.DatasetIOJob) (*entity.IOJob, error) {

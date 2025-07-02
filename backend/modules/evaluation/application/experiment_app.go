@@ -8,8 +8,6 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
-
 	"github.com/bytedance/gg/gptr"
 
 	"github.com/coze-dev/cozeloop/backend/infra/idgen"
@@ -30,6 +28,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 	"github.com/coze-dev/cozeloop/backend/pkg/json"
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
 )
 

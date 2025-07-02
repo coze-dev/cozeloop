@@ -7,16 +7,13 @@ import (
 	"context"
 	"testing"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
-
-	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
+	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
+	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
 	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/mocks"
 )
 

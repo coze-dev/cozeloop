@@ -8,19 +8,16 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/bytedance/gg/gptr"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/bytedance/gg/gptr"
-
 	"github.com/coze-dev/cozeloop/backend/infra/external/audit"
+	mock_audit "github.com/coze-dev/cozeloop/backend/infra/external/audit/mocks"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/dataset"
 	dodataset "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-
-	// 假设这些 mock 结构体已经存在，如果不存在需要创建
-	mock_audit "github.com/coze-dev/cozeloop/backend/infra/external/audit/mocks"
 	mock_auth "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/rpc/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 	mock_repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
 	mock_dataset "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service/mocks"
 )

@@ -11,7 +11,6 @@ import (
 
 	"github.com/bytedance/gg/gcond"
 	"github.com/bytedance/gg/gptr"
-
 	"github.com/bytedance/gg/gslice"
 
 	"github.com/coze-dev/cozeloop/backend/infra/idgen"

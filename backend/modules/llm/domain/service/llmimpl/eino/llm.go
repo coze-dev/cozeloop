@@ -4,11 +4,13 @@
 package eino
 
 import (
+	"context"
+
+	einoModel "github.com/cloudwego/eino/components/model"
+
 	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
 	llm_errorx "github.com/coze-dev/cozeloop/backend/modules/llm/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"context"
-	einoModel "github.com/cloudwego/eino/components/model"
 )
 
 type LLM struct {

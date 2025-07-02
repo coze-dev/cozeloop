@@ -4,9 +4,10 @@
 package goroutineutil
 
 import (
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
 	"context"
 	"runtime"
+
+	"github.com/coze-dev/cozeloop/backend/pkg/logs"
 )
 
 func GoWithDeferFunc(ctx context.Context, f func()) {

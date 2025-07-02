@@ -9,6 +9,8 @@ import (
 	"testing"
 	"time"
 
+	"go.uber.org/mock/gomock"
+
 	mqmocks "github.com/coze-dev/cozeloop/backend/infra/mq/mocks"
 	confmocks "github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector"
@@ -18,7 +20,6 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/collector/exporter/clickhouseexporter"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/collector/processor/queueprocessor"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/collector/receiver/rmqreceiver"
-	"go.uber.org/mock/gomock"
 )
 
 var collectorCfg = map[string]any{

@@ -7,9 +7,8 @@ import (
 	"context"
 	"testing"
 
-	"go.uber.org/mock/gomock"
-
 	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
 
 	"github.com/coze-dev/cozeloop/backend/infra/mq"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"

@@ -8,12 +8,6 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
-
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service"
-
 	"github.com/bytedance/gg/gptr"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
@@ -22,8 +16,11 @@ import (
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/dataset"
 	domain_dataset "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset"
 	mock_auth "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/rpc/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 	mock_repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service"
 	mock_dataset "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
 )
 
 func TestDatasetApplicationImpl_BatchCreateDatasetItems(t *testing.T) {

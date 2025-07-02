@@ -8,13 +8,11 @@ import (
 	"runtime"
 	"strconv"
 
+	"github.com/bytedance/gg/gcond"
+	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/pkg/errors"
 
-	"github.com/bytedance/gg/gcond"
-
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
-
-	"github.com/cloudwego/kitex/pkg/kerrors"
 )
 
 func GetCode(err error) (code int64, isError int64) {

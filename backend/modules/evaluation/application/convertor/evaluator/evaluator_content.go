@@ -7,7 +7,6 @@ import (
 	"github.com/bytedance/gg/gptr"
 
 	evaluatordto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
-
 	commonentity "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 )
 

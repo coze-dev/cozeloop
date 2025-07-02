@@ -8,10 +8,9 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/bytedance/gg/gslice"
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/pkg/errors"
-
-	"github.com/bytedance/gg/gslice"
 
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/component/mq"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"

@@ -9,10 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/require"
-
 	"github.com/stretchr/testify/assert"
-
+	"github.com/stretchr/testify/require"
 	"github.com/xeipuuv/gojsonschema"
 )
 
@@ -712,9 +710,9 @@ func TestFieldSchemaValidateData(t *testing.T) {
 			wantErr: assert.NoError,
 		},
 		{
-			name:   "content with control character",
-			schema: &FieldSchema{ContentType: ContentTypeText, SchemaKey: SchemaKeyString},
-			data: &FieldData{Content: `Let $*$ be an operation`},
+			name:    "content with control character",
+			schema:  &FieldSchema{ContentType: ContentTypeText, SchemaKey: SchemaKeyString},
+			data:    &FieldData{Content: `Let $*$ be an operation`},
 			wantErr: assert.NoError,
 		},
 		{

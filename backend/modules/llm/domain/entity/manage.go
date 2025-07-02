@@ -4,10 +4,12 @@
 package entity
 
 import (
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"strconv"
+
 	"github.com/bytedance/sonic"
 	"github.com/pkg/errors"
-	"strconv"
+
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 )
 
 type Model struct {

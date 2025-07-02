@@ -8,6 +8,9 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
+
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config"
 	confmocks "github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/metrics"
@@ -21,8 +24,6 @@ import (
 	filtermocks "github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/trace/span_filter/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/trace/span_processor"
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
 )
 
 func TestTraceServiceImpl_GetTracesAdvanceInfo(t *testing.T) {

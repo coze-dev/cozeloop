@@ -4,12 +4,10 @@
 package prompt
 
 import (
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/domain/prompt"
-
+	"github.com/bytedance/gg/gptr"
 	"github.com/bytedance/gg/gslice"
 
-	"github.com/bytedance/gg/gptr"
-
+	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/domain/prompt"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 )

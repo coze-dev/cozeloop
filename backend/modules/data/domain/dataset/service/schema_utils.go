@@ -7,12 +7,10 @@ import (
 	"regexp"
 	"strconv"
 
+	"github.com/bytedance/gg/collection/set"
+	"github.com/bytedance/gg/gslice"
 	"github.com/jinzhu/copier"
 	"github.com/pkg/errors"
-
-	"github.com/bytedance/gg/gslice"
-
-	"github.com/bytedance/gg/collection/set"
 
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"

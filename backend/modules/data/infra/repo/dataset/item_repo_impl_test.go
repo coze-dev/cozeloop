@@ -8,14 +8,13 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
-
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
 	"github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
+	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
 	mysqlmocks "github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
 )

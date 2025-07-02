@@ -8,16 +8,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
-
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service"
-
 	"github.com/bytedance/gg/gptr"
-
-	mock_repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
-
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
@@ -25,7 +16,11 @@ import (
 	mock_audit "github.com/coze-dev/cozeloop/backend/infra/external/audit/mocks"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/dataset"
 	mock_auth "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/rpc/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
+	mock_repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service"
 	mock_dataset "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
 )
 
 func TestDatasetApplicationImpl_CreateDatasetVersion(t *testing.T) {

@@ -9,20 +9,17 @@ import (
 	"testing"
 
 	"github.com/bytedance/gg/gptr"
-
-	"github.com/coze-dev/cozeloop/backend/infra/external/audit"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/dataset"
-	dodataset "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service"
-
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	// 假设这些 mock 结构体已经存在，如果不存在需要创建
+	"github.com/coze-dev/cozeloop/backend/infra/external/audit"
 	mock_audit "github.com/coze-dev/cozeloop/backend/infra/external/audit/mocks"
+	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/dataset"
+	dodataset "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset"
 	mock_auth "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/rpc/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 	mock_repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service"
 	mock_dataset "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service/mocks"
 )
 

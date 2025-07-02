@@ -4,8 +4,9 @@
 package entity
 
 import (
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
 	"github.com/coze-dev/cozeloop-go/spec/tracespec"
+
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
 )
 
 func MergeStreamMsgs(msgs []*Message) *Message {

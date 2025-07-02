@@ -8,15 +8,11 @@ import (
 	"math"
 	"strings"
 
-	"github.com/bytedance/gg/gptr"
-
-	"github.com/bytedance/gg/gcond"
-
-	"github.com/bytedance/gg/gslice"
-
 	"github.com/bytedance/gg/collection/set"
-
+	"github.com/bytedance/gg/gcond"
 	"github.com/bytedance/gg/gmap"
+	"github.com/bytedance/gg/gptr"
+	"github.com/bytedance/gg/gslice"
 
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/consts"

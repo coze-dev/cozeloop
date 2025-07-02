@@ -9,9 +9,8 @@ import (
 	"fmt"
 	"testing"
 
-	"go.uber.org/mock/gomock"
-
 	"github.com/bytedance/gg/gptr"
+	"go.uber.org/mock/gomock"
 
 	"github.com/coze-dev/cozeloop/backend/infra/db/mocks"
 	idgenmock "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"

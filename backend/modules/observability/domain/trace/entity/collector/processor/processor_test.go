@@ -7,12 +7,13 @@ import (
 	"context"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
+
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/component"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/consumer"
 	consumermocks "github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/consumer/mocks"
 	processormock "github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/processor/mocks"
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
 )
 
 func getComponentID(s string) component.ID {

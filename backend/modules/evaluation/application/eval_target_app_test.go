@@ -8,21 +8,18 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/target"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
-
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service"
-
-	"go.uber.org/mock/gomock"
-
 	"github.com/bytedance/gg/gptr"
 	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
 
 	domain_eval_target "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_target"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_target"
+	"github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/target"
+	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
 	rpcmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"

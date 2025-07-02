@@ -6,10 +6,8 @@ package evaluator
 import (
 	commondto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/common"
 	evaluatordto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
-
-	evaluatorentity "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-
 	commonconvertor "github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/common"
+	evaluatorentity "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 )
 
 // ConvertEvaluatorInputDataDTO2DO 将 DTO 转换为 evaluatorentity.EvaluatorInputData 结构体

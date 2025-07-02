@@ -5,9 +5,9 @@ package entity
 
 import (
 	"fmt"
-	"github.com/google/go-cmp/cmp"
 	"testing"
 
+	"github.com/google/go-cmp/cmp"
 	"github.com/stretchr/testify/assert"
 
 	prompterr "github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/errno"

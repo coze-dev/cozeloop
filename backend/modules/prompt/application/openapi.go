@@ -18,10 +18,10 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/repo"
 	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/service"
+	"github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/consts"
 	prompterr "github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/consts"
 )
 
 func NewPromptOpenAPIApplication(

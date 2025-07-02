@@ -8,16 +8,13 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/coze-dev/cozeloop/backend/infra/platestwrite"
-
-	"gorm.io/gorm"
-
-	"github.com/bytedance/gg/gslice"
-
 	"github.com/bytedance/gg/gptr"
+	"github.com/bytedance/gg/gslice"
+	"gorm.io/gorm"
 
 	"github.com/coze-dev/cozeloop/backend/infra/db"
 	"github.com/coze-dev/cozeloop/backend/infra/idgen"
+	"github.com/coze-dev/cozeloop/backend/infra/platestwrite"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo"

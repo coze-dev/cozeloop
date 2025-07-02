@@ -9,12 +9,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-
 	"github.com/bytedance/gg/gcond"
-
 	"github.com/bytedance/gg/gptr"
 
+	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"

@@ -7,7 +7,6 @@ import (
 	"errors"
 
 	"github.com/bytedance/gg/gptr"
-
 	"github.com/bytedance/gg/gslice"
 
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/json"

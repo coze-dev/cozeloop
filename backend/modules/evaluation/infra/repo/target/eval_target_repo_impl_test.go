@@ -9,9 +9,6 @@ import (
 	"time"
 
 	"github.com/bytedance/gg/gptr"
-
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/target/mysql/gorm_gen/model"
-
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 	"gorm.io/gorm"
@@ -22,6 +19,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/infra/platestwrite"
 	platestwrite_mocks "github.com/coze-dev/cozeloop/backend/infra/platestwrite/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/target/mysql/gorm_gen/model"
 	mysqlmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/target/mysql/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"

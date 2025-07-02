@@ -10,8 +10,6 @@ import (
 
 	"github.com/bytedance/gg/gptr"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation"
 	domain_eval_set "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_set"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_set"
@@ -21,6 +19,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/userinfo"
+	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"

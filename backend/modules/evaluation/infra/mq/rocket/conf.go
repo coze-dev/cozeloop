@@ -6,9 +6,8 @@ package rocket
 import (
 	"time"
 
-	"github.com/samber/lo"
-
 	"github.com/bytedance/gg/gptr"
+	"github.com/samber/lo"
 
 	"github.com/coze-dev/cozeloop/backend/infra/mq"
 )

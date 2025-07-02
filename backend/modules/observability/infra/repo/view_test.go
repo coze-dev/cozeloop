@@ -7,13 +7,14 @@ import (
 	"context"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
+
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/mysql"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/mysql/gorm_gen/model"
 	mysqlmock "github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/mysql/mocks"
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
 )
 
 func TestViewRepoImpl_ListViews(t *testing.T) {

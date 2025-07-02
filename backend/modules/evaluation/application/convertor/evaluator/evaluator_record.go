@@ -4,12 +4,11 @@
 package evaluator
 
 import (
-	evaluatordto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
-	evaluatordo "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-
 	"github.com/bytedance/gg/gptr"
 
+	evaluatordto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
 	commonconvertor "github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/common"
+	evaluatordo "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 )
 
 func ConvertEvaluatorRecordDTO2DO(dto *evaluatordto.EvaluatorRecord) *evaluatordo.EvaluatorRecord {

@@ -10,12 +10,11 @@ import (
 	"io"
 	"unicode/utf8"
 
-	"golang.org/x/text/encoding/simplifiedchinese"
-	"golang.org/x/text/transform"
-
 	"github.com/dimchansky/utfbom"
 	"github.com/pkg/errors"
 	"github.com/saintfish/chardet"
+	"golang.org/x/text/encoding/simplifiedchinese"
+	"golang.org/x/text/transform"
 )
 
 func NewCSVReader(r io.Reader) (*csv.Reader, error) {

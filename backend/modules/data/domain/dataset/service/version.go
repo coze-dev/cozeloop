@@ -7,11 +7,9 @@ import (
 	"context"
 	"fmt"
 
-	"gorm.io/gorm"
-
 	"github.com/bytedance/gg/gptr"
-
 	"github.com/bytedance/gg/gslice"
+	"gorm.io/gorm"
 
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/component/mq"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"

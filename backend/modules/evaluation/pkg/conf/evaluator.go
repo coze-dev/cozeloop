@@ -8,9 +8,8 @@ import (
 
 	"github.com/samber/lo"
 
-	evaluatordto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
-
 	"github.com/coze-dev/cozeloop/backend/infra/limiter"
+	evaluatordto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
 	"github.com/coze-dev/cozeloop/backend/pkg/conf"
 )
 

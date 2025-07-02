@@ -8,12 +8,11 @@ import (
 	"strings"
 	"time"
 
+	"github.com/bytedance/gg/gslice"
 	"github.com/bytedance/sonic"
 	"github.com/hashicorp/go-multierror"
 	"github.com/pkg/errors"
 	"github.com/xeipuuv/gojsonschema"
-
-	"github.com/bytedance/gg/gslice"
 
 	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/consts"
 )

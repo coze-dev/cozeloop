@@ -7,10 +7,9 @@ import (
 	"context"
 	"time"
 
+	"github.com/bytedance/gg/gslice"
 	"github.com/bytedance/sonic"
 	goredis "github.com/redis/go-redis/v9"
-
-	"github.com/bytedance/gg/gslice"
 
 	"github.com/coze-dev/cozeloop/backend/infra/redis"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"

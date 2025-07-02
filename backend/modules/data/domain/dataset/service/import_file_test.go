@@ -11,11 +11,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/bytedance/gg/gptr"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
-
-	"github.com/bytedance/gg/gptr"
 
 	"github.com/coze-dev/cozeloop/backend/infra/db/mocks"
 	idgenmock "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"

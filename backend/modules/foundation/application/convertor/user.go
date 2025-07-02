@@ -5,9 +5,8 @@ package convertor
 
 import (
 	domain "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/domain/user"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
-
 	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/user/entity"
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 )
 

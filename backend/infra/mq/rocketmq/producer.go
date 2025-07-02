@@ -7,9 +7,10 @@ import (
 	"context"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/infra/mq"
 	"github.com/apache/rocketmq-client-go/v2"
 	"github.com/apache/rocketmq-client-go/v2/primitive"
+
+	"github.com/coze-dev/cozeloop/backend/infra/mq"
 )
 
 type Producer struct {

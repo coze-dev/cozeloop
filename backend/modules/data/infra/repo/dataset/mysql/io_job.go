@@ -10,7 +10,6 @@ import (
 	"time"
 
 	"github.com/bytedance/gg/gptr"
-
 	"github.com/bytedance/sonic"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"

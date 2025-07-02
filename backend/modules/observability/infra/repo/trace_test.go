@@ -7,6 +7,9 @@ import (
 	"context"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
+
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config"
 	confmocks "github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity"
@@ -16,8 +19,6 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/ck/gorm_gen/model"
 	ckmock "github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/ck/mocks"
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
 )
 
 func TestTraceCkRepoImpl_InsertSpans(t *testing.T) {

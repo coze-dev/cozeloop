@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/bytedance/gg/gslice"
-
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/pkg/errors"
 

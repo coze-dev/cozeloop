@@ -7,12 +7,10 @@ import (
 	"context"
 	"time"
 
+	"github.com/bytedance/gg/gmap"
+	"github.com/bytedance/gg/gslice"
 	"github.com/cenk/backoff"
 	"github.com/pkg/errors"
-
-	"github.com/bytedance/gg/gslice"
-
-	"github.com/bytedance/gg/gmap"
 
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"

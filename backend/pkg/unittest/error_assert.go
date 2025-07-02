@@ -4,12 +4,13 @@
 package unittest
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/stretchr/testify/assert"
+
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"strings"
 )
 
 // AssertErrorEqual is a helper function that compares errors properly based on their type

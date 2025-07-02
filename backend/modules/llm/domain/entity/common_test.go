@@ -4,9 +4,11 @@
 package entity
 
 import (
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 )
 
 func TestScenarioValue(t *testing.T) {

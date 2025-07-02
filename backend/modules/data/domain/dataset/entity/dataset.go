@@ -7,9 +7,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/bytedance/gg/gptr"
-
 	"github.com/bytedance/gg/gcond"
+	"github.com/bytedance/gg/gptr"
 )
 
 type Dataset struct {

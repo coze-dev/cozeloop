@@ -7,13 +7,14 @@ import (
 	"context"
 	"testing"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/ck/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/assert"
 	"gorm.io/driver/clickhouse"
 	"gorm.io/gorm"
+
+	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
+	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/ck/gorm_gen/model"
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 )
 
 func TestBuildSql(t *testing.T) {

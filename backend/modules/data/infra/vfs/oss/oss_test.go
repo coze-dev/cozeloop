@@ -8,9 +8,8 @@ import (
 	"os"
 	"testing"
 
-	"go.uber.org/mock/gomock"
-
 	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
 
 	"github.com/coze-dev/cozeloop/backend/infra/fileserver"
 	mock_fileserver "github.com/coze-dev/cozeloop/backend/infra/fileserver/mocks"

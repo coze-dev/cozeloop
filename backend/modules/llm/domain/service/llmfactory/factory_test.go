@@ -4,13 +4,15 @@
 package llmfactory
 
 import (
+	"context"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+
 	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
 	llm_errorx "github.com/coze-dev/cozeloop/backend/modules/llm/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 	"github.com/coze-dev/cozeloop/backend/pkg/unittest"
-	"context"
-	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestFactoryImpl_CreateLLM(t *testing.T) {

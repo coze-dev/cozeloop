@@ -4,10 +4,12 @@
 package entity
 
 import (
+	"fmt"
+
+	"github.com/cloudwego/eino/schema"
+
 	llm_errorx "github.com/coze-dev/cozeloop/backend/modules/llm/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"fmt"
-	"github.com/cloudwego/eino/schema"
 )
 
 //go:generate mockgen -destination=mocks/stream.go -package=mocks . IStreamReader

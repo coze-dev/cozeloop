@@ -4,10 +4,9 @@
 package metrics
 
 import (
+	imetrics "github.com/coze-dev/cozeloop/backend/infra/metrics"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-
-	imetrics "github.com/coze-dev/cozeloop/backend/infra/metrics"
 )
 
 func NewExperimentMetric(meter imetrics.Meter) metrics.ExptMetric {

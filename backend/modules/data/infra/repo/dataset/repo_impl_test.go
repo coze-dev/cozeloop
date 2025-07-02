@@ -6,15 +6,14 @@ package dataset
 import (
 	"testing"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/infra/idgen"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/redis"
-
 	"go.uber.org/mock/gomock"
 
+	"github.com/coze-dev/cozeloop/backend/infra/db"
+	"github.com/coze-dev/cozeloop/backend/infra/idgen"
 	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql"
 	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/redis"
 )
 
 func TestNewDatasetRepo(t *testing.T) {

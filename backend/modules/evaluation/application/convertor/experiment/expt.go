@@ -7,21 +7,17 @@ import (
 	"fmt"
 
 	"github.com/bytedance/gg/gcond"
+	"github.com/bytedance/gg/gptr"
 
 	evaluatordto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
 	domain_expt "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/expt"
+	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_target"
+	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/expt"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/evaluation_set"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/evaluator"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/target"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/maps"
-
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_target"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/expt"
-
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-
-	"github.com/bytedance/gg/gptr"
-
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/maps"
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 )
 

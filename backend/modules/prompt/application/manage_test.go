@@ -21,11 +21,11 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/repo"
 	repomocks "github.com/coze-dev/cozeloop/backend/modules/prompt/domain/repo/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/service"
+	"github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/consts"
 	prompterr "github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 	"github.com/coze-dev/cozeloop/backend/pkg/unittest"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/consts"
 )
 
 func TestPromptManageApplicationImpl_ClonePrompt(t *testing.T) {

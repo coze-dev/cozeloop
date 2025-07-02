@@ -7,9 +7,10 @@ import (
 	"context"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestCozeLoopFilter_BuildBasicSpanFilter(t *testing.T) {

@@ -12,6 +12,6 @@ type EvaluationSetVersion struct {
 	VersionNum          int64                `thrift:"version_num,11,optional" frugal:"11,optional,i64" json:"version_num,omitempty"`
 	Description         string               `thrift:"description,12,optional" frugal:"12,optional,string" json:"description,omitempty"`
 	EvaluationSetSchema *EvaluationSetSchema `thrift:"evaluation_set_schema,13,optional" frugal:"13,optional,EvaluationSetSchema" json:"evaluation_set_schema,omitempty"`
-	ItemCount           int64     `thrift:"item_count,14,optional" frugal:"14,optional,i64" json:"item_count,omitempty"`
-	BaseInfo            *BaseInfo `thrift:"base_info,100,optional" frugal:"100,optional,common.BaseInfo" json:"base_info"`
+	ItemCount           int64                `thrift:"item_count,14,optional" frugal:"14,optional,i64" json:"item_count,omitempty"`
+	BaseInfo            *BaseInfo            `thrift:"base_info,100,optional" frugal:"100,optional,common.BaseInfo" json:"base_info"`
 }

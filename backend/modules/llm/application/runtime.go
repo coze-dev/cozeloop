@@ -10,15 +10,14 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/infra/limiter"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/domain/common"
-
 	"github.com/coze-dev/cozeloop-go"
 	"github.com/coze-dev/cozeloop-go/spec/tracespec"
 	"github.com/pkg/errors"
 
+	"github.com/coze-dev/cozeloop/backend/infra/limiter"
 	"github.com/coze-dev/cozeloop/backend/infra/looptracer"
 	"github.com/coze-dev/cozeloop/backend/infra/redis"
+	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/domain/common"
 	druntime "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/domain/runtime"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/runtime"
 	"github.com/coze-dev/cozeloop/backend/modules/llm/application/convertor"

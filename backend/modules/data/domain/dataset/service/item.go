@@ -7,11 +7,10 @@ import (
 	"context"
 	"strconv"
 
+	"github.com/bytedance/gg/gslice"
 	"github.com/jinzhu/copier"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
-
-	"github.com/bytedance/gg/gslice"
 
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"

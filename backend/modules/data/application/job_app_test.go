@@ -8,22 +8,18 @@ import (
 	"testing"
 
 	"github.com/bytedance/gg/gptr"
-
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset_job"
-
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/vfs"
-
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service"
-
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
 	mock_audit "github.com/coze-dev/cozeloop/backend/infra/external/audit/mocks"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/dataset"
+	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset_job"
 	mock_auth "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/rpc/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 	mock_repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service"
 	mock_dataset "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/infra/vfs"
 )
 
 func TestDatasetApplicationImpl_ImportDataset(t *testing.T) {

@@ -10,8 +10,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 	"github.com/bytedance/sonic"
+
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 )
 
 const (

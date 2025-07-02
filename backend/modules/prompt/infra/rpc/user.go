@@ -4,12 +4,12 @@
 package rpc
 
 import (
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user/userservice"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/rpc/convertor"
 	"context"
 
+	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user"
+	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user/userservice"
 	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/component/rpc"
+	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/rpc/convertor"
 )
 
 type UserRPCAdapter struct {

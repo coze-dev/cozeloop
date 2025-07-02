@@ -9,20 +9,16 @@ import (
 	"testing"
 	"time"
 
+	"github.com/bytedance/gg/gptr"
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
 	"gorm.io/datatypes"
 
 	"github.com/coze-dev/cozeloop/backend/infra/db"
+	"github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
+	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
 	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
-
-	"github.com/bytedance/gg/gptr"
-
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
-
-	"github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
 	mysqlmocks "github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/mocks"
 )
 

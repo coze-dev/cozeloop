@@ -7,10 +7,9 @@ import (
 	"context"
 	"errors"
 
+	"github.com/bytedance/gg/gptr"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
-
-	"github.com/bytedance/gg/gptr"
 
 	"github.com/coze-dev/cozeloop/backend/infra/db"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/model"

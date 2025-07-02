@@ -10,7 +10,6 @@ import (
 	"time"
 
 	"github.com/bytedance/gg/gptr"
-
 	"github.com/samber/lo"
 
 	"github.com/coze-dev/cozeloop/backend/infra/mq"

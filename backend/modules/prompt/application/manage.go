@@ -6,10 +6,11 @@ package application
 import (
 	"context"
 	"fmt"
+	"strconv"
+
 	"github.com/Masterminds/semver/v3"
 	"github.com/samber/lo"
 	"golang.org/x/exp/maps"
-	"strconv"
 
 	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/domain/prompt"
@@ -20,10 +21,10 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/repo"
 	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/service"
 	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/repo/mysql"
+	"github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/consts"
 	prompterr "github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/consts"
 )
 
 func NewPromptManageApplication(

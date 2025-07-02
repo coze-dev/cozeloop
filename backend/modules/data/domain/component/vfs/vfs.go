@@ -11,6 +11,7 @@ import (
 )
 
 // Reader readable file interface.
+//
 //go:generate mockgen -destination=mocks/vfs.go -package=mocks . Reader
 type Reader interface {
 	io.ReadCloser

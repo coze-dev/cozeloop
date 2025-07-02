@@ -9,6 +9,7 @@ import (
 	"context"
 
 	"github.com/cloudwego/hertz/pkg/app"
+
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/authn/authnservice"
 )
 

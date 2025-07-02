@@ -4,6 +4,14 @@
 package service
 
 import (
+	"context"
+	"io"
+	"testing"
+
+	"github.com/jarcoal/httpmock"
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
+
 	"github.com/coze-dev/cozeloop/backend/infra/idgen"
 	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/component/conf"
@@ -16,14 +24,7 @@ import (
 	llmifacemocks "github.com/coze-dev/cozeloop/backend/modules/llm/domain/service/llminterface/mocks"
 	llm_errorx "github.com/coze-dev/cozeloop/backend/modules/llm/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/jarcoal/httpmock"
-	"io"
-
 	"github.com/coze-dev/cozeloop/backend/pkg/unittest"
-	"context"
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
-	"testing"
 )
 
 func TestRuntimeImpl_Generate(t *testing.T) {

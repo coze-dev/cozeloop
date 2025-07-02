@@ -11,7 +11,6 @@ import (
 	"time"
 
 	"github.com/bytedance/gg/gptr"
-
 	"github.com/bytedance/gg/gslice"
 
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics"

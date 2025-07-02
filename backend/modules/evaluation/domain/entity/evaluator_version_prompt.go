@@ -6,9 +6,8 @@ package entity
 import (
 	"fmt"
 
-	"github.com/bytedance/gg/gslice"
-
 	"github.com/bytedance/gg/gptr"
+	"github.com/bytedance/gg/gslice"
 
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/json"

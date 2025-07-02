@@ -7,10 +7,11 @@ import (
 	"context"
 	"strings"
 
+	"github.com/cloudwego/hertz/pkg/app"
+
 	"github.com/coze-dev/cozeloop/backend/api/handler/coze/loop/apis"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/authn"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/cloudwego/hertz/pkg/app"
 )
 
 func PatTokenVerifyMW(handler *apis.APIHandler) app.HandlerFunc {

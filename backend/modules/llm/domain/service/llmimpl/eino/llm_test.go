@@ -4,15 +4,17 @@
 package eino
 
 import (
+	"context"
+	"testing"
+
+	"github.com/cloudwego/eino/schema"
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
+
 	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/service/llmimpl/eino/mocks"
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 	"github.com/coze-dev/cozeloop/backend/pkg/unittest"
-	"context"
-	"github.com/cloudwego/eino/schema"
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
-	"testing"
 )
 
 func TestLLM_Generate(t *testing.T) {

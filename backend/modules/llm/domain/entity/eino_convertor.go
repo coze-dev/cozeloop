@@ -4,8 +4,6 @@
 package entity
 
 import (
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
 	"github.com/bytedance/sonic"
 	"github.com/cloudwego/eino-ext/components/model/ark"
 	"github.com/cloudwego/eino-ext/components/model/deepseek"
@@ -13,6 +11,9 @@ import (
 	"github.com/cloudwego/eino/schema"
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/pkg/errors"
+
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
 )
 
 func FromDOMessages(dos []*Message) []*schema.Message {

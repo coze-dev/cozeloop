@@ -11,24 +11,22 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
+
+	auditmocks "github.com/coze-dev/cozeloop/backend/infra/external/audit/mocks"
+	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
+	lockmocks "github.com/coze-dev/cozeloop/backend/infra/lock/mocks"
 	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
 	idemmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/idem/mocks"
 	metricsmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics/mocks"
 	configmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 	entitymocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity/mocks"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-
-	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	lockmocks "github.com/coze-dev/cozeloop/backend/infra/lock/mocks"
 	eventmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/events/mocks"
 	mock_repo "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo/mocks"
 	svcmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
-
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
-
-	auditmocks "github.com/coze-dev/cozeloop/backend/infra/external/audit/mocks"
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 )
 
 func TestExptSchedulerImpl_Schedule(t *testing.T) {

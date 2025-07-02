@@ -7,12 +7,11 @@ import (
 	"context"
 
 	"github.com/coze-dev/cozeloop/backend/infra/db"
+	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/model"
+	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/query"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 	"github.com/coze-dev/cozeloop/backend/pkg/json"
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
-
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/query"
 )
 
 //go:generate  mockgen -destination=mocks/expt_run_log.go  -package mocks . IExptRunLogDAO

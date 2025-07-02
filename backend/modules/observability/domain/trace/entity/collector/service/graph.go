@@ -12,13 +12,14 @@ import (
 	"hash/fnv"
 	"strings"
 
+	"gonum.org/v1/gonum/graph/simple"
+	"gonum.org/v1/gonum/graph/topo"
+
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/component"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/consumer"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/exporter"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/processor"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/receiver"
-	"gonum.org/v1/gonum/graph/simple"
-	"gonum.org/v1/gonum/graph/topo"
 )
 
 const (

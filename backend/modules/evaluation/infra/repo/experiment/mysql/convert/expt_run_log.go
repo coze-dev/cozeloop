@@ -8,12 +8,10 @@ import (
 	"github.com/samber/lo"
 
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
-
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/model"
+	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 	"github.com/coze-dev/cozeloop/backend/pkg/json"
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
 )
 
 func NewExptTurnResultRunLogConvertor() ExptTurnResultRunLogConvertor {

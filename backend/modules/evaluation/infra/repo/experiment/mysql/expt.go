@@ -8,9 +8,8 @@ import (
 	"errors"
 	"fmt"
 
-	"gorm.io/gorm"
-
 	"github.com/bytedance/gg/gptr"
+	"gorm.io/gorm"
 
 	"github.com/coze-dev/cozeloop/backend/infra/db"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"

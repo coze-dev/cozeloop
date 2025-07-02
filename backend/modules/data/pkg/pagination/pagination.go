@@ -9,15 +9,13 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/goroutine"
-
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
-
 	"github.com/bytedance/gg/gptr"
-
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
+
+	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/goroutine"
 )
 
 const (

@@ -7,13 +7,14 @@ import (
 	"context"
 	"errors"
 
+	"gorm.io/gorm"
+
 	"github.com/coze-dev/cozeloop/backend/infra/db"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/mysql/gorm_gen/model"
 	genquery "github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/mysql/gorm_gen/query"
 	obErrorx "github.com/coze-dev/cozeloop/backend/modules/observability/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
-	"gorm.io/gorm"
 )
 
 //go:generate mockgen -destination=mocks/view.go -package=mocks . IViewDao

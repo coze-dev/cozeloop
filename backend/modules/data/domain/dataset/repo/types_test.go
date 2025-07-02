@@ -6,11 +6,10 @@ package repo
 import (
 	"testing"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/consts"
-
 	"github.com/stretchr/testify/assert"
 
 	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/consts"
 )
 
 func TestNewListItemsParamsFromVersion(t *testing.T) {

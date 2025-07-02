@@ -8,6 +8,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
+
 	"github.com/coze-dev/cozeloop/backend/infra/mq"
 	mqmocks "github.com/coze-dev/cozeloop/backend/infra/mq/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity"
@@ -15,8 +18,6 @@ import (
 	consumermocks "github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/consumer/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
 	"github.com/coze-dev/cozeloop/backend/pkg/json"
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
 )
 
 func TestRmqReceiver_Start(t *testing.T) {

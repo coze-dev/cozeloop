@@ -8,12 +8,13 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
+
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config"
 	confmocks "github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/stretchr/testify/assert"
-	"go.uber.org/mock/gomock"
 )
 
 func TestPlatformProcessor_Transform(t *testing.T) {

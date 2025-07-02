@@ -4,12 +4,12 @@
 package application
 
 import (
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/component/rpc"
 	"context"
 	"strconv"
 
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/manage"
 	"github.com/coze-dev/cozeloop/backend/modules/llm/application/convertor"
+	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/component/rpc"
 	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/service"
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"

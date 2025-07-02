@@ -9,8 +9,6 @@ import (
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
-
 	"github.com/coze-dev/cozeloop/backend/infra/idgen"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo"
@@ -19,6 +17,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/model"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
 )
 
