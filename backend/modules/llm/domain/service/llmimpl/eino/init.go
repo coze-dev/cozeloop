@@ -5,25 +5,25 @@ package eino
 
 import (
 	"context"
-	"github.com/cloudwego/eino-ext/components/model/arkbot"
-	"github.com/cloudwego/eino-ext/components/model/gemini"
-	"github.com/cloudwego/eino-ext/components/model/ollama"
-	"github.com/cloudwego/eino-ext/components/model/qianfan"
-	"github.com/cloudwego/eino-ext/components/model/qwen"
-	"github.com/google/generative-ai-go/genai"
-	"github.com/ollama/ollama/api"
-	"google.golang.org/api/option"
 	"time"
 
 	ori_qianfan "github.com/baidubce/bce-qianfan-sdk/go/qianfan"
 	"github.com/bytedance/sonic"
 	"github.com/cloudwego/eino-ext/components/model/ark"
+	"github.com/cloudwego/eino-ext/components/model/arkbot"
 	"github.com/cloudwego/eino-ext/components/model/claude"
 	"github.com/cloudwego/eino-ext/components/model/deepseek"
+	"github.com/cloudwego/eino-ext/components/model/gemini"
+	"github.com/cloudwego/eino-ext/components/model/ollama"
 	"github.com/cloudwego/eino-ext/components/model/openai"
+	"github.com/cloudwego/eino-ext/components/model/qianfan"
+	"github.com/cloudwego/eino-ext/components/model/qwen"
 	acl_openai "github.com/cloudwego/eino-ext/libs/acl/openai"
 	einoModel "github.com/cloudwego/eino/components/model"
+	"github.com/google/generative-ai-go/genai"
+	"github.com/ollama/ollama/api"
 	"github.com/pkg/errors"
+	"google.golang.org/api/option"
 
 	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
 	"github.com/coze-dev/cozeloop/backend/pkg/json"
@@ -228,7 +228,7 @@ func geminiBuilder(ctx context.Context, model *entity.Model) (einoModel.ToolCall
 		TopP:        cp.TopP,
 	}
 	if cp.TopK != nil {
-		cfg.TopK = ptr.Of(int32(int(*cp.TopK)))
+		cfg.TopK = ptr.Of(int32(*cp.TopK))
 	}
 	if pc := p.ProtocolConfigGemini; pc != nil {
 		if pc.ResponseSchema != nil && *pc.ResponseSchema != "" {

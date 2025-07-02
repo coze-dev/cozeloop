@@ -339,7 +339,7 @@ func (p *PromptDebugApplicationImpl) saveDebugLog(ctx context.Context, param sav
 	if param.err != nil {
 		errCode = prompterr.CommonInternalErrorCode
 		bizErr, ok := errorx.FromStatusError(param.err)
-		if ok && bizErr != nil {
+		if ok {
 			errCode = bizErr.Code()
 		}
 	}

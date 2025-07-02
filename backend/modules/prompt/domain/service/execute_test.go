@@ -283,7 +283,7 @@ func TestPromptServiceImpl_ExecuteStreaming(t *testing.T) {
 		mockLLM := rpcmocks.NewMockILLMProvider(ctrl)
 		mockContent := "Hello!"
 		mockLLM.EXPECT().StreamingCall(gomock.Any(), gomock.Any()).DoAndReturn(func(ctx context.Context, param rpc.LLMStreamingCallParam) (*entity.ReplyItem, error) {
-			for _, v := range []rune(mockContent) {
+			for _, v := range mockContent {
 				param.ResultStream <- &entity.ReplyItem{
 					Message: &entity.Message{
 						Role:    entity.RoleAssistant,
@@ -483,7 +483,7 @@ func TestPromptServiceImpl_ExecuteStreaming(t *testing.T) {
 		mockLLM.EXPECT().StreamingCall(gomock.Any(), gomock.Any()).DoAndReturn(func(ctx context.Context, param rpc.LLMStreamingCallParam) (*entity.ReplyItem, error) {
 			assert.Equal(t, 4, len(param.Messages))
 			mockContent := "sunny"
-			for _, v := range []rune(mockContent) {
+			for _, v := range mockContent {
 				param.ResultStream <- &entity.ReplyItem{
 					Message: &entity.Message{
 						Role:    entity.RoleAssistant,

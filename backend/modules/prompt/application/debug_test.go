@@ -66,7 +66,7 @@ func TestPromptDebugApplicationImpl_DebugStreaming(t *testing.T) {
 				mockPromptSvc := servicemocks.NewMockIPromptService(ctrl)
 				mockPromptSvc.EXPECT().MCompleteMultiModalFileURL(gomock.Any(), gomock.Any()).Return(nil)
 				mockPromptSvc.EXPECT().ExecuteStreaming(gomock.Any(), gomock.Any()).DoAndReturn(func(ctx context.Context, param service.ExecuteStreamingParam) (*entity.Reply, error) {
-					for _, v := range []rune(mockContent) {
+					for _, v := range mockContent {
 						param.ResultStream <- &entity.Reply{
 							Item: &entity.ReplyItem{
 								Message: &entity.Message{
@@ -127,7 +127,7 @@ func TestPromptDebugApplicationImpl_DebugStreaming(t *testing.T) {
 				mockPromptSvc := servicemocks.NewMockIPromptService(ctrl)
 				mockPromptSvc.EXPECT().MCompleteMultiModalFileURL(gomock.Any(), gomock.Any()).Return(nil)
 				mockPromptSvc.EXPECT().ExecuteStreaming(gomock.Any(), gomock.Any()).DoAndReturn(func(ctx context.Context, param service.ExecuteStreamingParam) (*entity.Reply, error) {
-					for _, v := range []rune(mockContent) {
+					for _, v := range mockContent {
 						param.ResultStream <- &entity.Reply{
 							Item: &entity.ReplyItem{
 								Message: &entity.Message{

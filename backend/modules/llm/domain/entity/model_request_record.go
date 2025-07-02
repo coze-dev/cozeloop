@@ -6,22 +6,22 @@ package entity
 import "time"
 
 type ModelRequestRecord struct {
-	ID                  int64     `gorm:"column:id;type:bigint unsigned;primaryKey;autoIncrement:true;comment:è‡ªå¢žä¸»é”®ID" json:"id"`                                                       // è‡ªå¢žä¸»é”®ID
-	SpaceID             int64     `gorm:"column:space_id;type:bigint unsigned;not null;index:idx_space_id_create_time,priority:1;comment:ç©ºé—´id" json:"space_id"`                            // ç©ºé—´id
-	UserID              string    `gorm:"column:user_id;type:varchar(256);not null;comment:user id" json:"user_id"`                                                                            // user id
-	UsageScene          Scenario  `gorm:"column:usage_scene;type:varchar(128);not null;comment:åœºæ™¯" json:"usage_scene"`                                                                     // åœºæ™¯
-	UsageSceneEntityID  string    `gorm:"column:usage_scene_entity_id;type:varchar(256);not null;comment:åœºæ™¯å®žä½“id" json:"usage_scene_entity_id"`                                         // åœºæ™¯å®žä½“id
-	Frame               Frame     `gorm:"column:frame;type:varchar(128);not null;comment:ä½¿ç”¨çš„æ¡†æž¶ï¼Œå¦‚eino" json:"frame"`                                                              // ä½¿ç”¨çš„æ¡†æž¶ï¼Œå¦‚eino
-	Protocol            Protocol  `gorm:"column:protocol;type:varchar(128);not null;comment:ä½¿ç”¨çš„åè®®ï¼Œå¦‚ark/deepseekç­‰" json:"protocol"`                                             // ä½¿ç”¨çš„åè®®ï¼Œå¦‚ark/deepseekç­‰
-	ModelIdentification string    `gorm:"column:model_identification;type:varchar(1024);not null;comment:æ¨¡åž‹å”¯ä¸€æ ‡è¯†" json:"model_identification"`                                      // æ¨¡åž‹å”¯ä¸€æ ‡è¯†
-	ModelAk             string    `gorm:"column:model_ak;type:varchar(1024);not null;comment:æ¨¡åž‹çš„AK" json:"model_ak"`                                                                     // æ¨¡åž‹çš„AK
-	ModelID             string    `gorm:"column:model_id;type:varchar(256);not null;comment:model id" json:"model_id"`                                                                         // model id
-	ModelName           string    `gorm:"column:model_name;type:varchar(1024);not null;comment:æ¨¡åž‹å±•ç¤ºåç§°" json:"model_name"`                                                          // æ¨¡åž‹å±•ç¤ºåç§°
-	InputToken          int64     `gorm:"column:input_token;type:bigint unsigned;not null;comment:è¾“å…¥tokenæ•°é‡" json:"input_token"`                                                       // è¾“å…¥tokenæ•°é‡
-	OutputToken         int64     `gorm:"column:output_token;type:bigint unsigned;not null;comment:è¾“å‡ºtokenæ•°é‡" json:"output_token"`                                                     // è¾“å‡ºtokenæ•°é‡
-	Logid               string    `gorm:"column:logid;type:varchar(128);not null;comment:logid" json:"logid"`                                                                                  // logid
-	ErrorCode           string    `gorm:"column:error_code;type:varchar(128);not null;comment:error_code" json:"error_code"`                                                                   // error_code
-	ErrorMsg            *string   `gorm:"column:error_msg;type:text;comment:error_msg" json:"error_msg"`                                                                                       // error_msg
-	CreatedAt           time.Time `gorm:"column:created_at;type:datetime;not null;index:idx_space_id_create_time,priority:2;default:CURRENT_TIMESTAMP;comment:åˆ›å»ºæ—¶é—´" json:"created_at"` // åˆ›å»ºæ—¶é—´
-	UpdatedAt           time.Time `gorm:"column:updated_at;type:datetime;not null;default:CURRENT_TIMESTAMP;comment:æ›´æ–°æ—¶é—´" json:"updated_at"`                                           // æ›´æ–°æ—¶é—´
+	ID                  int64     `json:"id"`
+	SpaceID             int64     `json:"space_id"`
+	UserID              string    `json:"user_id"`
+	UsageScene          Scenario  `json:"usage_scene"`
+	UsageSceneEntityID  string    `json:"usage_scene_entity_id"`
+	Frame               Frame     `json:"frame"`
+	Protocol            Protocol  `json:"protocol"`
+	ModelIdentification string    `json:"model_identification"`
+	ModelAk             string    `json:"model_ak"`
+	ModelID             string    `json:"model_id"`
+	ModelName           string    `json:"model_name"`
+	InputToken          int64     `json:"input_token"`
+	OutputToken         int64     `json:"output_token"`
+	Logid               string    `json:"logid"`
+	ErrorCode           string    `json:"error_code"`
+	ErrorMsg            *string   `json:"error_msg"`
+	CreatedAt           time.Time `json:"created_at"`
+	UpdatedAt           time.Time `json:"updated_at"`
 }
