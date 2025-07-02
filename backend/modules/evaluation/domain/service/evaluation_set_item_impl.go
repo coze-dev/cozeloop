@@ -43,12 +43,15 @@ func (d *EvaluationSetItemServiceImpl) BatchCreateEvaluationSetItems(ctx context
 		AllowPartialAdd:  param.AllowPartialAdd,
 	})
 }
+
 func (d *EvaluationSetItemServiceImpl) UpdateEvaluationSetItem(ctx context.Context, spaceID, evaluationSetID, itemID int64, turns []*entity.Turn) (err error) {
 	return d.datasetRPCAdapter.UpdateDatasetItem(ctx, spaceID, evaluationSetID, itemID, turns)
 }
+
 func (d *EvaluationSetItemServiceImpl) BatchDeleteEvaluationSetItems(ctx context.Context, spaceID int64, evaluationSetID int64, itemIDs []int64) (err error) {
 	return d.datasetRPCAdapter.BatchDeleteDatasetItems(ctx, spaceID, evaluationSetID, itemIDs)
 }
+
 func (d *EvaluationSetItemServiceImpl) ListEvaluationSetItems(ctx context.Context, param *entity.ListEvaluationSetItemsParam) (items []*entity.EvaluationSetItem, total *int64, nextPageToken *string, err error) {
 	if param == nil {
 		return nil, nil, nil, errorx.NewByCode(errno.CommonInternalErrorCode)

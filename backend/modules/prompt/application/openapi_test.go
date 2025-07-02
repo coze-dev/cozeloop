@@ -67,7 +67,7 @@ func TestPromptOpenAPIApplicationImpl_BatchGetPromptByPromptKey(t *testing.T) {
 				mockManageRepo := repomocks.NewMockIManageRepo(ctrl)
 				startTime := time.Now()
 				mockManageRepo.EXPECT().MGetPrompt(gomock.Any(), gomock.Any(), gomock.Any()).Return(map[repo.GetPromptParam]*entity.Prompt{
-					repo.GetPromptParam{
+					{
 						PromptID:      123,
 						WithCommit:    true,
 						CommitVersion: "1.0.0",
@@ -109,7 +109,7 @@ func TestPromptOpenAPIApplicationImpl_BatchGetPromptByPromptKey(t *testing.T) {
 							},
 						},
 					},
-					repo.GetPromptParam{
+					{
 						PromptID:      456,
 						WithCommit:    true,
 						CommitVersion: "1.0.0",
@@ -259,7 +259,7 @@ func TestPromptOpenAPIApplicationImpl_BatchGetPromptByPromptKey(t *testing.T) {
 				mockManageRepo := repomocks.NewMockIManageRepo(ctrl)
 				startTime := time.Now()
 				mockManageRepo.EXPECT().MGetPrompt(gomock.Any(), gomock.Any(), gomock.Any()).Return(map[repo.GetPromptParam]*entity.Prompt{
-					repo.GetPromptParam{
+					{
 						PromptID:      123,
 						WithCommit:    true,
 						CommitVersion: "1.0.0",
@@ -301,7 +301,7 @@ func TestPromptOpenAPIApplicationImpl_BatchGetPromptByPromptKey(t *testing.T) {
 							},
 						},
 					},
-					repo.GetPromptParam{
+					{
 						PromptID:      123,
 						WithCommit:    true,
 						CommitVersion: "2.0.0",

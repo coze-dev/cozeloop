@@ -46,7 +46,6 @@ func TestNewImportHandler(t *testing.T) {
 			job:  &entity.IOJob{},
 			ds:   &DatasetWithSchema{},
 			mockRepo: func() {
-
 			},
 			wantErr: false,
 		},
@@ -837,7 +836,7 @@ type MockFileInfo struct{}
 
 func (m *MockFileInfo) Name() string       { return "testfile" }
 func (m *MockFileInfo) Size() int64        { return 1024 }
-func (m *MockFileInfo) Mode() os.FileMode  { return 0644 }
+func (m *MockFileInfo) Mode() os.FileMode  { return 0o644 }
 func (m *MockFileInfo) ModTime() time.Time { return time.Now() }
 func (m *MockFileInfo) IsDir() bool        { return false }
 func (m *MockFileInfo) Sys() interface{}   { return nil }
@@ -903,7 +902,6 @@ func TestImportHandler_importFile(t *testing.T) {
 			},
 			fr: fr,
 			mockSetup: func() {
-
 				// 模拟批量创建items
 				mockIIDGenerator.EXPECT().GenMultiIDs(gomock.Any(), gomock.Any()).Return([]int64{1}, nil)
 				mockRepo.EXPECT().IncrItemCount(gomock.Any(), gomock.Any(), gomock.Any()).Return(int64(1), nil).MaxTimes(2)
@@ -938,7 +936,6 @@ func TestImportHandler_importFile(t *testing.T) {
 			},
 			fr: fr,
 			mockSetup: func() {
-
 				// 模拟批量创建items
 				// mockIIDGenerator.EXPECT().GenMultiIDs(gomock.Any(), gomock.Any()).Return([]int64{1}, nil)
 				mockRepo.EXPECT().IncrItemCount(gomock.Any(), gomock.Any(), gomock.Any()).Return(int64(1), nil).MaxTimes(2)
@@ -973,7 +970,6 @@ func TestImportHandler_importFile(t *testing.T) {
 				cursor: 0,
 			},
 			mockSetup: func() {
-
 				// 模拟更新任务状态
 				// mockRepo.EXPECT().UpdateIOJob(gomock.Any(), gomock.Any(), gomock.Any()).Return(nil)
 			},

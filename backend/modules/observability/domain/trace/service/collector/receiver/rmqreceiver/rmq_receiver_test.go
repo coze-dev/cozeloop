@@ -136,7 +136,6 @@ func TestRmqReceiver_HandleMessage(t *testing.T) {
 
 func validTraceData() []byte {
 	td := entity.TraceData{
-
 		Tenant: "a",
 		TenantInfo: entity.TenantInfo{
 			TTL: entity.TTL30d,

@@ -53,8 +53,8 @@ func TestConvertIoJobDOToPO(t *testing.T) {
 	var appID int32 = 123
 	var spaceID int64 = 456
 	var datasetID int64 = 789
-	var createdBy = "user_a"
-	var updatedBy = "user_b"
+	createdBy := "user_a"
+	updatedBy := "user_b"
 
 	sourceFile := &entity.DatasetIOFile{
 		Provider: domainEntity.Provider("test_provider"),

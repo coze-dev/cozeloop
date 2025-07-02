@@ -30,7 +30,7 @@ import (
 func TestRuntimeImpl_Generate(t *testing.T) {
 	var opts []entity.Option
 	opts = append(opts, entity.WithTools([]*entity.ToolInfo{
-		&entity.ToolInfo{
+		{
 			Name:        "get_weather",
 			Desc:        "Determine weather in my location",
 			ToolDefType: entity.ToolDefTypeOpenAPIV3,
@@ -38,14 +38,14 @@ func TestRuntimeImpl_Generate(t *testing.T) {
 		},
 	}))
 	multimodalInput := []*entity.Message{
-		&entity.Message{
+		{
 			Role: entity.RoleUser,
 			MultiModalContent: []*entity.ChatMessagePart{
-				&entity.ChatMessagePart{
+				{
 					Type: entity.ChatMessagePartTypeText,
 					Text: "there is text",
 				},
-				&entity.ChatMessagePart{
+				{
 					Type: entity.ChatMessagePartTypeImageURL,
 					ImageURL: &entity.ChatMessageImageURL{
 						URL:      "there is url",
@@ -294,10 +294,10 @@ func TestRuntimeImpl_HandleMsgsPreCallModel(t *testing.T) {
 					},
 				},
 				msgs: []*entity.Message{
-					&entity.Message{
+					{
 						Role: entity.RoleAssistant,
 						MultiModalContent: []*entity.ChatMessagePart{
-							&entity.ChatMessagePart{
+							{
 								Type: entity.ChatMessagePartTypeImageURL,
 								ImageURL: &entity.ChatMessageImageURL{
 									URL: "/your_url",
@@ -331,10 +331,10 @@ func TestRuntimeImpl_HandleMsgsPreCallModel(t *testing.T) {
 				ctx:   context.Background(),
 				model: nil,
 				msgs: []*entity.Message{
-					&entity.Message{
+					{
 						Role: entity.RoleAssistant,
 						MultiModalContent: []*entity.ChatMessagePart{
-							&entity.ChatMessagePart{
+							{
 								Type: entity.ChatMessagePartTypeImageURL,
 								ImageURL: &entity.ChatMessageImageURL{
 									URL: "https://your_url",
@@ -392,7 +392,7 @@ func (m *mockIStreamReader) Recv() (msg *entity.Message, err error) {
 func TestRuntimeImpl_Stream(t *testing.T) {
 	var opts []entity.Option
 	opts = append(opts, entity.WithTools([]*entity.ToolInfo{
-		&entity.ToolInfo{
+		{
 			Name:        "get_weather",
 			Desc:        "Determine weather in my location",
 			ToolDefType: entity.ToolDefTypeOpenAPIV3,
@@ -400,14 +400,14 @@ func TestRuntimeImpl_Stream(t *testing.T) {
 		},
 	}))
 	multimodalInput := []*entity.Message{
-		&entity.Message{
+		{
 			Role: entity.RoleUser,
 			MultiModalContent: []*entity.ChatMessagePart{
-				&entity.ChatMessagePart{
+				{
 					Type: entity.ChatMessagePartTypeText,
 					Text: "there is text",
 				},
-				&entity.ChatMessagePart{
+				{
 					Type: entity.ChatMessagePartTypeImageURL,
 					ImageURL: &entity.ChatMessageImageURL{
 						URL:      "there is url",

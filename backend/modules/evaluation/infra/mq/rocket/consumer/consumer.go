@@ -45,7 +45,7 @@ type ExptSchedulerEventConsumer struct {
 
 func (e *ExptSchedulerEventConsumer) ConsumerCfg(ctx context.Context) (*mq.ConsumerConfig, error) {
 	rmqCfg := &rocket.RMQConf{}
-	if err := e.IConfigLoader.UnmarshalKey(ctx, rocket.ExptScheduleEventRMQKey, rmqCfg); err != nil {
+	if err := e.UnmarshalKey(ctx, rocket.ExptScheduleEventRMQKey, rmqCfg); err != nil {
 		return nil, err
 	}
 	return gptr.Of(rmqCfg.ToConsumerCfg()), nil
@@ -73,7 +73,7 @@ type ExptRecordEvalEventConsumer struct {
 
 func (e *ExptRecordEvalEventConsumer) ConsumerCfg(ctx context.Context) (*mq.ConsumerConfig, error) {
 	rmqCfg := &rocket.RMQConf{}
-	if err := e.IConfigLoader.UnmarshalKey(ctx, rocket.ExptRecordEvalEventRMQKey, rmqCfg); err != nil {
+	if err := e.UnmarshalKey(ctx, rocket.ExptRecordEvalEventRMQKey, rmqCfg); err != nil {
 		return nil, err
 	}
 	return gptr.Of(rmqCfg.ToConsumerCfg()), nil
@@ -93,7 +93,7 @@ type ExptAggrCalculateEventConsumer struct {
 
 func (e *ExptAggrCalculateEventConsumer) ConsumerCfg(ctx context.Context) (*mq.ConsumerConfig, error) {
 	rmqCfg := &rocket.RMQConf{}
-	if err := e.IConfigLoader.UnmarshalKey(ctx, rocket.ExptAggrCalculateEventRMQKey, rmqCfg); err != nil {
+	if err := e.UnmarshalKey(ctx, rocket.ExptAggrCalculateEventRMQKey, rmqCfg); err != nil {
 		return nil, err
 	}
 	return gptr.Of(rmqCfg.ToConsumerCfg()), nil

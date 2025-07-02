@@ -36,7 +36,6 @@ type Paginator struct {
 	limit      int
 	offset     int
 	rawCursor  string
-	countTotal bool
 	err        error
 	cursor     *Cursor
 	result     *PageResult
@@ -233,7 +232,7 @@ func (p *Paginator) orderBy() string {
 		suffix = " asc"
 	}
 
-	switch {
+	switch { //nolint:staticcheck
 	case p.timeColumn == "":
 		return p.idColumn + suffix
 	default:

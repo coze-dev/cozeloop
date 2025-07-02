@@ -306,11 +306,12 @@ func TestExptRepoImpl_GetByID(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			tt.mockSetup()
 			var id int64
-			if tt.name == "success" {
+			switch tt.name {
+			case "success":
 				id = 1
-			} else if tt.name == "not_found" {
+			case "not_found":
 				id = 2
-			} else {
+			default:
 				id = 3
 			}
 			got, err := repo.GetByID(context.Background(), id, 1)
@@ -368,11 +369,12 @@ func TestExptRepoImpl_MGetByID(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			tt.mockSetup()
 			var ids []int64
-			if tt.name == "success" {
+			switch tt.name {
+			case "success":
 				ids = []int64{1, 2}
-			} else if tt.name == "fail_mget" {
+			case "fail_mget":
 				ids = []int64{3, 4}
-			} else {
+			default:
 				ids = []int64{5, 6}
 			}
 			got, err := repo.MGetByID(context.Background(), ids, 1)
@@ -470,11 +472,12 @@ func TestExptRepoImpl_GetByName(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			tt.mockSetup()
 			var name string
-			if tt.name == "success" {
+			switch tt.name {
+			case "success":
 				name = "foo"
-			} else if tt.name == "not_found" {
+			case "not_found":
 				name = "bar"
-			} else {
+			default:
 				name = "baz"
 			}
 			got, found, err := repo.GetByName(context.Background(), name, 1)

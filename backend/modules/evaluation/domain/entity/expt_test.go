@@ -83,7 +83,6 @@ func TestExptUpdateFields_ToFieldMap(t *testing.T) {
 	fields := &ExptUpdateFields{Name: "n", Desc: "d"}
 	_, err := fields.ToFieldMap()
 	assert.NoError(t, err)
-
 }
 
 func TestExptErrCtrl_ConvertErrMsg_GetErrRetryCtrl(t *testing.T) {

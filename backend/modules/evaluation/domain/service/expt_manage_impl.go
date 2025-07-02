@@ -121,6 +121,10 @@ func (e *ExptMangerImpl) MGetDetail(ctx context.Context, exptIDs []int64, spaceI
 	}
 
 	exptTuples, err := e.mGetTupleByExpt(ctx, exptDetails, spaceID, session)
+	if err != nil {
+		return nil, err
+	}
+
 	for idx := range exptTuples {
 		exptDetails[idx].EvalSet = exptTuples[idx].EvalSet
 		exptDetails[idx].Target = exptTuples[idx].Target
@@ -205,10 +209,6 @@ func (e *ExptMangerImpl) makeExptMutexLockKey(exptID int64) string {
 }
 
 func (e *ExptMangerImpl) getTupleByExpt(ctx context.Context, expt *entity.Experiment, spaceID int64, session *entity.Session, opts ...entity.GetExptTupleOptionFn) (*entity.ExptTuple, error) {
-	evaluatorVersionIDs := make([]int64, 0, len(expt.EvaluatorVersionRef))
-	for _, ref := range expt.EvaluatorVersionRef {
-		evaluatorVersionIDs = append(evaluatorVersionIDs, ref.EvaluatorVersionID)
-	}
 	return e.getExptTupleByID(ctx, e.packTupleID(ctx, expt), spaceID, session, opts...)
 }
 
@@ -345,14 +345,12 @@ func (e *ExptMangerImpl) mgetExptTupleByID(ctx context.Context, tupleIDs []*enti
 				if poolErr != nil {
 					return poolErr
 				}
-				if got != nil {
-					for _, elem := range got {
-						if elem == nil {
-							continue
-						}
-						elem.EvaluationSet.EvaluationSetVersion = elem.Version
-						evalSet = append(evalSet, elem.EvaluationSet)
+				for _, elem := range got {
+					if elem == nil {
+						continue
 					}
+					elem.EvaluationSet.EvaluationSetVersion = elem.Version
+					evalSet = append(evalSet, elem.EvaluationSet)
 				}
 				return nil
 			})
@@ -371,13 +369,11 @@ func (e *ExptMangerImpl) mgetExptTupleByID(ctx context.Context, tupleIDs []*enti
 				if poolErr != nil {
 					return poolErr
 				}
-				if got != nil {
-					for _, elem := range got {
-						if elem == nil {
-							continue
-						}
-						evalSet = append(evalSet, elem)
+				for _, elem := range got {
+					if elem == nil {
+						continue
 					}
+					evalSet = append(evalSet, elem)
 				}
 				return nil
 			})
@@ -571,7 +567,7 @@ func (e *ExptMangerImpl) Get(ctx context.Context, exptID int64, spaceID int64, s
 		return nil, err
 	}
 
-	if expts == nil || len(expts) == 0 {
+	if len(expts) == 0 {
 		return nil, errorx.NewByCode(errno.ResourceNotFoundCode, errorx.WithExtraMsg(fmt.Sprintf("experiment %d not found", exptID)))
 	}
 	got := expts[0]
@@ -602,10 +598,6 @@ func (e *ExptMangerImpl) List(ctx context.Context, page, pageSize int32, spaceID
 	}
 	tupleIDs := make([]*entity.ExptTupleID, 0, len(expts))
 	for _, exptDO := range expts {
-		evaluatorVersionIDs := make([]int64, 0, len(exptDO.EvaluatorVersionRef))
-		for _, ref := range exptDO.EvaluatorVersionRef {
-			evaluatorVersionIDs = append(evaluatorVersionIDs, ref.EvaluatorVersionID)
-		}
 		tupleIDs = append(tupleIDs, e.packTupleID(ctx, exptDO))
 	}
 	exptTuples, err := e.mgetExptTupleByID(ctx, tupleIDs, spaceID, session)

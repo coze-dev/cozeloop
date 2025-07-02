@@ -116,7 +116,6 @@ func (u UserServiceImpl) Login(ctx context.Context, email, password string) (use
 
 	user.SessionKey = sessionKey
 	return user, nil
-
 }
 
 func (u UserServiceImpl) Logout(ctx context.Context, userID int64) (err error) {
@@ -124,7 +123,6 @@ func (u UserServiceImpl) Logout(ctx context.Context, userID int64) (err error) {
 }
 
 func (u UserServiceImpl) ResetPassword(ctx context.Context, email, password string) (err error) {
-
 	if email == "" || password == "" {
 		return errorx.NewByCode(errno.CommonInvalidParamCode, errorx.WithExtraMsg("email or password is empty"))
 	}
@@ -144,7 +142,6 @@ func (u UserServiceImpl) ResetPassword(ctx context.Context, email, password stri
 }
 
 func (u UserServiceImpl) UpdateProfile(ctx context.Context, req *UpdateProfileRequest) (user *entity.User, err error) {
-
 	if req.UserID <= 0 {
 		return nil, errorx.NewByCode(errno.CommonInvalidParamCode, errorx.WithExtraMsg("invalid user id"))
 	}
@@ -205,6 +202,5 @@ func (u UserServiceImpl) CreateSession(ctx context.Context, userID int64) (sessi
 }
 
 func (u UserServiceImpl) GetUserSpaceList(ctx context.Context, req *ListUserSpaceRequest) (spaces []*entity.Space, total int32, err error) {
-
 	return u.userRepo.ListUserSpace(ctx, req.UserID, req.PageSize, req.PageNumber)
 }

@@ -48,7 +48,7 @@ func Test_backoff(t *testing.T) {
 		start := time.Now()
 		assert.NotNil(t, RetryWithElapsedTime(cc, time.Second, fn))
 		assert.Equal(t, 1, cnt)
-		assert.True(t, time.Now().Sub(start) < time.Second)
+		assert.True(t, time.Since(start) < time.Second)
 	})
 }
 

@@ -350,7 +350,7 @@ func (e *ExptSchedulerImpl) handleZombies(ctx context.Context, event *entity.Exp
 
 	for _, item := range items {
 		if item.State == entity.ItemRunState_Processing && item.UpdatedAt != nil && !gptr.Indirect(item.UpdatedAt).IsZero() {
-			if time.Now().Sub(gptr.Indirect(item.UpdatedAt)).Seconds() > float64(zombieSecond) {
+			if time.Since(gptr.Indirect(item.UpdatedAt)).Seconds() > float64(zombieSecond) {
 				zombies = append(zombies, item)
 				continue
 			}

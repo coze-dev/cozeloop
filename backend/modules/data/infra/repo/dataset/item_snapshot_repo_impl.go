@@ -23,6 +23,7 @@ func (d *DatasetRepo) BatchUpsertItemSnapshots(ctx context.Context, snapshots []
 	}
 	return d.itemSnapshotDAO.BatchUpsertItemSnapshots(ctx, pos, Opt2DBOpt(opt...)...)
 }
+
 func (d *DatasetRepo) ListItemSnapshots(ctx context.Context, params *repo.ListItemSnapshotsParams, opt ...repo.Option) ([]*entity.ItemSnapshot, *pagination.PageResult, error) {
 	daoParam := &mysql.ListItemSnapshotsParams{
 		Paginator: params.Paginator,
@@ -39,6 +40,7 @@ func (d *DatasetRepo) ListItemSnapshots(ctx context.Context, params *repo.ListIt
 	}
 	return dos, p, nil
 }
+
 func (d *DatasetRepo) CountItemSnapshots(ctx context.Context, params *repo.ListItemSnapshotsParams, opt ...repo.Option) (int64, error) {
 	daoParam := &mysql.ListItemSnapshotsParams{
 		Paginator: params.Paginator,

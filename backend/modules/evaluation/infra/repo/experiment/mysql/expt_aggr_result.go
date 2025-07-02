@@ -137,7 +137,6 @@ func (dao *ExptAggrResultDAOImpl) UpdateAndGetLatestVersion(ctx context.Context,
 			"version": gorm.Expr("version + ?", 1),
 			"status":  calculateStatusCalculating,
 		}).Error
-
 	if err != nil {
 		return 0, err
 	}

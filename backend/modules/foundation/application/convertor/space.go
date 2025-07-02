@@ -27,7 +27,6 @@ func SpaceDO2DTO(spaceDO *entity.Space) *space.Space {
 }
 
 func SpaceDTO2DO(spaceDTO *space.Space) *entity.Space {
-
 	userID, err := strconv.ParseInt(spaceDTO.OwnerUserID, 10, 64)
 	if err != nil {
 		return nil

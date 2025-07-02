@@ -284,7 +284,6 @@ func (dao *exptItemResultDAOImpl) GetMaxItemIdxByExptID(ctx context.Context, exp
 		Select(q.ItemIdx.Max().As("max_item_idx")). // 明确指定别名
 		Where(q.SpaceID.Eq(spaceID), q.ExptID.Eq(exptID)).
 		Scan(&result) // 使用 Scan 代替 Row().Scan()
-
 	if err != nil {
 		return 0, errorx.Wrapf(err, "GetMaxItemIdxByExptID fail, expt_id: %v", exptID)
 	}

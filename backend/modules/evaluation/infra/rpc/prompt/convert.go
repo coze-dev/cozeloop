@@ -22,6 +22,7 @@ func ConvertToLoopPrompts(ps []*prompt.Prompt) []*rpc.LoopPrompt {
 	}
 	return res
 }
+
 func ConvertToLoopPrompt(p *prompt.Prompt) *rpc.LoopPrompt {
 	if p == nil {
 		return nil

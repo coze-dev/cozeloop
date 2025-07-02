@@ -33,6 +33,7 @@ func convert2DatasetOrderBy(ctx context.Context, orderBy *entity.OrderBy) (datas
 		IsAsc: orderBy.IsAsc,
 	}
 }
+
 func convert2DatasetMultiModalSpec(ctx context.Context, multiModalSpec *entity.MultiModalSpec) (datasetMultiModalSpec *dataset.MultiModalSpec) {
 	if multiModalSpec == nil {
 		return nil
@@ -43,6 +44,7 @@ func convert2DatasetMultiModalSpec(ctx context.Context, multiModalSpec *entity.M
 		SupportedFormats: multiModalSpec.SupportedFormats,
 	}
 }
+
 func convert2DatasetFieldSchemas(ctx context.Context, schemas []*entity.FieldSchema) (fieldSchemas []*dataset.FieldSchema, err error) {
 	if len(schemas) == 0 {
 		return nil, nil
@@ -85,7 +87,7 @@ func convert2DatasetFieldSchema(ctx context.Context, schema *entity.FieldSchema)
 }
 
 func convert2DatasetData(ctx context.Context, turns []*entity.Turn) (data []*dataset.FieldData, err error) {
-	if turns == nil || len(turns) == 0 {
+	if len(turns) == 0 {
 		return nil, nil
 	}
 	// 单轮只取第一个元素

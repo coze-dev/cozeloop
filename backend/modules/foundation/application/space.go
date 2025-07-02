@@ -28,7 +28,6 @@ func NewSpaceApplication(userRepo repo.IUserRepo) (space.SpaceService, error) {
 }
 
 func (s SpaceApplicationImpl) GetSpace(ctx context.Context, request *space.GetSpaceRequest) (r *space.GetSpaceResponse, err error) {
-
 	r = space.NewGetSpaceResponse()
 
 	if request.GetSpaceID() <= 0 {
@@ -44,7 +43,6 @@ func (s SpaceApplicationImpl) GetSpace(ctx context.Context, request *space.GetSp
 }
 
 func (s SpaceApplicationImpl) ListUserSpaces(ctx context.Context, request *space.ListUserSpaceRequest) (r *space.ListUserSpaceResponse, err error) {
-
 	userIDInCtx := session.UserIDInCtxOrEmpty(ctx)
 	if userIDInCtx == "" {
 		// 无session时，从请求参数中获取userID
@@ -66,5 +64,4 @@ func (s SpaceApplicationImpl) ListUserSpaces(ctx context.Context, request *space
 		Total:  ptr.Of(total),
 	}
 	return r, nil
-
 }

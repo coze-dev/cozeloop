@@ -12,7 +12,6 @@ import (
 
 // register registers all routers.
 func register(r *server.Hertz, handler *apis.APIHandler) {
-
 	router.GeneratedRegister(r, handler)
 
 	customizedRegister(r)

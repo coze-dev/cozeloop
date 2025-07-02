@@ -47,7 +47,7 @@ func TestDeepCopy(t *testing.T) {
 		},
 	}
 
-	var cp_a = A{}
+	cp_a := A{}
 	_ = DeepCopy(&a, &cp_a)
 	fmt.Printf("a is:\n%s\na copy is:\n%s\n", Jsonfy(a), Jsonfy(cp_a))
 

@@ -22,7 +22,7 @@ import (
 // SanitizeInputItem 根据 schema 等修剪、填补 item 数据内容，使之与类型相匹配。用于处理用户传入的数据。
 func SanitizeInputItem(ds *DatasetWithSchema, items ...*entity.Item) {
 	var (
-		repeatedData = ds.Dataset.Features.RepeatedData
+		repeatedData = ds.Features.RepeatedData
 		fields       = gslice.ToMap(ds.Schema.Fields, func(f *entity.FieldSchema) (string, *entity.FieldSchema) { return f.Key, f })
 		nameToKey    = gslice.ToMap(ds.Schema.AvailableFields(), func(f *entity.FieldSchema) (string, string) { return f.Name, f.Key })
 	)
@@ -130,7 +130,7 @@ func ValidateItems(ds *DatasetWithSchema, items []*entity.Item) (good []*Indexed
 func ValidateIndexedItems(ds *DatasetWithSchema, items []*IndexedItem) (good []*IndexedItem, bad []*entity.ItemErrorGroup) {
 	var (
 		schemaByKey = gslice.ToMap(ds.Schema.AvailableFields(), func(f *entity.FieldSchema) (string, *entity.FieldSchema) { return f.Key, f })
-		maxItemSize = ds.Dataset.Spec.MaxItemSize
+		maxItemSize = ds.Spec.MaxItemSize
 		errMap      = make(map[entity.ItemErrorType]*entity.ItemErrorGroup)
 		keep        = 0
 	)

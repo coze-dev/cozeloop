@@ -109,5 +109,6 @@ func EvalTargetRecordPO2DO(m *model.TargetRecord) (*entity.EvalTargetRecord, err
 		BaseInfo: &entity.BaseInfo{
 			CreatedAt: gptr.Of(m.CreatedAt.UnixMilli()),
 			UpdatedAt: gptr.Of(m.UpdatedAt.UnixMilli()),
-		}}, nil
+		},
+	}, nil
 }

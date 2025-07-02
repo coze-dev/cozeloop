@@ -130,7 +130,6 @@ func buildSrvListEvaluatorRequest(request *evaluatorservice.ListEvaluatorsReques
 
 // BatchGetEvaluator 按 id 批量查询 evaluator草稿
 func (e *EvaluatorHandlerImpl) BatchGetEvaluators(ctx context.Context, request *evaluatorservice.BatchGetEvaluatorsRequest) (resp *evaluatorservice.BatchGetEvaluatorsResponse, err error) {
-
 	// 获取元信息和草稿
 	drafts, err := e.evaluatorService.BatchGetEvaluator(ctx, request.GetWorkspaceID(), request.GetEvaluatorIds(), request.GetIncludeDeleted())
 	if err != nil {

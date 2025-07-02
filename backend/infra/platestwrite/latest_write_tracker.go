@@ -78,7 +78,6 @@ func (t *LatestWriteTracker) setWriteFlag(ctx context.Context, resource *resourc
 		// 写入失败不影响主流程
 		logs.CtxWarn(ctx, "set latest write flag failed, key=%s", key)
 	}
-	return
 }
 
 // CheckWriteFlagByID 如果 writeFlag 存在，则说明当前资源最近有写入记录，需要读主

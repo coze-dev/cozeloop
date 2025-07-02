@@ -50,7 +50,8 @@ func (i *IngestionCollectorFactoryImpl) GetCollectorFactory() (collector.Factori
 func NewIngestionCollectorFactory(
 	receiverFactories []receiver.Factory,
 	processorFactories []processor.Factory,
-	exporterFactories []exporter.Factory) IngestionCollectorFactory {
+	exporterFactories []exporter.Factory,
+) IngestionCollectorFactory {
 	return &IngestionCollectorFactoryImpl{
 		receiverFactories:  receiverFactories,
 		processorFactories: processorFactories,
@@ -78,7 +79,8 @@ func (i *IngestionServiceImpl) RunAsync(ctx context.Context) {
 
 func NewIngestionServiceImpl(
 	traceConfig conf.IConfigLoader,
-	collectorFactory IngestionCollectorFactory) (IngestionService, error) {
+	collectorFactory IngestionCollectorFactory,
+) (IngestionService, error) {
 	c, err := collector.New(collector.Settings{
 		Factories:      collectorFactory.GetCollectorFactory,
 		ConfigProvider: collector.NewConfigProvider(traceConfig),

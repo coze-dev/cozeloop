@@ -213,95 +213,95 @@ type ReportRootSpanRequest struct {
 }
 
 func (e *evaluatorSpan) reportRootSpan(ctx context.Context, reportRootSpanRequest *ReportRootSpanRequest) {
-	e.Span.SetInput(ctx, tracer.Convert2TraceString(reportRootSpanRequest.input))
+	e.SetInput(ctx, tracer.Convert2TraceString(reportRootSpanRequest.input))
 	if reportRootSpanRequest.output != nil {
-		e.Span.SetOutput(ctx, tracer.Convert2TraceString(reportRootSpanRequest.output.EvaluatorResult))
+		e.SetOutput(ctx, tracer.Convert2TraceString(reportRootSpanRequest.output.EvaluatorResult))
 	}
 	switch reportRootSpanRequest.runStatus {
 	case entity.EvaluatorRunStatusSuccess:
-		e.Span.SetStatusCode(ctx, 0)
+		e.SetStatusCode(ctx, 0)
 	case entity.EvaluatorRunStatusFail:
-		e.Span.SetStatusCode(ctx, int(entity.EvaluatorRunStatusFail))
-		e.Span.SetError(ctx, reportRootSpanRequest.errInfo)
+		e.SetStatusCode(ctx, int(entity.EvaluatorRunStatusFail))
+		e.SetError(ctx, reportRootSpanRequest.errInfo)
 	default:
-		e.Span.SetStatusCode(ctx, 0) // 默认为成功
+		e.SetStatusCode(ctx, 0) // 默认为成功
 	}
 	tags := make(map[string]interface{}, 0)
 	tags["evaluator_id"] = reportRootSpanRequest.evaluatorVersion.EvaluatorID
 	tags["evaluator_version"] = reportRootSpanRequest.evaluatorVersion.Version
-	e.Span.SetCallType("Evaluator")
+	e.SetCallType("Evaluator")
 	userIDInContext := session.UserIDInCtxOrEmpty(ctx)
 	if userIDInContext != "" {
 		e.SetUserID(ctx, userIDInContext)
 	}
-	e.Span.SetTags(ctx, tags)
-	e.Span.Finish(ctx)
+	e.SetTags(ctx, tags)
+	e.Finish(ctx)
 }
 
 func (e *evaluatorSpan) reportModelSpan(ctx context.Context, evaluatorVersion *entity.PromptEvaluatorVersion, replyItem *entity.ReplyItem, respErr error) {
 	if respErr != nil {
-		e.Span.SetStatusCode(ctx, errno.InvalidOutputFromModelCode)
-		e.Span.SetError(ctx, respErr)
+		e.SetStatusCode(ctx, errno.InvalidOutputFromModelCode)
+		e.SetError(ctx, respErr)
 	}
 	if evaluatorVersion.ParseType == entity.ParseTypeFunctionCall {
 		if replyItem != nil && len(replyItem.ToolCalls) > 0 {
-			e.Span.SetOutput(ctx, tracer.Convert2TraceString(&toolCallSpanContent{
+			e.SetOutput(ctx, tracer.Convert2TraceString(&toolCallSpanContent{
 				ToolCall: replyItem.ToolCalls[0],
 			}))
 			if replyItem.TokenUsage != nil {
-				e.Span.SetInputTokens(ctx, int(replyItem.TokenUsage.InputTokens))
-				e.Span.SetOutputTokens(ctx, int(replyItem.TokenUsage.OutputTokens))
+				e.SetInputTokens(ctx, int(replyItem.TokenUsage.InputTokens))
+				e.SetOutputTokens(ctx, int(replyItem.TokenUsage.OutputTokens))
 			}
 		} else {
-			e.Span.SetStatusCode(ctx, errno.InvalidOutputFromModelCode)
-			e.Span.SetError(ctx, errorx.New("LLM response empty"))
+			e.SetStatusCode(ctx, errno.InvalidOutputFromModelCode)
+			e.SetError(ctx, errorx.New("LLM response empty"))
 		}
 	} else {
 		if replyItem != nil {
-			e.Span.SetOutput(ctx, replyItem.Content)
+			e.SetOutput(ctx, replyItem.Content)
 			if replyItem.TokenUsage != nil {
-				e.Span.SetInputTokens(ctx, int(replyItem.TokenUsage.InputTokens))
-				e.Span.SetOutputTokens(ctx, int(replyItem.TokenUsage.OutputTokens))
+				e.SetInputTokens(ctx, int(replyItem.TokenUsage.InputTokens))
+				e.SetOutputTokens(ctx, int(replyItem.TokenUsage.OutputTokens))
 			}
 		} else {
-			e.Span.SetStatusCode(ctx, errno.InvalidOutputFromModelCode)
-			e.Span.SetError(ctx, errorx.New("LLM response empty"))
+			e.SetStatusCode(ctx, errno.InvalidOutputFromModelCode)
+			e.SetError(ctx, errorx.New("LLM response empty"))
 		}
 	}
-	e.Span.SetCallType("Evaluator")
+	e.SetCallType("Evaluator")
 	userIDInContext := session.UserIDInCtxOrEmpty(ctx)
 	if userIDInContext != "" {
 		e.SetUserID(ctx, userIDInContext)
 	}
 	tags := tracer.ConvertModel2Ob(evaluatorVersion.MessageList, evaluatorVersion.Tools)
 	tags["model_config"] = tracer.Convert2TraceString(evaluatorVersion.ModelConfig)
-	e.Span.SetTags(ctx, tags)
-	e.Span.Finish(ctx)
+	e.SetTags(ctx, tags)
+	e.Finish(ctx)
 }
 
 func (e *evaluatorSpan) reportOutputParserSpan(ctx context.Context, replyItem *entity.ReplyItem, output *entity.EvaluatorOutputData, spaceID string, errInfo error) {
 	if replyItem != nil && len(replyItem.ToolCalls) > 0 {
-		e.Span.SetInput(ctx, tracer.Convert2TraceString(&toolCallSpanContent{
+		e.SetInput(ctx, tracer.Convert2TraceString(&toolCallSpanContent{
 			ToolCall: replyItem.ToolCalls[0],
 		}))
 	}
 	if output != nil {
-		e.Span.SetOutput(ctx, tracer.Convert2TraceString(output.EvaluatorResult))
+		e.SetOutput(ctx, tracer.Convert2TraceString(output.EvaluatorResult))
 	}
 	if errInfo != nil {
-		e.Span.SetStatusCode(ctx, int(entity.EvaluatorRunStatusFail))
-		e.Span.SetError(ctx, errInfo)
+		e.SetStatusCode(ctx, int(entity.EvaluatorRunStatusFail))
+		e.SetError(ctx, errInfo)
 	} else {
-		e.Span.SetStatusCode(ctx, 0)
+		e.SetStatusCode(ctx, 0)
 	}
 	tags := make(map[string]interface{})
-	e.Span.SetCallType("Evaluator")
+	e.SetCallType("Evaluator")
 	userIDInContext := session.UserIDInCtxOrEmpty(ctx)
 	if userIDInContext != "" {
 		e.SetUserID(ctx, userIDInContext)
 	}
-	e.Span.SetTags(ctx, tags)
-	e.Span.Finish(ctx)
+	e.SetTags(ctx, tags)
+	e.Finish(ctx)
 }
 
 func parseOutput(ctx context.Context, evaluatorVersion *entity.PromptEvaluatorVersion, replyItem *entity.ReplyItem) (output *entity.EvaluatorOutputData, err error) {
@@ -373,7 +373,7 @@ func parseOutput(ctx context.Context, evaluatorVersion *entity.PromptEvaluatorVe
 func renderTemplate(ctx context.Context, evaluatorVersion *entity.PromptEvaluatorVersion, input *entity.EvaluatorInputData) error {
 	// 实现渲染模板的逻辑
 	renderTemplateSpan, ctx := newEvaluatorSpan(ctx, "RenderTemplate", "prompt", strconv.FormatInt(evaluatorVersion.SpaceID, 10), true)
-	renderTemplateSpan.Span.SetInput(ctx, tracer.Convert2TraceString(tracer.ConvertPrompt2Ob(evaluatorVersion.MessageList,
+	renderTemplateSpan.SetInput(ctx, tracer.Convert2TraceString(tracer.ConvertPrompt2Ob(evaluatorVersion.MessageList,
 		gmap.Map(input.InputFields, func(key string, value *entity.Content) (string, any) {
 			if value == nil {
 				return key, nil
@@ -397,15 +397,15 @@ func renderTemplate(ctx context.Context, evaluatorVersion *entity.PromptEvaluato
 		evaluatorVersion.MessageList[0].Content.Text = gptr.Of(gptr.Indirect(evaluatorVersion.MessageList[0].Content.Text) + evaluatorVersion.PromptSuffix)
 	}
 
-	renderTemplateSpan.Span.SetOutput(ctx, tracer.Convert2TraceString(tracer.ConvertPrompt2Ob(evaluatorVersion.MessageList, nil)))
+	renderTemplateSpan.SetOutput(ctx, tracer.Convert2TraceString(tracer.ConvertPrompt2Ob(evaluatorVersion.MessageList, nil)))
 	tags := make(map[string]interface{})
-	renderTemplateSpan.Span.SetTags(ctx, tags)
-	renderTemplateSpan.Span.SetCallType("Evaluator")
+	renderTemplateSpan.SetTags(ctx, tags)
+	renderTemplateSpan.SetCallType("Evaluator")
 	userIDInContext := session.UserIDInCtxOrEmpty(ctx)
 	if userIDInContext != "" {
 		renderTemplateSpan.SetUserID(ctx, userIDInContext)
 	}
-	renderTemplateSpan.Span.Finish(ctx)
+	renderTemplateSpan.Finish(ctx)
 	return nil
 }
 

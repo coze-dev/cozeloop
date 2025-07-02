@@ -19,27 +19,16 @@ func CtxWriteDB(ctx context.Context) bool {
 	return ctx.Value(ctxWriteDBKey{}) != nil
 }
 
+type userIDKeyType struct{}
+
 func WithUserID(ctx context.Context, userID string) context.Context {
-	return context.WithValue(ctx, "user_id", userID)
+	return context.WithValue(ctx, userIDKeyType{}, userID)
 }
 
 func GetUserID(ctx context.Context) string {
-	userID, ok := ctx.Value("user_id").(string)
+	userID, ok := ctx.Value(userIDKeyType{}).(string)
 	if !ok {
 		return ""
 	}
 	return userID
 }
-
-//const (
-//	ctxCacheKeyWriteDB = "ctx_cache_write_db"
-//)
-//
-//func WithCtxCacheWriteDB(ctx context.Context) {
-//	ctxcache.Store(ctx, ctxCacheKeyWriteDB, ctxWriteDBVal{})
-//}
-//
-//func CtxCacheWriteDB(ctx context.Context) bool {
-//	_, ok := ctxcache.Pop(ctx, ctxCacheKeyWriteDB)
-//	return ok
-//}

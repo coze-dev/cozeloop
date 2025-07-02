@@ -27,5 +27,4 @@ func BatchAdvanceInfoDO2DTO(infos []*loop_span.TraceAdvanceInfo) []*trace.TraceA
 }
 
 func FileMetaDO2DTO() {
-
 }

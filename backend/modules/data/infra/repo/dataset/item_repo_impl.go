@@ -41,6 +41,7 @@ func (d *DatasetRepo) MSetItemData(ctx context.Context, items []*entity.Item, pr
 	}
 	return dao.MSetItemData(ctx, items)
 }
+
 func (d *DatasetRepo) MGetItemData(ctx context.Context, items []*entity.Item, provider common_entity.Provider) error {
 	dao, ok := d.itemProviderDAO[provider]
 	if !ok {
@@ -93,9 +94,11 @@ func (d *DatasetRepo) UpdateItem(ctx context.Context, item *entity.Item, opt ...
 	}
 	return nil
 }
+
 func (d *DatasetRepo) DeleteItems(ctx context.Context, spaceID int64, ids []int64, opt ...repo.Option) error {
 	return d.itemDAO.DeleteItems(ctx, spaceID, ids, Opt2DBOpt(opt...)...)
 }
+
 func (d *DatasetRepo) ArchiveItems(ctx context.Context, spaceID, delVN int64, ids []int64, opt ...repo.Option) error {
 	return d.itemDAO.ArchiveItems(ctx, spaceID, delVN, ids, Opt2DBOpt(opt...)...)
 }

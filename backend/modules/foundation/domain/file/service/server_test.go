@@ -31,7 +31,9 @@ func createFileHeader(filePath string) (*multipart.FileHeader, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer file.Close()
+	defer func() {
+		_ = file.Close()
+	}()
 
 	body := &bytes.Buffer{}
 	writer := multipart.NewWriter(body)
@@ -177,7 +179,6 @@ func TestFileServiceImpl_UploadLoopFile(t *testing.T) {
 			if tt.wantErr == nil {
 				assert.Equal(t, tt.want, got)
 			}
-
 		})
 	}
 }
@@ -322,7 +323,6 @@ func TestFileServiceImpl_SignUploadFile(t *testing.T) {
 				assert.Equal(t, tt.wantUris, uris)
 				assert.Equal(t, tt.wantHeads, headers)
 			}
-
 		})
 	}
 }
@@ -430,7 +430,6 @@ func TestFileServiceImpl_SignDownloadFile(t *testing.T) {
 			if tt.wantErr == nil {
 				assert.Equal(t, tt.wantUris, uris)
 			}
-
 		})
 	}
 }

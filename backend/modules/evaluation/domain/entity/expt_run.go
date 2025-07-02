@@ -6,7 +6,6 @@ package entity
 import (
 	"context"
 	"strings"
-	"sync/atomic"
 	"time"
 
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
@@ -57,7 +56,6 @@ const (
 	// Terminated
 	TurnRunState_Terminal TurnRunState = 4
 )
-const ()
 
 func IsExptFinished(status ExptStatus) bool {
 	return status == ExptStatus_Success || status == ExptStatus_Failed || status == ExptStatus_Terminated || status == ExptStatus_SystemTerminated
@@ -90,8 +88,6 @@ const (
 	defaultSpaceExptConcurLimit = 200
 	defaultItemZombieSecond     = 60 * 20
 )
-
-var exptConsumerConf atomic.Value
 
 type ExptConsumerConf struct {
 	ExptExecWorkerNum     int `json:"expt_exec_worker_num" mapstructure:"expt_exec_worker_num"`

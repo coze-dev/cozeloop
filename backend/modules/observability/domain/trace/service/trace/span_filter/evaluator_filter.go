@@ -11,8 +11,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 )
 
-type EvaluatorFilter struct {
-}
+type EvaluatorFilter struct{}
 
 func (e *EvaluatorFilter) BuildBasicSpanFilter(ctx context.Context, env *SpanEnv) ([]*loop_span.FilterField, error) {
 	return []*loop_span.FilterField{
@@ -57,8 +56,7 @@ func (e *EvaluatorFilter) BuildALLSpanFilter(ctx context.Context, _ *SpanEnv) ([
 	return nil, nil
 }
 
-type EvaluatorFilterFactory struct {
-}
+type EvaluatorFilterFactory struct{}
 
 func (c *EvaluatorFilterFactory) PlatformType() loop_span.PlatformType {
 	return loop_span.PlatformEvaluator

@@ -30,7 +30,6 @@ func NewDatasetJobPublisher(iconfiger config.IConfig, mqFactory mq.IFactory) (im
 		ProduceTimeout: conf.ProduceTimeout,
 		ProducerGroup:  &conf.ProducerGroup,
 	})
-
 	if err != nil {
 		logs.Error("new mq producer fail, cfg: %v", conf)
 		return nil, err

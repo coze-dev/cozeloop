@@ -19,7 +19,6 @@ import (
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/view"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/trace"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config"
-	cfgmock "github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config/mocks"
 	confmock "github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/rpc"
 	rpcmock "github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/rpc/mocks"
@@ -376,7 +375,7 @@ func TestTraceApplication_ListSpans(t *testing.T) {
 			fieldsGetter: func(ctrl *gomock.Controller) fields {
 				mockSvc := svcmock.NewMockITraceService(ctrl)
 				mockAuth := rpcmock.NewMockIAuthProvider(ctrl)
-				mockCfg := cfgmock.NewMockITraceConfig(ctrl)
+				mockCfg := confmock.NewMockITraceConfig(ctrl)
 				mockAuth.EXPECT().CheckWorkspacePermission(gomock.Any(), gomock.Any(), gomock.Any()).Return(nil)
 				mockSvc.EXPECT().ListSpans(gomock.Any(), gomock.Any()).Return(&service.ListSpansResp{}, nil)
 				mockCfg.EXPECT().GetTraceDataMaxDurationDay(gomock.Any(), gomock.Any()).Return(int64(100))
@@ -404,7 +403,7 @@ func TestTraceApplication_ListSpans(t *testing.T) {
 			fieldsGetter: func(ctrl *gomock.Controller) fields {
 				mockSvc := svcmock.NewMockITraceService(ctrl)
 				mockAuth := rpcmock.NewMockIAuthProvider(ctrl)
-				mockCfg := cfgmock.NewMockITraceConfig(ctrl)
+				mockCfg := confmock.NewMockITraceConfig(ctrl)
 				mockAuth.EXPECT().CheckWorkspacePermission(gomock.Any(), gomock.Any(), gomock.Any()).Return(nil)
 				mockSvc.EXPECT().ListSpans(gomock.Any(), gomock.Any()).Return(nil, assert.AnError)
 				mockCfg.EXPECT().GetTraceDataMaxDurationDay(gomock.Any(), gomock.Any()).Return(int64(100))
@@ -429,7 +428,7 @@ func TestTraceApplication_ListSpans(t *testing.T) {
 			name: "permission check error case",
 			fieldsGetter: func(ctrl *gomock.Controller) fields {
 				mockAuth := rpcmock.NewMockIAuthProvider(ctrl)
-				mockCfg := cfgmock.NewMockITraceConfig(ctrl)
+				mockCfg := confmock.NewMockITraceConfig(ctrl)
 				mockAuth.EXPECT().CheckWorkspacePermission(gomock.Any(), gomock.Any(), gomock.Any()).Return(fmt.Errorf("bad"))
 				mockCfg.EXPECT().GetTraceDataMaxDurationDay(gomock.Any(), gomock.Any()).Return(int64(100))
 				return fields{
@@ -504,7 +503,7 @@ func TestTraceApplication_GetTrace(t *testing.T) {
 			fieldsGetter: func(ctrl *gomock.Controller) fields {
 				mockSvc := svcmock.NewMockITraceService(ctrl)
 				mockAuth := rpcmock.NewMockIAuthProvider(ctrl)
-				mockCfg := cfgmock.NewMockITraceConfig(ctrl)
+				mockCfg := confmock.NewMockITraceConfig(ctrl)
 				mockAuth.EXPECT().CheckWorkspacePermission(gomock.Any(), gomock.Any(), gomock.Any()).Return(nil)
 				mockSvc.EXPECT().GetTrace(gomock.Any(), gomock.Any()).Return(&service.GetTraceResp{}, nil)
 				mockCfg.EXPECT().GetTraceDataMaxDurationDay(gomock.Any(), gomock.Any()).Return(int64(100))
@@ -536,7 +535,7 @@ func TestTraceApplication_GetTrace(t *testing.T) {
 			fieldsGetter: func(ctrl *gomock.Controller) fields {
 				mockSvc := svcmock.NewMockITraceService(ctrl)
 				mockAuth := rpcmock.NewMockIAuthProvider(ctrl)
-				mockCfg := cfgmock.NewMockITraceConfig(ctrl)
+				mockCfg := confmock.NewMockITraceConfig(ctrl)
 				mockAuth.EXPECT().CheckWorkspacePermission(gomock.Any(), gomock.Any(), gomock.Any()).Return(nil)
 				mockSvc.EXPECT().GetTrace(gomock.Any(), gomock.Any()).Return(nil, assert.AnError)
 				mockCfg.EXPECT().GetTraceDataMaxDurationDay(gomock.Any(), gomock.Any()).Return(int64(100))
@@ -562,7 +561,7 @@ func TestTraceApplication_GetTrace(t *testing.T) {
 			name: "permission check error case",
 			fieldsGetter: func(ctrl *gomock.Controller) fields {
 				mockAuth := rpcmock.NewMockIAuthProvider(ctrl)
-				mockCfg := cfgmock.NewMockITraceConfig(ctrl)
+				mockCfg := confmock.NewMockITraceConfig(ctrl)
 				mockAuth.EXPECT().CheckWorkspacePermission(gomock.Any(), gomock.Any(), gomock.Any()).Return(fmt.Errorf("bad"))
 				mockCfg.EXPECT().GetTraceDataMaxDurationDay(gomock.Any(), gomock.Any()).Return(int64(100))
 				return fields{
@@ -774,7 +773,7 @@ func TestTraceApplication_BatchGetTracesAdvanceInfo(t *testing.T) {
 			fieldsGetter: func(ctrl *gomock.Controller) fields {
 				mockSvc := svcmock.NewMockITraceService(ctrl)
 				mockAuth := rpcmock.NewMockIAuthProvider(ctrl)
-				mockCfg := cfgmock.NewMockITraceConfig(ctrl)
+				mockCfg := confmock.NewMockITraceConfig(ctrl)
 				mockCfg.EXPECT().GetTraceDataMaxDurationDay(gomock.Any(), gomock.Any()).Return(int64(100))
 				mockSvc.EXPECT().GetTracesAdvanceInfo(gomock.Any(), gomock.Any()).Return(&service.GetTracesAdvanceInfoResp{}, nil)
 				mockAuth.EXPECT().CheckWorkspacePermission(gomock.Any(), gomock.Any(), gomock.Any()).Return(nil)
@@ -807,7 +806,7 @@ func TestTraceApplication_BatchGetTracesAdvanceInfo(t *testing.T) {
 			fieldsGetter: func(ctrl *gomock.Controller) fields {
 				mockSvc := svcmock.NewMockITraceService(ctrl)
 				mockAuth := rpcmock.NewMockIAuthProvider(ctrl)
-				mockCfg := cfgmock.NewMockITraceConfig(ctrl)
+				mockCfg := confmock.NewMockITraceConfig(ctrl)
 				mockCfg.EXPECT().GetTraceDataMaxDurationDay(gomock.Any(), gomock.Any()).Return(int64(100))
 				mockSvc.EXPECT().GetTracesAdvanceInfo(gomock.Any(), gomock.Any()).Return(nil, fmt.Errorf("bad"))
 				mockAuth.EXPECT().CheckWorkspacePermission(gomock.Any(), gomock.Any(), gomock.Any()).Return(nil)

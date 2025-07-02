@@ -38,7 +38,6 @@ func NewUserRepo(
 	spaceDao mysql.ISpaceDAO,
 	spaceMemberDao mysql.ISpaceUserDAO,
 ) repo.IUserRepo {
-
 	return &UserRepoImpl{
 		db:             db,
 		idgen:          idgen,
@@ -49,7 +48,6 @@ func NewUserRepo(
 }
 
 func (u UserRepoImpl) CreateUser(ctx context.Context, user *entity.User) (userID int64, err error) {
-
 	if user == nil || user.Email == "" || user.HashPassword == "" {
 		return 0, errorx.New("UserRepoImpl.CreateUser invalid param")
 	}
@@ -69,7 +67,6 @@ func (u UserRepoImpl) CreateUser(ctx context.Context, user *entity.User) (userID
 	}
 
 	err = u.db.Transaction(ctx, func(tx *gorm.DB) error {
-
 		opt := db.WithTransaction(tx)
 		// 创建用户
 		userPO := convertor.UserDO2PO(user)
@@ -114,13 +111,11 @@ func (u UserRepoImpl) CreateUser(ctx context.Context, user *entity.User) (userID
 		}
 		return nil
 	})
-
 	if err != nil {
 		return 0, err
 	}
 
 	return userID, nil
-
 }
 
 func (u UserRepoImpl) GetUserByID(ctx context.Context, userID int64) (*entity.User, error) {
@@ -186,7 +181,6 @@ func (u UserRepoImpl) UpdateSessionKey(ctx context.Context, userID int64, sessio
 }
 
 func (u UserRepoImpl) ClearSessionKey(ctx context.Context, userID int64) error {
-
 	q := query.Use(u.db.NewSession(ctx))
 	err := u.userDao.Update(ctx, userID, map[string]interface{}{
 		q.User.SessionKey.ColumnName().String(): "",
@@ -198,7 +192,6 @@ func (u UserRepoImpl) ClearSessionKey(ctx context.Context, userID int64) error {
 }
 
 func (u UserRepoImpl) UpdatePassword(ctx context.Context, userID int64, password string) error {
-
 	q := query.Use(u.db.NewSession(ctx))
 	err := u.userDao.Update(ctx, userID, map[string]interface{}{
 		q.User.Password.ColumnName().String(): password,
@@ -232,7 +225,6 @@ func (u UserRepoImpl) CheckEmailExist(ctx context.Context, email string) (bool, 
 }
 
 func (u UserRepoImpl) UpdateProfile(ctx context.Context, userID int64, param *repo.UpdateProfileParam) (*entity.User, error) {
-
 	if param == nil || userID <= 0 {
 		return nil, errorx.New("UserRepoImpl.UpdateProfile invalid param")
 	}
@@ -279,7 +271,6 @@ func (u UserRepoImpl) UpdateProfile(ctx context.Context, userID int64, param *re
 }
 
 func (u UserRepoImpl) UpdateAvatar(ctx context.Context, userID int64, iconURI string) error {
-
 	if userID <= 0 || iconURI == "" {
 		return errorx.New("UserRepoImpl.UpdateAvatar invalid param")
 	}
@@ -295,7 +286,6 @@ func (u UserRepoImpl) UpdateAvatar(ctx context.Context, userID int64, iconURI st
 }
 
 func (u UserRepoImpl) ListUserSpace(ctx context.Context, userID int64, pageSize, pageNum int32) ([]*entity.Space, int32, error) {
-
 	userSpaceList, total, err := u.spaceMemberDao.List(ctx, userID, pageSize, pageNum)
 	if err != nil {
 		return nil, 0, errorx.WrapByCode(err, errno.CommonMySqlErrorCode, errorx.WithExtraMsg("spaceMemberDao.GetUserSpaceList error"))
@@ -314,7 +304,6 @@ func (u UserRepoImpl) ListUserSpace(ctx context.Context, userID int64, pageSize,
 	}
 
 	return spaceDOList, total, nil
-
 }
 
 func (u UserRepoImpl) CreateSpace(ctx context.Context, space *entity.Space) (spaceID int64, err error) {
@@ -376,7 +365,6 @@ func (u UserRepoImpl) MGetSpaceByIDs(ctx context.Context, spaceIDs []int64) (spa
 }
 
 func (u UserRepoImpl) CheckUserSpaceExist(ctx context.Context, userID, spaceID int64) (bool, error) {
-
 	space, err := u.GetSpaceByID(ctx, spaceID)
 	if err != nil {
 		return false, err

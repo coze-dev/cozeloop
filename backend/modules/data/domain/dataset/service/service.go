@@ -104,7 +104,8 @@ type DatasetServiceImpl struct {
 }
 
 func NewDatasetServiceImpl(db db.Provider, idgen idgen.IIDGenerator, repo repo.IDatasetAPI, configer conf.IConfig,
-	producer mq.IDatasetJobPublisher, fsUnion vfs.IUnionFS, locker lock.ILocker) IDatasetAPI {
+	producer mq.IDatasetJobPublisher, fsUnion vfs.IUnionFS, locker lock.ILocker,
+) IDatasetAPI {
 	return &DatasetServiceImpl{
 		txDB:          db,
 		idgen:         idgen,

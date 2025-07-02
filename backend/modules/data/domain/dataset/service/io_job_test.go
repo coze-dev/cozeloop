@@ -215,9 +215,7 @@ func TestRunIOJob(t *testing.T) {
 				mockRepo.EXPECT().GetIOJob(context.Background(), int64(1), gomock.Any()).Return(mockJob, nil)
 				mockRepo.EXPECT().GetDataset(context.Background(), int64(0), int64(0)).Return(&entity.Dataset{}, nil)
 				mockRepo.EXPECT().GetSchema(context.Background(), int64(0), int64(0), gomock.Any()).Return(&entity.DatasetSchema{}, nil)
-				mockILocker.EXPECT().LockBackoffWithRenew(context.Background(), gomock.Any(), gomock.Any(), gomock.Any()).Return(true, context.Background(), func() {
-					return
-				}, nil)
+				mockILocker.EXPECT().LockBackoffWithRenew(context.Background(), gomock.Any(), gomock.Any(), gomock.Any()).Return(true, context.Background(), func() {}, nil)
 			},
 			wantErr: false,
 		},
@@ -283,9 +281,7 @@ func TestRunIOJob(t *testing.T) {
 				mockRepo.EXPECT().GetIOJob(context.Background(), int64(1), gomock.Any()).Return(mockJob, nil)
 				mockRepo.EXPECT().GetDataset(context.Background(), int64(0), int64(0)).Return(&entity.Dataset{}, nil)
 				mockRepo.EXPECT().GetSchema(context.Background(), int64(0), int64(0), gomock.Any()).Return(&entity.DatasetSchema{}, nil)
-				mockILocker.EXPECT().LockBackoffWithRenew(context.Background(), gomock.Any(), gomock.Any(), gomock.Any()).Return(true, context.Background(), func() {
-					return
-				}, fmt.Errorf("test err"))
+				mockILocker.EXPECT().LockBackoffWithRenew(context.Background(), gomock.Any(), gomock.Any(), gomock.Any()).Return(true, context.Background(), func() {}, fmt.Errorf("test err"))
 			},
 			wantErr: true,
 		},
@@ -308,9 +304,7 @@ func TestRunIOJob(t *testing.T) {
 				mockRepo.EXPECT().GetIOJob(context.Background(), int64(1), gomock.Any()).Return(mockJob, nil)
 				mockRepo.EXPECT().GetDataset(context.Background(), int64(0), int64(0)).Return(&entity.Dataset{}, nil)
 				mockRepo.EXPECT().GetSchema(context.Background(), int64(0), int64(0), gomock.Any()).Return(&entity.DatasetSchema{}, nil)
-				mockILocker.EXPECT().LockBackoffWithRenew(context.Background(), gomock.Any(), gomock.Any(), gomock.Any()).Return(false, context.Background(), func() {
-					return
-				}, nil)
+				mockILocker.EXPECT().LockBackoffWithRenew(context.Background(), gomock.Any(), gomock.Any(), gomock.Any()).Return(false, context.Background(), func() {}, nil)
 			},
 			wantErr: false,
 		},

@@ -109,7 +109,8 @@ func NewTraceServiceImpl(
 	traceConfig config.ITraceConfig,
 	traceProducer mq.ITraceProducer,
 	metrics metrics.ITraceMetrics,
-	buildHelper TraceFilterProcessorBuilder) (ITraceService, error) {
+	buildHelper TraceFilterProcessorBuilder,
+) (ITraceService, error) {
 	return &TraceServiceImpl{
 		traceRepo:     tRepo,
 		traceConfig:   traceConfig,
@@ -491,13 +492,15 @@ type TraceFilterProcessorBuilderImpl struct {
 
 func (t *TraceFilterProcessorBuilderImpl) BuildPlatformRelatedFilter(
 	ctx context.Context,
-	platformType loop_span.PlatformType) (span_filter.Filter, error) {
+	platformType loop_span.PlatformType,
+) (span_filter.Filter, error) {
 	return t.platformFilterFactory.GetFilter(ctx, platformType)
 }
 
 func (t *TraceFilterProcessorBuilderImpl) BuildGetTraceProcessors(
 	ctx context.Context,
-	set span_processor.Settings) ([]span_processor.Processor, error) {
+	set span_processor.Settings,
+) ([]span_processor.Processor, error) {
 	ret := make([]span_processor.Processor, 0)
 	for _, factory := range t.getTraceProcessorFactories {
 		p, err := factory.CreateProcessor(ctx, set)
@@ -511,7 +514,8 @@ func (t *TraceFilterProcessorBuilderImpl) BuildGetTraceProcessors(
 
 func (t *TraceFilterProcessorBuilderImpl) BuildListSpansProcessors(
 	ctx context.Context,
-	set span_processor.Settings) ([]span_processor.Processor, error) {
+	set span_processor.Settings,
+) ([]span_processor.Processor, error) {
 	ret := make([]span_processor.Processor, 0)
 	for _, factory := range t.listSpansProcessorFactories {
 		p, err := factory.CreateProcessor(ctx, set)
@@ -525,7 +529,8 @@ func (t *TraceFilterProcessorBuilderImpl) BuildListSpansProcessors(
 
 func (t *TraceFilterProcessorBuilderImpl) BuildAdvanceInfoProcessors(
 	ctx context.Context,
-	set span_processor.Settings) ([]span_processor.Processor, error) {
+	set span_processor.Settings,
+) ([]span_processor.Processor, error) {
 	ret := make([]span_processor.Processor, 0)
 	for _, factory := range t.advanceInfoProcessorFactories {
 		p, err := factory.CreateProcessor(ctx, set)

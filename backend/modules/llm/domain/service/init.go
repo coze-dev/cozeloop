@@ -14,7 +14,8 @@ func NewRuntime(
 	llmFact llmfactory.IFactory,
 	idGen idgen.IIDGenerator,
 	runtimeRepo repo.IRuntimeRepo,
-	cfg conf.IConfigRuntime) IRuntime {
+	cfg conf.IConfigRuntime,
+) IRuntime {
 	return &RuntimeImpl{
 		llmFact:     llmFact,
 		idGen:       idGen,

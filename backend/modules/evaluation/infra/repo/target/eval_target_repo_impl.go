@@ -48,7 +48,6 @@ func NewEvalTargetRepo(idgen idgen.IIDGenerator, provider db.Provider, evalTarge
 		}
 	})
 	return singletonEvalTargetRepo
-
 }
 
 func (e *EvalTargetRepoImpl) CreateEvalTarget(ctx context.Context, do *entity.EvalTarget) (id, versionID int64, err error) {
@@ -112,7 +111,6 @@ func (e *EvalTargetRepoImpl) CreateEvalTarget(ctx context.Context, do *entity.Ev
 	e.lwt.SetWriteFlag(ctx, platestwrite.ResourceTypeTargetVersion, versionID)
 
 	return id, versionID, nil
-
 }
 
 func (e *EvalTargetRepoImpl) GetEvalTarget(ctx context.Context, targetID int64) (do *entity.EvalTarget, err error) {
@@ -177,7 +175,7 @@ func (e *EvalTargetRepoImpl) BatchGetEvalTargetVersion(ctx context.Context, spac
 	if err != nil {
 		return nil, err
 	}
-	if versions == nil || len(versions) == 0 {
+	if len(versions) == 0 {
 		return nil, nil
 	}
 	targetIDs := make([]int64, 0)
@@ -188,7 +186,7 @@ func (e *EvalTargetRepoImpl) BatchGetEvalTargetVersion(ctx context.Context, spac
 	if err != nil {
 		return nil, err
 	}
-	if targets == nil || len(targets) == 0 {
+	if len(targets) == 0 {
 		return nil, nil
 	}
 	targetMap := make(map[int64]*model.Target)
@@ -210,7 +208,6 @@ func (e *EvalTargetRepoImpl) BatchGetEvalTargetVersion(ctx context.Context, spac
 }
 
 func (e *EvalTargetRepoImpl) CreateEvalTargetRecord(ctx context.Context, record *entity.EvalTargetRecord) (int64, error) {
-
 	po, err := convertor.EvalTargetRecordDO2PO(record)
 	if err != nil {
 		return 0, errorx.WrapByCode(err, errno.CommonInternalErrorCode)

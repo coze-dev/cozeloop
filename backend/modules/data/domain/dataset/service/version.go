@@ -112,7 +112,7 @@ func (s *DatasetServiceImpl) GetVersionWithOpt(ctx context.Context, spaceID, ver
 }
 
 func (s *DatasetServiceImpl) CreateVersion(ctx context.Context, ds *DatasetWithSchema, version *entity.DatasetVersion) error {
-	if err := validateVersion(ds.Dataset.LatestVersion, version.Version); err != nil {
+	if err := validateVersion(ds.LatestVersion, version.Version); err != nil {
 		return err
 	}
 	patchVersionWithDataset(ds.Dataset, version)

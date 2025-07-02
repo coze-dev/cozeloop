@@ -17,47 +17,47 @@ import (
 
 func TestFactoryImpl_CreateLLM(t *testing.T) {
 	paramCfg := &entity.ParamConfig{ParamSchemas: []*entity.ParamSchema{
-		&entity.ParamSchema{
+		{
 			Name:         "max_tokens",
 			Type:         entity.ParamTypeInt,
 			Min:          "0",
 			Max:          "4096",
 			DefaultValue: "1024",
 		},
-		&entity.ParamSchema{
+		{
 			Name:         "temperature",
 			Type:         entity.ParamTypeFloat,
 			Min:          "0",
 			Max:          "1",
 			DefaultValue: "0.7",
 		},
-		&entity.ParamSchema{
+		{
 			Name:         "top_p",
 			Type:         entity.ParamTypeFloat,
 			Min:          "0",
 			Max:          "1",
 			DefaultValue: "0.7",
 		},
-		&entity.ParamSchema{
+		{
 			Name:         "top_k",
 			Type:         entity.ParamTypeInt,
 			Min:          "0",
 			Max:          "50",
 			DefaultValue: "10",
 		},
-		&entity.ParamSchema{
+		{
 			Name:         "stop",
 			Type:         entity.ParamTypeString,
 			DefaultValue: "[\"test\"]",
 		},
-		&entity.ParamSchema{
+		{
 			Name:         "frequency_penalty",
 			Type:         entity.ParamTypeFloat,
 			Min:          "-1",
 			Max:          "1",
 			DefaultValue: "0.6",
 		},
-		&entity.ParamSchema{
+		{
 			Name:         "presence_penalty",
 			Type:         entity.ParamTypeFloat,
 			Min:          "-1",

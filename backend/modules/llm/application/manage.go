@@ -22,7 +22,8 @@ type manageApp struct {
 
 func NewManageApplication(
 	manageSrv service.IManage,
-	auth rpc.IAuthProvider) manage.LLMManageService {
+	auth rpc.IAuthProvider,
+) manage.LLMManageService {
 	return &manageApp{
 		manageSrv: manageSrv,
 		auth:      auth,

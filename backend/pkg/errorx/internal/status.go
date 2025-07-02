@@ -79,11 +79,7 @@ func (w *withStatus) Is(target error) bool {
 
 // As supports go errors.As().
 func (w *withStatus) As(target interface{}) bool {
-	if errors.As(w.status, target) {
-		return true
-	}
-
-	return false
+	return errors.As(w.status, target)
 }
 
 func (w *withStatus) StackTrace() string {
@@ -184,7 +180,7 @@ func WithMsgParam(k, v string) Option {
 		if ws == nil || ws.status == nil {
 			return
 		}
-		ws.status.message = strings.Replace(ws.status.message, fmt.Sprintf("{%s}", k), v, -1)
+		ws.status.message = strings.ReplaceAll(ws.status.message, fmt.Sprintf("{%s}", k), v)
 	}
 }
 

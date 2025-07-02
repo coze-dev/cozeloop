@@ -280,7 +280,9 @@ func TestPromptDebugApplicationImpl_DebugStreaming(t *testing.T) {
 			errCh := make(chan error, 1)
 			go func() {
 				defer close(errCh)
-				defer stream.CloseSend(tt.args.ctx)
+				defer func() {
+					_ = stream.CloseSend(tt.args.ctx)
+				}()
 				err := p.DebugStreaming(tt.args.ctx, tt.args.req, tt.args.stream)
 				errCh <- err
 			}()
@@ -297,7 +299,7 @@ func TestPromptDebugApplicationImpl_DebugStreaming(t *testing.T) {
 				}
 				assert.Equal(t, mockContent, content)
 			}
-			select {
+			select { //nolint:staticcheck
 			case err := <-errCh:
 				unittest.AssertErrorEqual(t, tt.wantErr, err)
 			}

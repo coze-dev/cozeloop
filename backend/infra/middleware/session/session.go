@@ -15,8 +15,10 @@ import (
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
 )
 
-const SessionKey = "session_key"
-const SessionExpires = 7 * 24 * time.Hour
+const (
+	SessionKey     = "session_key"
+	SessionExpires = 7 * 24 * time.Hour
+)
 
 // 用于签名的密钥（在实际应用中应从配置中读取或使用环境变量）
 var hmacSecret = []byte("openloop-session-hmac-key")
@@ -35,8 +37,7 @@ type ISessionService interface {
 	GenerateSessionKey(ctx context.Context, session *Session) (string, error)
 }
 
-type sessionServiceImpl struct {
-}
+type sessionServiceImpl struct{}
 
 func NewSessionService() ISessionService {
 	return &sessionServiceImpl{}

@@ -136,6 +136,7 @@ func TestAuthNApplicationImpl_DeletePersonalAccessToken(t *testing.T) {
 		})
 	}
 }
+
 func TestAuthNApplicationImpl_UpdatePersonalAccessToken(t *testing.T) {
 	type fields struct {
 		authNRepo repo.IAuthNRepo
@@ -200,7 +201,6 @@ func TestAuthNApplicationImpl_UpdatePersonalAccessToken(t *testing.T) {
 			assert.Equal(t, tt.wantR, resp)
 		})
 	}
-
 }
 
 func TestAuthNApplicationImpl_GetPersonalAccessToken(t *testing.T) {

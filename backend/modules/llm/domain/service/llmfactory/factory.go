@@ -19,8 +19,7 @@ type IFactory interface {
 	CreateLLM(ctx context.Context, model *entity.Model) (llminterface.ILLM, error)
 }
 
-type FactoryImpl struct {
-}
+type FactoryImpl struct{}
 
 var _ IFactory = (*FactoryImpl)(nil)
 

@@ -296,7 +296,7 @@ func (p *PromptDebugApplicationImpl) doDebugStreaming(ctx context.Context, req *
 			return nil, err
 		}
 	}
-	select {
+	select { //nolint:staticcheck
 	case err, ok = <-errChan:
 		if !ok {
 			logs.CtxInfo(ctx, "debug streaming finished")

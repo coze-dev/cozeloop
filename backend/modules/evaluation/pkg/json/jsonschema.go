@@ -13,9 +13,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/pkg/json"
 )
 
-var (
-	SchemaCompiler *jsonschema.Compiler
-)
+var SchemaCompiler *jsonschema.Compiler
 
 // ValidateJSONSchema 验证JSON字符串是否符合schema
 func ValidateJSONSchema(schemaStr string, dataStr string) (bool, error) {

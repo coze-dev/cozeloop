@@ -30,8 +30,7 @@ func (c *CheckProcessor) Transform(ctx context.Context, spans loop_span.SpanList
 	}
 }
 
-type CheckProcessorFactory struct {
-}
+type CheckProcessorFactory struct{}
 
 func (c *CheckProcessorFactory) CreateProcessor(ctx context.Context, set Settings) (Processor, error) {
 	return &CheckProcessor{

@@ -67,7 +67,7 @@ func Init(
 	if err != nil {
 		return nil, err
 	}
-	observabilityHandler.ITraceIngestionApplication.RunAsync(ctx)
+	observabilityHandler.RunAsync(ctx)
 
 	promptHandler, err := apis.InitPromptHandler(ctx, idgen, db, cmdable, configFactory, limiterFactory, benefitSvc,
 		loruntime.NewLocalLLMRuntimeService(llmHandler.LLMRuntimeService),

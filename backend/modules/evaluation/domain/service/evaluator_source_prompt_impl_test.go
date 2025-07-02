@@ -172,7 +172,6 @@ func TestEvaluatorSourcePromptServiceImpl_Run(t *testing.T) {
 			checkOutputFunc: func(t *testing.T, output *entity.EvaluatorOutputData, expected *entity.EvaluatorOutputData) {
 				assert.NotNil(t, output.EvaluatorRunError)
 				assert.Nil(t, output.EvaluatorResult)
-
 			},
 		},
 		{

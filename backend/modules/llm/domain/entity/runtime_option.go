@@ -81,6 +81,7 @@ func WithTools(t []*ToolInfo) Option {
 		},
 	}
 }
+
 func WithToolChoice(t *ToolChoice) Option {
 	return Option{
 		apply: func(opts *Options) {

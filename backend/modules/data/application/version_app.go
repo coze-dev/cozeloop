@@ -66,6 +66,7 @@ func (h *DatasetApplicationImpl) CreateDatasetVersion(ctx context.Context, req *
 
 	return &dataset.CreateDatasetVersionResponse{ID: gptr.Of(version.ID)}, nil
 }
+
 func (h *DatasetApplicationImpl) ListDatasetVersions(ctx context.Context, req *dataset.ListDatasetVersionsRequest) (resp *dataset.ListDatasetVersionsResponse, err error) {
 	// 鉴权
 	err = h.authByDatasetID(ctx, req.GetWorkspaceID(), req.GetDatasetID(), rpc.CommonActionRead)
@@ -111,6 +112,7 @@ func (h *DatasetApplicationImpl) ListDatasetVersions(ctx context.Context, req *d
 		Total:         gptr.Of(total),
 	}, nil
 }
+
 func (h *DatasetApplicationImpl) GetDatasetVersion(ctx context.Context, req *dataset.GetDatasetVersionRequest) (resp *dataset.GetDatasetVersionResponse, err error) {
 	// 鉴权
 	err = h.authByVersionID(ctx, req.GetWorkspaceID(), req.GetVersionID(), rpc.CommonActionRead)
@@ -135,6 +137,7 @@ func (h *DatasetApplicationImpl) GetDatasetVersion(ctx context.Context, req *dat
 		Dataset: dsDTO,
 	}, nil
 }
+
 func (h *DatasetApplicationImpl) BatchGetDatasetVersions(ctx context.Context, req *dataset.BatchGetDatasetVersionsRequest) (resp *dataset.BatchGetDatasetVersionsResponse, err error) {
 	if len(req.GetVersionIds()) <= 0 {
 		return &dataset.BatchGetDatasetVersionsResponse{}, nil

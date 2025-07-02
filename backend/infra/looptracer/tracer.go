@@ -49,14 +49,11 @@ func (d *noopTracer) GetSpanFromContext(ctx context.Context) Span {
 	return &noopSpan{}
 }
 
-func (d *noopTracer) Flush(ctx context.Context) {
-	return
-}
+func (d *noopTracer) Flush(ctx context.Context) {}
 
 func (d *noopTracer) Inject(ctx context.Context) context.Context {
 	return ctx
 }
 
 func (d *noopTracer) SetCallType(callType string) {
-
 }

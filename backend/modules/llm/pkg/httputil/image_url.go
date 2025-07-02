@@ -20,7 +20,9 @@ func ImageURLToBase64(url string) (base64Str string, mimeType string, err error)
 	if err != nil {
 		return "", "", fmt.Errorf("获取图片失败: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		_ = resp.Body.Close()
+	}()
 
 	if resp.StatusCode != http.StatusOK {
 		return "", "", fmt.Errorf("HTTP请求失败: %s", resp.Status)

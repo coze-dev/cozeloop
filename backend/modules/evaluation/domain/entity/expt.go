@@ -14,16 +14,11 @@ import (
 	"github.com/coze-dev/cozeloop/backend/pkg/json"
 )
 
-const (
-	defaultItemConcurNum = 3
+type (
+	ExptStatus int64
+	ExptType   int64
+	SourceType = int64
 )
-
-//type ExptStatus = expt.ExptStatus
-
-type ExptStatus int64
-
-type ExptType int64
-type SourceType = int64
 
 const (
 	ExptStatus_Unknown ExptStatus = 0
@@ -48,6 +43,7 @@ const (
 	ExptType_Offline ExptType = 1
 	ExptType_Online  ExptType = 2
 )
+
 const (
 	SourceType_Evaluation SourceType = 1
 	SourceType_Trace      SourceType = 2

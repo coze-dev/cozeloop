@@ -11,7 +11,6 @@ import (
 
 //go:generate mockgen -source=interface.go -destination=mocks/user_service.go -package=mocks -mock_names=IUserService=MockIUserService
 type IUserService interface {
-
 	// User Login/Logout
 	Create(ctx context.Context, req *CreateUserRequest) (user *entity.User, err error)
 	Login(ctx context.Context, email, password string) (user *entity.User, err error)

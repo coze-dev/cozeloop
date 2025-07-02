@@ -55,9 +55,11 @@ func (p TagValueType) String() string {
 func (t Tag) GetKey() string {
 	return t.Key
 }
+
 func (t Tag) IsSetValue() bool {
 	return t.Value != nil
 }
+
 func (t Tag) GetTagType() TagValueType {
 	return t.ValueType
 }

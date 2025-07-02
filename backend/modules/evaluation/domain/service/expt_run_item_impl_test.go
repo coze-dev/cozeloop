@@ -101,28 +101,6 @@ func Test_NewExptItemEvaluation(t *testing.T) {
 	}
 }
 
-// 用于测试 EvalTurns 返回错误的自定义类型
-type mockEvalTurnsExecutor struct {
-	*ExptItemEvalCtxExecutor
-	called *bool
-}
-
-func (m *mockEvalTurnsExecutor) Eval(ctx context.Context, eiec *entity.ExptItemEvalCtx) error {
-	*m.called = true
-	return errors.New("mock evalturns error")
-}
-
-// 用于测试 CompleteSetItemRun 返回错误的自定义类型
-type mockCompleteSetItemRunExecutor struct {
-	*ExptItemEvalCtxExecutor
-	called *bool
-}
-
-func (m *mockCompleteSetItemRunExecutor) CompleteSetItemRun(ctx context.Context, event *entity.ExptItemEvalEvent, evalErr error) error {
-	*m.called = true
-	return errors.New("mock completesetitemrun error")
-}
-
 func Test_ExptItemEvalCtxExecutor_Eval(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()

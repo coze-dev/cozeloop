@@ -10,14 +10,14 @@ import (
 	"github.com/pkg/errors"
 )
 
-func NewReader(r Reader, info fs.FileInfo) (pr *parquet.Reader, err error) {
+func NewReader(r Reader, info fs.FileInfo) (pr *parquet.GenericReader[map[string]any], err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = errors.Errorf("new parquet reader panic %v", r)
 		}
 	}()
 	rr := &pReader{Reader: r, info: info}
-	pf := parquet.NewReader(rr)
+	pf := parquet.NewGenericReader[map[string]any](rr)
 	return pf, nil
 }
 

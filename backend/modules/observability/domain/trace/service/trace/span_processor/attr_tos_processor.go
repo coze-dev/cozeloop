@@ -36,7 +36,7 @@ func (a *AttrTosProcessor) Transform(ctx context.Context, spans loop_span.SpanLi
 		if objectStorage.OutputTosKey != "" {
 			tosKeyList = append(tosKeyList, objectStorage.OutputTosKey)
 		}
-		if objectStorage.Attachments != nil && len(objectStorage.Attachments) != 0 {
+		if len(objectStorage.Attachments) != 0 {
 			for _, tosKey := range objectStorage.Attachments {
 				if tosKey.TosKey != "" {
 					tosKeyList = append(tosKeyList, tosKey.TosKey)
@@ -59,7 +59,7 @@ func (a *AttrTosProcessor) Transform(ctx context.Context, spans loop_span.SpanLi
 		if objectStorage.OutputTosKey != "" {
 			attrTos.OutputDataURL = urlMap[objectStorage.OutputTosKey]
 		}
-		if objectStorage.Attachments != nil && len(objectStorage.Attachments) != 0 {
+		if len(objectStorage.Attachments) != 0 {
 			attrTos.MultimodalData = multimodalData
 		}
 		s.AttrTos = attrTos

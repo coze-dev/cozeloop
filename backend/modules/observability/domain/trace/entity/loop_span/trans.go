@@ -56,27 +56,27 @@ type OutputFilter struct {
 }
 
 func (c *TagFilter) transform(ctx context.Context, span *Span) {
-	for key, _ := range span.TagsString {
+	for key := range span.TagsString {
 		if c.keyBlackListMap[key] {
 			delete(span.TagsString, key)
 		}
 	}
-	for key, _ := range span.TagsDouble {
+	for key := range span.TagsDouble {
 		if c.keyBlackListMap[key] {
 			delete(span.TagsDouble, key)
 		}
 	}
-	for key, _ := range span.TagsBool {
+	for key := range span.TagsBool {
 		if c.keyBlackListMap[key] {
 			delete(span.TagsBool, key)
 		}
 	}
-	for key, _ := range span.TagsLong {
+	for key := range span.TagsLong {
 		if c.keyBlackListMap[key] {
 			delete(span.TagsLong, key)
 		}
 	}
-	for key, _ := range span.TagsByte {
+	for key := range span.TagsByte {
 		if c.keyBlackListMap[key] {
 			delete(span.TagsByte, key)
 		}
@@ -93,7 +93,7 @@ func (c *InputFilter) transform(ctx context.Context, span *Span) {
 		return
 	}
 	fmt.Println("===", out, c.keyWhiteListMap)
-	for key, _ := range out {
+	for key := range out {
 		if !c.keyWhiteListMap[key] {
 			delete(out, key)
 		}
@@ -115,7 +115,7 @@ func (c *OutputFilter) transform(ctx context.Context, span *Span) {
 		logs.CtxWarn(ctx, "fail to trans output %s into map", span.Output)
 		return
 	}
-	for key, _ := range out {
+	for key := range out {
 		if !c.keyWhiteListMap[key] {
 			delete(out, key)
 		}
@@ -200,7 +200,6 @@ func (p SpanTransCfgList) redirectSpansParentID(ctx context.Context, spans SpanL
 	for _, sp := range spans {
 		p.redirectSpanParentID(ctx, sp, redirectMap, 1000)
 	}
-	return
 }
 
 func (p SpanTransCfgList) redirectSpanParentID(ctx context.Context, span *Span, redirectMap map[string]string, leftTimes int) {
@@ -216,7 +215,6 @@ func (p SpanTransCfgList) redirectSpanParentID(ctx context.Context, span *Span, 
 	}
 	span.ParentID = newParentID
 	p.redirectSpanParentID(ctx, span, redirectMap, leftTimes-1)
-	return
 }
 
 func (p SpanTransCfgList) doProcess(ctx context.Context, spans SpanList) (SpanList, error) {

@@ -368,7 +368,6 @@ func (h *importHandler) scanFileWithoutSave(ctx context.Context, w *importWorksp
 	if err := h.repo.UpdateIOJob(ctx, h.job.ID, delta); err != nil {
 		logs.CtxWarn(ctx, "update io_job failed, err=%v", err)
 	}
-	return
 }
 
 func (w *importWorkspace) nextFile(ctx context.Context) (lr *vfs.FileReader, ok bool, err error) {

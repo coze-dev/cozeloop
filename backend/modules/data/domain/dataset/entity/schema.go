@@ -36,6 +36,7 @@ type DatasetSchema struct {
 func (s *DatasetSchema) AvailableFields() []*FieldSchema {
 	return gslice.Filter(s.Fields, func(s *FieldSchema) bool { return s.Status == FieldStatusAvailable || s.Status == "" })
 }
+
 func (s *DatasetSchema) GetID() int64 {
 	return s.ID
 }

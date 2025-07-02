@@ -10,8 +10,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/model"
 )
 
-type ExptItemResultRunLogConverter struct {
-}
+type ExptItemResultRunLogConverter struct{}
 
 func NewExptItemResultRunLogConverter() *ExptItemResultRunLogConverter {
 	return &ExptItemResultRunLogConverter{}

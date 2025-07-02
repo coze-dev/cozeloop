@@ -9,9 +9,7 @@ import (
 	"github.com/bytedance/sonic"
 )
 
-var (
-	stdConfig = sonic.ConfigStd
-)
+var stdConfig = sonic.ConfigStd
 
 func Marshal(v interface{}) ([]byte, error) {
 	return stdConfig.Marshal(v)

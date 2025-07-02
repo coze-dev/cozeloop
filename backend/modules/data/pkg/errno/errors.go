@@ -204,7 +204,7 @@ func Errorf(code int32, msgFormat string, args ...any) error {
 		return nil
 	}
 	msg := fmt.Sprintf(msgFormat, args...)
-	return errorx.WrapByCode(fmt.Errorf(msg), code, errorx.WithExtraMsg(msg))
+	return errorx.WrapByCode(errors.New(msg), code, errorx.WithExtraMsg(msg))
 }
 
 // MaybeWrapf 对 cause 进行错误码包装. 如果 cause 已经是一个错误码错误, 则忽略 code, 直接返回原错误.

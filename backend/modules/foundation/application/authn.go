@@ -89,7 +89,6 @@ func (a AuthNApplicationImpl) CreatePersonalAccessToken(ctx context.Context, req
 		},
 		Token: lo.ToPtr(apiKey),
 	}, nil
-
 }
 
 func (a AuthNApplicationImpl) DeletePersonalAccessToken(ctx context.Context, req *authn.DeletePersonalAccessTokenRequest) (r *authn.DeletePersonalAccessTokenResponse, err error) {
@@ -220,7 +219,6 @@ func (a AuthNApplicationImpl) ListPersonalAccessToken(ctx context.Context, req *
 			}
 		}),
 	}, nil
-
 }
 
 func (a AuthNApplicationImpl) VerifyToken(ctx context.Context, req *authn.VerifyTokenRequest) (r *authn.VerifyTokenResponse, err error) {

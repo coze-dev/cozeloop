@@ -20,6 +20,7 @@ const (
 	throughputSuffix = ".throughput"
 	latencySuffix    = ".latency"
 )
+
 const (
 	tagSpaceID  = "workspace_id"
 	tagSpanType = "span_type"

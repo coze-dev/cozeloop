@@ -46,8 +46,8 @@ type ConsumerConfig struct {
 type CompressionCodec int
 
 const (
-	//CompressionNone no compression
+	// CompressionNone no compression
 	CompressionNone CompressionCodec = iota
-	//CompressionZSTD compression using ZSTD
+	// CompressionZSTD compression using ZSTD
 	CompressionZSTD
 )

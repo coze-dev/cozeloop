@@ -31,7 +31,8 @@ type ExptItemTurnEvaluation interface {
 func NewExptTurnEvaluation(metric metrics.ExptMetric,
 	evalTargetService IEvalTargetService,
 	evaluatorService EvaluatorService,
-	benefitService benefit.IBenefitService) ExptItemTurnEvaluation {
+	benefitService benefit.IBenefitService,
+) ExptItemTurnEvaluation {
 	return &DefaultExptTurnEvaluationImpl{
 		metric:            metric,
 		evalTargetService: evalTargetService,
@@ -91,7 +92,7 @@ func (e *DefaultExptTurnEvaluationImpl) Eval(ctx context.Context, etec *entity.E
 }
 
 func (e *DefaultExptTurnEvaluationImpl) CallTarget(ctx context.Context, etec *entity.ExptTurnEvalCtx) (*entity.EvalTargetRecord, error) {
-	if etec.ExptItemEvalCtx.Expt.ExptType == entity.ExptType_Online {
+	if etec.Expt.ExptType == entity.ExptType_Online {
 		logs.CtxInfo(ctx, "[ExptTurnEval] expt type is online, skip call target, expt_id: %v, expt_run_id: %v, item_id: %v, turn_id: %v")
 		return &entity.EvalTargetRecord{
 			EvalTargetOutputData: &entity.EvalTargetOutputData{
@@ -203,7 +204,8 @@ func (e *DefaultExptTurnEvaluationImpl) CallEvaluators(ctx context.Context, etec
 }
 
 func (e *DefaultExptTurnEvaluationImpl) callEvaluators(ctx context.Context, execEvaluatorVersionIDs []int64, etec *entity.ExptTurnEvalCtx,
-	targetResult *entity.EvalTargetRecord, history []*entity.Message) (map[int64]*entity.EvaluatorRecord, error) {
+	targetResult *entity.EvalTargetRecord, history []*entity.Message,
+) (map[int64]*entity.EvaluatorRecord, error) {
 	var (
 		recordMap      sync.Map
 		item           = etec.EvalSetItem
@@ -274,7 +276,6 @@ func (e *DefaultExptTurnEvaluationImpl) callEvaluators(ctx context.Context, exec
 				TurnID:          turn.ID,
 				Ext:             etec.Ext,
 			})
-
 			if err != nil {
 				return err
 			}

@@ -155,7 +155,7 @@ func TestTrans(t *testing.T) {
 			if err := json.Unmarshal([]byte(*tag.Value.VStr), &out); err != nil {
 				t.Fatal(err)
 			}
-			for k, _ := range out {
+			for k := range out {
 				if k != "input_a" {
 					t.Fatal("only input_a reserved")
 				}
@@ -166,7 +166,7 @@ func TestTrans(t *testing.T) {
 			if err := json.Unmarshal([]byte(*tag.Value.VStr), &out); err != nil {
 				t.Fatal(err)
 			}
-			for k, _ := range out {
+			for k := range out {
 				if k != "output_b" {
 					t.Fatal("only output_b reserved")
 				}
@@ -180,12 +180,12 @@ func TestParentIdRedirect(t *testing.T) {
 		{
 			SpanID:   "B",
 			ParentID: "A",
-			//SpanType: "_delete",
+			// SpanType: "_delete",
 		},
 		{
 			SpanID:   "C",
 			ParentID: "B",
-			//SpanType: "_delete",
+			// SpanType: "_delete",
 		},
 		{
 			SpanID:   "A",
@@ -363,11 +363,11 @@ func TestParentIdRedirectChaos(t *testing.T) {
 		if len(outSpans) != len(out) {
 			t.Fatal("len(outSpans) != len(out)")
 		}
-		for i, _ := range outSpans {
-			if outSpans[i].SpanID != outSpans[i].SpanID {
-				t.Fatal("outSpans[i].SpanID != outSpans[i].SpanID")
-			} else if outSpans[i].ParentID != outSpans[i].ParentID {
-				t.Fatal("outSpans[i].ParentID != outSpans[i].ParentID")
+		for i := range outSpans {
+			if outSpans[i].SpanID != out[i].SpanID {
+				t.Fatal("outSpans[i].SpanID != out[i].SpanID")
+			} else if outSpans[i].ParentID != out[i].ParentID {
+				t.Fatal("outSpans[i].ParentID != out[i].ParentID")
 			}
 		}
 	}

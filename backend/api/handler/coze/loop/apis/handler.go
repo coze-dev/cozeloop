@@ -148,7 +148,8 @@ func NewPromptHandler(
 	manageApp manage.PromptManageService,
 	debugApp debug.PromptDebugService,
 	executeApp execute.PromptExecuteService,
-	openAPIApp openapi.PromptOpenAPIService) *PromptHandler {
+	openAPIApp openapi.PromptOpenAPIService,
+) *PromptHandler {
 	h := &PromptHandler{
 		PromptManageService:  manageApp,
 		PromptDebugService:   debugApp,
@@ -216,7 +217,6 @@ func invokeAndRender[T, K any](
 	ctx context.Context, c *app.RequestContext,
 	callable func(ctx context.Context, req T, callOptions ...callopt.Option) (K, error),
 ) {
-
 	render := func(c *app.RequestContext, fn func() (any, error)) {
 		resp, err := fn()
 		if err == nil {

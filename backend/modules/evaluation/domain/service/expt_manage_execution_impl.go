@@ -83,17 +83,19 @@ func (e *ExptMangerImpl) CheckRunWithTuple(ctx context.Context, tuple *entity.Tu
 }
 
 func (e *ExptMangerImpl) CheckEvalSet(ctx context.Context, expt *entity.Experiment, session *entity.Session) error {
-	if expt.ExptType == entity.ExptType_Offline {
+	switch expt.ExptType {
+	case entity.ExptType_Offline:
 		if expt.EvalSetVersionID == 0 || expt.EvalSet == nil || expt.EvalSet.EvaluationSetVersion == nil {
 			return errorx.NewByCode(errno.ExperimentValidateFailCode, errorx.WithExtraMsg(fmt.Sprintf("with invalid EvalSetVersion %d", expt.EvalSetVersionID)))
 		}
 		if expt.EvalSet.EvaluationSetVersion.ItemCount <= 0 {
 			return errorx.NewByCode(errno.ExperimentValidateFailCode, errorx.WithExtraMsg(fmt.Sprintf("with empty EvalSetVersion %d", expt.EvalSetVersionID)))
 		}
-	} else if expt.ExptType == entity.ExptType_Online {
+	case entity.ExptType_Online:
 		if expt.EvalSet == nil {
 			return errorx.NewByCode(errno.ExperimentValidateFailCode, errorx.WithExtraMsg(fmt.Sprintf("with empty EvalSet: %d", expt.EvalSetID)))
 		}
+	default:
 	}
 
 	return nil
@@ -139,11 +141,11 @@ func (e *ExptMangerImpl) CheckConnector(ctx context.Context, expt *entity.Experi
 	connectorConf := expt.EvalConf.ConnectorConf
 
 	if err := connectorConf.EvaluatorsConf.Valid(ctx); err != nil {
-		return errorx.WrapByCode(err, errno.ExperimentValidateFailCode, errorx.WithExtraMsg(fmt.Sprintf("invalid evaluator connector")))
+		return errorx.WrapByCode(err, errno.ExperimentValidateFailCode, errorx.WithExtraMsg("invalid evaluator connector"))
 	}
 	if expt.Target.EvalTargetType != entity.EvalTargetTypeLoopTrace {
 		if err := connectorConf.TargetConf.Valid(ctx, expt.Target.EvalTargetType); err != nil {
-			return errorx.WrapByCode(err, errno.ExperimentValidateFailCode, errorx.WithExtraMsg(fmt.Sprintf("invalid target connector")))
+			return errorx.WrapByCode(err, errno.ExperimentValidateFailCode, errorx.WithExtraMsg("invalid target connector"))
 		}
 	}
 
@@ -686,7 +688,6 @@ func (e *ExptMangerImpl) Finish(ctx context.Context, expt *entity.Experiment, ex
 }
 
 func (e *ExptMangerImpl) PendRun(ctx context.Context, exptID, exptRunID int64, spaceID int64, session *entity.Session) error {
-
 	runLog, err := e.GetRunLog(ctx, exptID, exptRunID, spaceID, session)
 	if err != nil {
 		return err
@@ -707,7 +708,6 @@ func (e *ExptMangerImpl) PendRun(ctx context.Context, exptID, exptRunID int64, s
 }
 
 func (e *ExptMangerImpl) PendExpt(ctx context.Context, exptID, spaceID int64, session *entity.Session, opts ...entity.CompleteExptOptionFn) error {
-
 	stats, err := e.exptResultService.CalculateStats(ctx, exptID, spaceID, session)
 	if err != nil {
 		return err

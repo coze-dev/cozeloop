@@ -40,8 +40,10 @@ func TestDatasetOperation_String(t *testing.T) {
 		fields fields
 		want   string
 	}{
-		{fields: fields{ID: "123"},
-			want: "{id=123, type=, ts=0001-01-01 00:00:00 +0000 UTC, ttl=0s}"},
+		{
+			fields: fields{ID: "123"},
+			want:   "{id=123, type=, ts=0001-01-01 00:00:00 +0000 UTC, ttl=0s}",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -151,8 +153,10 @@ func TestDataset_GetDescription(t *testing.T) {
 		fields fields
 		want   string
 	}{
-		{fields: fields{Description: gptr.Of("test")},
-			want: "test"},
+		{
+			fields: fields{Description: gptr.Of("test")},
+			want:   "test",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

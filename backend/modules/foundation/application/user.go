@@ -36,7 +36,6 @@ func NewUserApplication(
 }
 
 func (u *UserApplicationImpl) Register(ctx context.Context, request *user.UserRegisterRequest) (r *user.UserRegisterResponse, err error) {
-
 	if request.Email == nil || request.Password == nil {
 		return nil, errorx.NewByCode(errno.CommonInvalidParamCode)
 	}
@@ -87,7 +86,6 @@ func (u *UserApplicationImpl) ResetPassword(ctx context.Context, request *user.R
 }
 
 func (u *UserApplicationImpl) LoginByPassword(ctx context.Context, request *user.LoginByPasswordRequest) (r *user.LoginByPasswordResponse, err error) {
-
 	if request.Email == nil || request.Password == nil {
 		return nil, errorx.NewByCode(errno.CommonInvalidParamCode)
 	}
@@ -125,7 +123,6 @@ func (u *UserApplicationImpl) Logout(ctx context.Context, request *user.LogoutRe
 }
 
 func (u *UserApplicationImpl) ModifyUserProfile(ctx context.Context, request *user.ModifyUserProfileRequest) (r *user.ModifyUserProfileResponse, err error) {
-
 	userIDStr, ok := session.UserIDInCtx(ctx)
 	if !ok {
 		return nil, errorx.NewByCode(errno.CommonInvalidParamCode, errorx.WithExtraMsg("missing user session"))
@@ -155,7 +152,6 @@ func (u *UserApplicationImpl) ModifyUserProfile(ctx context.Context, request *us
 }
 
 func (u *UserApplicationImpl) GetUserInfoByToken(ctx context.Context, request *user.GetUserInfoByTokenRequest) (r *user.GetUserInfoByTokenResponse, err error) {
-
 	userIDStr, ok := session.UserIDInCtx(ctx)
 	if !ok {
 		return nil, errorx.NewByCode(errno.CommonInvalidParamCode, errorx.WithExtraMsg("missing user session"))

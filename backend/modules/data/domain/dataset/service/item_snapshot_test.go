@@ -58,9 +58,7 @@ func TestDatasetServiceImpl_RunSnapshotItemJob(t *testing.T) {
 				}
 				mockRepo.EXPECT().GetVersion(context.Background(), gomock.Any(), gomock.Any(), gomock.Any()).Return(mockVersion, nil)
 				mockIConfig.EXPECT().GetSnapshotRetry().Return(&conf.SnapshotRetry{}).MaxTimes(2)
-				mockILocker.EXPECT().LockBackoffWithRenew(context.Background(), gomock.Any(), gomock.Any(), gomock.Any()).Return(true, context.Background(), func() {
-					return
-				}, nil)
+				mockILocker.EXPECT().LockBackoffWithRenew(context.Background(), gomock.Any(), gomock.Any(), gomock.Any()).Return(true, context.Background(), func() {}, nil)
 				mockRepo.EXPECT().ListItems(context.Background(), gomock.Any()).Return([]*entity.Item{}, &pagination.PageResult{}, nil)
 				mockRepo.EXPECT().BatchUpsertItemSnapshots(gomock.Any(), gomock.Any()).Return(int64(0), nil)
 				mockRepo.EXPECT().CountItemSnapshots(context.Background(), gomock.Any(), gomock.Any()).Return(int64(0), nil)
@@ -100,9 +98,7 @@ func TestDatasetServiceImpl_RunSnapshotItemJob(t *testing.T) {
 				mockIConfig.EXPECT().GetSnapshotRetry().Return(&conf.SnapshotRetry{
 					MaxRetryTimes: 10,
 				}).AnyTimes()
-				mockILocker.EXPECT().LockBackoffWithRenew(context.Background(), gomock.Any(), gomock.Any(), gomock.Any()).Return(true, context.Background(), func() {
-					return
-				}, fmt.Errorf("执行lock失败"))
+				mockILocker.EXPECT().LockBackoffWithRenew(context.Background(), gomock.Any(), gomock.Any(), gomock.Any()).Return(true, context.Background(), func() {}, fmt.Errorf("执行lock失败"))
 				mockIDatasetJobPublisher.EXPECT().Send(gomock.Any(), gomock.Any(), gomock.Any()).Return(nil)
 			},
 			expectedErr: false,

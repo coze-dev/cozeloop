@@ -29,8 +29,7 @@ const (
 	XttEnv    = "x_tt_env"
 )
 
-type MultiSpaceSpanExporter struct {
-}
+type MultiSpaceSpanExporter struct{}
 
 func (e *MultiSpaceSpanExporter) ExportSpans(ctx context.Context, spans []*entity.UploadSpan) error {
 	finalSpans := make([]*span.InputSpan, 0, len(spans))

@@ -67,7 +67,7 @@ func TestFromDOToolCalls(t *testing.T) {
 			name: "test from do tool calls",
 			args: args{
 				ts: []*ToolCall{
-					&ToolCall{
+					{
 						Index: ptr.Of(int64(1)),
 						ID:    "id",
 						Type:  "function",
@@ -80,7 +80,7 @@ func TestFromDOToolCalls(t *testing.T) {
 				},
 			},
 			want: []schema.ToolCall{
-				schema.ToolCall{
+				{
 					Index: ptr.Of(1),
 					ID:    "id",
 					Type:  "function",
@@ -155,14 +155,14 @@ func TestToDOMessages(t *testing.T) {
 			name: "success",
 			args: args{
 				msgs: []*schema.Message{
-					&schema.Message{
+					{
 						Role:    schema.Assistant,
 						Content: "there is content",
 					},
 				},
 			},
 			want: []*Message{
-				&Message{
+				{
 					Role:    RoleAssistant,
 					Content: "there is content",
 				},
@@ -195,7 +195,7 @@ func TestToDOToolCalls(t *testing.T) {
 			name: "success",
 			args: args{
 				tcs: []schema.ToolCall{
-					schema.ToolCall{
+					{
 						Index: ptr.Of(1),
 						ID:    "id",
 						Type:  "function",
@@ -208,7 +208,7 @@ func TestToDOToolCalls(t *testing.T) {
 				},
 			},
 			want: []*ToolCall{
-				&ToolCall{
+				{
 					Index: ptr.Of(int64(1)),
 					ID:    "id",
 					Type:  "function",

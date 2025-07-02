@@ -9,8 +9,8 @@ import (
 )
 
 const (
-	DefaultFileMode = 0644
-	DefaultDirMode  = 0755
+	DefaultFileMode = 0o644
+	DefaultDirMode  = 0o755
 )
 
 type FSInformation struct {

@@ -56,6 +56,7 @@ func (c *configer) GetDatasetItemStorage() *dataset_conf.DatasetItemStorage {
 	var conf *dataset_conf.DatasetItemStorage
 	return lo.Ternary(c.loader.UnmarshalKey(context.Background(), key, &conf) == nil, conf, &dataset_conf.DatasetItemStorage{})
 }
+
 func (c *configer) GetDatasetSpec() *dataset_conf.DatasetSpec {
 	const key = "default_dataset_spec"
 	var conf *dataset_conf.DatasetSpec

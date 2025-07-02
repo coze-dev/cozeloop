@@ -56,8 +56,7 @@ func (c *CozeLoopFilter) BuildALLSpanFilter(ctx context.Context, _ *SpanEnv) ([]
 	return nil, nil
 }
 
-type CozeLoopFilterFactory struct {
-}
+type CozeLoopFilterFactory struct{}
 
 func (c *CozeLoopFilterFactory) PlatformType() loop_span.PlatformType {
 	return loop_span.PlatformCozeLoop

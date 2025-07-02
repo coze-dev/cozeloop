@@ -35,11 +35,11 @@ func Test_runtimeApp_Chat(t *testing.T) {
 			ToolChoice:  ptr.Of(druntime.ToolChoiceAuto),
 		},
 		Messages: []*druntime.Message{
-			&druntime.Message{
+			{
 				Role:    druntime.RoleUser,
 				Content: ptr.Of("your content"),
 				MultimodalContents: []*druntime.ChatMessagePart{
-					&druntime.ChatMessagePart{
+					{
 						Type: ptr.Of(druntime.ChatMessagePartTypeImageURL),
 						Text: nil,
 						ImageURL: &druntime.ChatMessageImageURL{
@@ -50,7 +50,7 @@ func Test_runtimeApp_Chat(t *testing.T) {
 					},
 				},
 				ToolCalls: []*druntime.ToolCall{
-					&druntime.ToolCall{
+					{
 						Index: nil,
 						ID:    ptr.Of("toolcall id"),
 						Type:  ptr.Of(druntime.ToolTypeFunction),
@@ -73,7 +73,7 @@ func Test_runtimeApp_Chat(t *testing.T) {
 			},
 		},
 		Tools: []*druntime.Tool{
-			&druntime.Tool{
+			{
 				Name:    ptr.Of("tool name"),
 				Desc:    ptr.Of("tool desc"),
 				DefType: ptr.Of(druntime.ToolDefTypeOpenAPIV3),

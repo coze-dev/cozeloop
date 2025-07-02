@@ -7,8 +7,10 @@ import (
 	"time"
 )
 
-const APIKeyStatusNormal = 0
-const APIKeyStatusDeleted = 1
+const (
+	APIKeyStatusNormal  = 0
+	APIKeyStatusDeleted = 1
+)
 
 type APIKey struct {
 	ID         int64

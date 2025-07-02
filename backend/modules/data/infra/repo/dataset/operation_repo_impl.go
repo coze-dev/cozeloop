@@ -25,9 +25,11 @@ func (d *DatasetRepo) AddDatasetOperation(ctx context.Context, datasetID int64, 
 	}
 	return d.optDAO.AddDatasetOperation(ctx, datasetID, op)
 }
+
 func (d *DatasetRepo) DelDatasetOperation(ctx context.Context, datasetID int64, opType entity.DatasetOpType, id string) error {
 	return d.optDAO.DelDatasetOperation(ctx, datasetID, opType, id)
 }
+
 func (d *DatasetRepo) MGetDatasetOperations(ctx context.Context, datasetID int64, opTypes []entity.DatasetOpType) (map[entity.DatasetOpType][]*entity.DatasetOperation, error) {
 	return d.optDAO.MGetDatasetOperations(ctx, datasetID, opTypes)
 }

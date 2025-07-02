@@ -10,8 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-type mockConsumer struct {
-}
+type mockConsumer struct{}
 
 func (m *mockConsumer) ConsumeTraces(ctx context.Context, tds Traces) error {
 	return nil

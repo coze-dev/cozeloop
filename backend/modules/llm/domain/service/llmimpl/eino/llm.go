@@ -52,7 +52,8 @@ func (l *LLM) Generate(ctx context.Context, input []*entity.Message, opts ...ent
 }
 
 func (l *LLM) Stream(ctx context.Context, input []*entity.Message, opts ...entity.Option) (
-	entity.IStreamReader, error) {
+	entity.IStreamReader, error,
+) {
 	// 解析 option
 	optsDO := entity.ApplyOptions(nil, opts...)
 	einoOpts, err := entity.FromDOOptions(optsDO)

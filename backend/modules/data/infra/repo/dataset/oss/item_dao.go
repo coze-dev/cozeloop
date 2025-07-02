@@ -65,9 +65,7 @@ func (r *ItemDAOImpl) MGetItemData(ctx context.Context, items []*entity.Item) er
 	if len(items) == 0 {
 		return nil
 	}
-	var (
-		merr = &multierror.Error{}
-	)
+	merr := &multierror.Error{}
 	keys := gslice.Map(items, func(item *entity.Item) string { return item.GetOrBuildProperties().StorageKey })
 	values, err := r.batchObjectStorage.BatchRead(ctx, keys)
 	if err != nil {

@@ -214,7 +214,7 @@ func (p *PromptServiceImpl) doStreamingIteration(ctx context.Context, param Exec
 	for v := range resultStream {
 		param.ResultStream <- replyItemWrapper(v)
 	}
-	select {
+	select { //nolint:staticcheck
 	case err = <-errChan:
 		if err != nil {
 			return nil, err

@@ -38,7 +38,6 @@ type ExptItemEventEvalServiceImpl struct {
 	exptTurnResultRepo       repo.IExptTurnResultRepo
 	exptStatsRepo            repo.IExptStatsRepo
 	experimentRepo           repo.IExperimentRepo
-	exptRunLogRepo           repo.IExptRunLogRepo
 	configer                 component.IConfiger
 	quotaRepo                repo.QuotaRepo
 	mutex                    lock.ILocker

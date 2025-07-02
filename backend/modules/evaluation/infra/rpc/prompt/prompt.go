@@ -16,7 +16,6 @@ import (
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
 	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
-	prompt_errno "github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/errno"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 )
 
@@ -31,10 +30,6 @@ func NewPromptRPCAdapter(client promptmanageservice.Client, executeClient prompt
 		executeClient: executeClient,
 	}
 }
-
-var (
-	promptRPCError = prompt_errno.CommonNoPermissionCode // 无使用，仅声明变量，用于初始化ml_flow errorx包，该包的init方法会注册ml_flow的错误码
-)
 
 func (p PromptRPCAdapter) ExecutePrompt(ctx context.Context, spaceID int64, param *rpc.ExecutePromptParam) (result *rpc.ExecutePromptResult, err error) {
 	req := &execute.ExecuteInternalRequest{

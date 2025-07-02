@@ -13,7 +13,7 @@ func BatchUserInfoDO2DTO(dos []*rpc.UserInfo) []*user.UserInfoDetail {
 	if len(dos) <= 0 {
 		return nil
 	}
-	var dtos = make([]*user.UserInfoDetail, 0, len(dos))
+	dtos := make([]*user.UserInfoDetail, 0, len(dos))
 	for _, do := range dos {
 		dto := UserInfoDO2DTO(do)
 		if dto == nil {

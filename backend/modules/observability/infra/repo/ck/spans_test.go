@@ -22,7 +22,9 @@ func TestBuildSql(t *testing.T) {
 	if err != nil {
 		t.Fatal("Failed to create mock")
 	}
-	defer sqlDB.Close()
+	defer func() {
+		_ = sqlDB.Close()
+	}()
 	// 用mock DB替换GORM的DB
 	db, err := gorm.Open(clickhouse.New(clickhouse.Config{
 		Conn:                      sqlDB,

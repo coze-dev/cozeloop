@@ -266,7 +266,7 @@ func (e *EvaluationSetApplicationImpl) BatchCreateEvaluationSetItems(ctx context
 	if req == nil {
 		return nil, errorx.NewByCode(errno.CommonInvalidParamCode, errorx.WithExtraMsg("req is nil"))
 	}
-	if req.Items == nil || len(req.Items) == 0 {
+	if len(req.Items) == 0 {
 		return nil, errorx.NewByCode(errno.CommonInvalidParamCode, errorx.WithExtraMsg("items is nil"))
 	}
 	// 鉴权

@@ -26,8 +26,10 @@ type S3Client struct {
 	cfg *S3Config
 }
 
-var _ ObjectStorage = (*S3Client)(nil)
-var _ BatchObjectStorage = (*S3Client)(nil)
+var (
+	_ ObjectStorage      = (*S3Client)(nil)
+	_ BatchObjectStorage = (*S3Client)(nil)
+)
 
 func NewS3Client(cfg *S3Config) (*S3Client, error) {
 	if err := cfg.Validate(); err != nil {

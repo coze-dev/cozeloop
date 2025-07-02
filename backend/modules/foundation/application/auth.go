@@ -28,7 +28,6 @@ func NewAuthApplication(userRepo repo.IUserRepo) auth.AuthService {
 }
 
 func (a *AuthApplicationImpl) MCheckPermission(ctx context.Context, request *auth.MCheckPermissionRequest) (r *auth.MCheckPermissionResponse, err error) {
-
 	logs.CtxDebug(ctx, "MCheckPermission request: %+v", request)
 
 	userID, err := strconv.ParseInt(session.UserIDInCtxOrEmpty(ctx), 10, 64)

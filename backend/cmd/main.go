@@ -127,8 +127,8 @@ type component struct {
 
 func initTracer(handler *apis.APIHandler) error {
 	rpc.SetLoopTracerHandler(
-		lofile.NewLocalFileService(handler.FoundationHandler.FileService),
-		lotrace.NewLocalTraceService(handler.ObservabilityHandler.ITraceApplication),
+		lofile.NewLocalFileService(handler.FileService),
+		lotrace.NewLocalTraceService(handler.ITraceApplication),
 	)
 
 	client, err := cozeloop.NewClient(

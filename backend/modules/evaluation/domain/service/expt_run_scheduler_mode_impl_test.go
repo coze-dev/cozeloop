@@ -305,7 +305,8 @@ func TestExptSubmitExec_ExptStart(t *testing.T) {
 		EvalSet: &entity.EvaluationSet{
 			ID: 1, SpaceID: 3, Name: "name", Description: "description", Status: 0, Spec: nil, Features: nil, ItemCount: 0, ChangeUncommitted: false,
 			EvaluationSetVersion: &entity.EvaluationSetVersion{ID: 1, AppID: 0, SpaceID: 3, EvaluationSetID: 1, Version: "version", VersionNum: 0, Description: "description", EvaluationSetSchema: nil, ItemCount: 0, BaseInfo: nil},
-			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1)},
+			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1),
+		},
 		Evaluators:      []*entity.Evaluator{{}},
 		Status:          0,
 		StatusMessage:   "",
@@ -498,7 +499,8 @@ func TestExptSubmitExec_ScanEvalItems(t *testing.T) {
 		EvalSet: &entity.EvaluationSet{
 			ID: 1, SpaceID: 3, Name: "name", Description: "description", Status: 0, Spec: nil, Features: nil, ItemCount: 0, ChangeUncommitted: false,
 			EvaluationSetVersion: &entity.EvaluationSetVersion{ID: 1, AppID: 0, SpaceID: 3, EvaluationSetID: 1, Version: "version", VersionNum: 0, Description: "description", EvaluationSetSchema: nil, ItemCount: 0, BaseInfo: nil},
-			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1)},
+			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1),
+		},
 		Evaluators:      []*entity.Evaluator{{}},
 		Status:          0,
 		StatusMessage:   "",
@@ -714,7 +716,8 @@ func TestExptFailRetryExec_ExptStart(t *testing.T) {
 		EvalSet: &entity.EvaluationSet{
 			ID: 1, SpaceID: 3, Name: "name", Description: "description", Status: 0, Spec: nil, Features: nil, ItemCount: 0, ChangeUncommitted: false,
 			EvaluationSetVersion: &entity.EvaluationSetVersion{ID: 1, AppID: 0, SpaceID: 3, EvaluationSetID: 1, Version: "version", VersionNum: 0, Description: "description", EvaluationSetSchema: nil, ItemCount: 0, BaseInfo: nil},
-			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1)},
+			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1),
+		},
 		Evaluators:      []*entity.Evaluator{{}},
 		Status:          0,
 		StatusMessage:   "",
@@ -935,7 +938,8 @@ func TestExptFailRetryExec_ScanEvalItems(t *testing.T) {
 		EvalSet: &entity.EvaluationSet{
 			ID: 1, SpaceID: 3, Name: "name", Description: "description", Status: 0, Spec: nil, Features: nil, ItemCount: 0, ChangeUncommitted: false,
 			EvaluationSetVersion: &entity.EvaluationSetVersion{ID: 1, AppID: 0, SpaceID: 3, EvaluationSetID: 1, Version: "version", VersionNum: 0, Description: "description", EvaluationSetSchema: nil, ItemCount: 0, BaseInfo: nil},
-			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1)},
+			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1),
+		},
 		Evaluators:      []*entity.Evaluator{{}},
 		Status:          0,
 		StatusMessage:   "",
@@ -1105,7 +1109,8 @@ func TestExptFailRetryExec_ExptEnd(t *testing.T) {
 		EvalSet: &entity.EvaluationSet{
 			ID: 1, SpaceID: 3, Name: "name", Description: "description", Status: 0, Spec: nil, Features: nil, ItemCount: 0, ChangeUncommitted: false,
 			EvaluationSetVersion: &entity.EvaluationSetVersion{ID: 1, AppID: 0, SpaceID: 3, EvaluationSetID: 1, Version: "version", VersionNum: 0, Description: "description", EvaluationSetSchema: nil, ItemCount: 0, BaseInfo: nil},
-			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1)},
+			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1),
+		},
 		Evaluators:      []*entity.Evaluator{{}},
 		Status:          0,
 		StatusMessage:   "",
@@ -1497,7 +1502,8 @@ func TestExptAppendExec_ScanEvalItems(t *testing.T) {
 		EvalSet: &entity.EvaluationSet{
 			ID: 1, SpaceID: 3, Name: "name", Description: "description", Status: 0, Spec: nil, Features: nil, ItemCount: 0, ChangeUncommitted: false,
 			EvaluationSetVersion: &entity.EvaluationSetVersion{ID: 1, AppID: 0, SpaceID: 3, EvaluationSetID: 1, Version: "version", VersionNum: 0, Description: "description", EvaluationSetSchema: nil, ItemCount: 0, BaseInfo: nil},
-			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1)},
+			LatestVersion:        "", NextVersionNum: 0, BaseInfo: nil, BizCategory: strconv.Itoa(1),
+		},
 		Evaluators:      []*entity.Evaluator{{}},
 		Status:          0,
 		StatusMessage:   "",

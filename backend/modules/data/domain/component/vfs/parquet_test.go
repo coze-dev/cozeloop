@@ -20,8 +20,11 @@ func createTestParquetFile(t *testing.T) []byte {
 	if err != nil {
 		t.Fatalf("Failed to create temp file: %v", err)
 	}
-	defer os.Remove(tmpfile.Name())
-	defer tmpfile.Close()
+
+	defer func() {
+		_ = os.Remove(tmpfile.Name())
+		_ = tmpfile.Close()
+	}()
 
 	// Create test data
 	schema := parquet.SchemaOf(map[string]any{
@@ -85,11 +88,12 @@ func TestNewReader(t *testing.T) {
 
 			// If we have a valid reader, try to read some data
 			if pr != nil {
-				var record map[string]any
-				err = pr.Read(&record)
+				record := make([]map[string]any, 1)
+				n, err := pr.Read(record)
 				assert.NoError(t, err)
-				assert.Contains(t, record, "name")
-				assert.Contains(t, record, "age")
+				assert.Equal(t, 1, n)
+				assert.Contains(t, record[0], "name")
+				assert.Contains(t, record[0], "age")
 			}
 		})
 	}

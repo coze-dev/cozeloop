@@ -59,7 +59,7 @@ func TestQueueProcessor(t *testing.T) {
 					tmp := strconv.Itoa(i % 3)
 					spanList := make(loop_span.SpanList, rand.Int()&4)
 					expectedCount += len(spanList)
-					for i, _ := range spanList {
+					for i := range spanList {
 						spanList[i] = new(loop_span.Span)
 						spanList[i].SpanID = tmp
 					}

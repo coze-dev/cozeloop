@@ -7,7 +7,6 @@ import (
 	"context"
 
 	json "github.com/bytedance/sonic"
-	"github.com/pkg/errors"
 
 	"github.com/coze-dev/cozeloop/backend/infra/mq"
 	"github.com/coze-dev/cozeloop/backend/modules/data/application"
@@ -31,11 +30,8 @@ func (e *DatasetJobConsumer) ConsumerCfg(ctx context.Context) (*mq.ConsumerConfi
 	const key = "consumer_configs"
 
 	cfg := &dataset_conf.ConsumerConfig{}
-	if err := e.IConfigLoader.UnmarshalKey(ctx, key, cfg); err != nil {
+	if err := e.UnmarshalKey(ctx, key, cfg); err != nil {
 		return nil, err
-	}
-	if cfg == nil {
-		return nil, errors.Errorf("DatasetJob Config not find")
 	}
 
 	if cfg.ConsumeGoroutineNums <= 0 {

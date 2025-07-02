@@ -15,10 +15,6 @@ type Provider interface {
 	NewSession(ctx context.Context) *gorm.DB
 }
 
-type option struct {
-	tx *gorm.DB
-}
-
 type provider struct {
 	db *gorm.DB
 }

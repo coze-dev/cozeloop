@@ -5,8 +5,10 @@ package ck
 
 import "time"
 
-type CompressionMethod string
-type Protocol string
+type (
+	CompressionMethod string
+	Protocol          string
+)
 
 const (
 	CompressionMethodLZ4     CompressionMethod = "lz4"

@@ -36,7 +36,8 @@ var (
 )
 
 func NewEvalTargetHandlerImpl(auth rpc.IAuthProvider, evalTargetService service.IEvalTargetService,
-	typedOperators map[entity.EvalTargetType]service.ISourceEvalTargetOperateService) evaluation.EvalTargetService {
+	typedOperators map[entity.EvalTargetType]service.ISourceEvalTargetOperateService,
+) evaluation.EvalTargetService {
 	evalTargetHandlerOnce.Do(func() {
 		evalTargetHandler = &EvalTargetApplicationImpl{
 			auth:              auth,
@@ -77,7 +78,6 @@ func (e EvalTargetApplicationImpl) CreateEvalTarget(ctx context.Context, request
 		entity.EvalTargetType(request.Param.GetEvalTargetType()),
 		entity.WithCozeBotPublishVersion(request.Param.BotPublishVersion),
 		entity.WithCozeBotInfoType(entity.CozeBotInfoType(request.Param.GetBotInfoType())))
-
 	if err != nil {
 		return nil, err
 	}

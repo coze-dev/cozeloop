@@ -25,9 +25,9 @@ func TestMergeStreamMsgs(t *testing.T) {
 			name: "MergeStreamMsgs",
 			args: args{
 				msgs: []*Message{
-					&Message{
+					{
 						ToolCalls: []*ToolCall{
-							&ToolCall{
+							{
 								ID: "id1",
 								Function: &FunctionCall{
 									Name:      "",
@@ -36,19 +36,19 @@ func TestMergeStreamMsgs(t *testing.T) {
 							},
 						},
 					},
-					&Message{
+					{
 						Role:             RoleAssistant,
 						Content:          "你",
 						ReasoningContent: "你",
 						MultiModalContent: []*ChatMessagePart{
-							&ChatMessagePart{
+							{
 								Type: ChatMessagePartTypeText,
 								Text: "你好",
 							},
 						},
 						Name: "",
 						ToolCalls: []*ToolCall{
-							&ToolCall{
+							{
 								Function: &FunctionCall{
 									Name:      "",
 									Arguments: "arg2",
@@ -61,19 +61,19 @@ func TestMergeStreamMsgs(t *testing.T) {
 							Usage:        nil,
 						},
 					},
-					&Message{
+					{
 						Role:             RoleAssistant,
 						Content:          "好",
 						ReasoningContent: "好",
 						MultiModalContent: []*ChatMessagePart{
-							&ChatMessagePart{
+							{
 								Type: ChatMessagePartTypeText,
 								Text: "你好",
 							},
 						},
 						Name: "",
 						ToolCalls: []*ToolCall{
-							&ToolCall{
+							{
 								ID: "id2",
 								Function: &FunctionCall{
 									Name:      "",
@@ -98,25 +98,25 @@ func TestMergeStreamMsgs(t *testing.T) {
 				Content:          "你好",
 				ReasoningContent: "你好",
 				MultiModalContent: []*ChatMessagePart{
-					&ChatMessagePart{
+					{
 						Type: ChatMessagePartTypeText,
 						Text: "你好",
 					},
-					&ChatMessagePart{
+					{
 						Type: ChatMessagePartTypeText,
 						Text: "你好",
 					},
 				},
 				Name: "",
 				ToolCalls: []*ToolCall{
-					&ToolCall{
+					{
 						ID: "id1",
 						Function: &FunctionCall{
 							Name:      "",
 							Arguments: "arg1arg2",
 						},
 					},
-					&ToolCall{
+					{
 						ID: "id2",
 						Function: &FunctionCall{
 							Name:      "",
@@ -188,9 +188,9 @@ func TestStreamMsgsToTraceModelChoices(t *testing.T) {
 			name: "StreamMsgsToTraceModelChoices success",
 			args: args{
 				msgs: []*Message{
-					&Message{
+					{
 						ToolCalls: []*ToolCall{
-							&ToolCall{
+							{
 								ID: "id1",
 								Function: &FunctionCall{
 									Name:      "",
@@ -199,19 +199,19 @@ func TestStreamMsgsToTraceModelChoices(t *testing.T) {
 							},
 						},
 					},
-					&Message{
+					{
 						Role:             RoleAssistant,
 						Content:          "你",
 						ReasoningContent: "你",
 						MultiModalContent: []*ChatMessagePart{
-							&ChatMessagePart{
+							{
 								Type: ChatMessagePartTypeText,
 								Text: "你好",
 							},
 						},
 						Name: "",
 						ToolCalls: []*ToolCall{
-							&ToolCall{
+							{
 								Function: &FunctionCall{
 									Name:      "",
 									Arguments: "arg2",
@@ -224,19 +224,19 @@ func TestStreamMsgsToTraceModelChoices(t *testing.T) {
 							Usage:        nil,
 						},
 					},
-					&Message{
+					{
 						Role:             RoleAssistant,
 						Content:          "好",
 						ReasoningContent: "好",
 						MultiModalContent: []*ChatMessagePart{
-							&ChatMessagePart{
+							{
 								Type: ChatMessagePartTypeText,
 								Text: "你好",
 							},
 						},
 						Name: "",
 						ToolCalls: []*ToolCall{
-							&ToolCall{
+							{
 								ID: "id2",
 								Function: &FunctionCall{
 									Name:      "",
@@ -256,43 +256,44 @@ func TestStreamMsgsToTraceModelChoices(t *testing.T) {
 					},
 				},
 			},
-			want: &tracespec.ModelOutput{Choices: []*tracespec.ModelChoice{
-				&tracespec.ModelChoice{
-					FinishReason: "stop",
-					Index:        0,
-					Message: &tracespec.ModelMessage{
-						Role:             tracespec.VRoleAssistant,
-						Content:          "你好",
-						ReasoningContent: "你好",
-						Parts: []*tracespec.ModelMessagePart{
-							&tracespec.ModelMessagePart{
-								Type: tracespec.ModelMessagePartTypeText,
-								Text: "你好",
-							},
-							&tracespec.ModelMessagePart{
-								Type: tracespec.ModelMessagePartTypeText,
-								Text: "你好",
-							},
-						},
-						ToolCalls: []*tracespec.ModelToolCall{
-							&tracespec.ModelToolCall{
-								ID: "id1",
-								Function: &tracespec.ModelToolCallFunction{
-									Name:      "",
-									Arguments: "arg1arg2",
+			want: &tracespec.ModelOutput{
+				Choices: []*tracespec.ModelChoice{
+					{
+						FinishReason: "stop",
+						Index:        0,
+						Message: &tracespec.ModelMessage{
+							Role:             tracespec.VRoleAssistant,
+							Content:          "你好",
+							ReasoningContent: "你好",
+							Parts: []*tracespec.ModelMessagePart{
+								{
+									Type: tracespec.ModelMessagePartTypeText,
+									Text: "你好",
+								},
+								{
+									Type: tracespec.ModelMessagePartTypeText,
+									Text: "你好",
 								},
 							},
-							&tracespec.ModelToolCall{
-								ID: "id2",
-								Function: &tracespec.ModelToolCallFunction{
-									Name:      "",
-									Arguments: "arg1",
+							ToolCalls: []*tracespec.ModelToolCall{
+								{
+									ID: "id1",
+									Function: &tracespec.ModelToolCallFunction{
+										Name:      "",
+										Arguments: "arg1arg2",
+									},
+								},
+								{
+									ID: "id2",
+									Function: &tracespec.ModelToolCallFunction{
+										Name:      "",
+										Arguments: "arg1",
+									},
 								},
 							},
 						},
 					},
 				},
-			},
 			},
 		},
 	}
@@ -318,16 +319,16 @@ func TestToTraceModelInput(t *testing.T) {
 			name: "ToTraceModelInput success",
 			args: args{
 				msgs: []*Message{
-					&Message{
+					{
 						Role:             RoleAssistant,
 						Content:          "你好",
 						ReasoningContent: "你好",
 						MultiModalContent: []*ChatMessagePart{
-							&ChatMessagePart{
+							{
 								Type: ChatMessagePartTypeText,
 								Text: "你好",
 							},
-							&ChatMessagePart{
+							{
 								Type: ChatMessagePartTypeImageURL,
 								ImageURL: &ChatMessageImageURL{
 									URL: "your url",
@@ -335,7 +336,7 @@ func TestToTraceModelInput(t *testing.T) {
 							},
 						},
 						ToolCalls: []*ToolCall{
-							&ToolCall{
+							{
 								ID: "id1",
 								Function: &FunctionCall{
 									Name:      "",
@@ -346,7 +347,7 @@ func TestToTraceModelInput(t *testing.T) {
 					},
 				},
 				ts: []*ToolInfo{
-					&ToolInfo{
+					{
 						Name:        "test",
 						Desc:        "test",
 						ToolDefType: ToolDefTypeOpenAPIV3,
@@ -357,16 +358,16 @@ func TestToTraceModelInput(t *testing.T) {
 			},
 			want: &tracespec.ModelInput{
 				Messages: []*tracespec.ModelMessage{
-					&tracespec.ModelMessage{
+					{
 						Role:             tracespec.VRoleAssistant,
 						Content:          "你好",
 						ReasoningContent: "你好",
 						Parts: []*tracespec.ModelMessagePart{
-							&tracespec.ModelMessagePart{
+							{
 								Type: tracespec.ModelMessagePartTypeText,
 								Text: "你好",
 							},
-							&tracespec.ModelMessagePart{
+							{
 								Type: tracespec.ModelMessagePartTypeImage,
 								ImageURL: &tracespec.ModelImageURL{
 									URL: "your url",
@@ -374,7 +375,7 @@ func TestToTraceModelInput(t *testing.T) {
 							},
 						},
 						ToolCalls: []*tracespec.ModelToolCall{
-							&tracespec.ModelToolCall{
+							{
 								ID: "id1",
 								Function: &tracespec.ModelToolCallFunction{
 									Name:      "",
@@ -385,7 +386,7 @@ func TestToTraceModelInput(t *testing.T) {
 					},
 				},
 				Tools: []*tracespec.ModelTool{
-					&tracespec.ModelTool{
+					{
 						Type: tracespec.VToolChoiceFunction,
 						Function: &tracespec.ModelToolFunction{
 							Name:        "test",

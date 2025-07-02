@@ -174,7 +174,6 @@ func TestGetVersionWithOpt(t *testing.T) {
 
 	// 调用方法
 	version, datasetWithSchema, err := service.GetVersionWithOpt(ctx, spaceID, versionID, opt)
-
 	// 验证结果
 	if err != nil {
 		t.Errorf("GetVersionWithOpt returned error: %v", err)

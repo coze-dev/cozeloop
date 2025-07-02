@@ -187,7 +187,6 @@ func (e *exptRepoImpl) GetByName(ctx context.Context, name string, spaceID int64
 }
 
 func (e *exptRepoImpl) GetEvaluatorRefByExptIDs(ctx context.Context, exptIDs []int64, spaceID int64) ([]*entity.ExptEvaluatorRef, error) {
-
 	pos, err := e.exptEvaluatorRefDAO.MGetByExptID(ctx, exptIDs, spaceID)
 	if err != nil {
 		return nil, err

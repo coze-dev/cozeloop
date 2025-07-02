@@ -15,6 +15,9 @@ func UnsafeBytesToString(b []byte) string {
 	return *(*string)(unsafe.Pointer(&b))
 }
 
+// UnsafeStringToBytes
+//
+//nolint:staticcheck
 func UnsafeStringToBytes(s string) (b []byte) {
 	bh := (*reflect.SliceHeader)(unsafe.Pointer(&b))
 	sh := (*reflect.StringHeader)(unsafe.Pointer(&s))

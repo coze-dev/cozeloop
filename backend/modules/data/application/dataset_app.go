@@ -176,6 +176,7 @@ func (d *DatasetApplicationImpl) DeleteDataset(ctx context.Context, req *dataset
 	}
 	return &dataset.DeleteDatasetResponse{}, nil
 }
+
 func (d *DatasetApplicationImpl) ListDatasets(ctx context.Context, req *dataset.ListDatasetsRequest) (resp *dataset.ListDatasetsResponse, err error) {
 	// 鉴权
 	err = d.auth.Authorization(ctx, &rpc.AuthorizationParam{
@@ -237,6 +238,7 @@ func (d *DatasetApplicationImpl) ListDatasets(ctx context.Context, req *dataset.
 	}
 	return resp, nil
 }
+
 func (d *DatasetApplicationImpl) GetDataset(ctx context.Context, req *dataset.GetDatasetRequest) (resp *dataset.GetDatasetResponse, err error) {
 	// 鉴权
 	err = d.authByDatasetID(ctx, req.GetWorkspaceID(), req.GetDatasetID(), rpc.CommonActionRead)
@@ -262,6 +264,7 @@ func (d *DatasetApplicationImpl) GetDataset(ctx context.Context, req *dataset.Ge
 	dto.ItemCount = gptr.Of(itemCnt)
 	return &dataset.GetDatasetResponse{Dataset: dto}, nil
 }
+
 func (d *DatasetApplicationImpl) BatchGetDatasets(ctx context.Context, req *dataset.BatchGetDatasetsRequest) (r *dataset.BatchGetDatasetsResponse, err error) {
 	// 鉴权
 	err = d.auth.Authorization(ctx, &rpc.AuthorizationParam{

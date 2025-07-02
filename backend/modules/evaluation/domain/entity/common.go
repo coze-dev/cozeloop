@@ -78,12 +78,10 @@ const (
 	OrderByUpdatedAt = "updated_at"
 )
 
-var (
-	OrderBySet = map[string]struct{}{
-		OrderByCreatedAt: {},
-		OrderByUpdatedAt: {},
-	}
-)
+var OrderBySet = map[string]struct{}{
+	OrderByCreatedAt: {},
+	OrderByUpdatedAt: {},
+}
 
 // Role 角色枚举
 type Role int64

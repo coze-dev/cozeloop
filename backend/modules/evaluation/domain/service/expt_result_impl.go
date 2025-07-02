@@ -263,7 +263,8 @@ func NewTurnEvaluatorResultRefs(id, exptID, turnResultID, spaceID int64, evaluat
 }
 
 func (e ExptResultServiceImpl) MGetExperimentResult(ctx context.Context, param *entity.MGetExperimentResultParam) (
-	columnEvaluators []*entity.ColumnEvaluator, columnEvalSetFields []*entity.ColumnEvalSetField, itemResults []*entity.ItemResult, total int64, err error) {
+	columnEvaluators []*entity.ColumnEvaluator, columnEvalSetFields []*entity.ColumnEvalSetField, itemResults []*entity.ItemResult, total int64, err error,
+) {
 	var (
 		spaceID        = param.SpaceID
 		exptIDs        = param.ExptIDs
@@ -450,7 +451,8 @@ func NewPayloadBuilder(ctx context.Context, param *entity.MGetExperimentResultPa
 	exptTurnResultRepo repo.IExptTurnResultRepo,
 	evalTargetService IEvalTargetService,
 	evaluatorRecordService EvaluatorRecordService,
-	evaluationSetItemService EvaluationSetItemService) *PayloadBuilder {
+	evaluationSetItemService EvaluationSetItemService,
+) *PayloadBuilder {
 	builder := &PayloadBuilder{
 		BaselineExptID:           baselineExptID,
 		SpaceID:                  param.SpaceID,
@@ -1034,7 +1036,7 @@ func (e ExptResultServiceImpl) CalculateStats(ctx context.Context, exptID, space
 		TerminatedTurnCnt: terminatedCnt,
 	}
 
-	logs.CtxInfo(ctx, "ExptStatsImpl.CalculateStats scan turn result done, expt_id: %v, cnt: %v, total: %v, stats: %v", exptID, cnt, total, json.Jsonify(stats))
+	logs.CtxInfo(ctx, "ExptStatsImpl.CalculateStats scan turn result done, expt_id: %v, total_cnt: %v, incomplete_cnt: %v, total: %v, stats: %v", exptID, cnt, len(incompleteTurns), total, json.Jsonify(stats))
 
 	return stats, nil
 }

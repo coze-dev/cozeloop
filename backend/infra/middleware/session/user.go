@@ -12,7 +12,10 @@ type User struct {
 	Email string `json:"email,omitempty"`
 }
 
-var userKey struct{}
+// userKeyType 定义自定义类型作为context键，避免键冲突
+type userKeyType struct{}
+
+var userKey = userKeyType{}
 
 // UserIDInCtx returns the user ID from the context.
 // Notice: NewSessionMD must be used in your service, or else this function always returns false.

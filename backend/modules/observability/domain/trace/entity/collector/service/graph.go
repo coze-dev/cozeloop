@@ -34,6 +34,7 @@ type nodeID int64
 func (n nodeID) ID() int64 {
 	return int64(n)
 }
+
 func newNodeID(parts ...string) nodeID {
 	h := fnv.New64a()
 	h.Write([]byte(strings.Join(parts, "|")))
@@ -85,6 +86,7 @@ func newProcessorNode(procID component.ID) *processorNode {
 		componentID: procID,
 	}
 }
+
 func (n *processorNode) buildComponent(ctx context.Context, builder *processor.Builder, next consumer.BaseConsumer) error {
 	set := processor.CreateSettings{
 		ID: n.componentID,

@@ -152,6 +152,7 @@ func (d *DatasetRepo) ListDatasets(ctx context.Context, params *repo.ListDataset
 	}
 	return dos, pr, nil
 }
+
 func (d *DatasetRepo) CountDatasets(ctx context.Context, params *repo.ListDatasetsParams, opt ...repo.Option) (int64, error) {
 	count, err := d.datasetDAO.CountDatasets(ctx, &mysql.ListDatasetsParams{
 		Paginator:    params.Paginator,

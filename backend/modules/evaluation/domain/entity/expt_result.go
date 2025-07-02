@@ -323,8 +323,6 @@ func (e *ExptItemRunLogFilter) GetStatus() []int32 {
 	return res
 }
 
-//type OrderBy = common.OrderBy
-
 const (
 	defaultPage     = 1 // 页数从 1 开始
 	defaultLimit    = 20

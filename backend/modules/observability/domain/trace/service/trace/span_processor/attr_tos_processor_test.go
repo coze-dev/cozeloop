@@ -107,8 +107,7 @@ func TestAttrTosProcessor_Transform(t *testing.T) {
 }
 
 func TestAttrTosProcessorFactory_CreateProcessor(t *testing.T) {
-	type fields struct {
-	}
+	type fields struct{}
 	type args struct {
 		ctx context.Context
 		set Settings

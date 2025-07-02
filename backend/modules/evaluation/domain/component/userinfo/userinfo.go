@@ -44,7 +44,6 @@ func NewUserInfoServiceImpl(userProvider rpc.IUserProvider) UserInfoService {
 }
 
 func (u *UserInfoServiceImpl) GetUserInfo(ctx context.Context, userID string) (*commondto.UserInfo, error) {
-
 	infos, err := u.userProvider.MGetUserInfo(ctx, []string{userID})
 	if err != nil {
 		return nil, errorx.WrapByCode(err, evalerr.CommonRPCErrorCode)
@@ -55,7 +54,6 @@ func (u *UserInfoServiceImpl) GetUserInfo(ctx context.Context, userID string) (*
 	}
 
 	return common_convertor.ConvertUserInfoDO2DTO(infos[0]), nil
-
 }
 
 func (u *UserInfoServiceImpl) PackUserInfo(ctx context.Context, userInfoCarriers interface{}) {

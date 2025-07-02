@@ -261,7 +261,7 @@ func (d *ManageRepoImpl) mGetPromptFromDB(ctx context.Context, queries []repo.Ge
 	draftPOMap := make(map[mysql.PromptIDUserIDPair]*model.PromptUserDraft)
 	if len(needDraftPromptIDUserIDMap) > 0 {
 		var promptDraftQueries []mysql.PromptIDUserIDPair
-		for promptQuery, _ := range needDraftPromptIDUserIDMap {
+		for promptQuery := range needDraftPromptIDUserIDMap {
 			promptDraftQueries = append(promptDraftQueries, mysql.PromptIDUserIDPair{
 				PromptID: promptQuery.PromptID,
 				UserID:   promptQuery.UserID,
@@ -276,7 +276,7 @@ func (d *ManageRepoImpl) mGetPromptFromDB(ctx context.Context, queries []repo.Ge
 	commitPOMap := make(map[mysql.PromptIDCommitVersionPair]*model.PromptCommit)
 	if len(needCommitPromptIDVersionMap) > 0 {
 		var promptCommitQueries []mysql.PromptIDCommitVersionPair
-		for promptQuery, _ := range needCommitPromptIDVersionMap {
+		for promptQuery := range needCommitPromptIDVersionMap {
 			promptCommitQueries = append(promptCommitQueries, mysql.PromptIDCommitVersionPair{
 				PromptID:      promptQuery.PromptID,
 				CommitVersion: promptQuery.CommitVersion,

@@ -79,8 +79,10 @@ var SupportedOrderBys = map[string]string{
 	"created_at": "created_at",
 }
 
-var defaultPageSize = int64(10)
-var defaultPageNum = int64(1)
+var (
+	defaultPageSize = int64(10)
+	defaultPageNum  = int64(1)
+)
 
 func getOrderBy(orderBy *OrderBy) string {
 	if orderBy == nil {
@@ -271,7 +273,6 @@ func (dao *EvaluatorVersionDAOImpl) BatchGetEvaluatorVersionsByEvaluatorIDs(ctx 
 
 // DeleteEvaluatorVersion 根据 ID 删除 Evaluator 记录
 func (dao *EvaluatorVersionDAOImpl) DeleteEvaluatorVersion(ctx context.Context, id int64, userID string, opts ...db.Option) error {
-
 	// 通过opts获取当前的db session实例
 	dbsession := dao.provider.NewSession(ctx, opts...)
 
@@ -285,7 +286,6 @@ func (dao *EvaluatorVersionDAOImpl) DeleteEvaluatorVersion(ctx context.Context, 
 
 // BatchDeleteEvaluatorVersionByEvaluatorIDs 根据评估器ID批量删除 Evaluator 记录
 func (dao *EvaluatorVersionDAOImpl) BatchDeleteEvaluatorVersionByEvaluatorIDs(ctx context.Context, evaluatorIDs []int64, userID string, opts ...db.Option) error {
-
 	// 通过opts获取当前的db session实例
 	dbsession := dao.provider.NewSession(ctx, opts...)
 

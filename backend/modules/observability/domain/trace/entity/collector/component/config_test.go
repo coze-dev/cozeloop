@@ -20,8 +20,6 @@ func (m *mockConfigWithValidator) Validate() error {
 	return nil
 }
 
-type mockErrConfig struct{}
-
 type mockErrConfigWithValidator struct{}
 
 func (m *mockErrConfigWithValidator) Validate() error {

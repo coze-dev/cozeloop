@@ -22,7 +22,7 @@ func TestError(t *testing.T) {
 }
 
 func TestConv(t *testing.T) {
-	t.Logf(conv.UnsafeBytesToString(nil))
+	t.Log(conv.UnsafeBytesToString(nil))
 }
 
 func TestPersistent(t *testing.T) {
@@ -54,10 +54,10 @@ func TestErrImpl_CauseMsg(t *testing.T) {
 		Cause: errors.New("cause"),
 	}
 	assert.Equal(t, "cause", err.CauseMsg())
-	t.Logf(error(err).Error())
+	t.Log(error(err).Error())
 
 	recursionErr := err.SetErrMsg("update msg").SetCause(err)
-	t.Logf(recursionErr.Error())
+	t.Log(recursionErr.Error())
 
 	err1 := &ErrImpl{
 		Code:  turnOtherErrCode,
@@ -66,12 +66,12 @@ func TestErrImpl_CauseMsg(t *testing.T) {
 	}
 	cerr := CloneErr(err1)
 	err1 = err1.SetErrMsg("update msg").SetCause(cerr)
-	t.Logf(err1.Error())
+	t.Log(err1.Error())
 
 	err2 := &ErrImpl{
 		Code: turnOtherErrCode,
 		Msg:  "msg",
 	}
 	err2.Cause = err2
-	t.Logf(err2.Error())
+	t.Log(err2.Error())
 }

@@ -66,6 +66,7 @@ func ItemResultsDO2DTO(from *entity.ItemResult) *domain_expt.ItemResult_ {
 		ItemIndex:   from.ItemIndex,
 	}
 }
+
 func TurnResultsDO2DTOs(from []*entity.TurnResult) []*domain_expt.TurnResult_ {
 	results := make([]*domain_expt.TurnResult_, 0, len(from))
 	for _, f := range from {
@@ -96,6 +97,7 @@ func ExperimentResultsDO2DTO(from *entity.ExperimentResult) *domain_expt.Experim
 		Payload:      ExperimentTurnPayloadDO2DTO(from.Payload),
 	}
 }
+
 func ExperimentTurnPayloadDO2DTO(from *entity.ExperimentTurnPayload) *domain_expt.ExperimentTurnPayload {
 	return &domain_expt.ExperimentTurnPayload{
 		TurnID:          from.TurnID,
@@ -118,6 +120,7 @@ func TurnEvaluatorOutputDO2DTO(from *entity.TurnEvaluatorOutput) *domain_expt.Tu
 		EvaluatorRecords: evaluatorRecords,
 	}
 }
+
 func TurnTargetOutputDO2DTO(from *entity.TurnTargetOutput) *domain_expt.TurnTargetOutput {
 	if from == nil {
 		return &domain_expt.TurnTargetOutput{}
@@ -135,6 +138,7 @@ func TurnEvalSetDO2DTO(from *entity.TurnEvalSet) *domain_expt.TurnEvalSet {
 		Turn: evalsetconv.TurnDO2DTO(from.Turn),
 	}
 }
+
 func TurnSystemInfoDO2DTO(from *entity.TurnSystemInfo) *domain_expt.TurnSystemInfo {
 	if from == nil {
 		return &domain_expt.TurnSystemInfo{}

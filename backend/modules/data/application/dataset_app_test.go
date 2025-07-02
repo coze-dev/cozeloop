@@ -267,7 +267,6 @@ func TestDatasetApplicationImpl_DeleteDataset(t *testing.T) {
 			name: "获取数据集失败",
 			req:  &dataset.DeleteDatasetRequest{WorkspaceID: gptr.Of(int64(1)), DatasetID: int64(1)},
 			mockAuth: func() {
-
 			},
 			mockAudit: func() {
 			},

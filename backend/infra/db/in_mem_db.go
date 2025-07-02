@@ -104,7 +104,7 @@ func newInMemServer(cfg *Config) (*server.Server, error) {
 
 	// Build engine.
 	db := memory.NewDatabase(cfg.DBName)
-	db.BaseDatabase.EnablePrimaryKeyIndexes()
+	db.EnablePrimaryKeyIndexes()
 	provider := memory.NewDBProvider(db)
 	engine := sqle.NewDefault(provider)
 

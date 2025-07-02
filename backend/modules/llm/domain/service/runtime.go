@@ -55,7 +55,8 @@ func (r *RuntimeImpl) Generate(ctx context.Context, model *entity.Model, input [
 }
 
 func (r *RuntimeImpl) Stream(ctx context.Context, model *entity.Model, input []*entity.Message, opts ...entity.Option) (
-	entity.IStreamReader, error) {
+	entity.IStreamReader, error,
+) {
 	if err := r.ValidModelAndRequest(ctx, model, input, opts...); err != nil {
 		return nil, err
 	}

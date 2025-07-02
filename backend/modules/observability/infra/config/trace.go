@@ -96,7 +96,7 @@ func (t *TraceConfigCenter) GetTraceAttrTosCfg(ctx context.Context) (*config.Tra
 }
 
 func (t *TraceConfigCenter) GetTraceDataMaxDurationDay(ctx context.Context, platformPtr *string) int64 {
-	var defaultDuration = int64(7)
+	defaultDuration := int64(7)
 	if platformPtr == nil {
 		return defaultDuration
 	}
@@ -113,6 +113,7 @@ func (t *TraceConfigCenter) GetTraceDataMaxDurationDay(ctx context.Context, plat
 		return defaultDuration
 	}
 }
+
 func (t *TraceConfigCenter) GetDefaultTraceTenant(ctx context.Context) string {
 	return t.traceDefaultTenant
 }
@@ -121,7 +122,7 @@ func (t *TraceConfigCenter) getDefaultTraceTenant(ctx context.Context) (string, 
 	if t.traceDefaultTenant != "" {
 		return t.traceDefaultTenant, nil
 	}
-	val := t.IConfigLoader.Get(ctx, traceDefaultTenant)
+	val := t.Get(ctx, traceDefaultTenant)
 	if val == nil {
 		return "", fmt.Errorf("trace tenant not configured")
 	}

@@ -682,6 +682,7 @@ func TestEvalTargetServiceImpl_BatchGetEvalTargetVersion(t *testing.T) {
 		})
 	}
 }
+
 func TestEvalTargetServiceImpl_GetRecordByID(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()

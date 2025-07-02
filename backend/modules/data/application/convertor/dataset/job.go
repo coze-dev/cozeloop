@@ -94,6 +94,7 @@ func DatasetIOFileDO2DTO(dto *entity.DatasetIOFile) *dataset_job.DatasetIOFile {
 		Files:          dto.Files,
 	}
 }
+
 func DatasetIODatasetDO2DTO(dto *entity.DatasetIODataset) *dataset_job.DatasetIODataset {
 	if dto == nil {
 		return nil

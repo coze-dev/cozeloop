@@ -130,9 +130,7 @@ func buildListEvaluatorRequest(ctx context.Context, request *entity.ListEvaluato
 		PageNum:    request.PageNum,
 	}
 	evaluatorType := make([]entity.EvaluatorType, 0, len(request.EvaluatorType))
-	for _, et := range request.EvaluatorType {
-		evaluatorType = append(evaluatorType, et)
-	}
+	evaluatorType = append(evaluatorType, request.EvaluatorType...)
 	req.EvaluatorType = evaluatorType
 
 	// 默认排序
@@ -277,7 +275,6 @@ func (e *EvaluatorServiceImpl) ListEvaluatorVersion(ctx context.Context, request
 		return nil, 0, err
 	}
 	return result.Versions, result.TotalCount, nil
-
 }
 
 func buildListEvaluatorVersionRequest(ctx context.Context, request *entity.ListEvaluatorVersionRequest) (*repo.ListEvaluatorVersionRequest, error) {
@@ -304,7 +301,6 @@ func buildListEvaluatorVersionRequest(ctx context.Context, request *entity.ListE
 					IsAsc: ob.IsAsc,
 				})
 			}
-
 		}
 		req.OrderBy = orderBy
 	}
@@ -436,7 +432,6 @@ func (e *EvaluatorServiceImpl) RunEvaluator(ctx context.Context, request *entity
 		return nil, err
 	}
 	return recordDO, nil
-
 }
 
 // DebugEvaluator 调试 evaluator_version

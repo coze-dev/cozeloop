@@ -80,6 +80,7 @@ func ConvertMsg2Ob(msg *commonentity.Message) (obMsg *tracespec.ModelMessage) {
 
 	return obMsg
 }
+
 func ConvertContent2Ob(content *commonentity.Content) *tracespec.ModelMessagePart {
 	var contentType string
 	switch gptr.Indirect(content.ContentType) {

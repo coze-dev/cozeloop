@@ -23,7 +23,7 @@ func (e ExperimentMetricImpl) EmitExptExecResult(spaceID, typ, status int64, sta
 		{Name: tagStatus, Value: strconv.FormatInt(status, 10)},
 		{Name: tagExptType, Value: strconv.FormatInt(typ, 10)},
 	}, metrics.Counter(1, metrics.WithSuffix(resultSuffix+throughputSuffix)),
-		metrics.Timer(int64(time.Now().Sub(start).Seconds()), metrics.WithSuffix(resultSuffix+latencySuffix)))
+		metrics.Timer(int64(time.Since(start).Seconds()), metrics.WithSuffix(resultSuffix+latencySuffix)))
 }
 
 func (e ExperimentMetricImpl) EmitItemExecEval(spaceID, mode int64, cnt int) {
@@ -68,7 +68,7 @@ func (e ExperimentMetricImpl) EmitTurnExecResult(spaceID, mode int64, isErr, sta
 		{Name: tagCode, Value: strconv.FormatInt(code, 10)},
 		{Name: tagStable, Value: strconv.FormatBool(stable)},
 	}, metrics.Counter(1, metrics.WithSuffix(resultSuffix+throughputSuffix)),
-		metrics.Timer(int64(time.Now().Sub(startTime).Seconds()), metrics.WithSuffix(resultSuffix+latencySuffix)))
+		metrics.Timer(int64(time.Since(startTime).Seconds()), metrics.WithSuffix(resultSuffix+latencySuffix)))
 }
 
 func (e ExperimentMetricImpl) EmitTurnExecTargetResult(spaceID int64, isErr bool) {

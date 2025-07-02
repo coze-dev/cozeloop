@@ -130,8 +130,7 @@ func (s SpanImpl) SetCallType(callType string) {
 
 var _ Span = (*noopSpan)(nil)
 
-type noopSpan struct {
-}
+type noopSpan struct{}
 
 func (n noopSpan) GetSpanID() string {
 	return ""

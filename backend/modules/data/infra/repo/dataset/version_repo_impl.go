@@ -41,6 +41,7 @@ func (d *DatasetRepo) GetVersion(ctx context.Context, spaceID, versionID int64, 
 	}
 	return version, nil
 }
+
 func (d *DatasetRepo) MGetVersions(ctx context.Context, spaceID int64, ids []int64, opt ...repo.Option) ([]*entity.DatasetVersion, error) {
 	versionPOs, err := d.versionDao.MGetVersions(ctx, spaceID, ids, Opt2DBOpt(opt...)...)
 	if err != nil {
@@ -52,6 +53,7 @@ func (d *DatasetRepo) MGetVersions(ctx context.Context, spaceID int64, ids []int
 func (d *DatasetRepo) GetItemCountOfVersion(ctx context.Context, versionID int64) (*int64, error) {
 	return d.versionRedisDao.GetItemCountOfVersion(ctx, versionID)
 }
+
 func (d *DatasetRepo) SetItemCountOfVersion(ctx context.Context, datasetID int64, n int64) error {
 	return d.versionRedisDao.SetItemCountOfVersion(ctx, datasetID, n)
 }
@@ -76,6 +78,7 @@ func (d *DatasetRepo) ListVersions(ctx context.Context, params *repo.ListDataset
 	}
 	return dos, p, nil
 }
+
 func (d *DatasetRepo) CountVersions(ctx context.Context, params *repo.ListDatasetVersionsParams, opt ...repo.Option) (int64, error) {
 	daoParam := &mysql.ListDatasetVersionsParams{
 		Paginator:   params.Paginator,
@@ -88,6 +91,7 @@ func (d *DatasetRepo) CountVersions(ctx context.Context, params *repo.ListDatase
 	}
 	return d.versionDao.CountVersions(ctx, daoParam, Opt2DBOpt(opt...)...)
 }
+
 func (d *DatasetRepo) PatchVersion(ctx context.Context, patch, where *entity.DatasetVersion, opt ...repo.Option) error {
 	po, err := convertor.VersionDO2PO(patch)
 	if err != nil {

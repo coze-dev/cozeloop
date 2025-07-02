@@ -63,7 +63,7 @@ func (e *EvaluatorExecMetricsImpl) EmitRun(spaceID int64, err error, start time.
 		{Name: tagCode, Value: strconv.FormatInt(code, 10)},
 		{Name: tagModelID, Value: modelID},
 	}, metrics.Counter(1, metrics.WithSuffix(runSuffix+throughputSuffix)),
-		metrics.Timer(int64(time.Now().Sub(start).Seconds()), metrics.WithSuffix(runSuffix+latencySuffix)))
+		metrics.Timer(int64(time.Since(start).Seconds()), metrics.WithSuffix(runSuffix+latencySuffix)))
 }
 
 func (e *EvaluatorExecMetricsImpl) EmitCreate(spaceID int64, err error) {

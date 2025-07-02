@@ -9,7 +9,6 @@ import (
 
 	"github.com/coze-dev/cozeloop/backend/infra/external/benefit"
 	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	"github.com/coze-dev/cozeloop/backend/infra/mq"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/common"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/filter"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/span"
@@ -44,7 +43,8 @@ func NewTraceApplication(
 	authService rpc.IAuthProvider,
 	benefitService benefit.IBenefitService,
 	traceMetrics metrics.ITraceMetrics,
-	traceConfig config.ITraceConfig) (ITraceApplication, error) {
+	traceConfig config.ITraceConfig,
+) (ITraceApplication, error) {
 	return &TraceApplication{
 		traceService: traceService,
 		viewRepo:     viewRepo,
@@ -62,7 +62,6 @@ type TraceApplication struct {
 	auth         rpc.IAuthProvider
 	metrics      metrics.ITraceMetrics
 	benefit      benefit.IBenefitService
-	mqProducer   mq.IProducer
 }
 
 func (t *TraceApplication) ListSpans(ctx context.Context, req *trace.ListSpansRequest) (*trace.ListSpansResponse, error) {

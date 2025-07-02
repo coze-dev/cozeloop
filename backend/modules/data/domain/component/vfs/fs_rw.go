@@ -23,10 +23,10 @@ type FileReader struct {
 	info   fs.FileInfo
 	format entity.FileFormat
 
-	csv     *csv.Reader     // 仅当 format == CSV 时有效
-	fields  []string        // 仅当 format == CSV 时有效
-	parquet *parquet.Reader // 仅当 format == Parquet 时有效
-	scanner *bufio.Scanner  // 仅当 format == JSONL 时有效
+	csv     *csv.Reader                            // 仅当 format == CSV 时有效
+	fields  []string                               // 仅当 format == CSV 时有效
+	parquet *parquet.GenericReader[map[string]any] // 仅当 format == Parquet 时有效
+	scanner *bufio.Scanner                         // 仅当 format == JSONL 时有效
 
 	cursor int64
 	closer io.Closer
@@ -43,6 +43,7 @@ func (r *FileReader) SetName(name string) {
 func (r *FileReader) GetName() string {
 	return r.name
 }
+
 func (r *FileReader) GetCursor() int64 {
 	return r.cursor
 }
@@ -149,13 +150,13 @@ func (r *FileReader) nextInCSV() (map[string]any, error) {
 }
 
 func (r *FileReader) nextInParquet() (map[string]any, error) {
-	kv := make(map[string]any)
-	if err := r.parquet.Read(&kv); err != nil {
+	kvs := make([]map[string]any, 1)
+	_, err := r.parquet.Read(kvs)
+	if err != nil {
 		return nil, err
 	}
-
 	r.cursor += 1
-	return kv, nil
+	return kvs[0], nil
 }
 
 func (r *FileReader) nextInJSONL() (map[string]any, error) {

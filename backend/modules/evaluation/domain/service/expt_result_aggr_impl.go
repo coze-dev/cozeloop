@@ -278,7 +278,6 @@ func (e *ExptAggrResultServiceImpl) BatchGetExptAggrResultByExperimentIDs(ctx co
 	})
 	evaluatorVersionList, err := e.evaluatorService.BatchGetEvaluatorVersion(ctx, evaluatorVersionIDs, true)
 	// evaluators, err := e.evalCall.BatchGetEvaluatorVersion(ctx, spaceID, evaluatorVersionIDs, true)
-
 	if err != nil {
 		return nil, err
 	}

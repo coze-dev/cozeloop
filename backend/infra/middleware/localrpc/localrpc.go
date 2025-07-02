@@ -9,9 +9,9 @@ import (
 	"github.com/cloudwego/kitex/pkg/endpoint"
 )
 
-const (
-	localCallFlagCtxKey = "cozeloop_local_call"
-)
+type localCallFlagCtxKeyType struct{}
+
+var localCallFlagCtxKey = localCallFlagCtxKeyType{}
 
 func LocalCallFlagMiddleware(next endpoint.Endpoint) endpoint.Endpoint {
 	return func(ctx context.Context, req, resp any) (err error) {

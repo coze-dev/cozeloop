@@ -73,7 +73,6 @@ func (r *ExptAggrResultRepoImpl) CreateExptAggrResult(ctx context.Context, exptA
 	exptAggrResultPO := convert.ExptAggrResultDOToPO(exptAggrResult)
 
 	return r.exptAggrResultDAO.CreateExptAggrResult(ctx, exptAggrResultPO)
-
 }
 
 func (r *ExptAggrResultRepoImpl) BatchCreateExptAggrResult(ctx context.Context, exptAggrResults []*entity.ExptAggrResult) error {

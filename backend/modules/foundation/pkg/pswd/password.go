@@ -63,7 +63,6 @@ func HashPassword(password string) (string, error) {
 		p.memory, p.iterations, p.parallelism, b64Salt, b64Hash)
 
 	return encoded, nil
-
 }
 
 // VerifyPassword 验证密码是否匹配
@@ -104,5 +103,4 @@ func VerifyPassword(password, encodedHash string) (bool, error) {
 
 	// 比较计算得到的哈希值与存储的哈希值
 	return subtle.ConstantTimeCompare(decodedHash, computedHash) == 1, nil
-
 }

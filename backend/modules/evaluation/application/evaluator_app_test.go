@@ -437,7 +437,6 @@ func TestEvaluatorHandlerImpl_CreateEvaluator(t *testing.T) {
 				},
 			},
 			mockSetup: func() {
-
 				mockAuditClient.EXPECT().
 					Audit(gomock.Any(), gomock.Any()).
 					Return(audit.AuditRecord{AuditStatus: audit.AuditStatus_Rejected}, nil).Times(1)
@@ -1027,7 +1026,6 @@ func TestEvaluatorHandlerImpl_BatchGetEvaluatorVersions(t *testing.T) {
 				mockEvaluatorService.EXPECT().
 					BatchGetEvaluatorVersion(gomock.Any(), validEvaluatorVersionIDs, false).
 					Return([]*entity.Evaluator{}, nil)
-
 			},
 			wantResp: &evaluatorservice.BatchGetEvaluatorVersionsResponse{},
 			wantErr:  false,
@@ -1181,7 +1179,6 @@ func TestEvaluatorHandlerImpl_SubmitEvaluatorVersion(t *testing.T) {
 				Cid:         &validCID,
 			},
 			mockSetup: func() {
-
 				mockAuditClient.EXPECT().
 					Audit(gomock.Any(), gomock.Any()).
 					Return(audit.AuditRecord{AuditStatus: audit.AuditStatus_Rejected}, nil).
@@ -1201,7 +1198,6 @@ func TestEvaluatorHandlerImpl_SubmitEvaluatorVersion(t *testing.T) {
 
 			if tt.wantErr {
 				assert.Error(t, err)
-
 			} else {
 				assert.NoError(t, err)
 				assert.Equal(t, tt.wantResp.Evaluator.GetEvaluatorID(), resp.Evaluator.GetEvaluatorID())
@@ -1519,7 +1515,6 @@ func TestEvaluatorHandlerImpl_RunEvaluator(t *testing.T) {
 			resp, err := handler.RunEvaluator(context.Background(), tt.req)
 			if tt.wantErr {
 				assert.Error(t, err)
-
 			} else {
 				assert.NoError(t, err)
 				assert.Equal(t, tt.wantResp.Record.ID, resp.Record.ID)
@@ -1678,7 +1673,6 @@ func TestEvaluatorHandlerImpl_DebugEvaluator(t *testing.T) {
 
 			if tt.wantErr {
 				assert.Error(t, err)
-
 			} else {
 				assert.NoError(t, err)
 				assert.Equal(t, tt.wantResp.EvaluatorOutputData.EvaluatorResult_.Reasoning, resp.EvaluatorOutputData.EvaluatorResult_.Reasoning)
@@ -2407,7 +2401,6 @@ func TestEvaluatorHandlerImpl_CheckEvaluatorName(t *testing.T) {
 
 			if tt.wantErr {
 				assert.Error(t, err)
-
 			} else {
 				assert.NoError(t, err)
 				assert.Equal(t, tt.wantResp.Pass, resp.Pass)

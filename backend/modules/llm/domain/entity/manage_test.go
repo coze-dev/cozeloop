@@ -14,8 +14,8 @@ import (
 func TestModel_Available(t *testing.T) {
 	model := &Model{
 		ScenarioConfigs: map[Scenario]*ScenarioConfig{
-			ScenarioDefault: &ScenarioConfig{},
-			ScenarioEvaluator: &ScenarioConfig{
+			ScenarioDefault: {},
+			ScenarioEvaluator: {
 				Scenario:    ScenarioEvaluator,
 				Quota:       nil,
 				Unavailable: true,
@@ -69,14 +69,14 @@ func TestModel_Available(t *testing.T) {
 func TestModel_GetModel(t *testing.T) {
 	model := &Model{
 		ScenarioConfigs: map[Scenario]*ScenarioConfig{
-			ScenarioDefault: &ScenarioConfig{
+			ScenarioDefault: {
 				Scenario: ScenarioDefault,
 				Quota: &Quota{
 					Qpm: 10,
 					Tpm: 1000,
 				},
 			},
-			ScenarioEvaluator: &ScenarioConfig{
+			ScenarioEvaluator: {
 				Scenario:    ScenarioEvaluator,
 				Quota:       nil,
 				Unavailable: true,
@@ -165,32 +165,37 @@ func TestModel_Valid(t *testing.T) {
 		{
 			name: "model ability is invalid",
 			fields: fields{
-				model: &Model{ID: 1, Name: "name",
+				model: &Model{
+					ID: 1, Name: "name",
 					Ability: &Ability{
 						MultiModal:        true,
 						AbilityMultiModal: nil,
-					}},
+					},
+				},
 			},
 			wantErr: true,
 		},
 		{
 			name: "model ability is invalid",
 			fields: fields{
-				model: &Model{ID: 1, Name: "name",
+				model: &Model{
+					ID: 1, Name: "name",
 					Ability: &Ability{
 						MultiModal: true,
 						AbilityMultiModal: &AbilityMultiModal{
 							Image:        true,
 							AbilityImage: nil,
 						},
-					}},
+					},
+				},
 			},
 			wantErr: true,
 		},
 		{
 			name: "model ability is nil",
 			fields: fields{
-				model: &Model{ID: 1, Name: "name",
+				model: &Model{
+					ID: 1, Name: "name",
 					Ability:        nil,
 					Protocol:       ProtocolArk,
 					ProtocolConfig: &ProtocolConfig{},
@@ -201,18 +206,22 @@ func TestModel_Valid(t *testing.T) {
 		{
 			name: "model protocol is invalid",
 			fields: fields{
-				model: &Model{ID: 1, Name: "name",
+				model: &Model{
+					ID: 1, Name: "name",
 					Protocol:       ProtocolArk,
-					ProtocolConfig: nil},
+					ProtocolConfig: nil,
+				},
 			},
 			wantErr: true,
 		},
 		{
 			name: "model protocol is invalid",
 			fields: fields{
-				model: &Model{ID: 1, Name: "name",
+				model: &Model{
+					ID: 1, Name: "name",
 					Protocol:       "",
-					ProtocolConfig: &ProtocolConfig{}},
+					ProtocolConfig: &ProtocolConfig{},
+				},
 			},
 			wantErr: true,
 		},

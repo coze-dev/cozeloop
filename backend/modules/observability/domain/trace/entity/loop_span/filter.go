@@ -14,11 +14,13 @@ import (
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
 )
 
-type QueryAndOrEnum string
-type QueryTypeEnum string
-type FieldType string
-type PlatformType string
-type SpanListType string
+type (
+	QueryAndOrEnum string
+	QueryTypeEnum  string
+	FieldType      string
+	PlatformType   string
+	SpanListType   string
+)
 
 const (
 	QueryTypeEnumMatch    QueryTypeEnum = "match"
@@ -347,6 +349,9 @@ func CompareBool(val bool, values []bool, qType QueryTypeEnum) bool {
 	}
 }
 
+// Compare
+//
+//nolint:staticcheck,S1034
 func Compare[T cmp.Ordered](val T, values []T, qType QueryTypeEnum) bool {
 	switch qType {
 	case QueryTypeEnumMatch:

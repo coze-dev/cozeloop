@@ -121,7 +121,7 @@ func TestManageImpl_ListModels(t *testing.T) {
 			fieldsGetter: func(ctrl *gomock.Controller) fields {
 				confMock := llmconfmocks.NewMockIConfigManage(ctrl)
 				models := []*entity.Model{
-					&entity.Model{ID: 1},
+					{ID: 1},
 				}
 				confMock.EXPECT().ListModels(gomock.Any(), gomock.Any()).Return(models, int64(2), true, int64(1), nil)
 				return fields{conf: confMock}

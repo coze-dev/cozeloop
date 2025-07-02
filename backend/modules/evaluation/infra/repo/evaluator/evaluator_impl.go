@@ -41,12 +41,10 @@ func NewEvaluatorRepo(idgen idgen.IIDGenerator, provider db.Provider, evaluatorD
 		lwt:                 lwt,
 	}
 	return singletonEvaluatorRepo
-
 }
 
 func (r *EvaluatorRepoImpl) SubmitEvaluatorVersion(ctx context.Context, evaluator *entity.Evaluator) error {
 	err := r.dbProvider.Transaction(ctx, func(tx *gorm.DB) error {
-
 		opt := db.WithTransaction(tx)
 		// 更新Evaluator最新版本
 		err := r.evaluatorDao.UpdateEvaluatorLatestVersion(ctx, evaluator.ID, evaluator.GetEvaluatorVersion().GetVersion(), gptr.Indirect(evaluator.BaseInfo.UpdatedBy.UserID), opt)
@@ -233,7 +231,6 @@ func (r *EvaluatorRepoImpl) CheckVersionExist(ctx context.Context, evaluatorID i
 
 // CreateEvaluator 创建 Evaluator
 func (r *EvaluatorRepoImpl) CreateEvaluator(ctx context.Context, do *entity.Evaluator) (evaluatorID int64, err error) {
-
 	// 生成主键ID
 	genIDs, err := r.idgen.GenMultiIDs(ctx, 3)
 	if err != nil {
@@ -332,7 +329,6 @@ func (r *EvaluatorRepoImpl) UpdateEvaluatorMeta(ctx context.Context, id int64, n
 // BatchDeleteEvaluator 根据 ID 删除 Evaluator
 func (r *EvaluatorRepoImpl) BatchDeleteEvaluator(ctx context.Context, ids []int64, userID string) (err error) {
 	return r.dbProvider.Transaction(ctx, func(tx *gorm.DB) error {
-
 		opt := db.WithTransaction(tx)
 
 		err = r.evaluatorDao.BatchDeleteEvaluator(ctx, ids, userID, opt)

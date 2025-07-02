@@ -37,7 +37,7 @@ func (o *ObjectInfo) Size() int64 {
 }
 
 func (o *ObjectInfo) Mode() fs.FileMode {
-	return 0644
+	return 0o644
 }
 
 func (o *ObjectInfo) ModTime() time.Time {

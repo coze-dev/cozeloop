@@ -183,7 +183,7 @@ func TestListEvaluationSetVersions(t *testing.T) {
 
 	expectedSets := []*entity.EvaluationSetVersion{}
 	var total int64 = 0
-	var nextCursor = ""
+	nextCursor := ""
 
 	// 模拟成功情况
 	mockAdapter.EXPECT().ListDatasetVersions(gomock.Any(), param.SpaceID, param.EvaluationSetID, param.PageToken, param.PageNumber, param.PageSize, param.VersionLike).Return(expectedSets, &total, &nextCursor, nil)

@@ -63,7 +63,6 @@ func (e *EvalTargetVersionDAOImpl) GetEvalTargetVersion(ctx context.Context, spa
 		return nil, errorx.WrapByCode(err, errno.CommonMySqlErrorCode)
 	}
 	return po, nil
-
 }
 
 func (e *EvalTargetVersionDAOImpl) GetEvalTargetVersionByTarget(ctx context.Context, spaceID int64, targetID int64, sourceTargetVersion string, opts ...db.Option) (version *model.TargetVersion, err error) {

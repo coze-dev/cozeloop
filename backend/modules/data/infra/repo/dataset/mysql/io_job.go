@@ -121,6 +121,7 @@ func (r *IOJobDAOImpl) CreateIOJob(ctx context.Context, job *model.DatasetIOJob,
 	r.writeTracker.SetWriteFlag(ctx, platestwrite.ResourceTypeIOJob, job.ID, platestwrite.SetWithSearchParam(strconv.FormatInt(job.DatasetID, 10)))
 	return nil
 }
+
 func (r *IOJobDAOImpl) GetIOJob(ctx context.Context, id int64, opt ...db.Option) (*model.DatasetIOJob, error) {
 	p := &model.DatasetIOJob{}
 	if !db.ContainWithMasterOpt(opt) && r.writeTracker.CheckWriteFlagByID(ctx, platestwrite.ResourceTypeIOJob, id) {
@@ -136,6 +137,7 @@ func (r *IOJobDAOImpl) GetIOJob(ctx context.Context, id int64, opt ...db.Option)
 
 	return p, nil
 }
+
 func (r *IOJobDAOImpl) UpdateIOJob(ctx context.Context, id int64, delta *DeltaDatasetIOJob, opt ...db.Option) error {
 	where := new(clause.Where)
 	where.Exprs = append(where.Exprs, &clause.Eq{Column: "id", Value: id})
@@ -159,6 +161,7 @@ func (r *IOJobDAOImpl) UpdateIOJob(ctx context.Context, id int64, delta *DeltaDa
 	r.writeTracker.SetWriteFlag(ctx, platestwrite.ResourceTypeIOJob, id)
 	return nil
 }
+
 func (r *IOJobDAOImpl) ListIOJobs(ctx context.Context, params *ListIOJobsParams, opt ...db.Option) ([]*model.DatasetIOJob, error) {
 	where, err := params.toWhere()
 	if err != nil {

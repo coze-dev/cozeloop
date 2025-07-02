@@ -16,7 +16,8 @@ import (
 )
 
 func NewQuotaService(quotaRepo repo.QuotaRepo,
-	configer component.IConfiger) QuotaService {
+	configer component.IConfiger,
+) QuotaService {
 	return &QuotaServiceImpl{
 		QuotaRepo: quotaRepo,
 		Configer:  configer,

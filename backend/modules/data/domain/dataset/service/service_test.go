@@ -45,7 +45,6 @@ func TestNewDatasetServiceImpl(t *testing.T) {
 		{
 			name: "First initialization should create new instance",
 			run: func(t *testing.T) {
-
 				// Create service instance
 				service := NewDatasetServiceImpl(
 					mockDB,
@@ -61,9 +60,7 @@ func TestNewDatasetServiceImpl(t *testing.T) {
 				assert.NotNil(t, service)
 
 				// Verify service implements all required interfaces
-				_, ok := service.(IDatasetAPI)
-				assert.True(t, ok, "service should implement IDatasetAPI")
-				_, ok = service.(IDatasetService)
+				_, ok := service.(IDatasetService)
 				assert.True(t, ok, "service should implement IDatasetService")
 				_, ok = service.(ISchemaService)
 				assert.True(t, ok, "service should implement ISchemaService")
