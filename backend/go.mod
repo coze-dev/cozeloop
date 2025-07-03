@@ -10,7 +10,6 @@ require (
 	github.com/ClickHouse/clickhouse-go/v2 v2.34.0
 	github.com/DATA-DOG/go-sqlmock v1.5.0
 	github.com/Masterminds/semver/v3 v3.3.1
-	github.com/RealAlexandreAI/json-repair v0.0.14
 	github.com/alicebob/miniredis/v2 v2.34.0
 	github.com/alitto/pond/v2 v2.3.4
 	github.com/apache/rocketmq-client-go/v2 v2.1.2
@@ -55,6 +54,7 @@ require (
 	github.com/jarcoal/httpmock v1.4.0
 	github.com/jinzhu/copier v0.4.0
 	github.com/json-iterator/go v1.1.12
+	github.com/kaptinlin/jsonrepair v0.1.1
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/modern-go/reflect2 v1.0.2
 	github.com/ollama/ollama v0.5.12

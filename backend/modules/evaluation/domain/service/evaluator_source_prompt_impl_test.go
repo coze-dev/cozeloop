@@ -8,6 +8,7 @@ import (
 	"errors"
 	"testing"
 
+	"github.com/kaptinlin/jsonrepair"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
@@ -441,4 +442,127 @@ func TestEvaluatorSourcePromptServiceImpl_EvaluatorType(t *testing.T) {
 		configer:    mockConfiger,
 	}
 	assert.Equal(t, entity.EvaluatorTypePrompt, service.EvaluatorType())
+}
+
+func TestJSONRepair(t *testing.T) {
+	t.Run("非法JSON应能修复", func(t *testing.T) {
+		json := "{name: 'John'}"
+		repaired, err := jsonrepair.JSONRepair(json)
+		assert.NoError(t, err)
+		assert.Equal(t, "{\"name\": \"John\"}", repaired)
+	})
+
+	t.Run("合法JSON应原样返回", func(t *testing.T) {
+		json := "{\"name\":\"John\"}"
+		repaired, err := jsonrepair.JSONRepair(json)
+		assert.NoError(t, err)
+		assert.Equal(t, json, repaired)
+	})
+
+	t.Run("完全不合法", func(t *testing.T) {
+		json := "{name: John"
+		referenceJson := "{\"name\": \"John\"}"
+
+		repaired, err := jsonrepair.JSONRepair(json)
+		assert.NoError(t, err)
+		assert.Equal(t, referenceJson, repaired)
+	})
+
+	t.Run("空字符串应报错", func(t *testing.T) {
+		json := ""
+		repaired, err := jsonrepair.JSONRepair(json)
+		assert.Error(t, err)
+		assert.Empty(t, repaired)
+	})
+
+	t.Run("部分修复但仍不合法应报错", func(t *testing.T) {
+		json := "{name: 'John', age: }"
+		referenceJson := "{\"name\": \"John\", \"age\": null}"
+
+		repaired, err := jsonrepair.JSONRepair(json)
+		assert.NoError(t, err)
+		assert.Equal(t, repaired, referenceJson)
+	})
+
+	t.Run("嵌套对象修复", func(t *testing.T) {
+		json := "{user: {name: 'John', age: 30}}"
+		repaired, err := jsonrepair.JSONRepair(json)
+		assert.NoError(t, err)
+		assert.Equal(t, "{\"user\": {\"name\": \"John\", \"age\": 30}}", repaired)
+	})
+
+	t.Run("数组修复", func(t *testing.T) {
+		json := "[{name: 'John'}, {name: 'Jane'}]"
+		repaired, err := jsonrepair.JSONRepair(json)
+		assert.NoError(t, err)
+		assert.Equal(t, "[{\"name\": \"John\"}, {\"name\": \"Jane\"}]", repaired)
+	})
+}
+
+func TestParseOutput_ParseTypeContent(t *testing.T) {
+	t.Run("ParseTypeContent-正常修复", func(t *testing.T) {
+		evaluatorVersion := &entity.PromptEvaluatorVersion{
+			ParseType: entity.ParseTypeContent,
+			SpaceID:   1,
+			Tools: []*entity.Tool{
+				{
+					Function: &entity.Function{
+						Parameters: "{\"type\": \"object\", \"properties\": {\"score\": {\"type\": \"number\"}, \"reason\": {\"type\": \"string\"}}}",
+					},
+				},
+			},
+		}
+		replyItem := &entity.ReplyItem{
+			Content:    ptr.Of("{score: 1.5, reason: 'good'}"),
+			TokenUsage: &entity.TokenUsage{InputTokens: 5, OutputTokens: 6},
+		}
+		output, err := parseOutput(context.Background(), evaluatorVersion, replyItem)
+		assert.NoError(t, err)
+		assert.NotNil(t, output)
+		assert.NotNil(t, output.EvaluatorResult)
+		assert.Equal(t, 1.5, *output.EvaluatorResult.Score)
+		assert.Equal(t, "good", output.EvaluatorResult.Reasoning)
+		assert.Equal(t, int64(5), output.EvaluatorUsage.InputTokens)
+		assert.Equal(t, int64(6), output.EvaluatorUsage.OutputTokens)
+	})
+
+	t.Run("ParseTypeContent-修复失败", func(t *testing.T) {
+		evaluatorVersion := &entity.PromptEvaluatorVersion{
+			ParseType: entity.ParseTypeContent,
+			SpaceID:   1,
+			Tools: []*entity.Tool{
+				{
+					Function: &entity.Function{
+						Parameters: "{\"type\": \"object\", \"properties\": {\"score\": {\"type\": \"number\"}, \"reason\": {\"type\": \"string\"}}}",
+					},
+				},
+			},
+		}
+		replyItem := &entity.ReplyItem{
+			Content: ptr.Of("{score: 1.5, reason: }"), // reason缺失值
+		}
+		output, err := parseOutput(context.Background(), evaluatorVersion, replyItem)
+		assert.Error(t, err)
+		assert.NotNil(t, output)
+	})
+
+	t.Run("ParseTypeContent-字段类型错误", func(t *testing.T) {
+		evaluatorVersion := &entity.PromptEvaluatorVersion{
+			ParseType: entity.ParseTypeContent,
+			SpaceID:   1,
+			Tools: []*entity.Tool{
+				{
+					Function: &entity.Function{
+						Parameters: "{\"type\": \"object\", \"properties\": {\"score\": {\"type\": \"number\"}, \"reason\": {\"type\": \"string\"}}}",
+					},
+				},
+			},
+		}
+		replyItem := &entity.ReplyItem{
+			Content: ptr.Of("{score: 'not-a-number', reason: 123}"),
+		}
+		output, err := parseOutput(context.Background(), evaluatorVersion, replyItem)
+		assert.Error(t, err)
+		assert.NotNil(t, output)
+	})
 }

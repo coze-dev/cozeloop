@@ -10,10 +10,10 @@ import (
 	"sync"
 	"time"
 
-	jsonrepair "github.com/RealAlexandreAI/json-repair"
 	"github.com/bytedance/gg/gmap"
 	"github.com/bytedance/gg/gptr"
 	"github.com/coze-dev/cozeloop-go"
+	"github.com/kaptinlin/jsonrepair"
 	"github.com/valyala/fasttemplate"
 
 	"github.com/coze-dev/cozeloop/backend/infra/looptracer"
@@ -320,7 +320,7 @@ func parseOutput(ctx context.Context, evaluatorVersion *entity.PromptEvaluatorVe
 	}
 	var repairArgs string
 	if evaluatorVersion.ParseType == entity.ParseTypeContent {
-		repairArgs, err = jsonrepair.RepairJSON(gptr.Indirect(replyItem.Content))
+		repairArgs, err = jsonrepair.JSONRepair(gptr.Indirect(replyItem.Content))
 		if err != nil {
 			logs.CtxWarn(ctx, "[RunEvaluator] parseOutput Content RepairJSON fail, origin content: %v, err: %v", gptr.Indirect(replyItem.Content), err)
 			return output, errorx.NewByCode(errno.InvalidOutputFromModelCode)
@@ -330,7 +330,7 @@ func parseOutput(ctx context.Context, evaluatorVersion *entity.PromptEvaluatorVe
 			logs.CtxWarn(ctx, "[RunEvaluator] parseOutput fail, err: tool call empty")
 			return output, errorx.NewByCode(errno.LLMToolCallFailCode)
 		}
-		repairArgs, err = jsonrepair.RepairJSON(gptr.Indirect(replyItem.ToolCalls[0].FunctionCall.Arguments))
+		repairArgs, err = jsonrepair.JSONRepair(gptr.Indirect(replyItem.ToolCalls[0].FunctionCall.Arguments))
 		if err != nil {
 			logs.CtxWarn(ctx, "[RunEvaluator] parseOutput ToolCalls RepairJSON fail, origin content: %v, err: %v", gptr.Indirect(replyItem.ToolCalls[0].FunctionCall.Arguments), err)
 			return output, errorx.NewByCode(errno.InvalidOutputFromModelCode)
