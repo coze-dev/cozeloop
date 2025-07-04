@@ -125,9 +125,12 @@ func (g *GoImportHelper) addPkgName(name string) string {
 	return name
 }
 
-// Copyright (c) 2018 The Go Authors. All rights reserved.
-// This code is copied from https://github.com/protocolbuffers/protobuf-go/blob/master/internal/strs/strings.go
-// and is licensed under the BSD 3-Clause License.
+// Copyright 2019 The Go Authors. All rights reserved.
+//
+// Code forked from https://github.com/protocolbuffers/protobuf-go/blob/master/internal/strs/strings.go
+//
+// Original code was released under BSD 3-Clause, with the full license text
+// available at https://github.com/protocolbuffers/protobuf-go/blob/master/LICENSE.
 func goSanitized(s string) string {
 	// Sanitize the input to the set of valid characters,
 	// which must be '_' or be in the Unicode L or N categories.
