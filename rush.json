@@ -311,6 +311,11 @@
       "packageName": "@coze-arch/bot-md-box-adapter",
       "projectFolder": "frontend/packages/arch/bot-md-box-adapter",
       "tags": ["level-2"]
+    },
+    {
+      "packageName": "@cozeloop/loop-lng",
+      "projectFolder": "frontend/packages/cozeloop/resources/loop-lng",
+      "tags": ["level-3"]
     }
   ]
 }

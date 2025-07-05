@@ -1,0 +1,44 @@
+import { icu2Type } from '../scripts/utils';
+
+describe('Parse ICU format', () => {
+  it('should parse plain text', () => {
+    const typeInfos = icu2Type('Click to add a personal access token');
+
+    console.info(typeInfos);
+    expect(typeInfos.length).toBe(0);
+  });
+
+  it('should parse interpolation', () => {
+    const typeInfos = icu2Type('Fail to fetch metadata: {msg}');
+
+    console.info(typeInfos);
+    expect(typeInfos[0]).toMatchObject({
+      key: 'msg',
+      type: 'string',
+    });
+  });
+
+  it('should parse select', () => {
+    const typeInfos = icu2Type(`{gender, select,
+  male {He will respond shortly.}
+  female {She will respond shortly.}
+  other {They will respond shortly.}
+}`);
+    console.info(typeInfos);
+    expect(typeInfos[0]).toMatchObject({
+      key: 'gender',
+      type: "'male' | 'female' | undefined",
+    });
+  });
+
+  it('should parse plural', () => {
+    const typeInfos = icu2Type(
+      '{num, plural, one {# day ({date})} other {# days ({date})}}',
+    );
+    console.info(typeInfos);
+    expect(typeInfos[0]).toMatchObject({
+      key: 'num',
+      type: 'number',
+    });
+  });
+});
