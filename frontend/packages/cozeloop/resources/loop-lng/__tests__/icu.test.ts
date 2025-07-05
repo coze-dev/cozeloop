@@ -1,3 +1,5 @@
+// Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
+// SPDX-License-Identifier: Apache-2.0
 import { icu2Type } from '../scripts/utils';
 
 describe('Parse ICU format', () => {
