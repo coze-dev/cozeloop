@@ -6,4 +6,4 @@ export type {
   I18nOptionsMap,
   I18nKeysHasOptionsType,
   I18nKeysNoOptionsType,
-} from '@coze-studio/studio-i18n-resource-adapter';
+} from '@cozeloop/loop-lng';

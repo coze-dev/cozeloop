@@ -2264,12 +2264,9 @@ importers:
       '@coze-arch/i18n':
         specifier: workspace:*
         version: link:../../arch/i18n
-      '@coze-studio/loop-i18n-resource-adapter':
+      '@cozeloop/loop-lng':
         specifier: workspace:*
-        version: link:../../arch/resources/loop-i18n-resource
-      '@coze-studio/studio-i18n-resource-adapter':
-        specifier: workspace:*
-        version: link:../../arch/resources/studio-i18n-resource
+        version: link:../resources/loop-lng
       i18next-browser-languagedetector:
         specifier: 8.0.4
         version: 8.0.4

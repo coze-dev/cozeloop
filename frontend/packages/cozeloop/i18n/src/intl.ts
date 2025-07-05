@@ -8,13 +8,7 @@ import type {
   I18nOptionsMap,
   I18nKeysHasOptionsType,
   I18nKeysNoOptionsType,
-} from '@coze-studio/studio-i18n-resource-adapter';
-import type {
-  LocaleData as LoopLocaleData,
-  I18nOptionsMap as LoopI18nOptionsMap,
-  I18nKeysHasOptionsType as LoopI18nKeysHasOptionsType,
-  I18nKeysNoOptionsType as LoopI18nKeysNoOptionsType,
-} from '@coze-studio/loop-i18n-resource-adapter';
+} from '@cozeloop/loop-lng';
 import {
   type Intl,
   type I18nCore,
@@ -30,9 +24,6 @@ type InitReturnType = ReturnType<(typeof _I18n)['init']>;
 type I18nOptions<K extends LocaleData> = K extends keyof I18nOptionsMap
   ? I18nOptionsMap[K]
   : never;
-
-type LoopI18nOptions<K extends LoopLocaleData> =
-  K extends keyof LoopI18nOptionsMap ? LoopI18nOptionsMap[K] : never;
 
 class IntlX {
   plugins: any[] = [];
@@ -79,7 +70,7 @@ class IntlX {
     return _I18n.addResourceBundle(lng, ns, resources, deep, overwrite);
   }
 
-  t<K extends I18nKeysNoOptionsType | LoopI18nKeysNoOptionsType>(
+  t<K extends I18nKeysNoOptionsType>(
     keys: K,
     options?: Record<string, unknown>,
     fallbackText?: string,
@@ -92,17 +83,6 @@ class IntlX {
   t<K extends LocaleData>(
     keys: K,
     options?: I18nOptions<K> | Record<string, unknown>,
-    fallbackText?: string,
-  ): string;
-  t<K extends LoopI18nKeysHasOptionsType>(
-    keys: K,
-    // eslint-disable-next-line @typescript-eslint/unified-signatures -- skip
-    options: LoopI18nOptions<K>,
-    fallbackText?: string,
-  ): string;
-  t<K extends LoopLocaleData>(
-    keys: K,
-    options?: LoopI18nOptions<K> | Record<string, unknown>,
     fallbackText?: string,
   ): string {
     return _I18n.t(keys, options, fallbackText);

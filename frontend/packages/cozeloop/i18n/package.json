@@ -7,13 +7,12 @@
   "scripts": {
     "build": "exit 0",
     "lint": "eslint ./ --cache",
-    "test": "NODE_OPTIONS='--max_old_space_size=2048' NODE_ENV=test vitest --run --passWithNoTests",
+    "test": "vitest --run --passWithNoTests",
     "test:cov": "npm run test -- --coverage"
   },
   "dependencies": {
-    "@coze-studio/loop-i18n-resource-adapter": "workspace:*",
-    "@coze-studio/studio-i18n-resource-adapter": "workspace:*",
     "@coze-arch/i18n": "workspace:*",
+    "@cozeloop/loop-lng": "workspace:*",
     "i18next-browser-languagedetector": "8.0.4"
   },
   "devDependencies": {

@@ -2,13 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 import LanguageDetector from 'i18next-browser-languagedetector';
 import {
-  localeEn as studioLocaleEn,
-  localeZhCN as studioLocaleZhCN,
-} from '@coze-studio/studio-i18n-resource-adapter';
-import {
-  localeEn as loopLocalEn,
-  localeZhCN as loopLocalZhCN,
-} from '@coze-studio/loop-i18n-resource-adapter';
+  localeEn as loopLocaleEn,
+  localeZhCN as loopLocaleZhCN,
+} from '@cozeloop/loop-lng';
 import { type IIntlInitOptions } from '@coze-arch/i18n/intl';
 
 import { detectLng } from './utils';
@@ -43,10 +39,10 @@ async function initIntl(options?: IIntlInitOptions) {
         keySeparator: false,
         resources: {
           'zh-CN': {
-            translation: Object.assign({}, studioLocaleZhCN, loopLocalZhCN),
+            translation: Object.assign({}, loopLocaleZhCN),
           },
           'en-US': {
-            translation: Object.assign({}, studioLocaleEn, loopLocalEn),
+            translation: Object.assign({}, loopLocaleEn),
           },
         },
         ...(restOptions ?? {}),
