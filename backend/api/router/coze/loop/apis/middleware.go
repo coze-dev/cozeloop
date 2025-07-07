@@ -28,6 +28,10 @@ func _apiMw(handler *apis.APIHandler) []app.HandlerFunc {
 	}
 }
 
+func _loopMw(handler *apis.APIHandler) []app.HandlerFunc {
+	return []app.HandlerFunc{middleware.PatTokenVerifyMW(handler)}
+}
+
 func _authMw(handler *apis.APIHandler) []app.HandlerFunc {
 	// your code...
 	return nil
@@ -869,11 +873,6 @@ func _clonepromptMw(handler *apis.APIHandler) []app.HandlerFunc {
 }
 
 func _v16Mw(handler *apis.APIHandler) []app.HandlerFunc {
-	// your code...
-	return nil
-}
-
-func _loopMw(handler *apis.APIHandler) []app.HandlerFunc {
 	// your code...
 	return nil
 }

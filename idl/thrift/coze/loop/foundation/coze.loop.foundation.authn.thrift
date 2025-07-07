@@ -80,6 +80,7 @@ struct VerifyTokenRequest {
 }
 struct VerifyTokenResponse {
     1: optional bool valid
+    2: optional string user_id
 
     255: optional base.BaseResp BaseResp
 }

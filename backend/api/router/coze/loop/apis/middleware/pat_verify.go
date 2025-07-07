@@ -7,10 +7,13 @@ import (
 	"context"
 	"strings"
 
+	"github.com/bytedance/gg/gptr"
 	"github.com/cloudwego/hertz/pkg/app"
 
 	"github.com/coze-dev/cozeloop/backend/api/handler/coze/loop/apis"
+	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
 	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/authn"
+	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user"
 	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
 )
 
@@ -33,11 +36,33 @@ func PatTokenVerifyMW(handler *apis.APIHandler) app.HandlerFunc {
 			c.Abort()
 			return
 		}
-		if verifyRes.Valid == nil || !*verifyRes.Valid {
+		if verifyRes.Valid == nil || !*verifyRes.Valid || len(verifyRes.GetUserID()) == 0 {
 			_ = c.Error(errorx.New("invalid pat token"))
 			c.Abort()
 			return
 		}
+
+		userID := verifyRes.GetUserID()
+		resp, err := handler.GetUserInfo(ctx, &user.GetUserInfoRequest{
+			UserID: gptr.Of(userID),
+		})
+		if err != nil {
+			_ = c.Error(err)
+			c.Abort()
+			return
+		}
+
+		if resp.GetUserInfo() == nil {
+			_ = c.Error(errorx.New("user not found"))
+			c.Abort()
+			return
+		}
+
+		ctx = session.WithCtxUser(ctx, &session.User{
+			ID:    userID,
+			Name:  resp.GetUserInfo().GetName(),
+			Email: resp.GetUserInfo().GetEmail(),
+		})
 
 		c.Next(ctx)
 	}

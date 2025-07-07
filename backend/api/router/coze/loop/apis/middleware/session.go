@@ -15,8 +15,6 @@ import (
 	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
 )
 
-const MockAppID = 1234
-
 func SessionMW(ss session.ISessionService, us userservice.Client) app.HandlerFunc {
 	return func(ctx context.Context, c *app.RequestContext) {
 		path := string(c.Path())
@@ -50,7 +48,6 @@ func SessionMW(ss session.ISessionService, us userservice.Client) app.HandlerFun
 		}
 
 		ctx = session.WithCtxUser(ctx, &session.User{
-			AppID: MockAppID,
 			ID:    sess.UserID,
 			Name:  resp.GetUserInfo().GetName(),
 			Email: resp.GetUserInfo().GetEmail(),

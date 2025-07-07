@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/bytedance/gg/gptr"
 	"github.com/samber/lo"
 
 	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
@@ -246,5 +247,6 @@ func (a AuthNApplicationImpl) VerifyToken(ctx context.Context, req *authn.Verify
 		return nil, err
 	}
 
+	varifyPass.UserID = gptr.Of(strconv.FormatInt(ds.UserID, 10))
 	return varifyPass, nil
 }

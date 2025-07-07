@@ -2154,6 +2154,20 @@ func (p *VerifyTokenResponse) FastRead(buf []byte) (int, error) {
 					goto SkipFieldError
 				}
 			}
+		case 2:
+			if fieldTypeId == thrift.STRING {
+				l, err = p.FastReadField2(buf[offset:])
+				offset += l
+				if err != nil {
+					goto ReadFieldError
+				}
+			} else {
+				l, err = thrift.Binary.Skip(buf[offset:], fieldTypeId)
+				offset += l
+				if err != nil {
+					goto SkipFieldError
+				}
+			}
 		case 255:
 			if fieldTypeId == thrift.STRUCT {
 				l, err = p.FastReadField255(buf[offset:])
@@ -2200,6 +2214,20 @@ func (p *VerifyTokenResponse) FastReadField1(buf []byte) (int, error) {
 	return offset, nil
 }
 
+func (p *VerifyTokenResponse) FastReadField2(buf []byte) (int, error) {
+	offset := 0
+
+	var _field *string
+	if v, l, err := thrift.Binary.ReadString(buf[offset:]); err != nil {
+		return offset, err
+	} else {
+		offset += l
+		_field = &v
+	}
+	p.UserID = _field
+	return offset, nil
+}
+
 func (p *VerifyTokenResponse) FastReadField255(buf []byte) (int, error) {
 	offset := 0
 	_field := base.NewBaseResp()
@@ -2220,6 +2248,7 @@ func (p *VerifyTokenResponse) FastWriteNocopy(buf []byte, w thrift.NocopyWriter)
 	offset := 0
 	if p != nil {
 		offset += p.fastWriteField1(buf[offset:], w)
+		offset += p.fastWriteField2(buf[offset:], w)
 		offset += p.fastWriteField255(buf[offset:], w)
 	}
 	offset += thrift.Binary.WriteFieldStop(buf[offset:])
@@ -2230,6 +2259,7 @@ func (p *VerifyTokenResponse) BLength() int {
 	l := 0
 	if p != nil {
 		l += p.field1Length()
+		l += p.field2Length()
 		l += p.field255Length()
 	}
 	l += thrift.Binary.FieldStopLength()
@@ -2241,6 +2271,15 @@ func (p *VerifyTokenResponse) fastWriteField1(buf []byte, w thrift.NocopyWriter)
 	if p.IsSetValid() {
 		offset += thrift.Binary.WriteFieldBegin(buf[offset:], thrift.BOOL, 1)
 		offset += thrift.Binary.WriteBool(buf[offset:], *p.Valid)
+	}
+	return offset
+}
+
+func (p *VerifyTokenResponse) fastWriteField2(buf []byte, w thrift.NocopyWriter) int {
+	offset := 0
+	if p.IsSetUserID() {
+		offset += thrift.Binary.WriteFieldBegin(buf[offset:], thrift.STRING, 2)
+		offset += thrift.Binary.WriteStringNocopy(buf[offset:], w, *p.UserID)
 	}
 	return offset
 }
@@ -2263,6 +2302,15 @@ func (p *VerifyTokenResponse) field1Length() int {
 	return l
 }
 
+func (p *VerifyTokenResponse) field2Length() int {
+	l := 0
+	if p.IsSetUserID() {
+		l += thrift.Binary.FieldBeginLength()
+		l += thrift.Binary.StringLengthNocopy(*p.UserID)
+	}
+	return l
+}
+
 func (p *VerifyTokenResponse) field255Length() int {
 	l := 0
 	if p.IsSetBaseResp() {
@@ -2281,6 +2329,14 @@ func (p *VerifyTokenResponse) DeepCopy(s interface{}) error {
 	if src.Valid != nil {
 		tmp := *src.Valid
 		p.Valid = &tmp
+	}
+
+	if src.UserID != nil {
+		var tmp string
+		if *src.UserID != "" {
+			tmp = kutils.StringDeepCopy(*src.UserID)
+		}
+		p.UserID = &tmp
 	}
 
 	var _baseResp *base.BaseResp

@@ -2971,6 +2971,7 @@ func (p *VerifyTokenRequest) Field255DeepEqual(src *base.Base) bool {
 
 type VerifyTokenResponse struct {
 	Valid    *bool          `thrift:"valid,1,optional" frugal:"1,optional,bool" form:"valid" json:"valid,omitempty" query:"valid"`
+	UserID   *string        `thrift:"user_id,2,optional" frugal:"2,optional,string" form:"user_id" json:"user_id,omitempty" query:"user_id"`
 	BaseResp *base.BaseResp `thrift:"BaseResp,255,optional" frugal:"255,optional,base.BaseResp" form:"BaseResp" json:"BaseResp,omitempty" query:"BaseResp"`
 }
 
@@ -2993,6 +2994,18 @@ func (p *VerifyTokenResponse) GetValid() (v bool) {
 	return *p.Valid
 }
 
+var VerifyTokenResponse_UserID_DEFAULT string
+
+func (p *VerifyTokenResponse) GetUserID() (v string) {
+	if p == nil {
+		return
+	}
+	if !p.IsSetUserID() {
+		return VerifyTokenResponse_UserID_DEFAULT
+	}
+	return *p.UserID
+}
+
 var VerifyTokenResponse_BaseResp_DEFAULT *base.BaseResp
 
 func (p *VerifyTokenResponse) GetBaseResp() (v *base.BaseResp) {
@@ -3007,17 +3020,25 @@ func (p *VerifyTokenResponse) GetBaseResp() (v *base.BaseResp) {
 func (p *VerifyTokenResponse) SetValid(val *bool) {
 	p.Valid = val
 }
+func (p *VerifyTokenResponse) SetUserID(val *string) {
+	p.UserID = val
+}
 func (p *VerifyTokenResponse) SetBaseResp(val *base.BaseResp) {
 	p.BaseResp = val
 }
 
 var fieldIDToName_VerifyTokenResponse = map[int16]string{
 	1:   "valid",
+	2:   "user_id",
 	255: "BaseResp",
 }
 
 func (p *VerifyTokenResponse) IsSetValid() bool {
 	return p.Valid != nil
+}
+
+func (p *VerifyTokenResponse) IsSetUserID() bool {
+	return p.UserID != nil
 }
 
 func (p *VerifyTokenResponse) IsSetBaseResp() bool {
@@ -3045,6 +3066,14 @@ func (p *VerifyTokenResponse) Read(iprot thrift.TProtocol) (err error) {
 		case 1:
 			if fieldTypeId == thrift.BOOL {
 				if err = p.ReadField1(iprot); err != nil {
+					goto ReadFieldError
+				}
+			} else if err = iprot.Skip(fieldTypeId); err != nil {
+				goto SkipFieldError
+			}
+		case 2:
+			if fieldTypeId == thrift.STRING {
+				if err = p.ReadField2(iprot); err != nil {
 					goto ReadFieldError
 				}
 			} else if err = iprot.Skip(fieldTypeId); err != nil {
@@ -3098,6 +3127,17 @@ func (p *VerifyTokenResponse) ReadField1(iprot thrift.TProtocol) error {
 	p.Valid = _field
 	return nil
 }
+func (p *VerifyTokenResponse) ReadField2(iprot thrift.TProtocol) error {
+
+	var _field *string
+	if v, err := iprot.ReadString(); err != nil {
+		return err
+	} else {
+		_field = &v
+	}
+	p.UserID = _field
+	return nil
+}
 func (p *VerifyTokenResponse) ReadField255(iprot thrift.TProtocol) error {
 	_field := base.NewBaseResp()
 	if err := _field.Read(iprot); err != nil {
@@ -3115,6 +3155,10 @@ func (p *VerifyTokenResponse) Write(oprot thrift.TProtocol) (err error) {
 	if p != nil {
 		if err = p.writeField1(oprot); err != nil {
 			fieldId = 1
+			goto WriteFieldError
+		}
+		if err = p.writeField2(oprot); err != nil {
+			fieldId = 2
 			goto WriteFieldError
 		}
 		if err = p.writeField255(oprot); err != nil {
@@ -3157,6 +3201,24 @@ WriteFieldBeginError:
 WriteFieldEndError:
 	return thrift.PrependError(fmt.Sprintf("%T write field 1 end error: ", p), err)
 }
+func (p *VerifyTokenResponse) writeField2(oprot thrift.TProtocol) (err error) {
+	if p.IsSetUserID() {
+		if err = oprot.WriteFieldBegin("user_id", thrift.STRING, 2); err != nil {
+			goto WriteFieldBeginError
+		}
+		if err := oprot.WriteString(*p.UserID); err != nil {
+			return err
+		}
+		if err = oprot.WriteFieldEnd(); err != nil {
+			goto WriteFieldEndError
+		}
+	}
+	return nil
+WriteFieldBeginError:
+	return thrift.PrependError(fmt.Sprintf("%T write field 2 begin error: ", p), err)
+WriteFieldEndError:
+	return thrift.PrependError(fmt.Sprintf("%T write field 2 end error: ", p), err)
+}
 func (p *VerifyTokenResponse) writeField255(oprot thrift.TProtocol) (err error) {
 	if p.IsSetBaseResp() {
 		if err = oprot.WriteFieldBegin("BaseResp", thrift.STRUCT, 255); err != nil {
@@ -3193,6 +3255,9 @@ func (p *VerifyTokenResponse) DeepEqual(ano *VerifyTokenResponse) bool {
 	if !p.Field1DeepEqual(ano.Valid) {
 		return false
 	}
+	if !p.Field2DeepEqual(ano.UserID) {
+		return false
+	}
 	if !p.Field255DeepEqual(ano.BaseResp) {
 		return false
 	}
@@ -3207,6 +3272,18 @@ func (p *VerifyTokenResponse) Field1DeepEqual(src *bool) bool {
 		return false
 	}
 	if *p.Valid != *src {
+		return false
+	}
+	return true
+}
+func (p *VerifyTokenResponse) Field2DeepEqual(src *string) bool {
+
+	if p.UserID == src {
+		return true
+	} else if p.UserID == nil || src == nil {
+		return false
+	}
+	if strings.Compare(*p.UserID, *src) != 0 {
 		return false
 	}
 	return true
