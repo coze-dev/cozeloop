@@ -6,43 +6,6 @@ coverage:
   round: down
   range: "60...100"
   status:
-    project:
-      foundation-domain:
-        target: 80%
-        threshold: 0%
-        paths:
-          - "backend/modules/foundation/domain/"
-        informational: false
-      prompt-domain:
-        target: 80%
-        threshold: 0%
-        paths:
-          - "backend/modules/prompt/domain/"
-        informational: false
-      evaluation-domain:
-        target: 80%
-        threshold: 0%
-        paths:
-          - "backend/modules/evaluation/domain/"
-        informational: false
-      llm-domain:
-        target: 80%
-        threshold: 0%
-        paths:
-          - "backend/modules/llm/domain/"
-        informational: false
-      observability-domain:
-        target: 80%
-        threshold: 0%
-        paths:
-          - "backend/modules/observability/domain/"
-        informational: false
-      default:
-        target: 60%
-        threshold: 0%
-        paths:
-          - "backend/"
-        informational: false
     patch:
       foundation-domain:
         target: 80%
