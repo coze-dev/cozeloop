@@ -10,10 +10,7 @@ export enum SpaceType {
 }
 /** 空间 */
 export interface Space {
-  /**
-   * TODO: 空间定义跟CozeStudio对齐
-   * 空间ID
-  */
+  /** 空间ID */
   id: string,
   /** 空间名称 */
   name: string,

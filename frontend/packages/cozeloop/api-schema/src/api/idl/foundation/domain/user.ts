@@ -1,9 +1,6 @@
 /** UserInfoDetail 用户详细信息，包含姓名、头像等 */
 export interface UserInfoDetail {
-  /**
-   * TODO: User定义跟CozeStudio对齐
-   * 唯一名称
-  */
+  /** 唯一名称 */
   name?: string,
   /** 用户昵称 */
   nick_name?: string,
