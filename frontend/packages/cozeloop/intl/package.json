@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "i18next": ">= 19.0.0",
-    "i18next-browser-languagedetector": "8.0.4",
+    "i18next-browser-languagedetector": "^8.2.0",
     "intl-messageformat": "^10.7.16"
   },
   "devDependencies": {
