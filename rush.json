@@ -316,6 +316,11 @@
       "packageName": "@cozeloop/loop-lng",
       "projectFolder": "frontend/packages/cozeloop/resources/loop-lng",
       "tags": ["level-3"]
+    },
+    {
+      "packageName": "@cozeloop/intl",
+      "projectFolder": "frontend/packages/cozeloop/intl",
+      "tags": ["level-3"]
     }
   ]
 }

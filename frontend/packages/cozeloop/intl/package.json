@@ -1,0 +1,40 @@
+{
+  "name": "@cozeloop/intl",
+  "version": "0.0.1",
+  "description": "Intl runtime For CozeLoop",
+  "author": "qihai@bytedance.com",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "exit 0",
+    "lint": "eslint ./ --cache",
+    "test": "vitest --run --passWithNoTests",
+    "test:cov": "npm run test -- --coverage",
+    "tsx": "tsx",
+    "vitest": "vitest"
+  },
+  "dependencies": {
+    "i18next": ">= 19.0.0",
+    "i18next-browser-languagedetector": "8.0.4",
+    "intl-messageformat": "^10.7.16"
+  },
+  "devDependencies": {
+    "@coze-arch/eslint-config": "workspace:*",
+    "@coze-arch/ts-config": "workspace:*",
+    "@coze-arch/vitest-config": "workspace:*",
+    "@rushstack/rush-sdk": "5.100.2",
+    "@types/jju": "^1.4.5",
+    "@types/klaw": "^3.0.7",
+    "@types/react": "18.2.37",
+    "@vitest/coverage-v8": "~3.0.5",
+    "jju": "^1.4.0",
+    "klaw": "^4.1.0",
+    "p-limit": "^6.2.0",
+    "react": "~18.2.0",
+    "tsx": "^4.19.2",
+    "typescript": "~5.8.2",
+    "vitest": "~3.0.5"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0"
+  }
+}
