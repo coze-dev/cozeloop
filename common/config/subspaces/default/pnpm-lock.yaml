@@ -1205,70 +1205,6 @@ importers:
         specifier: ~3.0.5
         version: 3.0.9(@types/node@18.18.9)(happy-dom@12.10.3)
 
-  ../../../frontend/packages/arch/i18n:
-    dependencies:
-      '@coze-arch/coze-design':
-        specifier: 0.0.6-alpha.fe013d
-        version: 0.0.6-alpha.fe013d(@types/react@18.2.37)(acorn@8.15.0)(react-dom@18.2.0)(react@18.2.0)
-      '@coze-studio/studio-i18n-resource-adapter':
-        specifier: workspace:*
-        version: link:../resources/studio-i18n-resource
-      i18next:
-        specifier: '>= 19.0.0'
-        version: 25.2.1(typescript@5.8.2)
-      i18next-browser-languagedetector:
-        specifier: 8.0.4
-        version: 8.0.4
-      i18next-icu:
-        specifier: 2.3.0
-        version: 2.3.0(intl-messageformat@10.7.16)
-    devDependencies:
-      '@babel/core':
-        specifier: ^7.20.2
-        version: 7.27.4
-      '@coze-arch/bot-typings':
-        specifier: workspace:*
-        version: link:../bot-typings
-      '@coze-arch/eslint-config':
-        specifier: workspace:*
-        version: link:../../../config/eslint-config
-      '@coze-arch/ts-config':
-        specifier: workspace:*
-        version: link:../../../config/ts-config
-      '@coze-arch/vitest-config':
-        specifier: workspace:*
-        version: link:../../../config/vitest-config
-      '@rsbuild/core':
-        specifier: 1.1.13
-        version: 1.1.13
-      '@types/node':
-        specifier: 18.18.9
-        version: 18.18.9
-      '@types/react':
-        specifier: 18.2.37
-        version: 18.2.37
-      '@types/react-dom':
-        specifier: 18.2.15
-        version: 18.2.15
-      '@vitest/coverage-v8':
-        specifier: ~3.0.5
-        version: 3.0.9(vitest@3.0.9)
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      react-is:
-        specifier: '>= 16.8.0'
-        version: 19.1.0
-      typescript:
-        specifier: 5.8.2
-        version: 5.8.2
-      vitest:
-        specifier: ~3.0.5
-        version: 3.0.9(@types/node@18.18.9)(happy-dom@12.10.3)
-
   ../../../frontend/packages/arch/logger:
     dependencies:
       '@coze-arch/bot-env':
@@ -3134,9 +3070,6 @@ importers:
       '@coze-arch/eslint-config':
         specifier: workspace:*
         version: link:../../../config/eslint-config
-      '@coze-arch/i18n':
-        specifier: workspace:*
-        version: link:../../arch/i18n
       '@coze-arch/pkg-root-webpack-plugin':
         specifier: workspace:*
         version: link:../../../infra/plugins/pkg-root-webpack-plugin
@@ -17570,14 +17503,6 @@ packages:
     resolution: {integrity: sha512-f3frU3pIxD50/Tz20zx9TD9HobKYg47fmAETb117GKGPrhwcSSPJDoCposXlVycVebQ9GQohC3Efbpq7/nnJ5w==}
     dependencies:
       '@babel/runtime': 7.27.6
-    dev: false
-
-  /i18next-icu@2.3.0(intl-messageformat@10.7.16):
-    resolution: {integrity: sha512-x+j7kd5nDJCfbU53uwsMfXD7ALPu5uv0bqjAMQ5nVvXRoj1L7gkmswKtM3XDWYo4YUHf1jznlhSdPyy0xEwU+Q==}
-    peerDependencies:
-      intl-messageformat: ^10.3.3
-    dependencies:
-      intl-messageformat: 10.7.16
     dev: false
 
   /i18next@25.2.1(typescript@5.8.2):

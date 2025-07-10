@@ -37,6 +37,7 @@ export function createRsbuildConfig(rsbuildConfig: RsbuildConfig) {
         // fix https://github.com/react-dnd/react-dnd/issues/3433
         'react/jsx-runtime.js': 'react/jsx-runtime',
         'react/jsx-dev-runtime.js': 'react/jsx-dev-runtime',
+        // redirect i18n
         '@coze-arch/i18n': require.resolve('@cozeloop/i18n-adapter'),
         '@coze-arch/semi-theme-hand01': dirname(
           require.resolve('@coze-arch/semi-theme-hand01/package.json'),

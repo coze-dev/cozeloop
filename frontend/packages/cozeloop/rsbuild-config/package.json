@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "@coze-arch/eslint-config": "workspace:*",
-    "@coze-arch/i18n": "workspace:*",
     "@coze-arch/pkg-root-webpack-plugin": "workspace:*",
     "@coze-arch/postcss-plugin": "workspace:*",
     "@coze-arch/semi-theme-hand01": "0.0.6-alpha.346d77",
@@ -41,4 +40,3 @@
     "webpack": "~5.91.0"
   }
 }
-

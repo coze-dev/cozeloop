@@ -63,11 +63,6 @@
       "tags": ["team-arch", "level-1"]
     },
     {
-      "packageName": "@coze-arch/i18n",
-      "projectFolder": "frontend/packages/arch/i18n",
-      "tags": ["team-arch", "level-1", "rush-tools"]
-    },
-    {
       "packageName": "@coze-studio/studio-i18n-resource-adapter",
       "projectFolder": "frontend/packages/arch/resources/studio-i18n-resource",
       "tags": ["team-arch", "level-1"]
