@@ -15,9 +15,6 @@
       "path": "../../arch/bot-env-adapter/tsconfig.build.json"
     },
     {
-      "path": "../../arch/i18n/tsconfig.build.json"
-    },
-    {
       "path": "../../arch/subspace-resolve-plugin/tsconfig.build.json"
     },
     {

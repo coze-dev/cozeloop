@@ -12,13 +12,10 @@
   "include": ["./src", "./src/resource/**/*.json", "./src/override/**/*.json"],
   "references": [
     {
-      "path": "../../arch/i18n/tsconfig.build.json"
+      "path": "../intl/tsconfig.build.json"
     },
     {
-      "path": "../../arch/resources/loop-i18n-resource/tsconfig.build.json"
-    },
-    {
-      "path": "../../arch/resources/studio-i18n-resource/tsconfig.build.json"
+      "path": "../resources/loop-lng/tsconfig.build.json"
     },
     {
       "path": "../../../config/eslint-config/tsconfig.build.json"
