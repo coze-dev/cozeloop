@@ -2261,15 +2261,12 @@ importers:
 
   ../../../frontend/packages/cozeloop/i18n:
     dependencies:
-      '@coze-arch/i18n':
+      '@cozeloop/intl':
         specifier: workspace:*
-        version: link:../../arch/i18n
+        version: link:../intl
       '@cozeloop/loop-lng':
         specifier: workspace:*
         version: link:../resources/loop-lng
-      i18next-browser-languagedetector:
-        specifier: 8.0.4
-        version: 8.0.4
     devDependencies:
       '@coze-arch/eslint-config':
         specifier: workspace:*
@@ -2280,15 +2277,82 @@ importers:
       '@coze-arch/vitest-config':
         specifier: workspace:*
         version: link:../../../config/vitest-config
+      '@formatjs/icu-messageformat-parser':
+        specifier: ^2.11.2
+        version: 2.11.2
       '@vitest/coverage-v8':
         specifier: ~3.0.5
         version: 3.0.9(vitest@3.0.9)
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      tsx:
+        specifier: ^4.19.2
+        version: 4.20.3
       typescript:
         specifier: 5.8.2
         version: 5.8.2
       vitest:
         specifier: ~3.0.5
-        version: 3.0.9(happy-dom@12.10.3)
+        version: 3.0.9(@types/node@18.18.9)(tsx@4.20.3)
+
+  ../../../frontend/packages/cozeloop/intl:
+    dependencies:
+      i18next:
+        specifier: '>= 19.0.0'
+        version: 25.2.1(typescript@5.8.2)
+      i18next-browser-languagedetector:
+        specifier: 8.0.4
+        version: 8.0.4
+      intl-messageformat:
+        specifier: ^10.7.16
+        version: 10.7.16
+    devDependencies:
+      '@coze-arch/eslint-config':
+        specifier: workspace:*
+        version: link:../../../config/eslint-config
+      '@coze-arch/ts-config':
+        specifier: workspace:*
+        version: link:../../../config/ts-config
+      '@coze-arch/vitest-config':
+        specifier: workspace:*
+        version: link:../../../config/vitest-config
+      '@rushstack/rush-sdk':
+        specifier: 5.100.2
+        version: 5.100.2(@types/node@18.18.9)
+      '@types/jju':
+        specifier: ^1.4.5
+        version: 1.4.5
+      '@types/klaw':
+        specifier: ^3.0.7
+        version: 3.0.7
+      '@types/react':
+        specifier: 18.2.37
+        version: 18.2.37
+      '@vitest/coverage-v8':
+        specifier: ~3.0.5
+        version: 3.0.9(vitest@3.0.9)
+      jju:
+        specifier: ^1.4.0
+        version: 1.4.0
+      klaw:
+        specifier: ^4.1.0
+        version: 4.1.0
+      p-limit:
+        specifier: ^6.2.0
+        version: 6.2.0
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      tsx:
+        specifier: ^4.19.2
+        version: 4.20.3
+      typescript:
+        specifier: 5.8.2
+        version: 5.8.2
+      vitest:
+        specifier: ~3.0.5
+        version: 3.0.9(@types/node@18.18.9)(tsx@4.20.3)
 
   ../../../frontend/packages/cozeloop/observation-pages:
     dependencies:
@@ -3038,13 +3102,6 @@ importers:
         version: 3.0.9(happy-dom@12.10.3)
 
   ../../../frontend/packages/cozeloop/resources/loop-lng:
-    dependencies:
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
     devDependencies:
       '@coze-arch/eslint-config':
         specifier: workspace:*
@@ -3055,21 +3112,15 @@ importers:
       '@coze-arch/vitest-config':
         specifier: workspace:*
         version: link:../../../../config/vitest-config
-      '@formatjs/icu-messageformat-parser':
-        specifier: ^2.11.2
-        version: 2.11.2
       '@types/node':
         specifier: 18.18.9
         version: 18.18.9
       '@vitest/coverage-v8':
         specifier: ~3.0.5
         version: 3.0.9(vitest@3.0.9)
-      tsx:
-        specifier: ^4.19.2
-        version: 4.20.3
       vitest:
         specifier: ~3.0.5
-        version: 3.0.9(@types/node@18.18.9)(tsx@4.20.3)
+        version: 3.0.9(@types/node@18.18.9)(happy-dom@12.10.3)
 
   ../../../frontend/packages/cozeloop/rsbuild-config:
     dependencies:
@@ -9760,7 +9811,6 @@ packages:
       resolve: 1.22.10
       semver: 7.5.4
       z-schema: 5.0.5
-    dev: false
 
   /@rushstack/node-core-library@5.10.1(@types/node@18.18.9):
     resolution: {integrity: sha512-BSb/KcyBHmUQwINrgtzo6jiH0HlGFmrUy33vO6unmceuVKTEyL2q+P0fQq2oB5hvXVWOEUhxB2QvlkZluvUEmg==}
@@ -9856,7 +9906,6 @@ packages:
       tapable: 2.2.1
     transitivePeerDependencies:
       - '@types/node'
-    dev: false
 
   /@rushstack/rush-sdk@5.147.2(@types/node@18.18.9):
     resolution: {integrity: sha512-WY2fYcUPVUXYQTtub0PwOT7OqRbGxEXa7QzoeoDdOmlS4WVWkVkGrANaWHyXFo270CUog/wpLOQRnntFNxRQQQ==}
@@ -11285,6 +11334,10 @@ packages:
       '@types/istanbul-lib-report': 3.0.3
     dev: true
 
+  /@types/jju@1.4.5:
+    resolution: {integrity: sha512-5Yx4wOq3X+xArOlyZcuAK1Pli4vW0E6nQ6UC8jWdbcY5OlBsoElFTOf4kggYKls/NCHdShAK6UR8NRSQARUNfQ==}
+    dev: true
+
   /@types/js-cookie@2.2.7:
     resolution: {integrity: sha512-aLkWa0C0vO5b4Sr798E26QgOkss68Un0bLjs7u9qxzPT5CG+8DuNTffWES58YzJs3hrVAOs1wonycqEBqNJubA==}
 
@@ -11305,6 +11358,12 @@ packages:
   /@types/katex@0.16.7:
     resolution: {integrity: sha512-HMwFiRujE5PjrgwHQ25+bsLJgowjGjm5Z8FVSf0N6PwgJrwxH0QxzHYDcKsTfV3wva0vzrpqMTJS2jXPr5BMEQ==}
     dev: false
+
+  /@types/klaw@3.0.7:
+    resolution: {integrity: sha512-ooZ+dVfTfg8RIUzwCBnHR6NirCB0amo1MNneUbL+Votca1H/eaMwkB31uDU9O6yKWNY5ngdYP3ywduOxm4KtMg==}
+    dependencies:
+      '@types/node': 18.18.9
+    dev: true
 
   /@types/lodash-es@4.17.12:
     resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
@@ -11371,7 +11430,6 @@ packages:
     dependencies:
       '@types/node': 18.18.9
       form-data: 3.0.3
-    dev: false
 
   /@types/node@18.18.9:
     resolution: {integrity: sha512-0f5klcuImLnG4Qreu9hPj/rEfFq6YRc5n2mAjSsH+ec/mJL+3voBH0+8T7o8RpFjH7ovc+TRsL/c7OYIQsPTfQ==}
@@ -14167,7 +14225,6 @@ packages:
   /colors@1.2.5:
     resolution: {integrity: sha512-erNRLao/Y3Fv54qUa0LBB+//Uf3YwMUmdJinN20yMXm9zdKKqH9wt7R9IIVZ+K7ShzfpLV/Zg8+VyrBJYB4lpg==}
     engines: {node: '>=0.1.90'}
-    dev: false
 
   /combined-stream@1.0.8:
     resolution: {integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==}
@@ -14219,7 +14276,6 @@ packages:
     resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
     engines: {node: ^12.20.0 || >=14}
     requiresBuild: true
-    dev: false
     optional: true
 
   /common-path-prefix@3.0.0:
@@ -16657,7 +16713,6 @@ packages:
       combined-stream: 1.0.8
       es-set-tostringtag: 2.1.0
       mime-types: 2.1.35
-    dev: false
 
   /form-data@4.0.3:
     resolution: {integrity: sha512-qsITQPfmvMOSAdeyZ+12I1c+CKSstAFAwu+97zrnWAbIr5u8wfsExUzCesVLC8NgHuRUqNN4Zy6UPWUTRGslcA==}
@@ -16726,7 +16781,6 @@ packages:
       graceful-fs: 4.2.11
       jsonfile: 4.0.0
       universalify: 0.1.2
-    dev: false
 
   /fs-extra@9.1.0:
     resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==}
@@ -18374,7 +18428,6 @@ packages:
 
   /jju@1.4.0:
     resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
-    dev: false
 
   /jotai@2.12.5(@types/react@18.2.37)(react@18.2.0):
     resolution: {integrity: sha512-G8m32HW3lSmcz/4mbqx0hgJIQ0ekndKWiYP7kWVKi0p6saLXdSoye+FZiOFyonnd7Q482LCzm8sMDl7Ar1NWDw==}
@@ -18568,7 +18621,6 @@ packages:
     resolution: {integrity: sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==}
     optionalDependencies:
       graceful-fs: 4.2.11
-    dev: false
 
   /jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
@@ -18686,6 +18738,11 @@ packages:
   /kind-of@6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
+
+  /klaw@4.1.0:
+    resolution: {integrity: sha512-1zGZ9MF9H22UnkpVeuaGKOjfA2t6WrfdrJmGjy16ykcjnKQDmHVX+KI477rpbGevz/5FD4MC3xf1oxylBgcaQw==}
+    engines: {node: '>=14.14.0'}
+    dev: true
 
   /kleur@3.0.3:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
@@ -18871,7 +18928,6 @@ packages:
   /lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
     deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
-    dev: false
 
   /lodash.includes@4.3.0:
     resolution: {integrity: sha512-W3Bx6mdkRTGtlJISOvVD/lbqjTlPPUDTMnlXZFnVwi9NKJ6tiAk6LVdlhZMm17VZisqhKcgzpO5Wz91PCt5b0w==}
@@ -18884,7 +18940,6 @@ packages:
   /lodash.isequal@4.5.0:
     resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
     deprecated: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
-    dev: false
 
   /lodash.isinteger@4.0.4:
     resolution: {integrity: sha512-DBwtEWN2caHQ9/imiNeEA5ys1JoRtRfY3d7V9wkqtbycnAmTvRRmbHKDV4a0EYc678/dia0jrte4tjYwVBaZUA==}
@@ -20878,6 +20933,13 @@ packages:
   /p-limit@4.0.0:
     resolution: {integrity: sha512-5b0R4txpzjPWVw/cXXUResoD4hb6U/x9BH08L7nw+GN1sezDzPdxeRvpc9c433fZhBan/wusjbCsqwqm4EIBIQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      yocto-queue: 1.2.1
+    dev: true
+
+  /p-limit@6.2.0:
+    resolution: {integrity: sha512-kuUqqHNUqoIWp/c467RI4X6mmyuojY5jGutNU0wVTmEOOfcuwLqyMVoAi9MKi2Ak+5i9+nhmrK4ufZE8069kHA==}
+    engines: {node: '>=18'}
     dependencies:
       yocto-queue: 1.2.1
     dev: true
@@ -23280,7 +23342,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-    dev: false
 
   /semver@7.7.2:
     resolution: {integrity: sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==}
@@ -25290,7 +25351,6 @@ packages:
   /universalify@0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
-    dev: false
 
   /universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
@@ -25554,7 +25614,6 @@ packages:
   /validator@13.15.15:
     resolution: {integrity: sha512-BgWVbCI72aIQy937xbawcs+hrVaN/CZ2UwutgaJ36hGqRrLNM+f5LUT/YPRbo8IV/ASeFzXszezV+y2+rq3l8A==}
     engines: {node: '>= 0.10'}
-    dev: false
 
   /varint@6.0.0:
     resolution: {integrity: sha512-cXEIW6cfr15lFv563k4GuVuW/fiwjknytD37jIOLSdSWuOI6WnO/oKwmP2FQTU2l01LP8/M5TSAJpzUaGe3uWg==}
@@ -26459,7 +26518,6 @@ packages:
       validator: 13.15.15
     optionalDependencies:
       commander: 9.5.0
-    dev: false
 
   /zod-validation-error@1.2.0(zod@3.22.4):
     resolution: {integrity: sha512-laJkD/ugwEh8CpuH+xXv5L9Z+RLz3lH8alNxolfaHZJck611OJj97R4Rb+ZqA7WNly2kNtTo4QwjdjXw9scpiw==}

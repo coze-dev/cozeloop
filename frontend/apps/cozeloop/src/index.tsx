@@ -18,12 +18,11 @@ export async function render() {
   await Promise.all([
     initIntl({
       fallbackLng: ['zh-CN', 'en-US'],
-      thirdParamFallback: true,
     }),
     initFlags(),
     dynamicImportMdBoxStyle(),
   ]);
-  
+
   const dom = document.getElementById('cozeloop-root');
 
   if (dom) {

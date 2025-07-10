@@ -6,21 +6,27 @@
   "main": "./src/index.ts",
   "scripts": {
     "build": "exit 0",
+    "gen-i18n-types": "tsx ./scripts/gen-i18n-types.ts",
     "lint": "eslint ./ --cache",
     "test": "vitest --run --passWithNoTests",
     "test:cov": "npm run test -- --coverage"
   },
   "dependencies": {
-    "@coze-arch/i18n": "workspace:*",
-    "@cozeloop/loop-lng": "workspace:*",
-    "i18next-browser-languagedetector": "8.0.4"
+    "@cozeloop/intl": "workspace:*",
+    "@cozeloop/loop-lng": "workspace:*"
   },
   "devDependencies": {
     "@coze-arch/eslint-config": "workspace:*",
     "@coze-arch/ts-config": "workspace:*",
     "@coze-arch/vitest-config": "workspace:*",
+    "@formatjs/icu-messageformat-parser": "^2.11.2",
     "@vitest/coverage-v8": "~3.0.5",
+    "react": "~18.2.0",
+    "tsx": "^4.19.2",
     "typescript": "~5.8.2",
     "vitest": "~3.0.5"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0"
   }
 }
