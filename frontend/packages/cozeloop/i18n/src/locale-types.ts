@@ -8,6 +8,8 @@ export interface I18nWithInterpolation {
   expired_time_days_1: {
     /** number */
     num: ReactNode;
+    /** string */
+    date: ReactNode;
   };
   fornax_analytics_fetch_meta_error: {
     /** string */

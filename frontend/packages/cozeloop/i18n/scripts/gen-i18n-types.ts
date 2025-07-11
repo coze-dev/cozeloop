@@ -24,7 +24,7 @@ function generateOptionsMap(localeData: Record<string, string>) {
           it =>
             `${indent}${indent}/** ${it.type} */\n${indent}${indent}${it.key}: ReactNode;`,
         )
-        .join(';\n'),
+        .join('\n'),
       `${indent}};`,
     );
   }

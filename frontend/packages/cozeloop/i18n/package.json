@@ -9,7 +9,8 @@
     "gen-i18n-types": "tsx ./scripts/gen-i18n-types.ts",
     "lint": "eslint ./ --cache",
     "test": "vitest --run --passWithNoTests",
-    "test:cov": "npm run test -- --coverage"
+    "test:cov": "npm run test -- --coverage",
+    "vitest": "vitest"
   },
   "dependencies": {
     "@cozeloop/intl": "workspace:*",

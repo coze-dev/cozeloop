@@ -6,18 +6,16 @@ describe('Parse ICU format', () => {
   it('should parse plain text', () => {
     const typeInfos = icu2Type('Click to add a personal access token');
 
-    console.info(typeInfos);
-    expect(typeInfos.length).toBe(0);
+    expect(typeInfos).toMatchObject([]);
   });
 
   it('should parse interpolation', () => {
-    const typeInfos = icu2Type('Fail to fetch metadata: {msg}');
+    const typeInfos = icu2Type('Fail to fetch metadata: {msg}, {msg2}');
 
-    console.info(typeInfos);
-    expect(typeInfos[0]).toMatchObject({
-      key: 'msg',
-      type: 'string',
-    });
+    expect(typeInfos).toMatchObject([
+      { key: 'msg', type: 'string' },
+      { key: 'msg2', type: 'string' },
+    ]);
   });
 
   it('should parse select', () => {
@@ -26,7 +24,7 @@ describe('Parse ICU format', () => {
   female {She will respond shortly.}
   other {They will respond shortly.}
 }`);
-    console.info(typeInfos);
+
     expect(typeInfos[0]).toMatchObject({
       key: 'gender',
       type: "'male' | 'female' | undefined",
@@ -37,10 +35,10 @@ describe('Parse ICU format', () => {
     const typeInfos = icu2Type(
       '{num, plural, one {# day ({date})} other {# days ({date})}}',
     );
-    console.info(typeInfos);
-    expect(typeInfos[0]).toMatchObject({
-      key: 'num',
-      type: 'number',
-    });
+
+    expect(typeInfos).toMatchObject([
+      { key: 'num', type: 'number' },
+      { key: 'date', type: 'string' },
+    ]);
   });
 });

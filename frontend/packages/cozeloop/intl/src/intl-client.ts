@@ -36,12 +36,8 @@ export class IntlClient {
         postProcess: [ReactPostprocessor.processorName],
       });
   }
+
   t(key: string, defaultValue?: string): string;
-  t(
-    key: string,
-    interpolation?: Record<string, unknown>,
-    defaultValue?: string,
-  ): string;
   t(
     key: string,
     interpolationOrDefaultValue?: Record<string, unknown> | string,
@@ -51,6 +47,19 @@ export class IntlClient {
       return i18next.t(key, { defaultValue: interpolationOrDefaultValue });
     }
     return i18next.t(key, { ...interpolationOrDefaultValue, defaultValue });
+  }
+
+  unsafeT(
+    key: string,
+    interpolation?: Record<string, unknown>,
+    defaultValue?: string,
+  ) {
+    try {
+      return i18next.t(key, { ...interpolation, defaultValue });
+    } catch (e) {
+      console.warn('Unsafe translate', e);
+      return defaultValue ?? key;
+    }
   }
 }
 
