@@ -17,19 +17,20 @@ header:
     - '**/*.md'
     - '**/*.hz'
     - '**/*.yaml'
+    - '**/*.config.ts'
     - 'LICENSE'
     - 'NOTICE'
-    - "**/mocks/**"
-    - "**/gorm_gen/**"
-    - "**/kitex_gen/**"
-    - "**/loop_gen/**"
-    - "**/wire_gen.go"
-    - "**/errno/**"
-    - "backend/script/cloudwego/tmpl/streaming.go"
-    - "backend/api/router/register.go"
-    - "backend/api/router/coze/loop/apis/coze.loop.apis.go"
-    - "backend/modules/observability/domain/trace/entity/collector/**/*.go"
-    - "backend/modules/observability/domain/trace/service/collector/processor/queueprocessor/queue_processor.go"
+    - '**/mocks/**'
+    - '**/gorm_gen/**'
+    - '**/kitex_gen/**'
+    - '**/loop_gen/**'
+    - '**/wire_gen.go'
+    - '**/errno/**'
+    - 'backend/script/cloudwego/tmpl/streaming.go'
+    - 'backend/api/router/register.go'
+    - 'backend/api/router/coze/loop/apis/coze.loop.apis.go'
+    - 'backend/modules/observability/domain/trace/entity/collector/**/*.go'
+    - 'backend/modules/observability/domain/trace/service/collector/processor/queueprocessor/queue_processor.go'
     - 'frontend/packages/cozeloop/api-schema/src/api/idl'
 
   comment: on-failure
