@@ -26,13 +26,10 @@ import { useBasicStore } from '@/store/use-basic-store';
 
 interface UsePromptProps {
   promptID?: string;
-  regiesterSub?: boolean;
+  registerSub?: boolean;
 }
 
-export const usePrompt = ({
-  promptID,
-  regiesterSub = false,
-}: UsePromptProps) => {
+export const usePrompt = ({ promptID, registerSub = false }: UsePromptProps) => {
   const { spaceID } = useSpace();
 
   const { setReadonly, setSaveLock } = useBasicStore(
@@ -106,6 +103,20 @@ export const usePrompt = ({
             if (onlyGetData) {
               return res;
             }
+            setPromptInfo(res.prompt);
+            const currentPromptDetail =
+              res.prompt?.prompt_draft || res.prompt?.prompt_commit;
+
+            const messageList =
+              currentPromptDetail?.detail?.prompt_template?.messages || [];
+            setMessageList(
+              messageList.map(item => ({ ...item, key: nanoid() })),
+            );
+
+            setModelConfig(currentPromptDetail?.detail?.model_config);
+            setToolCallConfig(currentPromptDetail?.detail?.tool_call_config);
+            setTools(currentPromptDetail?.detail?.tools);
+            setReadonly(Boolean(version));
 
             if (res.prompt) {
               const mockRes = await getMockData();
@@ -129,21 +140,6 @@ export const usePrompt = ({
               setUserDebugConfig(userDebugConfig);
               setCompareConfig(mockRes.debug_context?.compare_config);
             }
-
-            setPromptInfo(res.prompt);
-            const currentPromptDetail =
-              res.prompt?.prompt_draft || res.prompt?.prompt_commit;
-
-            const messageList =
-              currentPromptDetail?.detail?.prompt_template?.messages || [];
-            setMessageList(
-              messageList.map(item => ({ ...item, key: nanoid() })),
-            );
-
-            setModelConfig(currentPromptDetail?.detail?.model_config);
-            setToolCallConfig(currentPromptDetail?.detail?.tool_call_config);
-            setTools(currentPromptDetail?.detail?.tools);
-            setReadonly(Boolean(version));
 
             setTimeout(() => {
               setSaveLock(false);
@@ -231,7 +227,7 @@ export const usePrompt = ({
   useEffect(() => {
     let dataSub: () => void;
     let mockSub: () => void;
-    if (regiesterSub && promptID) {
+    if (registerSub && promptID) {
       dataSub = usePromptStore.subscribe(
         state => ({
           toolCallConfig: state.toolCallConfig,
@@ -290,7 +286,7 @@ export const usePrompt = ({
       dataSub?.();
       mockSub?.();
     };
-  }, [regiesterSub, promptID]);
+  }, [registerSub, promptID]);
 
   useEffect(() => {
     setAutoSaving(savePromptLoading || mockLoading);

@@ -20,7 +20,7 @@ export function PromptDevelop() {
   const queryVersion = searchParams.get('version') || undefined;
   const [getPromptLoading, setGetPromptLoading] = useState(true);
 
-  const { getPromptByVersion } = usePrompt({ promptID, regiesterSub: true });
+  const { getPromptByVersion } = usePrompt({ promptID, registerSub: true });
   const { clearStore: clearPromptStore, promptInfo } = usePromptStore(
     useShallow(state => ({
       clearStore: state.clearStore,
@@ -32,9 +32,9 @@ export function PromptDevelop() {
     useShallow(state => ({ clearStore: state.clearStore })),
   );
 
-  const { clearMockdataStore } = usePromptMockDataStore(
+  const { clearMockDataStore } = usePromptMockDataStore(
     useShallow(state => ({
-      clearMockdataStore: state.clearMockdataStore,
+      clearMockDataStore: state.clearMockDataStore,
     })),
   );
 
@@ -51,7 +51,7 @@ export function PromptDevelop() {
     return () => {
       clearPromptStore();
       clearBasicStore();
-      clearMockdataStore();
+      clearMockDataStore();
     };
   }, [promptID, queryVersion]);
 

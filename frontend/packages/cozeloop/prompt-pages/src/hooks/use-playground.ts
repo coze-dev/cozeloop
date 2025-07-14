@@ -57,7 +57,7 @@ export const usePlayground = () => {
     setHistoricMessage,
     setMockVariables,
     setUserDebugConfig,
-    clearMockdataStore,
+    clearMockDataStore,
     setCompareConfig,
   } = usePromptMockDataStore(
     useShallow(state => ({
@@ -66,7 +66,7 @@ export const usePlayground = () => {
       setUserDebugConfig: state.setUserDebugConfig,
       compareConfig: state.compareConfig,
       setCompareConfig: state.setCompareConfig,
-      clearMockdataStore: state.clearMockdataStore,
+      clearMockDataStore: state.clearMockDataStore,
     })),
   );
 
@@ -109,7 +109,7 @@ export const usePlayground = () => {
       setTimeout(() => {
         clearPromptStore();
         clearBasicStore();
-        clearMockdataStore();
+        clearMockDataStore();
       }, 0);
     };
   }, [spaceID]);
