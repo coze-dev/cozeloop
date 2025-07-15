@@ -1,0 +1,21 @@
+{
+  "api_authorization": "API 授权",
+  "account": "账户",
+  "welcome_to_cozeloop": "欢迎使用扣子罗盘-社区版",
+  "please_input_email": "请输入邮箱",
+  "please_input_password": "请输入密码",
+  "register": "注册",
+  "login": "登录",
+  "please_agree_first": "请先同意{agreement}",
+  "user_agreement": "用户协议",
+  "token_show_only_once": "此令牌仅显示一次。请将此密钥保存在安全且可获取的地方。不要与他人共享，也不要在浏览器或其他客户端代码中暴露它。",
+  "name": "名称",
+  "expiration_time": "过期时间",
+  "token": "令牌",
+  "delete_token": "删除令牌",
+  "remove_will_affect_all_in_use": "移除后会影响所有正在使用",
+  "confirm": "确定",
+  "x_days": "{num}天",
+  "permanent": "永久",
+  "register_or_login_failed": "注册/登录失败，请检查邮箱或密码"
+}

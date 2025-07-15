@@ -1,0 +1,21 @@
+{
+  "api_authorization": "API Authorization",
+  "account": "Account",
+  "welcome_to_cozeloop": "Welcome to Cozeloop - Community Edition.",
+  "please_input_email": "Please enter your email address.",
+  "please_input_password": "Please enter the password.",
+  "register": "Register",
+  "login": "Login",
+  "please_agree_first": "Please agree {agreement}.",
+  "user_agreement": "User Agreement",
+  "token_show_only_once": "This token will be displayed only once. Keep this key in a secure and accessible place. Do not share it with others, nor expose it in browser or other client code.",
+  "name": "Name",
+  "expiration_time": "Expiration time",
+  "token": "Token",
+  "delete_token": "Delete the token",
+  "remove_will_affect_all_in_use": "Removal will affect all ongoing uses.",
+  "confirm": "Confirm.",
+  "x_days": "{num, plural, =0 {0 day} =1 {1 day} other {# days}}",
+  "permanent": "Permanent",
+  "register_or_login_failed": "Registration/Login failed. Please check your email or password."
+}
