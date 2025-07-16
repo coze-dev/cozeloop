@@ -38,7 +38,7 @@
   "Description": "Description",
   "edit_pat_1": "Edit Personal Access Token",
   "Edit": "Edit",
-  "error": "Sorry, some error occured, please try again later.",
+  "error": "Sorry, some error occurred, please try again later.",
   "expand": "Expand",
   "expire_time_1": "Expiration time",
   "expired_time_days_1": "{num, plural, one {# day ({date})} other {# days ({date})}}",

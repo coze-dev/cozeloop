@@ -15,6 +15,7 @@
   "experiment": "实验",
   "field_exists": "{field}已存在",
   "field_is_required": "{field}必填",
+  "field_not_empty": "{field}不能为空",
   "login": "登录",
   "name": "名称",
   "network_error": "网络错误",

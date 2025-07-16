@@ -15,7 +15,7 @@
   "delete_token": "Delete the token",
   "remove_will_affect_all_in_use": "Removal will affect all ongoing uses.",
   "confirm": "Confirm.",
-  "x_days": "{num, plural, =0 {0 day} =1 {1 day} other {# days}}",
+  "x_days": "{num, plural, zero {0 day} one {1 day} other {# days}}",
   "permanent": "Permanent",
   "register_or_login_failed": "Registration/Login failed. Please check your email or password."
 }
