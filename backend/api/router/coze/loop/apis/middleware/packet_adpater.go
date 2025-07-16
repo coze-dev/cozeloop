@@ -7,6 +7,7 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"strconv"
 	"strings"
 
 	"github.com/bytedance/sonic"
@@ -14,7 +15,9 @@ import (
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/mitchellh/mapstructure"
 
+	"github.com/coze-dev/cozeloop/backend/infra/i18n"
 	"github.com/coze-dev/cozeloop/backend/modules/foundation/pkg/errno"
+	"github.com/coze-dev/cozeloop/backend/pkg/consts"
 	"github.com/coze-dev/cozeloop/backend/pkg/json"
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
 )
@@ -32,12 +35,12 @@ const (
 	affectStableValue            = "1"
 )
 
-func PacketAdapterMW() app.HandlerFunc {
+func PacketAdapterMW(translater i18n.ITranslater) app.HandlerFunc {
 	return func(ctx context.Context, c *app.RequestContext) {
 		c.Next(ctx)
 
 		if ep := parseErrPacket(ctx, c); ep != nil {
-			c.JSON(http.StatusOK, ep)
+			c.JSON(http.StatusOK, ep.localizeMessage(ctx, string(c.Cookie(consts.CookieLanguageKey)), translater))
 			return
 		}
 
@@ -127,8 +130,20 @@ type errPacket struct {
 	Message string `json:"msg"`
 }
 
+func (e *errPacket) localizeMessage(ctx context.Context, locale string, translater i18n.ITranslater) *errPacket {
+	if translater == nil || len(locale) == 0 {
+		return e
+	}
+	msg := translater.MustTranslate(ctx, strconv.Itoa(int(e.Code)), locale)
+	if len(msg) > 0 {
+		e.Message = msg
+	}
+	return e
+}
+
 type respPacketAdapter struct {
-	ctx *app.RequestContext
+	ctx        *app.RequestContext
+	translater i18n.ITranslater
 }
 
 func (r *respPacketAdapter) getRespPacket(ctx context.Context) (*respPacket, error) {
@@ -187,8 +202,9 @@ func (r *respPacketAdapter) wrapPacket(ctx context.Context, packet *respPacket) 
 		return setPacketFn(wrapFn(bodyMap, 0, ""))
 	}
 
-	return setPacketFn(errPacket{
+	ep := &errPacket{
 		Code:    br.StatusCode,
 		Message: br.StatusMessage,
-	})
+	}
+	return setPacketFn(ep.localizeMessage(ctx, string(r.ctx.Cookie(consts.CookieLanguageKey)), r.translater))
 }

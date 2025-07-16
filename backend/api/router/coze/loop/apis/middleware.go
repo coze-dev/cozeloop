@@ -18,7 +18,8 @@ func rootMw(handler *apis.APIHandler) []app.HandlerFunc {
 	return []app.HandlerFunc{
 		middleware.CtxCacheMW(),
 		middleware.AccessLogMW(),
-		middleware.PacketAdapterMW(),
+		middleware.LocaleMW(),
+		middleware.PacketAdapterMW(handler.GetTranslater()),
 	}
 }
 

@@ -8,10 +8,10 @@ trace_mq_producer_config:
 
 trace_system_view_cfg:
   - id: -1
-    view_name: "所有异常"
+    view_name: "Exceptions"
     filters: "{\"query_and_or\":\"and\",\"filter_fields\":[{\"field_name\":\"status\",\"field_type\":\"string\",\"values\":[\"error\"],\"query_type\":\"in\"}]}"
   - id: -2
-    view_name: "性能差"
+    view_name: "High-latency"
     filters: "{\"query_and_or\":\"and\",\"filter_fields\":[{\"field_name\":\"duration\",\"field_type\":\"long\",\"values\":[\"10000\"],\"query_type\":\"gte\"}]}"
 
 

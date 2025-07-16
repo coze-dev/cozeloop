@@ -8,6 +8,7 @@ import (
 	"errors"
 	"fmt"
 	"net/url"
+	"os"
 	"time"
 
 	_ "github.com/ClickHouse/clickhouse-go/v2"
@@ -21,6 +22,8 @@ import (
 	"github.com/coze-dev/cozeloop/backend/infra/external/audit"
 	"github.com/coze-dev/cozeloop/backend/infra/external/benefit"
 	"github.com/coze-dev/cozeloop/backend/infra/fileserver"
+	"github.com/coze-dev/cozeloop/backend/infra/i18n"
+	"github.com/coze-dev/cozeloop/backend/infra/i18n/goi18n"
 	"github.com/coze-dev/cozeloop/backend/infra/idgen"
 	"github.com/coze-dev/cozeloop/backend/infra/idgen/redis_gen"
 	"github.com/coze-dev/cozeloop/backend/infra/limiter"
@@ -36,6 +39,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/loop_gen/coze/loop/observability/lotrace"
 	"github.com/coze-dev/cozeloop/backend/pkg/conf"
 	"github.com/coze-dev/cozeloop/backend/pkg/conf/viper"
+	"github.com/coze-dev/cozeloop/backend/pkg/file"
 	"github.com/coze-dev/cozeloop/backend/pkg/logs"
 )
 
@@ -46,7 +50,7 @@ func main() {
 		panic(err)
 	}
 
-	handler, err := api.Init(ctx, c.idgen, c.db, c.redis, c.cfgFactory, c.mqFactory, c.objectStorage, c.batchObjectStorage, c.benefitSvc, c.auditClient, c.metric, c.limiterFactory, c.ckDb)
+	handler, err := api.Init(ctx, c.idgen, c.db, c.redis, c.cfgFactory, c.mqFactory, c.objectStorage, c.batchObjectStorage, c.benefitSvc, c.auditClient, c.metric, c.limiterFactory, c.ckDb, c.translater)
 	if err != nil {
 		panic(err)
 	}
@@ -123,6 +127,7 @@ type component struct {
 	metric             metrics.Meter
 	limiterFactory     limiter.IRateLimiterFactory
 	ckDb               ck.Provider
+	translater         i18n.ITranslater
 }
 
 func initTracer(handler *apis.APIHandler) error {
@@ -225,6 +230,15 @@ func newComponent(ctx context.Context) (*component, error) {
 		return nil, err
 	}
 
+	localeDir, err := file.FindSubDir(os.Getenv("PWD"), "runtime/locales")
+	if err != nil {
+		return nil, err
+	}
+	translater, err := goi18n.NewTranslater(localeDir)
+	if err != nil {
+		return nil, err
+	}
+
 	return &component{
 		idgen:              idgenerator,
 		db:                 db,
@@ -238,5 +252,6 @@ func newComponent(ctx context.Context) (*component, error) {
 		metric:             metrics.GetMeter(),
 		limiterFactory:     dist.NewRateLimiterFactory(cmdable),
 		ckDb:               ckDb,
+		translater:         translater,
 	}, nil
 }

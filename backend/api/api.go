@@ -18,6 +18,7 @@ import (
 	"github.com/coze-dev/cozeloop/backend/infra/external/audit"
 	"github.com/coze-dev/cozeloop/backend/infra/external/benefit"
 	"github.com/coze-dev/cozeloop/backend/infra/fileserver"
+	"github.com/coze-dev/cozeloop/backend/infra/i18n"
 	"github.com/coze-dev/cozeloop/backend/infra/idgen"
 	"github.com/coze-dev/cozeloop/backend/infra/limiter"
 	"github.com/coze-dev/cozeloop/backend/infra/metrics"
@@ -49,6 +50,7 @@ func Init(
 	meter metrics.Meter,
 	limiterFactory limiter.IRateLimiterFactory,
 	ckDB ck.Provider,
+	translater i18n.ITranslater,
 ) (*apis.APIHandler, error) {
 	foundationHandler, err := apis.InitFoundationHandler(idgen, db, batchObjectStorage)
 	if err != nil {
@@ -110,6 +112,7 @@ func Init(
 		DataHandler:          dataHandler,
 		ObservabilityHandler: observabilityHandler,
 		FoundationHandler:    foundationHandler,
+		Translater:           translater,
 	}, nil
 }
 

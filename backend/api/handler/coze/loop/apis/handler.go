@@ -14,6 +14,7 @@ import (
 	"github.com/cloudwego/kitex/pkg/endpoint"
 	"github.com/cloudwego/kitex/pkg/kerrors"
 
+	"github.com/coze-dev/cozeloop/backend/infra/i18n"
 	cachemw "github.com/coze-dev/cozeloop/backend/infra/middleware/ctxcache"
 	logmw "github.com/coze-dev/cozeloop/backend/infra/middleware/logs"
 	"github.com/coze-dev/cozeloop/backend/infra/middleware/validator"
@@ -65,6 +66,11 @@ type APIHandler struct {
 	*DataHandler
 	*ObservabilityHandler
 	*FoundationHandler
+	Translater i18n.ITranslater
+}
+
+func (a *APIHandler) GetTranslater() i18n.ITranslater {
+	return a.Translater
 }
 
 type EvaluationHandler struct {

@@ -5,4 +5,9 @@ package consts
 
 const (
 	CtxKeyLogID = "K_LOGID"
+
+	CookieLanguageKey = "i18next"
+	LocaleZhCN        = "zh-CN"
+	LocalEnUS         = "en-US"
+	LocaleDefault     = LocalEnUS
 )

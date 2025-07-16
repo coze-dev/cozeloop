@@ -5,12 +5,14 @@ package conf
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/samber/lo"
 
 	"github.com/coze-dev/cozeloop/backend/infra/limiter"
 	evaluatordto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
 	"github.com/coze-dev/cozeloop/backend/pkg/conf"
+	"github.com/coze-dev/cozeloop/backend/pkg/contexts"
 )
 
 //go:generate mockgen -destination=mocks/evaluator_configer.go -package=mocks . IConfiger
@@ -35,9 +37,14 @@ func NewEvaluatorConfiger(configFactory conf.IConfigLoaderFactory) IConfiger {
 
 func (c *configer) GetEvaluatorTemplateConf(ctx context.Context) (etf map[string]map[string]*evaluatordto.EvaluatorContent) {
 	const key = "evaluator_template_conf"
-	etf = make(map[string]map[string]*evaluatordto.EvaluatorContent)
-	lo.Ternary(c.loader.UnmarshalKey(ctx, key, &etf) == nil, etf, DefaultEvaluatorTemplateConf())
-	return etf
+
+	if locale := contexts.CtxLocale(ctx); c.loader.UnmarshalKey(ctx, fmt.Sprintf("%s_%s", key, locale), &etf) == nil && len(etf) > 0 {
+		return etf
+	}
+	if c.loader.UnmarshalKey(ctx, key, &etf) == nil && len(etf) > 0 {
+		return etf
+	}
+	return DefaultEvaluatorTemplateConf()
 }
 
 func DefaultEvaluatorTemplateConf() map[string]map[string]*evaluatordto.EvaluatorContent {
@@ -46,7 +53,14 @@ func DefaultEvaluatorTemplateConf() map[string]map[string]*evaluatordto.Evaluato
 
 func (c *configer) GetEvaluatorToolConf(ctx context.Context) (etf map[string]*evaluatordto.Tool) {
 	const key = "evaluator_tool_conf"
-	return lo.Ternary(c.loader.UnmarshalKey(ctx, key, &etf) == nil, etf, DefaultEvaluatorToolConf())
+
+	if locale := contexts.CtxLocale(ctx); c.loader.UnmarshalKey(ctx, fmt.Sprintf("%s_%s", key, locale), &etf) == nil && len(etf) > 0 {
+		return etf
+	}
+	if c.loader.UnmarshalKey(ctx, key, &etf) == nil && len(etf) > 0 {
+		return etf
+	}
+	return DefaultEvaluatorToolConf()
 }
 
 func DefaultEvaluatorToolConf() map[string]*evaluatordto.Tool {
@@ -73,7 +87,14 @@ func DefaultEvaluatorToolMapping() map[string]string {
 
 func (c *configer) GetEvaluatorPromptSuffix(ctx context.Context) (suffix map[string]string) {
 	const key = "evaluator_prompt_suffix"
-	return lo.Ternary(c.loader.UnmarshalKey(ctx, key, &suffix) == nil, suffix, DefaultEvaluatorPromptSuffix())
+
+	if locale := contexts.CtxLocale(ctx); c.loader.UnmarshalKey(ctx, fmt.Sprintf("%s_%s", key, locale), &suffix) == nil && len(suffix) > 0 {
+		return suffix
+	}
+	if c.loader.UnmarshalKey(ctx, key, &suffix) == nil && len(suffix) > 0 {
+		return suffix
+	}
+	return DefaultEvaluatorPromptSuffix()
 }
 
 func DefaultEvaluatorPromptSuffix() map[string]string {
