@@ -1,6 +1,57 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
-import localeZhCN from './locales/zh-CN.json';
-import localeEnUS from './locales/en-US.json';
+/* eslint-disable import/order -- skip*/
+import rootLocaleZhCN from './locales/zh-CN.json';
+import rootLocaleEnUS from './locales/en-US.json';
 
-export { localeZhCN, localeEnUS };
+// auth
+import authLocaleZhCN from './locales/auth/zh-CN.json';
+import authLocaleEnUS from './locales/auth/en-US.json';
+
+// base
+import baseLocaleZhCN from './locales/base/zh-CN.json';
+import baseLocaleEnUS from './locales/base/en-US.json';
+
+// common
+import commonLocaleZhCN from './locales/common/zh-CN.json';
+import commonLocaleEnUS from './locales/common/en-US.json';
+
+// components
+import componentsLocaleZhCN from './locales/components/zh-CN.json';
+import componentsLocaleEnUS from './locales/components/en-US.json';
+
+// evaluate
+import evaluateLocaleZhCN from './locales/evaluate/zh-CN.json';
+import evaluateLocaleEnUS from './locales/evaluate/en-US.json';
+
+// observation
+import observationLocaleZhCN from './locales/observation/zh-CN.json';
+import observationLocaleEnUS from './locales/observation/en-US.json';
+
+// prompt
+import promptLocaleZhCN from './locales/prompt/zh-CN.json';
+import promptLocaleEnUS from './locales/prompt/en-US.json';
+
+export const localeZhCN = Object.assign(
+  {},
+  rootLocaleZhCN,
+  commonLocaleZhCN,
+  componentsLocaleZhCN,
+  baseLocaleZhCN,
+  authLocaleZhCN,
+  promptLocaleZhCN,
+  evaluateLocaleZhCN,
+  observationLocaleZhCN,
+);
+
+export const localeEnUS = Object.assign(
+  {},
+  rootLocaleEnUS,
+  commonLocaleEnUS,
+  componentsLocaleEnUS,
+  baseLocaleEnUS,
+  authLocaleEnUS,
+  promptLocaleEnUS,
+  evaluateLocaleEnUS,
+  observationLocaleEnUS,
+);

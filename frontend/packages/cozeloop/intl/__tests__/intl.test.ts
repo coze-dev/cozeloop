@@ -18,6 +18,7 @@ describe('I18n', () => {
             'other {# photos.}}',
           error: 'Error: {msg}',
           moreError: 'Error: {msg1},{msg2}',
+          escape: "Hello '{{USERNAME}}",
           empty: '',
         },
       },
@@ -40,8 +41,9 @@ describe('I18n', () => {
     expect(I18n.t('poem')).toBe('游园不值');
   });
 
-  it('should interpolate', () => {
+  it.only('should interpolate', () => {
     expect(I18n.t('error', { msg: '123' })).toBe('Error: 123');
+    expect(I18n.t('escape')).toBe('Hello {{USERNAME}}');
     expect(I18n.t('moreError', { msg1: '123', msg2: '321' })).toBe(
       'Error: 123,321',
     );

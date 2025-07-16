@@ -113,7 +113,7 @@ export function DiffContent({
     }
 
     addDiffItem(
-      '回复随机性',
+      '生成随机性',
       baseItem.modelConfig?.temperature,
       currentItem.modelConfig?.temperature,
     );

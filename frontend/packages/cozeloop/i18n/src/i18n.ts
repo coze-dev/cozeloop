@@ -19,9 +19,10 @@ async function initIntl(options: IntlClientOptions = {}) {
     ...options,
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag'],
-      lookupQuerystring: 'locale',
-      lookupCookie: 'locale',
-      lookupLocalStorage: 'locale',
+      lookupQuerystring: 'i18next',
+      /** keep `i18next` with backend */
+      lookupCookie: 'i18next',
+      lookupLocalStorage: 'i18next',
       caches: ['cookie'],
     },
     resources: {

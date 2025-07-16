@@ -40,6 +40,11 @@ export class IntlClient {
   t(key: string, defaultValue?: string): string;
   t(
     key: string,
+    interpolation?: Record<string, unknown>,
+    defaultValue?: string,
+  ): string;
+  t(
+    key: string,
     interpolationOrDefaultValue?: Record<string, unknown> | string,
     defaultValue?: string,
   ): string {
