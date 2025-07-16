@@ -35,7 +35,7 @@ function generateOptionsMap(localeData: Record<string, string>) {
 ${withInterpolation.join('\n')}
 }`,
     noInterpolationKeys: `export type I18nKeysNoInterpolation =
-${noInterpolationKeys.map(it => `  | '${it}'`).join('\n')};`,
+${noInterpolationKeys.map(it => `  /** ${localeZhCN[it]} */\n  | '${it}'`).join('\n')};`,
   };
 }
 

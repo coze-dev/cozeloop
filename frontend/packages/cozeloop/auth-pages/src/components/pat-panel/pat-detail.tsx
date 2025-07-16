@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type PersonalAccessToken } from '@cozeloop/api-schema/foundation';
 import { Typography } from '@coze-arch/coze-design';
 
@@ -15,21 +16,17 @@ interface Props {
 export function PatDetail({ token, pat }: Props) {
   return (
     <div className={s.container}>
-      <p className={s.warn}>
-        {
-          '此令牌仅显示一次。请将此密钥保存在安全且可获取的地方。不要与他人共享，也不要在浏览器或其他客户端代码中暴露它。'
-        }
-      </p>
+      <p className={s.warn}>{I18n.t('token_show_only_once')}</p>
       <div className={s.line}>
-        <div className={s.title}>{'名称'}</div>
+        <div className={s.title}>{I18n.t('name')}</div>
         <div className={s.content}>{pat?.name}</div>
       </div>
       <div className={s.line}>
-        <div className={s.title}>{'过期时间'}</div>
+        <div className={s.title}>{I18n.t('expiration_time')}</div>
         <div className={s.content}>{getExpirationTime(pat?.expire_at)}</div>
       </div>
       <div className={s.line}>
-        <div className={s.title}>{'令牌'}</div>
+        <div className={s.title}>{I18n.t('token')}</div>
         <div className={s.content}>
           <Typography.Text
             className={s.token}

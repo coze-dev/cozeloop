@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { type ReactNode } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type Space } from '@cozeloop/api-schema/foundation';
 import {
   IconCozChat,
@@ -38,12 +39,12 @@ export function useMenuConfig() {
   const menuConfig: MenuConfig[] = [
     {
       itemKey: 'pe',
-      text: 'Prompt 工程',
+      text: I18n.t('prompt_engineering'),
       visible: ({ space }) => Boolean(space?.id),
       items: [
         {
           itemKey: 'pe/prompts',
-          text: 'Prompt 开发',
+          text: I18n.t('prompt_development'),
           icon: <IconCozChat />,
           selectedIcon: <IconCozChatFill className="coz-fg-plus" />,
         },
@@ -57,24 +58,24 @@ export function useMenuConfig() {
     },
     {
       itemKey: 'evaluation',
-      text: '评测',
+      text: I18n.t('evaluation'),
       visible: ({ space }) => Boolean(space?.id),
       items: [
         {
           itemKey: 'evaluation/datasets',
-          text: '评测集',
+          text: I18n.t('evaluation_set'),
           icon: <IconCozDatabase />,
           selectedIcon: <IconCozDatabaseFill className="coz-fg-plus" />,
         },
         {
           itemKey: 'evaluation/evaluators',
-          text: '评估器',
+          text: I18n.t('evaluator'),
           icon: <IconCozLightbulb />,
           selectedIcon: <IconCozLightbulbFill className="coz-fg-plus" />,
         },
         {
           itemKey: 'evaluation/experiments',
-          text: '实验',
+          text: I18n.t('experiment'),
           icon: <IconCozDashboard />,
           selectedIcon: <IconCozDashboardFill className="coz-fg-plus" />,
         },
@@ -82,7 +83,7 @@ export function useMenuConfig() {
     },
     {
       itemKey: 'observation',
-      text: '观测',
+      text: I18n.t('observation'),
       visible: ({ space }) => Boolean(space?.id),
       items: [
         {

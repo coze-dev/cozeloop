@@ -3,6 +3,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { $notification } from '@cozeloop/api-schema';
 import { useLogin, useLoginStatus, useRegister } from '@cozeloop/account';
 import { Toast } from '@coze-arch/coze-design';
@@ -40,7 +41,7 @@ export function LoginPage() {
         className: 'api-error-toast',
         content: (
           <span className="inline-block max-w-[100%] break-all whitespace-normal">
-            {'注册/登录失败，请检查邮箱或密码'}
+            {I18n.t('register_or_login_failed')}
           </span>
         ),
       });

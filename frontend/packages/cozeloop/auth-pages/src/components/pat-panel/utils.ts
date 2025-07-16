@@ -39,14 +39,14 @@ export function formatDate(
 
 export function getExpirationOptions() {
   const dataOptionsList = [
-    { label: '1天', value: DurationDay.Day1 },
-    { label: '30天', value: DurationDay.Day30 },
-    { label: '60天', value: DurationDay.Day60 },
-    { label: '90天', value: DurationDay.Day90 },
-    { label: '180天', value: DurationDay.Day180 },
-    { label: '365天', value: DurationDay.Day365 },
-    { label: '永久', value: DurationDay.Permanent },
-    { label: I18n.t('customize_key_1'), value: 'custom' },
+    { label: I18n.t('x_days', { num: 1 }), value: DurationDay.Day1 },
+    { label: I18n.t('x_days', { num: 30 }), value: DurationDay.Day30 },
+    { label: I18n.t('x_days', { num: 60 }), value: DurationDay.Day60 },
+    { label: I18n.t('x_days', { num: 90 }), value: DurationDay.Day90 },
+    { label: I18n.t('x_days', { num: 180 }), value: DurationDay.Day180 },
+    { label: I18n.t('x_days', { num: 365 }), value: DurationDay.Day365 },
+    { label: I18n.t('permanent'), value: DurationDay.Permanent },
+    { label: I18n.t('customize'), value: 'custom' },
   ];
   const newOptions = dataOptionsList.map(item => {
     const { value } = item;
@@ -59,7 +59,7 @@ export function getExpirationOptions() {
       label:
         value === DurationDay.Permanent
           ? 'Permanent'
-          : I18n.t('expired_time_days_1', { num: Number(value), date }),
+          : I18n.t('expired_time_days', { num: Number(value), date }),
       value,
     };
   });
@@ -104,7 +104,7 @@ export function getExpirationTime(v?: number | string) {
   }
 
   if (d === -1) {
-    return I18n.t('api_status_permanent_1');
+    return I18n.t('permanent');
   }
 
   return formatDate(new Date(d * 1000));

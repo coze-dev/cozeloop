@@ -58,7 +58,7 @@ export function PatPanel({ className }: Props) {
     reloadPatList();
     setModalData({ visible: false });
     Modal.info({
-      title: I18n.t('new_pat_1'),
+      title: I18n.t('new_pat'),
       footer: false,
       width: 560,
       closable: true,
@@ -101,17 +101,17 @@ export function PatPanel({ className }: Props) {
           type="primary"
           onClick={() => setModalData({ visible: true })}
         >
-          {I18n.t('add_new_token_button_1')}
+          {I18n.t('add_token')}
         </Button>
       </div>
       <div className={s.tip}>
         <p>
-          {I18n.t('pat_reminder_1')}
+          {I18n.t('pat_introduction')}
           <span className={s.link} onClick={openLinkDoc}>
-            {I18n.t('coze_api_instru')}
+            {I18n.t('api_instruction')}
           </span>
         </p>
-        <p>{I18n.t('pat_reminder_2')}</p>
+        <p>{I18n.t('pat_reminder')}</p>
       </div>
       <PatTable
         dataSource={patList}

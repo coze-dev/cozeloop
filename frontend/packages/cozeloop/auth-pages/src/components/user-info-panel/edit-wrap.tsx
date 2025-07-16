@@ -7,6 +7,7 @@ import { IconCozEdit } from '@coze-arch/coze-design/icons';
 import { IconButton, Button } from '@coze-arch/coze-design';
 
 import s from './edit-wrap.module.less';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 interface Props {
   className?: string;
@@ -26,8 +27,8 @@ export function EditWrap({
   editableComponent,
   canSave,
   loading,
-  cancelText = 'Cancel',
-  saveText = 'Save',
+  cancelText = I18n.t('cancel'),
+  saveText = I18n.t('save'),
   onSave,
   onCancel,
 }: Props) {

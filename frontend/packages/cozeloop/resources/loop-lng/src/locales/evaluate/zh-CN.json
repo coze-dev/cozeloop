@@ -125,7 +125,7 @@
   "manual_calibration": "人工校准",
   "score_details": "得分明细",
   "score": "得分",
-  "x_items ": "{num, plural, zero {无} other {#条}}",
+  "x_items": "{num, plural, zero {无} other {#条}}",
   "refresh_after_experiment": "实验完成后，再刷新重试",
   "aggregation_score": "聚合得分",
   "score_details_data_item_distribution": "得分明细 - 数据项分布",

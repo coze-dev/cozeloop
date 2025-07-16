@@ -18,41 +18,41 @@ export function getColumns({
 }: ColumnAction): ColumnProps<PersonalAccessToken>[] {
   return [
     {
-      title: I18n.t('coze_api_list1'),
+      title: I18n.t('name'),
       dataIndex: 'name',
       width: 120,
       render: (name: string) => <span className="break-all">{name}</span>,
     },
     {
-      title: I18n.t('coze_api_list3'),
+      title: I18n.t('create_time'),
       dataIndex: 'created_at',
       render: (createTime: number) => getDetailTime(createTime),
     },
     {
-      title: I18n.t('coze_api_list4'),
+      title: I18n.t('last_used'),
       dataIndex: 'last_used_at',
       render: (lastUseTime: number) => getDetailTime(lastUseTime),
     },
     {
-      title: I18n.t('expire_time_1'), // 状态
+      title: I18n.t('expiration_time'), // 状态
       dataIndex: 'expire_at',
       render: (expireTime: number) => getExpirationTime(expireTime),
     },
     {
-      title: I18n.t('api_status_1'),
+      title: I18n.t('status'),
       dataIndex: 'id',
       width: 80,
       render: (_: string, record: PersonalAccessToken) => {
         const isActive = getStatus(record?.expire_at);
         return (
           <Tag size="small" color={isActive ? 'green' : 'grey'}>
-            {I18n.t(isActive ? 'api_status_active_1' : 'api_status_expired_1')}
+            {isActive ? I18n.t('active') : I18n.t('expired')}
           </Tag>
         );
       },
     },
     {
-      title: I18n.t('coze_api_list5'),
+      title: I18n.t('operation'),
       width: 120,
       render: (_, record) => (
         <PatOperation pat={record} onDelete={onDelete} onEdit={onEdit} />

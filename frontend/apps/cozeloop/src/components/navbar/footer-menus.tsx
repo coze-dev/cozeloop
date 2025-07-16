@@ -3,6 +3,7 @@
 import { type ReactNode, useState } from 'react';
 
 import cls from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   IconCozDocument,
   IconCozArrowDown,
@@ -37,13 +38,13 @@ export function FooterMenus({ isCollapsed, isHovered }: Props) {
   const [isShow, setIsShow] = useState(true);
   const menuItems: MenuItem[] = [
     {
-      text: '文档',
+      text: I18n.t('document'),
       key: 'actions/doc',
       icon: <IconCozDocument className="coz-fg-secondary" />,
       onClick: () => window.open(COZELOOP_DOC_URL),
     },
     {
-      text: '飞书群',
+      text: I18n.t('lark_group'),
       key: 'actions/lark',
       icon: <IconCozLarkFill className="coz-fg-secondary" />,
       onClick: () => window.open(COZELOOP_LARK_GROUP_URL),

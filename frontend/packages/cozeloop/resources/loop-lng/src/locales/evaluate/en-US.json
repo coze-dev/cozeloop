@@ -124,7 +124,7 @@
   "manual_calibration": "Manual calibration",
   "score_details": "Score detail",
   "score": "Score",
-  "x_items ": "{item, plural, zero {No item} one {1 item} other{# items}}",
+  "x_items": "{item, plural, zero {No item} one {1 item} other{# items}}",
   "refresh_after_experiment": "Refresh to retry once the experiment is completed",
   "aggregation_score": "Aggregation score",
   "score_details_data_item_distribution": "Score details - Data item distribution",

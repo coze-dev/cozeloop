@@ -1,6 +1,7 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import classNames from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { useBaseURL } from '@cozeloop/biz-hooks-adapter';
 import { PERSONAL_ENTERPRISE_ID } from '@cozeloop/account';
 import { IconCozExit, IconCozSetting } from '@coze-arch/coze-design/icons';
@@ -18,7 +19,7 @@ export function SettingsMenu({ onAction }: Props) {
   const menus = [
     {
       icon: <IconCozSetting />,
-      text: '账户设置',
+      text: I18n.t('account_settings'),
       onClick: () => {
         onAction?.('setting');
       },
@@ -26,7 +27,7 @@ export function SettingsMenu({ onAction }: Props) {
     },
     {
       icon: <IconCozExit />,
-      text: '退出登录',
+      text: I18n.t('logout'),
       onClick: () => {
         onAction?.('logout');
       },

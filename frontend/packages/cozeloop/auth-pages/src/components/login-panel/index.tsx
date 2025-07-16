@@ -2,10 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Input, Button, Typography } from '@coze-arch/coze-design';
-import { ReactComponent as IconGithub } from '@/assets/github.svg';
 
 import loopBanner from '@/assets/loop-banner.png';
+import { ReactComponent as IconGithub } from '@/assets/github.svg';
 
 import s from './index.module.less';
 
@@ -36,22 +37,22 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
       <div className="flex flex-col items-center">
         <img src={loopBanner} className={s.banner} />
         <div className="text-[18px] font-medium leading-[36px] my-[20px]">
-          {'欢迎使用扣子罗盘-开源版'}
+          {I18n.t('welcome_to_cozeloop')}
         </div>
       </div>
-      <div className="w-[320px] flex flex-col items-stretch">
+      <div className="w-full flex flex-col items-stretch">
         <Input
           type="email"
           value={email}
           onChange={setEmail}
-          placeholder={'请输入邮箱'}
+          placeholder={I18n.t('please_input_email')}
         />
         <Input
           className="mt-[20px]"
           type="password"
           value={password}
           onChange={setPassword}
-          placeholder={'请输入密码'}
+          placeholder={I18n.t('please_input_password')}
         />
         <div className="mt-[20px] flex justify-between items-center">
           <Button
@@ -61,7 +62,7 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
             loading={loading}
             color="primary"
           >
-            {'注册'}
+            {I18n.t('register')}
           </Button>
           <Button
             className="w-[49%]"
@@ -69,7 +70,7 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
             onClick={onClickLogin}
             loading={loading}
           >
-            {'登录'}
+            {I18n.t('login')}
           </Button>
         </div>
         {/* <div className="mt-[20px] flex">
@@ -78,17 +79,21 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
             onChange={e => setConsent(Boolean(e.target.checked))}
             disabled={loading}
           >
+             {I18n.t('please_agree_first', {
+              agreement: (
+                <a
+                  href="" // 协议链接
+                  target="_blank"
+                  className="no-underline ml-1 coz-fg-hglt"
+                  onClick={e => {
+                    e.stopPropagation();
+                  }}
+                >
+                  {I18n.t('user_agreement')}
+                </a>
+              ),
+            })}
             {'请先同意'}
-            <a
-              href="" // 协议链接
-              target="_blank"
-              className="no-underline coz-fg-hglt"
-              onClick={e => {
-                e.stopPropagation();
-              }}
-            >
-              用户协议
-            </a>
           </Checkbox>
         </div> */}
       </div>

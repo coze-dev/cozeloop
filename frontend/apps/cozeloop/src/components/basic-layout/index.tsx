@@ -4,6 +4,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Suspense } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { PageError, PageLoading, PageNotFound } from '@cozeloop/components';
 import { useSpaceStore } from '@cozeloop/account';
 import { Button } from '@coze-arch/coze-design';
@@ -22,7 +23,7 @@ export function BasicLayout() {
   switch (status) {
     case SetupSpaceStatus.NOT_FOUND:
       return (
-        <PageNotFound description="空间不存在">
+        <PageNotFound description={I18n.t('space_not_exists')}>
           <Button
             type="primary"
             block={true}
@@ -31,13 +32,13 @@ export function BasicLayout() {
               navigate(CONSOLE_PATH);
             }}
           >
-            {'返回'}
+            {I18n.t('back')}
           </Button>
         </PageNotFound>
       );
     case SetupSpaceStatus.FETCH_ERROR:
       return (
-        <PageError description="网络错误">
+        <PageError description={I18n.t('network_error')}>
           <Button
             type="primary"
             block={true}
@@ -45,7 +46,7 @@ export function BasicLayout() {
               window.location.reload();
             }}
           >
-            {'点击重试'}
+            {I18n.t('click_retry')}
           </Button>
         </PageError>
       );

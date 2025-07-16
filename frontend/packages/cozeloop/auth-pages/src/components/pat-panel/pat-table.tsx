@@ -34,10 +34,7 @@ export function PatTable({ loading, dataSource, onEdit, onDelete }: Props) {
           scroll: {},
         }}
         empty={
-          <Empty
-            title={I18n.t('no_api_token_1')}
-            description={I18n.t('add_api_token_1')}
-          />
+          <Empty title={I18n.t('no_pat')} description={I18n.t('add_pat')} />
         }
       />
     </div>

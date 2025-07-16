@@ -3,6 +3,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { AccountSetting } from '@cozeloop/auth-pages';
 import { useLogout, useUserStore, useSpaceStore } from '@cozeloop/account';
 import { Popover, Modal } from '@coze-arch/coze-design';
@@ -27,9 +28,9 @@ export function UserInfoSection({ isCollapsed }: Props) {
     switch (action) {
       case 'logout':
         Modal.confirm({
-          title: '确认要退出登录吗？',
-          okText: '退出登录',
-          cancelText: '取消',
+          title: I18n.t('confirm_logout'),
+          okText: I18n.t('logout'),
+          cancelText: I18n.t('cancel'),
           type: 'modal',
           autoLoading: true,
           okButtonProps: {

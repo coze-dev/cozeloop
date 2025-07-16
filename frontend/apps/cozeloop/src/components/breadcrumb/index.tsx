@@ -9,6 +9,7 @@ import { Breadcrumb } from '@coze-arch/coze-design';
 
 import { useMenuConfig } from '../navbar/menu-config';
 import { getBreadcrumbMap } from './utils';
+import { SwitchLang } from '../switch-lng';
 
 export function MainBreadcrumb() {
   const { app, subModule } = useApp();
@@ -51,7 +52,7 @@ export function MainBreadcrumb() {
   }, [breadcrumbConfig]);
 
   return (
-    <div className="h-[56px] flex items-center px-6 border-0 border-b border-solid coz-stroke-primary">
+    <div className="h-[56px] flex items-center justify-between px-6 border-0 border-b border-solid coz-stroke-primary">
       <Breadcrumb
         separator={<div className="rotate-[22deg] coz-fg-dim">/</div>}
       >
@@ -72,6 +73,7 @@ export function MainBreadcrumb() {
           </Breadcrumb.Item>
         ))}
       </Breadcrumb>
+      <SwitchLang />
     </div>
   );
 }

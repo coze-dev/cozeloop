@@ -98,6 +98,13 @@ export interface I18nWithInterpolation {
     /** number */
     num: ReactNode;
   };
+  /** {num, plural, other {{num}天（{date}）}} */
+  expired_time_days: {
+    /** number */
+    num: ReactNode;
+    /** string */
+    date: ReactNode;
+  };
   /** 字数: {num} */
   num_words: {
     /** string */
@@ -166,7 +173,7 @@ export interface I18nWithInterpolation {
     num: ReactNode;
   };
   /** {num, plural, zero {无} other {#条}} */
-  x_items : {
+  x_items: {
     /** number */
     item: ReactNode;
   };
@@ -244,546 +251,1118 @@ export interface I18nWithInterpolation {
 
 /** I18n keys without interpolation */
 export type I18nKeysNoInterpolation =
+  /** 操作 */
   | 'actions'
+  /** 点击按钮添加个人访问令牌 */
   | 'add_api_token_1'
+  /** 添加新的个人访问令牌 */
   | 'add_new_pat_1'
+  /** 添加新令牌 */
   | 'add_new_token_button_1'
+  /** 添加 */
   | 'add'
+  /** 图片不可访问 */
   | 'analytics_image_error'
+  /** Arguments */
   | 'analytics_trace_arguments'
+  /** Description */
   | 'analytics_trace_description'
+  /** Metadata */
   | 'analytics_trace_metadata'
+  /** Run */
   | 'analytics_trace_run'
+  /** Runtime */
   | 'analytics_trace_runtime'
+  /** Type */
   | 'analytics_trace_type'
+  /** 状态 */
   | 'api_status_1'
+  /** 有效 */
   | 'api_status_active_1'
+  /** 已过期 */
   | 'api_status_expired_1'
+  /** 永久有效 */
   | 'api_status_permanent_1'
+  /** 个人访问令牌 */
   | 'auth_tab_pat'
+  /** 取消 */
   | 'Cancel'
+  /** 取消 */
   | 'cancel'
+  /** 代码 */
   | 'code'
+  /** 确认 */
   | 'Confirm'
+  /** 确认 */
   | 'confirm'
+  /** 内容 */
   | 'Content'
+  /** 复制 */
   | 'Copy'
+  /** 复制 */
   | 'copy'
+  /** API 使用说明 */
   | 'coze_api_instru'
+  /** 名称 */
   | 'coze_api_list1'
+  /** 创建时间 */
   | 'coze_api_list3'
+  /** 最近使用时间 */
   | 'coze_api_list4'
+  /** 操作 */
   | 'coze_api_list5'
+  /** 创作者 */
   | 'creators'
+  /** 自定义 */
   | 'customize_key_1'
+  /** 此操作不可撤回 */
   | 'delete_desc'
+  /** 确认删除 */
   | 'delete_title'
+  /** 删除 */
   | 'Delete'
+  /** 删除 */
   | 'delete'
+  /** 描述 */
   | 'Description'
+  /** 编辑个人访问令牌 */
   | 'edit_pat_1'
+  /** 编辑 */
   | 'Edit'
+  /** 抱歉，发生了一些错误，请稍后重试。 */
   | 'error'
+  /** 展开 */
   | 'expand'
+  /** 过期时间 */
   | 'expire_time_1'
+  /** 请谨慎选择过期时间，个人访问令牌生成后，将不支持修改 */
   | 'expired_time_forbidden_1'
+  /** 抱歉，发生了一些错误... */
   | 'failed'
+  /** 收起 */
   | 'fornax_analytics_collapse'
+  /** 复制失败 */
   | 'fornax_analytics_copy_fail'
+  /** 复制成功 */
   | 'fornax_analytics_copy_success'
+  /** 暂无数据 */
   | 'fornax_analytics_data_empty'
+  /** 数据不存在或异常 */
   | 'fornax_analytics_empty_data_abnormal'
+  /** 未选中节点 */
   | 'fornax_analytics_empty_node_unselected'
+  /** 渲染失败 */
   | 'fornax_analytics_empty_run_tree_failure'
+  /** 请在左侧选中对应的节点查看详情 */
   | 'fornax_analytics_empty_to_select_node'
+  /** 展开 */
   | 'fornax_analytics_extend'
+  /** SpanID */
   | 'fornax_analytics_query_detail_span_id'
+  /** 本月截止目前 */
   | 'fornax_analytics_range_this_month'
+  /** StatusCode */
   | 'fornax_analytics_status_code'
+  /** 调用树 */
   | 'fornax_analytics_tab_run_tree'
+  /** 开发环境 */
   | 'fornax_analytics_threads_options_dev'
+  /** 失败 */
   | 'fornax_analytics_threads_options_fail'
+  /** 线上环境 */
   | 'fornax_analytics_threads_options_online'
+  /** 成功 */
   | 'fornax_analytics_threads_options_success'
+  /** 前天 */
   | 'fornax_analytics_time_day_before_yesterday'
+  /** 过去3月 */
   | 'fornax_analytics_time_past_3_months'
+  /** 过去一月 */
   | 'fornax_analytics_time_past_month'
+  /** 过去一周 */
   | 'fornax_analytics_time_past_week'
+  /** 过去一年 */
   | 'fornax_analytics_time_past_year'
+  /** 今天截止目前 */
   | 'fornax_analytics_time_today_so_far'
+  /** 本周截止目前 */
   | 'fornax_analytics_time_week_so_far'
+  /** 昨天 */
   | 'fornax_analytics_time_yesterday'
+  /** 节点详情 */
   | 'fornax_analytics_title_span_detail'
+  /** 添加筛选组条件 */
   | 'fornax_components_logic_expr_add_filter_group'
+  /** 添加筛选条件 */
   | 'fornax_components_logic_expr_add_filter'
+  /** 且 */
   | 'fornax_components_logic_expr_and'
+  /** 删除条件 */
   | 'fornax_components_logic_expr_delete_filter'
+  /** 非 */
   | 'fornax_components_logic_expr_not'
+  /** 或 */
   | 'fornax_components_logic_expr_or'
+  /** go */
   | 'go'
+  /** 导入 */
   | 'import'
+  /** 输入 */
   | 'Input'
+  /** 语言 */
   | 'language'
+  /** 最新版本 */
   | 'latest_version'
+  /** 加载完成 */
   | 'loaded'
+  /** 加载中 */
   | 'loading'
+  /** 加载中 */
   | 'Loading'
+  /** 退出登录 */
   | 'logout'
+  /** 我的 */
   | 'Me'
+  /** 移动端 */
   | 'mobile'
+  /** 模型家族 */
   | 'model_family'
+  /** 模型信息
+ */
   | 'model_info'
+  /** 模型名称 */
   | 'model_name'
+  /** 新的个人访问令牌 */
   | 'new_pat_1'
+  /** 下一步 */
   | 'next'
+  /** 还没有个人访问令牌 */
   | 'no_api_token_1'
+  /** 或 */
   | 'or'
+  /** 输出 */
   | 'Output'
+  /** 参数 */
   | 'parameters'
+  /** 用于其他应用程序和平台的个人访问令牌。详细说明请查看： */
   | 'pat_reminder_1'
+  /** 不要与他人共享您的个人访问令牌，也不要在浏览器或其他客户端代码中暴露它，以保护您账户的安全。若在公开场合发现任何泄露的个人访问令牌，该令牌可能会被自动禁用。 */
   | 'pat_reminder_2'
+  /** 扣子 */
   | 'platform_name'
+  /** 插件 */
   | 'Plugins'
+  /** 指令为必填项 */
   | 'prompt_generate_instruction_validate'
+  /** 指令为必填项 */
   | 'prompt_generate_statement_validate'
+  /** 停止回答 */
   | 'prompt_generate_stop_responding'
+  /** 停止扩写 */
   | 'prompt_generate_stop'
+  /** 提交 */
   | 'prompt_submit'
+  /** 版本提交后即刻生效，确定要提交么 */
   | 'prompt_version_submit'
+  /** Python */
   | 'python'
+  /** 替换 */
   | 'replace'
+  /** 必填 */
   | 'required'
+  /** 响应回答中 */
   | 'Responding'
+  /** 重试 */
   | 'Retry'
+  /** 重试 */
   | 'retry'
+  /** 保存 */
   | 'Save'
+  /** 搜索 */
   | 'Search'
+  /** 选择过期时间 */
   | 'select_expired_time_1'
+  /** 空格 */
   | 'space'
+  /** 成功 */
   | 'Success'
+  /** 等于 */
   | 'task_filter_eq'
+  /** 大于 */
   | 'task_filter_gt'
+  /** 大于等于 */
   | 'task_filter_gte'
+  /** 属于 */
   | 'task_filter_in'
+  /** 为空 */
   | 'task_filter_is_null'
+  /** 包含 */
   | 'task_filter_like'
+  /** 小于 */
   | 'task_filter_lt'
+  /** 小于等于 */
   | 'task_filter_lte'
+  /** 不等于 */
   | 'task_filter_not_eq'
+  /** 不属于 */
   | 'task_filter_not_in'
+  /** 不为空 */
   | 'task_filter_not_null'
+  /** 模板 */
   | 'template_name'
+  /** 文本 */
   | 'text'
+  /** 工具 */
   | 'Tools'
+  /** 类型 */
   | 'Type'
+  /** 类型 */
   | 'type'
+  /** 未定义 */
   | 'undefined'
+  /** 用户昵称 */
   | 'user_info_custom_name'
+  /** 邮箱 */
   | 'user_info_email'
+  /** 用户名 */
   | 'user_info_username'
+  /** 版本 */
   | 'version'
+  /** 工作流 */
   | 'Workflow'
+  /** 账户 */
   | 'account'
+  /** 返回 */
   | 'back'
+  /** 清空 */
   | 'clear'
+  /** 收起 */
   | 'collapse'
+  /** 调试 */
   | 'debug'
+  /** Demo 空间 */
   | 'demo_space'
+  /** 描述 */
   | 'description'
+  /** 详情 */
   | 'detail'
+  /** 邮箱 */
   | 'email'
+  /** 实验 */
   | 'experiment'
+  /** 字段 */
   | 'field'
+  /** 登录 */
   | 'login'
+  /** 名称 */
   | 'name'
+  /** 网络错误 */
   | 'network_error'
+  /** 操作 */
   | 'operation'
+  /** 密码 */
   | 'password'
+  /** 永久 */
   | 'permanent'
+  /** 预览 */
   | 'preview'
+  /** 刷新 */
   | 'refresh'
+  /** 注册 */
   | 'register'
+  /** 移除 */
   | 'remove'
+  /** 重试中 */
   | 'retrying'
+  /** 运行 */
   | 'run'
+  /** 保存 */
   | 'save'
+  /** 提交 */
   | 'submit'
+  /** 今天 */
   | 'today'
+  /** 明天 */
   | 'tomorrow'
+  /** 用户协议 */
   | 'user_agreement'
+  /** 未知问题 */
   | 'unknown_error'
+  /** 昨天 */
   | 'yesterday'
+  /** 搜索创建人 */
   | 'search_creator'
+  /** 当前用户 */
   | 'current_user'
+  /** 重置为默认 */
   | 'reset_to_default'
+  /** 拖动排序 */
   | 'drag_to_sort'
+  /** 列管理 */
   | 'column_management'
+  /** 复制 ID */
   | 'copy_id'
+  /** 复制成功 */
   | 'copy_success'
+  /** 复制失败 */
   | 'copy_failed'
+  /** 查看详情 */
   | 'view_detail'
+  /** 页面丢失了 */
   | 'page_not_found'
+  /** 页面加载失败 */
   | 'page_load_failed'
+  /** 暂无权限 */
   | 'no_permission'
+  /** 点击升序 */
   | 'click_ascending'
+  /** 点击降序 */
   | 'click_descending'
+  /** 点击恢复默认排序 */
   | 'restore_default_sort'
+  /** 复制内容 */
   | 'copy_content'
+  /** 保存时间 */
   | 'save_time'
+  /** 当前草稿 */
   | 'current_draft'
+  /** 提交时间 */
   | 'submit_time'
+  /** 提交人： */
   | 'submitter'
+  /** 版本说明 */
   | 'version_description'
+  /** 版本记录 */
   | 'version_record'
+  /** 空间不存在 */
   | 'space_not_exists'
+  /** 点击重试 */
   | 'click_retry'
+  /** 文档 */
   | 'document'
+  /** 飞书群 */
   | 'lark_group'
+  /** Prompt 工程 */
   | 'prompt_engineering'
+  /** Prompt 开发 */
   | 'prompt_development'
+  /** 评测 */
   | 'evaluation'
+  /** 评测集 */
   | 'evaluation_set'
+  /** 评估器 */
   | 'evaluator'
+  /** 观测 */
   | 'observation'
+  /** 确认要退出登录吗？ */
   | 'confirm_logout'
+  /** 账户设置 */
   | 'account_settings'
+  /** 暂无空间 */
   | 'no_space'
+  /** 你未加入任何空间 */
   | 'not_join_space'
+  /** API 授权 */
   | 'api_authorization'
+  /** 欢迎使用扣子罗盘-社区版 */
   | 'welcome_to_cozeloop'
+  /** 请输入邮箱 */
   | 'please_input_email'
+  /** 请输入密码 */
   | 'please_input_password'
+  /** 此令牌仅显示一次。请将此密钥保存在安全且可获取的地方。不要与他人共享，也不要在浏览器或其他客户端代码中暴露它。 */
   | 'token_show_only_once'
+  /** 过期时间 */
   | 'expiration_time'
+  /** 令牌 */
   | 'token'
+  /** 删除令牌 */
   | 'delete_token'
+  /** 移除后会影响所有正在使用 API 个人访问令牌的应用 */
   | 'remove_will_affect_all_in_use'
+  /** 注册/登录失败，请检查邮箱或密码 */
   | 'register_or_login_failed'
+  /** 最近使用 */
+  | 'last_used'
+  /** 活跃 */
+  | 'active'
+  /** 已过期 */
+  | 'expired'
+  /** 新的个人访问令牌 */
+  | 'new_pat'
+  /** 添加新令牌 */
+  | 'add_token'
+  /** 添加个人访问令牌 */
+  | 'add_pat'
+  /** 编辑个人访问令牌 */
+  | 'edit_pat'
+  /** 用于其他应用程序和平台的个人访问令牌。详细说明请查看： */
+  | 'pat_introduction'
+  /** API 使用说明 */
+  | 'api_instruction'
+  /** 不要与他人共享您的个人访问令牌，也不要在浏览器或其他客户端代码中暴露它，以保护您账户的安全。若在公开场合发现任何泄露的个人访问令牌，该令牌可能会被自动禁用。 */
+  | 'pat_reminder'
+  /** 请谨慎选择过期时间，个人访问令牌生成后，将不支持修改 */
+  | 'expired_time_tip'
+  /** 暂无个人访问令牌 */
+  | 'no_pat'
+  /** 用户名 */
+  | 'username'
+  /** 用户昵称 */
+  | 'user_custom_name'
+  /** Prompt */
   | 'prompt'
+  /** 请输入内容，支持按此格式书写变量：'{{USER_NAME}} */
   | 'please_input_with_vars'
+  /** 生成随机性 */
   | 'temperature'
+  /** 最大回复长度 */
   | 'max_tokens'
+  /** Top P */
   | 'top_p'
+  /** Top K */
   | 'top_k'
+  /** 存在惩罚 */
   | 'presence_penalty'
+  /** 频率惩罚 */
   | 'frequency_penalty'
+  /** 编辑 Prompt */
   | 'edit_prompt'
+  /** 创建副本 */
   | 'create_copy'
+  /** 创建 Prompt */
   | 'create_prompt'
+  /** Prompt key */
   | 'prompt_key'
+  /** 仅支持英文字母、数字、“_”、“.”，且仅支持英文字母开头 */
   | 'prompt_key_format'
+  /** Prompt 名称 */
   | 'prompt_name'
+  /** 仅支持英文字母、数字、中文，“-”，“_”，“.”，且仅支持英文字母、数字、中文开头 */
   | 'prompt_name_format'
+  /** Prompt 描述 */
   | 'prompt_description'
+  /** 支持输入英文字母和下划线，且首字母必须是字母 */
   | 'prompt_var_format'
+  /** Placeholder 变量名 */
   | 'placeholder_var_name'
+  /** 只允许输入英文、数字及下划线且首字母需为英文 */
   | 'placeholder_format'
+  /** 文本变量名称已存在，请修改 Placeholder 变量名 */
   | 'placeholder_name_exists'
+  /** Placeholder 变量不存在或命名错误 */
   | 'placeholder_var_error'
+  /** 历史数据有空内容 */
   | 'historical_data_has_empty_content'
+  /** 请添加 Prompt 模板或输入提问内容 */
   | 'add_prompt_tpl_or_input_question'
+  /** 设置为基准组 */
   | 'set_to_reference_group'
+  /** 删除对照组 */
   | 'delete_control_group'
+  /** 加载更多 */
   | 'load_more'
+  /** 暂无调试记录 */
   | 'no_debug_record'
+  /** 调试历史 */
   | 'debug_history'
+  /** 删除 Prompt 模板 */
   | 'delete_prompt_template'
+  /** 确定删除当前 Prompt 模板？ */
   | 'confirm_delete_current_prompt_template'
+  /** 模拟值 */
   | 'mock_value'
+  /** 已深度思考 */
   | 'deeply_thought'
+  /** 深度思考中 */
   | 'deep_thinking'
+  /** 编辑 */
   | 'edit'
+  /** 删除消息 */
   | 'delete_message'
+  /** 确认删除该消息吗？ */
   | 'confirm_delete_message'
+  /** 重新运行 */
   | 'rerun'
+  /** 删除成功 */
   | 'delete_success'
+  /** 删除Prompt */
   | 'delete_prompt'
+  /** 复制 Prompt Key */
   | 'copy_prompt_key'
+  /** 请输入 Prompt Key 再次确认 */
   | 'prompt_key_again_confirm'
+  /** 编排 */
   | 'orchestration'
+  /** 收起模型配置与变量区 */
   | 'collapse_model_and_var_area'
+  /** 展开模型配置与变量区 */
   | 'expand_model_and_var_area'
+  /** 展开预览与调试 */
   | 'expand_preview_and_debug'
+  /** 收起预览与调试 */
   | 'collapse_preview_and_debug'
+  /** 当前无草稿变更 */
   | 'no_draft_change'
+  /** 已提交 */
   | 'submitted'
+  /** Placeholder 变量名不存在或命名错误，无法创建 */
   | 'placeholder_var_create_error'
+  /** 模型 ID */
   | 'model_id'
+  /** 本次提交无版本差异 */
   | 'submission_no_version_diff'
+  /** 打开 启用函数 */
   | 'open_enable_function'
+  /** 关闭 启用函数 */
   | 'close_enable_function'
+  /** 继续 */
   | 'continue'
+  /** 关闭 */
   | 'close'
+  /** 请输入版本号，版本号格式为a.b.c, 且每段为0-9999 */
   | 'input_version_number'
+  /** 图片上传失败，请稍后重试 */
   | 'image_upload_error'
+  /** 清空历史消息 */
   | 'clear_history_messages'
+  /** 请输入问题测试大模型回复，回车发送，Shift+回车换行 */
   | 'input_question_tip'
+  /** 删除函数 */
   | 'delete_function'
+  /** 确认删除该函数吗？ */
   | 'confirm_delete_function'
+  /** 当前方法已经存在，请重新命名 */
   | 'method_exists'
+  /** 新函数 */
   | 'new_function'
+  /** 方法名称必须是 a-z、A-Z、0-9，或包含下划线和破折号，长度最长为 64。 */
   | 'method_name_rule'
+  /** 在此处输入模拟值以模拟函数的返回值。 */
   | 'input_mock_value_here'
+  /** Trace ID */
   | 'trace_id'
+  /** 复制 Trace ID */
   | 'copy_trace_id'
+  /** 复制变量名 */
   | 'copy_variable_name'
+  /** 删除变量 */
   | 'delete_variable'
+  /** 将删除 Prompt 模板中的该变量。确认删除吗？ */
   | 'confirm_delete_var_in_tpl'
+  /** 参数值 */
   | 'param_value'
+  /** 模拟消息 */
   | 'mock_message'
+  /** System */
   | 'system_role'
+  /** Assistant */
   | 'assistant_role'
+  /** User */
   | 'user_role'
+  /** 回滚成功 */
   | 'rollback_success'
+  /** 还原为此版本 */
   | 'restore_to_this_version'
+  /** 还原后将覆盖最新编辑的提示词。确认还原为此版本？ */
   | 'restore_version_tip'
+  /** 还原 */
   | 'restore'
+  /** 模型运行出错 */
   | 'model_run_error'
+  /** 模型运行错误 */
   | 'model_runtime_error'
+  /** promptID 不一致 */
   | 'prompt_id_inconsistent'
+  /** 最近提交时间 */
   | 'recent_submission_time'
+  /** 搜索 Prompt Key 或 Prompt 名称 */
   | 'search_prompt_key_or_prompt_name'
+  /** 暂无 Prompt */
   | 'no_prompt'
+  /** 需要提供 Prompt 版本号 */
   | 'prompt_version_number_needed'
+  /** 版本号格式不正确 */
   | 'incorrect_version_number'
+  /** 版本号不能小于当前版本 */
   | 'version_number_lt_error'
+  /** 紧凑视图 */
   | 'compact_view'
+  /** 宽松视图 */
   | 'loose_view'
+  /** 草稿版本 */
   | 'draft_version'
+  /** 修改未提交 */
   | 'modify_not_submitted'
+  /** 去提交 */
   | 'go_submit'
+  /** 选择实验 */
   | 'select_experiment'
+  /** 发起实验对比 */
   | 'initiate_experiment_comparison'
+  /** 仅评测集相同且已执行完成的实验可进行对比。 */
   | 'only_experiments_with_same_evaluation_set_and_completed_can_be_compared'
+  /** 已选 */
   | 'selected'
+  /** 创建人 */
   | 'creator'
+  /** 评测对象类型 */
   | 'evaluation_object_type'
+  /** 评测对象 */
   | 'evaluation_object'
+  /** Coze Bot */
   | 'coze_bot'
+  /** Coze 智能体 */
   | 'coze_agent'
+  /** 评测集版本 */
   | 'evaluation_set_version'
+  /** 状态 */
   | 'status'
+  /** 这是一个 CozeBot */
   | 'this_is_a_cozebot'
+  /** 查看实际输出的trace */
   | 'view_actual_output_trace'
+  /** 实验名称 */
   | 'experiment_name'
+  /** 该字段必填 */
   | 'the_field_required'
+  /** 实验描述 */
   | 'experiment_description'
+  /** 编辑实验 */
   | 'edit_experiment'
+  /** 请选择模型 */
   | 'choose_model'
+  /** 查看参数 */
   | 'check_parameters'
+  /** 暂无数据 */
   | 'no_data'
+  /** 关联实验 */
   | 'associated_experiment'
+  /** 评估器类型 */
   | 'evaluator_type'
+  /** 模型选择 */
   | 'model_selection'
+  /** 预览与调试 */
   | 'preview_and_debug'
+  /** 可通过构造测试数据，预览评估器的运行结果。 */
   | 'construct_test_data_to_preview_evaluator_runtime_result'
+  /** 配置信息 */
   | 'config_info'
+  /** 构造测试数据 */
   | 'construct_test_data'
+  /** 试运行将产生资源点消耗 */
   | 'testrun_require_fee'
+  /** 内容由AI生成，无法确保真实准确，仅供参考。 */
   | 'generated_by_ai_tip'
+  /** 评估器缺少输入 */
   | 'evaluator_lacks_input'
+  /** 信息未保存 */
   | 'information_unsaved'
+  /** 离开当前页面，信息将不被保存。 */
   | 'leave_page_tip'
+  /** 新建评估器 */
   | 'new_evaluator'
+  /** 创建 */
   | 'create'
+  /** 确认清空 Prompt？ */
   | 'confirm_clear_prompt'
+  /** System Prompt 不可为空 */
   | 'system_prompt_not_empty'
+  /** 删除 User Prompt */
   | 'delete_user_prompt'
+  /** 确认删除 User Prompt ？ */
   | 'confirm_delete_user_prompt'
+  /** 添加 User Prompt */
   | 'add_user_prompt'
+  /** 提交新版本 */
   | 'submit_new_version'
+  /** 创建评估器 */
   | 'create_evaluator'
+  /** 版本号格式为a.b.c，且每段为0-9999 */
   | 'version_number_format'
+  /** 版本号 */
   | 'version_number'
+  /** 选择模板 */
   | 'select_template'
+  /** 预置评估器 */
   | 'preset_evaluator'
+  /** 编辑评估器 */
   | 'edit_evaluator'
+  /** 草稿自动保存中 */
   | 'draft_auto_saving'
+  /** 草稿自动保存失败 */
   | 'draft_auto_save_failed'
+  /** 提交时间： */
   | 'submission_time'
+  /** 版本提交成功 */
   | 'version_submit_success'
+  /** 搜索名称 */
   | 'search_name'
+  /** 复制评估器配置 */
   | 'copy_evaluator_config'
+  /** 评估器名称 */
   | 'evaluator_name'
+  /** 更新人 */
   | 'updated_person'
+  /** 更新时间 */
   | 'update_time'
+  /** 创建时间 */
   | 'create_time'
+  /** 此操作不可逆，请慎重操作 */
   | 'this_operation_is_irreversible_please_operate_carefully'
+  /** 未能找到相关结果 */
   | 'failed_to_find_related_results'
+  /** 请尝试其他关键词或修改筛选项 */
   | 'try_other_keywords_or_modify_filter_options'
+  /** 暂无评估器 */
   | 'no_evaluator'
+  /** 点击右上角创建按钮进行创建 */
   | 'click_to_create'
+  /** 基准组 */
   | 'benchmark_group'
+  /** 移除实验组 */
   | 'remove_experimental_group'
+  /** 评测对象的实际输出 */
   | 'evaluation_object_actual_output'
+  /** 基准 */
   | 'benchmark'
+  /** 基准实验切换成功 */
   | 'benchmark_experiment_switch_success'
+  /** 数据明细 */
   | 'data_detail'
+  /** 指标统计 */
   | 'measure_stat'
+  /** 数据总量 */
   | 'data_total_count'
+  /** 正在加载字段映射 */
   | 'loading_field_mapping'
+  /** 请选择类型 */
   | 'select_type'
+  /** 实际输出 */
   | 'actual_output'
+  /** 接口遇到问题 */
   | 'interface_problem'
+  /** 评测对象版本 */
   | 'evaluation_object_version'
+  /** 请配置评测对象映射 */
   | 'config_evaluation_object_mapping'
+  /** 至少添加一个评估器 */
   | 'add_at_least_one_evaluator'
+  /** 最多添加5个评估器 */
   | 'max_add_x_evaluators'
+  /** 名称和版本 */
   | 'name_and_version'
+  /** 字段映射 */
   | 'field_mapping'
+  /** 下一步：评测集 */
   | 'next_step_evaluation_set'
+  /** 下一步：评测对象 */
   | 'next_step_evaluation_object'
+  /** 下一步：评估器 */
   | 'next_step_evaluator'
+  /** 确认实验配置 */
   | 'confirm_experiment_config'
+  /** 发起实验 */
   | 'initiate_experiment'
+  /** 新建实验 */
   | 'new_experiment'
+  /** 所选字段数据类型不一致，请重新选择 */
   | 'selected_fields_inconsistent'
+  /** 评测集字段、评测对象实际输出到评估器字段的映射，用于评估器准确获取输入进行评估。 */
   | 'evaluation_set_field_mapping_tip'
+  /** 添加评估器 */
   | 'add_evaluator'
+  /** 提交表单遇到问题 */
   | 'submit_form_problems'
+  /** 更新评分成功 */
   | 'update_rating_success'
+  /** 查看评估器 Trace */
   | 'view_evaluator_trace'
+  /** 人工校准 */
   | 'manual_calibration'
+  /** 得分明细 */
   | 'score_details'
+  /** 得分 */
   | 'score'
+  /** 实验完成后，再刷新重试 */
   | 'refresh_after_experiment'
+  /** 聚合得分 */
   | 'aggregation_score'
+  /** 得分明细 - 数据项分布 */
   | 'score_details_data_item_distribution'
+  /** 指标 */
   | 'indicator'
+  /** 实验初始化中 */
   | 'experiment_initializing'
+  /** 得分理由 */
   | 'score_reason'
+  /** 结束时间 */
   | 'end_time'
+  /** 确认用于实验的评测集版本 */
   | 'confirm_evaluation_set_version'
+  /** 当前草稿有修改未提交，已默认选择最新历史版本 */
   | 'draft_unsubmitted_tip'
+  /** 至少保留一个数据项 */
   | 'retain_one_data_item'
+  /** 折叠全部数据项 */
   | 'collapse_all_data_items'
+  /** 展开全部数据项 */
   | 'expand_all_data_items'
+  /** 执行结果 */
   | 'execution_result'
+  /** 已知晓 */
   | 'known'
+  /** 删除列 */
   | 'delete_column'
+  /** 列名称 */
   | 'column_name'
+  /** 列描述 */
   | 'column_description'
+  /** 添加列 */
   | 'add_column'
+  /** 基础信息 */
   | 'basic_info'
+  /** 评测集名称 */
   | 'evaluation_set_name'
+  /** 评测集描述 */
   | 'evaluation_set_description'
+  /** 配置列 */
   | 'configuration_column'
+  /** 评测集创建完成后，仍可修改列配置 */
   | 'can_still_modify_column'
+  /** 数据类型 */
   | 'data_type'
+  /** 查看格式 */
   | 'view_format'
+  /** 暂无修改可提交 */
   | 'no_modification_to_submit'
+  /** 版本格式为a.b.c，且每段为0-999 */
   | 'version_format_and_range'
+  /** 点击右上角添加数据进行添加 */
   | 'click_to_add_data'
+  /** 编辑评测集 */
   | 'edit_evaluation_set'
+  /** 导入数据 */
   | 'import_data'
+  /** 上传数据 */
   | 'upload_data'
+  /** 点击上传或者拖拽文件至此处 */
   | 'click_or_drag_file_to_upload'
+  /** 推荐使用模板上传1个文件，支持CSV格式 */
   | 'recommend_template_upload_tip'
+  /** 下载模板 */
   | 'download_template'
+  /** 请上传文件 */
   | 'upload_file'
+  /** 如果待导入数据集的列没有配置映射关系，则该列不会被导入。 */
   | 'no_mapping_no_import'
+  /** 列映射 */
   | 'column_mapping'
+  /** 待导入数据的列名和当前评测集列名的映射关系。 */
   | 'source_column_mapping'
+  /** 请配置最少一个导入列 */
   | 'configure_at_least_one_import_column'
+  /** 导入方式 */
   | 'import_method'
+  /** 暂无评测集 */
   | 'no_evaluation_dataset'
+  /** 点击右上角新建评测集按钮进行创建 */
   | 'click_to_create_evaluation_set'
+  /** 评测集列 */
   | 'evaluation_set_column'
+  /** 请配置列映射 */
   | 'configure_column_mapping'
+  /** 请选择导入方式 */
   | 'select_import_method'
+  /** 确认选择全量覆盖 */
   | 'confirm_select_full_coverage'
+  /** 继续导入数据将覆盖现有数据 */
   | 'continue_will_override_existing_data'
+  /** 执行中 */
   | 'execution_in_progress'
+  /** 数字 */
   | 'number'
+  /** 字符串 */
   | 'string'
+  /** 整数 */
   | 'integer'
+  /** 请输入浮点数，至多小数点后4位 */
   | 'input_float_with_precision'
+  /** 编辑数据项： */
   | 'edit_data_item'
+  /** 查看数据项： */
   | 'view_data_item'
+  /** 数据项 */
   | 'data_item'
+  /** 删除评测集 */
   | 'delete_evaluation_set'
+  /** 调试失败 */
   | 'debug_failure'
+  /** 调试成功 */
   | 'debugging_succeeded'
+  /** Prompt 详情 */
   | 'prompt_detail'
+  /** 正在加载 Prompt 详情 */
   | 'loading_prompt_detail'
+  /** 请选择评估器和版本号后再查看 */
   | 'select_evaluator_and_version_number_to_view'
+  /** 模型 */
   | 'model'
+  /** 输出 */
   | 'output'
+  /** 通过 Function Call 从 LLM 中提取数据，固定评估器输出格式为“得分-原因”。 */
   | 'extract_via_function_call'
+  /** 得分： */
   | 'score_is'
+  /** 评分 */
   | 'rating'
+  /** 请输入0-1的分值 */
   | 'input_score_between_0_and_1'
+  /** 请输入0～1区间内的数字 */
   | 'input_number_between_0_and_1'
+  /** 原因 */
   | 'reason'
+  /** 查看评估器详情 */
   | 'view_evaluator_details'
+  /** 批量删除实验 */
   | 'batch_delete_experiment'
+  /** 在实验列表中，聚合统计各实验在指标上的得分。 */
   | 'aggregate_statistics_score_on_metrics'
+  /** 折线图 */
   | 'line_chart'
+  /** 柱状图 */
   | 'bar_chart'
+  /** 暂无实验 */
   | 'no_experiment'
+  /** 点击右上角新建实验按钮进行创建 */
   | 'click_to_create_experiment'
+  /** schema 不匹配 */
   | 'schema_mismatch'
+  /** 空数据 */
   | 'empty_data'
+  /** 单条数据大小超限 */
   | 'single_data_size_exceeded'
+  /** 数据集容量超限 */
   | 'dataset_capacity_exceeded'
+  /** 文件格式错误 */
   | 'file_format_error'
+  /** 系统错误 */
   | 'system_error'
+  /** 包含非法内容 */
   | 'contains_illegal_content'
+  /** 操作符 */
   | 'operator'
+  /** 等于 */
   | 'equal_to'
+  /** 不等于 */
   | 'not_equal_to'
+  /** 包含 */
   | 'contain'
+  /** 不包含 */
   | 'not_contain'
+  /** 大于 */
   | 'greater_than'
+  /** 大于等于 */
   | 'greater_than_or_equal_to'
+  /** 小于 */
   | 'less_than'
+  /** 小于等于 */
   | 'less_than_or_equal_to'
+  /** 晚于 */
   | 'later_than'
+  /** 早于 */
   | 'earlier_than'
+  /** 新建评测集 */
   | 'new_evaluation_set'
+  /** 为保证自动评测效果，评估器 Prompt 需至少有1个变量 */
   | 'prompt_variable_to_ensure_effect'
+  /** 新建 Prompt */
   | 'new_prompt'
+  /** 进行中 */
   | 'in_progress'
+  /** 中止 */
   | 'abort'
+  /** 待执行 */
   | 'to_be_executed'
+  /** 折叠 */
   | 'fold'
+  /** 仅针对执行失败的部分重新评测 */
   | 're_evaluate_failed_only'
+  /** 复制实验配置并新建实验 */
   | 'copy_and_create_experiment'
+  /** 关联评测集 */
   | 'associated_evaluation_set'
+  /** 删除实验 */
   | 'delete_experiment'
+  /** 重试实验 */
   | 'retry_experiment'
+  /** 仅针对执行失败的部分重新评测。 */
   | 'only_re_evaluate_failed_part'
+  /** 复制实验配置 */
   | 'copy_experiment_config'
+  /** 评测集字段到评测对象字段的映射，用于评测对象准确获取输入。 */
   | 'evaluation_set_field_to_evaluation_object_field_mapping'
+  /** 获取评测对象遇到错误 */
   | 'get_evaluation_object_error'
+  /** 仅评测集相同且已执行完成的实验可进行对比。目前选择的实验有关联评测集不同的情况，请重新选择。 */
   | 'experiments_compared_tip'
+  /** 仅已执行完成的实验可进行对比，请重新选择。 */
   | 'only_completed_experiments_can_be_compared'
+  /** 实验对比发起失败 */
   | 'experiment_comparison_initiation_failure'
+  /** 实验组 */
   | 'experimental_group'
+  /** 仅支持英文字母、数字、中文开头 */
   | 'only_support_english_letters_numbers_and_chinese_at_the_beginning'
+  /** 仅支持英文字母、数字、中文，“-”，“_”，“.” */
   | 'only_support_english_letters_numbers_and_chinese_and_'
+  /** 仅支持英文、数字、下划线，且需要以字母开头 */
   | 'only_support_english_numbers_and_underscores_and_start_with_a_letter'
+  /** 当前 Trace 已过期无法查看 */
   | 'current_trace_expired_to_view'
+  /** 当前的角色权限暂时无法查看该 Trace 详情 */
   | 'no_permission_to_view_trace'
+  /** 无权限查看 */
   | 'no_permission_to_view'
+  /** 未找到上报的数据 */
   | 'reported_data_not_found'
+  /** 请尝试在SDK数据上报时，写入Input和Output信息 */
   | 'report_in_sdk'
+  /** 查询所有 SpanID，以上报埋点为粒度进行展示 */
   | 'all_span_tip'
+  /** 根据 TraceID 查询，以调用入口为粒度进行展示 */
   | 'root_span_tip'
+  /** 仅查询和模型调用相关的埋点 */
   | 'llm_span_tip'
+  /** 确认删除该视图？ */
   | 'confirm_delete_view'
+  /** 删除后操作将不可逆 */
   | 'deletion_irreversible'
+  /** 默认视图不可编辑 */
   | 'default_view_not_editable'
+  /** 默认视图不可删除 */
   | 'default_view_cannot_be_deleted'
+  /** 新视图无法展示, 请修改视图展示管理 */
   | 'new_view_cannot_be_displayed'
+  /** 查看方式 */
   | 'viewing_method'
+  /** 属于 */
   | 'belong_to'
+  /** 数据来源 */
   | 'data_source'
+  /** 查看方式、数据来源，和外侧的 Trace 列表和 SDK 上报下拉框联动。保存为视图时，需要设置这 2 项过滤条件 */
   | 'viewing_method_data_source_linkage'
+  /** 数据到期时间 */
   | 'data_expiration_time'
+  /** SDK 上报 */
   | 'sdk_reporting'
+  /** 自定义 */
   | 'customize'
+  /** 全部时间 */
   | 'all_time'
+  /** 不允许为空 */
   | 'not_allowed_to_be_empty'
+  /** 视图名称已存在 */
   | 'view_name_exists'
+  /** TOS URL 不存在,请联系 Cozeloop */
   | 'tos_url_not_exist';

@@ -5,6 +5,8 @@ import {
   type I18nWithInterpolation,
 } from './locale-types';
 
+import { type intlClient } from '@cozeloop/intl';
+
 interface I18nFunction {
   /** 🔵 I18n **with** interpolation */
   <K extends keyof I18nWithInterpolation>(
@@ -12,7 +14,7 @@ interface I18nFunction {
     options: I18nWithInterpolation[K],
     fallbackText?: string,
   ): string;
-  /** 🟣 I18n **without** interpolation */
+  /** 🟣 I18n **without** interpolation {@link I18nKeysNoInterpolation keys} */
   <K extends I18nKeysNoInterpolation>(keys: K, fallbackText?: string): string;
 }
 
@@ -25,7 +27,7 @@ interface UnsafeI18nFunction {
   ): string;
 }
 
-export interface CozeloopI18n {
+export type CozeloopI18n = Omit<typeof intlClient, 't' | 'unsafeT'> & {
   t: I18nFunction;
   unsafeT: UnsafeI18nFunction;
-}
+};

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import cls from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Space, Typography } from '@coze-arch/coze-design';
 
 import { UserInfoPanel } from '../user-info-panel';
@@ -23,8 +24,8 @@ interface Props {
 export function AccountSetting({ className, activeTab }: Props) {
   const [tabId, setTabId] = useState<Tab['key']>(activeTab || 'user-info');
   const tabs: Tab[] = [
-    { name: '账户设置', key: 'user-info' },
-    { name: 'API 授权', key: 'pat' },
+    { name: I18n.t('account_settings'), key: 'user-info' },
+    { name: I18n.t('api_authorization'), key: 'pat' },
   ];
   const tabName = tabs.find(it => it.key === tabId)?.name;
 
@@ -47,7 +48,7 @@ export function AccountSetting({ className, activeTab }: Props) {
         spacing={16}
         className={s['tab-bar']}
       >
-        <div className={s.title}>{'账户'}</div>
+        <div className={s.title}>{I18n.t('account')}</div>
         {tabs.map(({ name, key }) => (
           <div
             key={key}

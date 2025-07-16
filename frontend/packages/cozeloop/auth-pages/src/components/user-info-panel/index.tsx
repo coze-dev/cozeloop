@@ -62,7 +62,7 @@ export function UserInfoPanel({ className }: Props) {
       <CozAvatar src={userInfo?.avatar_url} size="xl">
         {userInfo?.nick_name}
       </CozAvatar>
-      <UserInfoField label={I18n.t('user_info_username')}>
+      <UserInfoField label={I18n.t('username')}>
         <EditWrap
           loading={loading}
           canSave={Boolean(name)}
@@ -79,7 +79,7 @@ export function UserInfoPanel({ className }: Props) {
           onCancel={() => setName(userInfo?.name)}
         />
       </UserInfoField>
-      <UserInfoField label={I18n.t('user_info_custom_name')}>
+      <UserInfoField label={I18n.t('user_custom_name')}>
         <EditWrap
           loading={loading}
           canSave={Boolean(nickName)}
@@ -97,9 +97,7 @@ export function UserInfoPanel({ className }: Props) {
           onCancel={() => setNickName(userInfo?.nick_name)}
         />
       </UserInfoField>
-      <UserInfoField label={I18n.t('user_info_email')}>
-        {userInfo?.email}
-      </UserInfoField>
+      <UserInfoField label={I18n.t('email')}>{userInfo?.email}</UserInfoField>
       <div className={s.uid}>UID: {userInfo?.user_id}</div>
     </div>
   );

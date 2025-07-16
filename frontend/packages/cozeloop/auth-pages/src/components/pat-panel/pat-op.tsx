@@ -1,6 +1,7 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import cls from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type PersonalAccessToken } from '@cozeloop/api-schema/foundation';
 import { IconCozMinusCircle, IconCozEdit } from '@coze-arch/coze-design/icons';
 import { IconButton, Popconfirm } from '@coze-arch/coze-design';
@@ -25,10 +26,10 @@ export function PatOperation({ pat, className, onEdit, onDelete }: Props) {
       />
       <Popconfirm
         trigger="click"
-        title={'删除令牌'}
-        content={'移除后会影响所有正在使用 API 个人访问令牌的应用'}
-        okText={'确定'}
-        cancelText={'取消'}
+        title={I18n.t('delete_token')}
+        content={I18n.t('remove_will_affect_all_in_use')}
+        okText={I18n.t('confirm')}
+        cancelText={I18n.t('cancel')}
         okButtonProps={{ color: 'red' }}
         style={{ width: 320 }}
         onConfirm={() => onDelete?.(pat.id)}
