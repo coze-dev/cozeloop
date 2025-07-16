@@ -1,4 +1,5 @@
 {
+  "prompt": "Prompt",
   "please_input_with_vars": "Please enter the content. Variables can be written in the following format: '{{USER_NAME}}",
   "temperature": "Temperature",
   "max_tokens": "Max tokens",

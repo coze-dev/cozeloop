@@ -13,6 +13,7 @@
   "email": "email",
   "expand": "Expand",
   "experiment": "Experiment",
+  "field": "field",
   "field_exists": "{field} exists",
   "field_is_required": "{field} is required",
   "field_not_empty": "{field} cannot be empty",
@@ -22,7 +23,9 @@
   "operation": "Operation",
   "password": "password",
   "permanent": "Permanent",
+  "please_add": "Please add {field}",
   "please_agree": "Please agree {field}",
+  "please_configure": "Please configure {field}",
   "please_input": "Please enter {field}",
   "please_select": "Please select {field}",
   "preview": "Preview",
@@ -38,6 +41,7 @@
   "tomorrow": "tomorrow",
   "undefined": "Undefined",
   "user_agreement": "user agreement",
+  "unknown_error": "Unknown error",
   "yesterday": "yesterday",
   "version": "Version"
 }

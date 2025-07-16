@@ -13,6 +13,7 @@
   "email": "邮箱",
   "expand": "展开",
   "experiment": "实验",
+  "field": "字段",
   "field_exists": "{field}已存在",
   "field_is_required": "{field}必填",
   "field_not_empty": "{field}不能为空",
@@ -22,7 +23,9 @@
   "operation": "操作",
   "password": "密码",
   "permanent": "永久",
+  "please_add": "请添加{field}",
   "please_agree": "请同意{field}",
+  "please_configure": "请配置{field}",
   "please_input": "请输入{field}",
   "please_select": "请选择{field}",
   "preview": "预览",
@@ -38,6 +41,7 @@
   "tomorrow": "明天",
   "undefined": "未定义",
   "user_agreement": "用户协议",
+  "unknown_error": "未知问题",
   "yesterday": "昨天",
   "version": "版本"
 }
