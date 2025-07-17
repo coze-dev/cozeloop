@@ -150,7 +150,7 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
       refreshDeps: [localDataSource, localViewMethod],
       onError(e) {
         Toast.error(
-          I18n.t('fornax_analytics_fetch_meta_error', {
+          I18n.t('observation_fetch_meta_error', {
             msg: e.message || '',
           }),
         );
@@ -187,13 +187,13 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
     <>
       <div className="box-border h-[32px] flex items-center gap-x-2 justify-between">
         <Select
-          value="查看方式"
+          value="viewing_method"
           disabled
           className="!outline-none !h-[32px] !w-[160px] box-border"
           showArrow={false}
         />
         <Select
-          defaultValue="属于"
+          defaultValue="belong_to"
           className="w-[80px] box-border !h-[32px]"
           disabled
         />
@@ -208,13 +208,13 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
       </div>
       <div className="box-border h-[32px] flex items-center gap-x-2 justify-between">
         <Select
-          value="数据来源"
+          value="data_source"
           disabled
           className="!outline-none !h-[32px] !w-[160px] box-border"
           showArrow={false}
         />
         <Select
-          defaultValue="属于"
+          defaultValue="belong_to"
           className="w-[80px] box-border !h-[32px]"
           disabled
         />
@@ -232,10 +232,10 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
 
   const renderSaveView = () => (
     <div className="shadow-default coz-bg-max rounded-[6px] flex flex-col gap-y-2 min-w-[240px]">
-      <div>视图名称</div>
+      <div>{I18n.t('view_name')}</div>
       <div className="rounded-[6px]">
         <Input
-          placeholder="输入名称"
+          placeholder={I18n.t('please_input', { field: I18n.t('view_name') })}
           value={saveViewName}
           onChange={value => {
             const trimValue = value.trim();
@@ -263,7 +263,7 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
             setSaveViewVisible(false);
           }}
         >
-          取消
+          {I18n.t('cancel')}
         </Button>
         <Button
           disabled={!saveViewNameValidate}
@@ -283,7 +283,7 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
             });
           }}
         >
-          保存
+          {I18n.t('save')}
         </Button>
       </div>
     </div>
@@ -327,12 +327,12 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
           <div className="flex w-full items-center justify-between px-4 box-border">
             <div className="flex items-center gap-x-1 text-[var(--coz-fg-primary)]">
               <div className="text-[14px] font-medium leading-[20px]">
-                过滤器
+                {I18n.t('filter')}
               </div>
               <Tooltip
                 theme="dark"
                 trigger="hover"
-                content="查看方式、数据来源，和外侧的 Trace 列表和 SDK 上报下拉框联动。保存为视图时，需要设置这 2 项过滤条件"
+                content={I18n.t('viewing_method_data_source_linkage')}
               >
                 <IconCozInfoCircle />
               </Tooltip>
@@ -344,7 +344,7 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
                 setLocalFilters({});
               }}
             >
-              清空筛选
+              {I18n.t('clear')}
             </span>
           </div>
           <div
@@ -358,7 +358,7 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
                   'calc((100% - ((100% - 80px) / 2) - 16px) / 2 + (100% - 80px) / 2 - 14px)',
               }}
             >
-              且
+              {I18n.t('observation_and')}
             </div>
             <div className={styles.fixedSelect}>
               <FixedSelect />
@@ -439,7 +439,7 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
                               });
                             }}
                           >
-                            保存至当前视图
+                            {I18n.t('save_to_current_view')}
                           </Dropdown.Item>
 
                           <Popover
@@ -463,7 +463,7 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
                                 setSaveViewNameVisible(true);
                               }}
                             >
-                              另存为视图
+                              {I18n.t('save_as_view')}
                             </Dropdown.Item>
                           </Popover>
                         </Dropdown.Menu>
@@ -481,7 +481,7 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
                         }}
                       >
                         <div className="flex items-center gap-x-2">
-                          <span>保存视图</span>
+                          <span>{I18n.t('save_view')}</span>
                           <IconCozArrowDown />
                         </div>
                       </Button>
@@ -508,7 +508,7 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
                           setSaveViewNameVisible(true);
                         }}
                       >
-                        保存视图
+                        {I18n.t('save_view')}
                       </Button>
                     </Popover>
                   )}
@@ -520,7 +520,7 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
                   onClick={handleApply}
                   disabled={disableApply}
                 >
-                  应用
+                  {I18n.t('apply')}
                 </Button>
               </>
             )}
@@ -545,7 +545,7 @@ export const FilterSelectUI = (props: FilterSelectUIProps) => {
             >
               <div className="flex items-center gap-x-1">
                 <IconCozFilter />
-                <div className="text-sm">过滤器</div>
+                <div className="text-sm">{I18n.t('filter')}</div>
                 <NumberDot
                   count={
                     (filters.filter_fields?.length ?? 0) +

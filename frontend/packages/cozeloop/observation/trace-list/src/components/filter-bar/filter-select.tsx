@@ -23,6 +23,7 @@ import {
 } from '../logic-expr/logic-expr';
 import { validateViewName } from '../../utils/name-validate';
 import type { View } from './custom-view';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 interface FilterSelectProps {
   viewList: View[];
@@ -104,7 +105,7 @@ export const FilterSelect = (props: FilterSelectProps) => {
       });
 
       if (viewList.length > 5) {
-        Toast.warning('新视图无法展示, 请修改视图展示管理');
+        Toast.warning(I18n.t('new_view_cannot_be_displayed'));
       }
       setFilterPopupVisible(false);
       setApplyFilters(params.filters);

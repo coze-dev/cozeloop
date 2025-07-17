@@ -249,31 +249,27 @@ export const QueryTable = ({
         <EmptyState
           size="full_screen"
           icon={<IconCozIllusNone />}
-          title={I18n.t('fornax_analytics_data_empty')}
+          title={I18n.t('observation_data_empty')}
           description={
             <div className="text-sm max-w-[540px]">
               {traceListCode === TRACE_EXPIRED_CODE ? (
-                <span>当前Trace已过期无法查看</span>
+                <span>{I18n.t('current_trace_expired_to_view')}</span>
               ) : (
-                <>
-                  {selectedPlatform === 'cozeloop' && (
-                    <>
-                      请查看
-                      <Typography.Text
-                        link={{
-                          href: 'https://loop.coze.cn/open/docs/cozeloop/sdk',
-                          target: '_blank',
-                        }}
-                      >
-                        <span className="text-brand-9">
-                          &nbsp;扣子罗盘 SDK 接入指南;&nbsp;
-                        </span>
-                      </Typography.Text>
-                      或
-                    </>
-                  )}
-                  尝试修改更大的时间范围，修改过滤器中的过滤条件
-                </>
+                selectedPlatform === 'cozeloop' &&
+                I18n.t('trace_empty_tip', {
+                  manual: (
+                    <Typography.Text
+                      link={{
+                        href: 'https://loop.coze.cn/open/docs/cozeloop/sdk',
+                        target: '_blank',
+                      }}
+                    >
+                      <span className="text-brand-9">
+                        &nbsp;{I18n.t('cozeloop_sdk_manual')}&nbsp;
+                      </span>
+                    </Typography.Text>
+                  ),
+                })
               )}
             </div>
           }

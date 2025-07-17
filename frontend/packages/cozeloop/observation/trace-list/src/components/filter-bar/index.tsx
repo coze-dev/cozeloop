@@ -4,10 +4,15 @@
 /* eslint-disable @coze-arch/max-line-per-function */
 import { forwardRef } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { ColumnSelector, type ColumnItem } from '@cozeloop/components';
 import { PlatformType, SpanListType } from '@cozeloop/api-schema/observation';
 import { IconCozRefresh } from '@coze-arch/coze-design/icons';
-import { Button, InputGroup, type DatePickerProps } from '@coze-arch/coze-design';
+import {
+  Button,
+  InputGroup,
+  type DatePickerProps,
+} from '@coze-arch/coze-design';
 
 import { type ConvertSpan } from '@/typings/span';
 import { type SizedColumn } from '@/typings/index';
@@ -245,8 +250,8 @@ export const QueryFilterBar = forwardRef<
             <ColumnSelector
               columns={columns as ColumnItem[]}
               onChange={onColumnsChange}
-              buttonText="列管理"
-              resetButtonText="重置为默认"
+              buttonText={I18n.t('column_management')}
+              resetButtonText={I18n.t('reset_to_default')}
               defaultColumns={defaultColumns as ColumnItem[]}
             />
             {headerSlot}

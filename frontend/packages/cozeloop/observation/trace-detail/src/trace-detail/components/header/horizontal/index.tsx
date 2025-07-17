@@ -20,6 +20,7 @@ import {
 import { type TraceHeaderProps } from '../typing';
 
 import styles from './index.module.less';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 export const HorizontalTraceHeader = ({
   rootSpan,
@@ -83,10 +84,10 @@ export const HorizontalTraceHeader = ({
               size="small"
               className="cursor-pointer coz-fg-primary text-[14px]"
             >
-              TraceID
+              {I18n.t('trace_id')}
             </Typography.Text>
 
-            <Tooltip theme="dark" content="复制">
+            <Tooltip theme="dark" content={I18n.t('Copy')}>
               <Button
                 size="small"
                 className="w-[24px] h-[24px]"
@@ -112,7 +113,7 @@ export const HorizontalTraceHeader = ({
                 switchConfig?.onSwitch('pre');
               }}
             >
-              上一条
+              {I18n.t('prev_item')}
             </Button>
             <Button
               icon={<IconCozArrowRight />}
@@ -125,7 +126,7 @@ export const HorizontalTraceHeader = ({
                 switchConfig?.onSwitch('next');
               }}
             >
-              下一条
+              {I18n.t('next_item')}
             </Button>
           </>
         ) : null}

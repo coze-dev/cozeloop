@@ -58,140 +58,140 @@ export const timePickerPresets = {
     end: () => new Date(),
   },
   [PresetRange.Min5]: {
-    text: I18n.t('fornax_analytics_time_last_minutes', {
+    text: I18n.t('observation_time_last_minutes', {
       count: 5,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 60 * 5),
     end: () => new Date(),
   },
   [PresetRange.Min15]: {
-    text: I18n.t('fornax_analytics_time_last_minutes', {
+    text: I18n.t('observation_time_last_minutes', {
       count: 15,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 60 * 15),
     end: () => new Date(),
   },
   [PresetRange.Min30]: {
-    text: I18n.t('fornax_analytics_time_last_minutes', {
+    text: I18n.t('observation_time_last_minutes', {
       count: 30,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 60 * 30),
     end: () => new Date(),
   },
   [PresetRange.Hour1]: {
-    text: I18n.t('fornax_analytics_time_last_hours', {
+    text: I18n.t('observation_time_last_hours', {
       count: 1,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 1),
     end: () => new Date(),
   },
   [PresetRange.Hour2]: {
-    text: I18n.t('fornax_analytics_time_last_hours', {
+    text: I18n.t('observation_time_last_hours', {
       count: 2,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 2),
     end: () => new Date(),
   },
   [PresetRange.Hour3]: {
-    text: I18n.t('fornax_analytics_time_last_hours', {
+    text: I18n.t('observation_time_last_hours', {
       count: 3,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 3),
     end: () => new Date(),
   },
   [PresetRange.Hour6]: {
-    text: I18n.t('fornax_analytics_time_last_hours', {
+    text: I18n.t('observation_time_last_hours', {
       count: 6,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 6),
     end: () => new Date(),
   },
   [PresetRange.Hour12]: {
-    text: I18n.t('fornax_analytics_time_last_hours', {
+    text: I18n.t('observation_time_last_hours', {
       count: 12,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 12),
     end: () => new Date(),
   },
   [PresetRange.Hour24]: {
-    text: I18n.t('fornax_analytics_time_last_hours', {
+    text: I18n.t('observation_time_last_hours', {
       count: 24,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 24),
     end: () => new Date(),
   },
   [PresetRange.Day1]: {
-    text: I18n.t('fornax_analytics_time_last_days', {
+    text: I18n.t('observation_time_last_days', {
       count: 1,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 24),
     end: () => new Date(),
   },
   [PresetRange.Day2]: {
-    text: I18n.t('fornax_analytics_time_last_days', {
+    text: I18n.t('observation_time_last_days', {
       count: 2,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 24 * 2),
     end: () => new Date(),
   },
   [PresetRange.Day3]: {
-    text: I18n.t('fornax_analytics_time_last_days', {
+    text: I18n.t('observation_time_last_days', {
       count: 3,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 24 * 3),
     end: () => new Date(),
   },
   [PresetRange.Day5]: {
-    text: I18n.t('fornax_analytics_time_last_days', {
+    text: I18n.t('observation_time_last_days', {
       count: 5,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 24 * 5),
     end: () => new Date(),
   },
   [PresetRange.Day7]: {
-    text: I18n.t('fornax_analytics_time_last_days', {
+    text: I18n.t('observation_time_last_days', {
       count: 7,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 24 * 7),
     end: () => new Date(),
   },
   [PresetRange.Day15]: {
-    text: I18n.t('fornax_analytics_time_last_days', {
+    text: I18n.t('observation_time_last_days', {
       count: 15,
     }),
     start: () => new Date(new Date().valueOf() - 1000 * 3600 * 24 * 15),
     end: () => new Date(),
   },
   [PresetRange.Month1]: {
-    text: I18n.t('fornax_analytics_time_past_month'),
+    text: I18n.t('observation_time_past_month'),
     start: () => dayjs().subtract(1, 'month').toDate(),
     end: () => dayjs().toDate(),
   },
   [PresetRange.Month3]: {
-    text: I18n.t('fornax_analytics_time_past_3_months'),
+    text: I18n.t('observation_time_past_3_months'),
     start: () => dayjs().subtract(3, 'month').toDate(),
     end: () => dayjs().toDate(),
   },
   [PresetRange.DayToNow]: {
-    text: I18n.t('fornax_analytics_time_today_so_far'),
+    text: I18n.t('observation_time_today_so_far'),
     start: () => getDateAtZeroClock(new Date()),
     end: () => new Date(),
   },
   [PresetRange.Yesterday]: {
-    text: I18n.t('fornax_analytics_time_yesterday'),
+    text: I18n.t('observation_time_yesterday'),
     start: () =>
       getDateAtZeroClock(new Date(new Date().valueOf() - 1000 * 3600 * 24)),
     end: () => getDateAtZeroClock(new Date()),
   },
   [PresetRange.BeforeYesterday]: {
-    text: I18n.t('fornax_analytics_time_day_before_yesterday'),
+    text: I18n.t('observation_time_day_before_yesterday'),
     start: () =>
       getDateAtZeroClock(new Date(new Date().valueOf() - 1000 * 3600 * 24 * 2)),
     end: () =>
       getDateAtZeroClock(new Date(new Date().valueOf() - 1000 * 3600 * 24)),
   },
   [PresetRange.WeekToNow]: {
-    text: I18n.t('fornax_analytics_time_week_so_far'),
+    text: I18n.t('observation_time_week_so_far'),
     start: () => {
       const now = new Date();
       const day = now.getDay();
@@ -202,55 +202,55 @@ export const timePickerPresets = {
     end: () => new Date(),
   },
   [PresetRange.YesterdayExcludeToday]: {
-    text: I18n.t('fornax_analytics_time_yesterday'),
+    text: I18n.t('observation_time_yesterday'),
     start: () =>
       getDateAtZeroClock(new Date(new Date().valueOf() - 1000 * 3600 * 24)),
     end: () => getDayjsEndOfYesterday().toDate(),
   },
   [PresetRange.PastWeek]: {
-    text: I18n.t('fornax_analytics_time_past_week'),
+    text: I18n.t('observation_time_past_week'),
     start: () => getDayjsStartOfToday().subtract(7, 'day').toDate(),
     end: () => getDayjsEndOfYesterday().toDate(),
   },
   [PresetRange.PastMonth]: {
-    text: I18n.t('fornax_analytics_time_past_month'),
+    text: I18n.t('observation_time_past_month'),
     start: () => getDayjsStartOfToday().subtract(1, 'month').toDate(),
     end: () => getDayjsEndOfYesterday().toDate(),
   },
   [PresetRange.PastYear]: {
-    text: I18n.t('fornax_analytics_time_past_year'),
+    text: I18n.t('observation_time_past_year'),
     start: () => getDayjsStartOfToday().subtract(1, 'year').toDate(),
     end: () => getDayjsEndOfYesterday().toDate(),
   },
 
   [PresetRange.MonthToNow]: {
-    text: I18n.t('fornax_analytics_range_this_month'),
+    text: I18n.t('observation_range_this_month'),
     start: () => dayjs().startOf('month').toDate(),
     end: () => dayjs().toDate(),
   },
   [PresetRange.Day30]: {
-    text: I18n.t('fornax_analytics_time_last_days', {
+    text: I18n.t('observation_time_last_days', {
       count: 30,
     }),
     start: () => dayjs().subtract(30, 'd').toDate(),
     end: () => dayjs().toDate(),
   },
   [PresetRange.Day90]: {
-    text: I18n.t('fornax_analytics_time_last_days', {
+    text: I18n.t('observation_time_last_days', {
       count: 90,
     }),
     start: () => dayjs().subtract(90, 'd').toDate(),
     end: () => dayjs().toDate(),
   },
   [PresetRange.Day180]: {
-    text: I18n.t('fornax_analytics_time_last_days', {
+    text: I18n.t('observation_time_last_days', {
       count: 180,
     }),
     start: () => dayjs().subtract(180, 'd').toDate(),
     end: () => dayjs().toDate(),
   },
   [PresetRange.Day365]: {
-    text: I18n.t('fornax_analytics_time_last_days', {
+    text: I18n.t('observation_time_last_days', {
       count: 365,
     }),
     start: () => dayjs().subtract(365, 'd').toDate(),

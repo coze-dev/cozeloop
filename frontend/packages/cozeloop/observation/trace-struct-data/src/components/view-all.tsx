@@ -10,6 +10,7 @@ import { Button, Divider, Spin, Typography, Empty } from '@coze-arch/coze-design
 
 import { TagType, type Span } from '../types';
 import { useFetchResource } from '../hooks/use-fetch-resource';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 interface ViewAllProps {
   onViewAllClick: (show: boolean) => void;
@@ -95,8 +96,8 @@ const InputOrOutputTextRender = (props: InputOrOutputTextProps) => {
     return (
       <Typography.Text>
         <Empty
-          title="当前内容无法显示"
-          description="TOS URL 不存在,请联系 Cozeloop"
+          title={I18n.t('current_content_unavailable')}
+          description={I18n.t('tos_url_not_exist')}
           image={<IconCozIllusNone className="w-[120px] h-[120px]" />}
         />
       </Typography.Text>

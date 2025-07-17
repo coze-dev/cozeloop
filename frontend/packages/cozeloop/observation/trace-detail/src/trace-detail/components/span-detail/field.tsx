@@ -55,7 +55,7 @@ export function geSpanOverviewField(span: Span): Field[] {
     },
     {
       key: 'status_code',
-      title: I18n.t('fornax_analytics_status_code'),
+      title: I18n.t('observation_status_code'),
       item:
         status !== SpanStatus.Success ? (
           <span
@@ -72,7 +72,7 @@ export function geSpanOverviewField(span: Span): Field[] {
     },
     {
       key: 'span_id',
-      title: I18n.t('fornax_analytics_query_detail_span_id'),
+      title: I18n.t('observation_query_detail_span_id'),
       item: span_id || '-',
       width: 224,
       enableCopy: true,
@@ -106,14 +106,14 @@ export function geSpanOverviewField(span: Span): Field[] {
             <>
               {input_tokens !== undefined && (
                 <div>
-                  {I18n.t('fornax_analytics_input_tokens_count', {
+                  {I18n.t('observation_input_tokens_count', {
                     count: Number(input_tokens),
                   })}
                 </div>
               )}
               {output_tokens !== undefined && (
                 <div>
-                  {I18n.t('fornax_analytics_output_tokens_count', {
+                  {I18n.t('observation_output_tokens_count', {
                     count: Number(output_tokens),
                   })}
                 </div>

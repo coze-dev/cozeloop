@@ -3,6 +3,7 @@
 import { isObject } from 'lodash-es';
 import classNames from 'classnames';
 import { JsonViewer, type JsonViewerProps } from '@textea/json-viewer';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Tag } from '@coze-arch/coze-design';
 
 import { JSON_VIEW_CONFIG } from '../consts/json-view';
@@ -34,7 +35,7 @@ export const renderJsonContent = (
   ) : (
     <>
       <Tag color="red" size="small" className="inline-block !w-fit">
-        非法JSON
+        {I18n.t('invalid_json')}
       </Tag>
       <PlantText content={content} />
     </>

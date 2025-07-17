@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { PrimaryPage } from '@cozeloop/components';
 
 import { useTraceTimeRangeOptions } from '@/hooks/use-trace-time-range-options';
@@ -19,11 +20,11 @@ import { Queries } from './components/queries';
 import { QueryFilterBar } from './components/filter-bar';
 import { CozeLoopTraceBanner } from './components/banner';
 
-const TOOLTIP_CONTENT = {
-  all_span: '查询所有 SpanID，以上报埋点为粒度进行展示',
-  root_span: '根据 TraceID 查询，以调用入口为粒度进行展示',
-  llm_span: '仅查询和模型调用相关的埋点',
-};
+const getTooltipContent = () => ({
+  all_span: I18n.t('all_span_tip'),
+  root_span: I18n.t('root_span_tip'),
+  llm_span: I18n.t('llm_span_tip'),
+});
 
 const TraceListApp = () => {
   usePageStay();
@@ -60,7 +61,7 @@ const TraceListApp = () => {
             onColumnsChange={onColumnsChange}
             platformEnumOptionList={PLATFORM_ENUM_OPTION_LIST}
             spanListTypeEnumOptionList={SPAN_TAB_OPTION_LIST}
-            tooltipContent={TOOLTIP_CONTENT}
+            tooltipContent={getTooltipContent()}
           />
         }
         className="!pb-0"

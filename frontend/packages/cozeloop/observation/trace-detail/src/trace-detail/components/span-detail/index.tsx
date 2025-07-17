@@ -73,8 +73,8 @@ export const SpanDetail = ({
                     image={
                       <IconCozIllusEmpty style={{ width: 150, height: 150 }} />
                     }
-                    title={'未找到上报的数据'}
-                    description={'请尝试在SDK数据上报时，写入Input和Output信息'}
+                    title={I18n.t('reported_data_not_found')}
+                    description={I18n.t('report_in_sdk')}
                   />
                 </div>
               )}

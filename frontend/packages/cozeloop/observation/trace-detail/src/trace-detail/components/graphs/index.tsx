@@ -60,7 +60,7 @@ export const TraceGraphs = ({
         className={styles['trace-tabs']}
       >
         <TabPane
-          tab={I18n.t('fornax_analytics_tab_run_tree')}
+          tab={I18n.t('observation_tab_run_tree')}
           itemKey={GraphTabEnum.RunTree}
         >
           <ErrorBoundary fallback={<RunTreeEmpty />}>

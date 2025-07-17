@@ -7,6 +7,7 @@ import { Fragment, useState } from 'react';
 import classNames from 'classnames';
 import { useDebounceFn } from 'ahooks';
 import { safeJsonParse } from '@cozeloop/toolkit';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { TooltipWhenDisabled } from '@cozeloop/components';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import {
@@ -64,8 +65,8 @@ const ViewDelete = (props: ViewDeleteProps) => {
     <Popconfirm
       zIndex={1001}
       okButtonColor="red"
-      content="确认删除该视图？"
-      title="删除后操作将不可逆"
+      content={I18n.t('confirm_delete_view')}
+      title={I18n.t('deletion_irreversible')}
       onConfirm={async () => {
         setDeleteLoading(true);
         try {
@@ -76,8 +77,8 @@ const ViewDelete = (props: ViewDeleteProps) => {
         }
       }}
       onCancel={() => setVisible(false)}
-      okText="确定"
-      cancelText="取消"
+      okText={I18n.t('confirm')}
+      cancelText={I18n.t('cancel')}
       visible={visible}
       trigger="custom"
       stopPropagation
@@ -285,7 +286,7 @@ const CustomView = (props: CustomViewProps) => {
                           !visibleViewIds.includes(view.id)) ||
                         templateShowView?.id === view.id
                       }
-                      content="最多展示 5 个视图"
+                      content={I18n.t('max_display_view_num', { num: 5 })}
                     >
                       <Button
                         className="w-[24px] h-[24px] box-border p-1"
@@ -334,7 +335,7 @@ const CustomView = (props: CustomViewProps) => {
                             color="secondary"
                             onClick={onCancel}
                           >
-                            取消
+                            {I18n.t('confirm')}
                           </Button>
                           <Button
                             type="primary"
@@ -347,7 +348,7 @@ const CustomView = (props: CustomViewProps) => {
                               onSave?.();
                             }}
                           >
-                            保存视图
+                            {I18n.t('save')}
                           </Button>
                         </div>
                       )}
@@ -357,7 +358,7 @@ const CustomView = (props: CustomViewProps) => {
                       triggerRender={
                         <TooltipWhenDisabled
                           disabled={view.is_system}
-                          content="默认视图不可编辑"
+                          content={I18n.t('default_view_not_editable')}
                           theme="dark"
                         >
                           <div>
@@ -385,7 +386,7 @@ const CustomView = (props: CustomViewProps) => {
                     <TooltipWhenDisabled
                       disabled={view.is_system}
                       theme="dark"
-                      content="默认视图不可删除"
+                      content={I18n.t('default_view_cannot_be_deleted')}
                     >
                       <div>
                         <ViewDelete view={view} onConfirm={handleDeleteView} />
@@ -405,7 +406,7 @@ const CustomView = (props: CustomViewProps) => {
           onClick={() => setViewListVisible(true)}
         >
           <span className="text-[var(--coz-fg-secondary)] font-normal leading-5">
-            自定义视图
+            {I18n.t('custom_view')}
           </span>
           <IconCozSetting className="ml-2" />
         </Button>

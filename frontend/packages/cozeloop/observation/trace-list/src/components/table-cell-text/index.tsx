@@ -7,6 +7,7 @@ import {
   type MouseEvent,
 } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { handleCopy as copy } from '@cozeloop/components';
 import { IconCozCopy } from '@coze-arch/coze-design/icons';
 import { type PopoverProps, type TooltipProps } from '@coze-arch/coze-design';
@@ -69,7 +70,7 @@ export const CustomTableTooltip = ({
         {children !== undefined ? children : '-'}
       </Typography.Text>
       {enableCopy ? (
-        <Tooltip content="复制" position="top" theme="dark">
+        <Tooltip content={I18n.t('Copy')} position="top" theme="dark">
           <IconButton
             size="small"
             color="secondary"

@@ -19,6 +19,7 @@ import { JSON_VIEW_CONFIG } from '../consts/json-view';
 import { ViewAllModal } from './view-all';
 
 import styles from './index.module.less';
+import { I18n } from '@cozeloop/i18n-adapter';
 interface RawContentProps {
   structuredContent: string | object;
   tagType?: TagType;
@@ -77,7 +78,7 @@ export const RawContent: React.FC<RawContentProps> = ({
             className="!text-[rgb(var(--coze-up-brand-9))] text-xs leading-4 font-medium cursor-pointer"
             onClick={handleViewAll}
           >
-            查看全部
+            {I18n.t('view_all')}
           </Typography.Text>
         </div>
       ) : null}

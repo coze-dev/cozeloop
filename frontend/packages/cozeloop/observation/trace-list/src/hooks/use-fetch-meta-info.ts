@@ -33,7 +33,7 @@ export const useFetchMetaInfo = () => {
       refreshDeps: [selectedPlatform, selectedSpanType],
       onError(e) {
         Toast.error(
-          I18n.t('fornax_analytics_fetch_meta_error', {
+          I18n.t('observation_fetch_meta_error', {
             msg: e.message || '',
           }),
         );

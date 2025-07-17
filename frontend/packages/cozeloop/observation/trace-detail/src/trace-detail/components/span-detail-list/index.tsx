@@ -55,7 +55,7 @@ export const SpanFieldList = ({
             <TextWithCopy
               content={item}
               textClassName="!font-[12px]"
-              copyTooltipText="复制"
+              copyTooltipText={I18n.t('Copy')}
             />
           ) : (
             <Typography.Text
@@ -90,7 +90,7 @@ export const SpanFieldList = ({
   ) : (
     <div className="py-3 border-0 border-b border-solid border-[#1D1C2314]">
       <div className="text-sm text-black font-semibold leading-5 mb-2">
-        {I18n.t('fornax_analytics_title_span_detail')}
+        {I18n.t('observation_title_span_detail')}
       </div>
       <FieldList
         fields={totalFields}

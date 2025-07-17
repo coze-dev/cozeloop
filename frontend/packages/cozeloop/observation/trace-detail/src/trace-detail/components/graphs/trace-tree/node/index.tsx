@@ -100,8 +100,8 @@ export const CustomTreeNode = ({
             theme="dark"
             content={
               isCollapsed
-                ? I18n.t('fornax_analytics_extend')
-                : I18n.t('fornax_analytics_collapse')
+                ? I18n.t('observation_extend')
+                : I18n.t('observation_collapse')
             }
             position="right"
           >
@@ -157,21 +157,21 @@ export const CustomTreeNode = ({
                 <>
                   {input_tokens !== undefined && (
                     <div>
-                      {I18n.t('fornax_analytics_input_tokens_count', {
+                      {I18n.t('observation_input_tokens_count', {
                         count: Number(input_tokens),
                       })}
                     </div>
                   )}
                   {output_tokens !== undefined && (
                     <div>
-                      {I18n.t('fornax_analytics_output_tokens_count', {
+                      {I18n.t('observation_output_tokens_count', {
                         count: Number(output_tokens),
                       })}
                     </div>
                   )}
                   {reasoningTokens !== undefined && (
                     <div>
-                      {I18n.t('fornax_analytics_reasoning_tokens_count', {
+                      {I18n.t('observation_reasoning_tokens_count', {
                         count: Number(reasoningTokens),
                       })}
                     </div>

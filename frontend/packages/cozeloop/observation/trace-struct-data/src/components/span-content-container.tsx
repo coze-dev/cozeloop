@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { isObject } from 'lodash-es';
 import classNames from 'classnames';
 import { type JsonViewerProps } from '@textea/json-viewer';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { handleCopy as copy } from '@cozeloop/components';
 import { IconCozCopy, IconCozCorner } from '@coze-arch/coze-design/icons';
 import { Button, SegmentTab, Tooltip } from '@coze-arch/coze-design';
@@ -82,7 +83,7 @@ export const SpanContentContainer = (props: SpanContentContainerProps) => {
           <div className="flex gap-1 items-center text-[16px] font-medium leading-[20px] text-[#000000]">
             <span className="mr-1">{title}</span>
             {structuredContent ? (
-              <Tooltip content="复制" theme="dark">
+              <Tooltip content={I18n.t('Copy')} theme="dark">
                 <Button
                   className="!w-[24px] !h-[24px] box-border mr-1"
                   size="small"
@@ -97,7 +98,10 @@ export const SpanContentContainer = (props: SpanContentContainerProps) => {
               </Tooltip>
             ) : null}
             {showType === TypeEnum.JSON ? (
-              <Tooltip content={isFullScreen ? '收起' : '展开'} theme="dark">
+              <Tooltip
+                content={isFullScreen ? I18n.t('collapse') : I18n.t('expand')}
+                theme="dark"
+              >
                 <Button
                   size="small"
                   className="!w-[24px] !h-[24px] box-border"

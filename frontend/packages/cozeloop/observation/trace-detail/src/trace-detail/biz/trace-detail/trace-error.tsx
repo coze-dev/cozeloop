@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   IconCozIllusNone,
   IconCozIllusLock,
@@ -16,15 +17,15 @@ export const getEmptyConfig = (statusCode: number) => {
         image: (
           <IconCozIllusNone className="text-[120px] w-[120px] h-[120px]" />
         ),
-        description: '当前 Trace 已过期无法查看',
+        description: I18n.t('current_trace_expired_to_view'),
       };
     default:
       return {
         image: (
           <IconCozIllusLock className="text-[120px] w-[120px] h-[120px]" />
         ),
-        description: '当前的角色权限暂时无法查看该 Trace 详情',
-        title: '无权限查看',
+        description: I18n.t('no_permission_to_view_trace'),
+        title: I18n.t('no_permission_to_view'),
       };
   }
 };

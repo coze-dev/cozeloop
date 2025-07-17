@@ -15,6 +15,7 @@ import { renderPlainText } from './plain-text';
 import { MessageParts } from './message-parts';
 
 import styles from './index.module.less';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 interface SpanFieldRenderProps {
   messages?: RawMessage[];
@@ -76,7 +77,7 @@ export const SpanFieldRender = (props: SpanFieldRenderProps) => {
                   className="!text-brand-9 text-xs leading-4 font-medium cursor-pointer"
                   onClick={handleViewAll}
                 >
-                  查看全部
+                  {I18n.t('view_all')}
                 </Typography.Text>
               </div>
             ) : null}

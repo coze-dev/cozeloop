@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { QUERY_PROPERTY } from './trace-attrs';
 
 export const SPAN_COLUMNS = [
@@ -40,7 +41,7 @@ export const QUERY_PROPERTY_LABEL_MAP: Record<
   [QUERY_PROPERTY.SpanId]: 'SpanID',
   [QUERY_PROPERTY.InputTokens]: 'Input Tokens',
   [QUERY_PROPERTY.OutputTokens]: 'Output Tokens',
-  [QUERY_PROPERTY.LogicDeleteDate]: '数据到期时间',
+  [QUERY_PROPERTY.LogicDeleteDate]: I18n.t('data_expiration_time'),
   [QUERY_PROPERTY.StartTime]: 'Start Time',
 };
 
@@ -62,10 +63,10 @@ export const SPAN_TAB_OPTION_LIST = [
 export const PLATFORM_ENUM_OPTION_LIST = [
   {
     value: 'cozeloop',
-    label: 'SDK 上报',
+    label: I18n.t('sdk_reporting'),
   },
   {
     value: 'prompt',
-    label: 'Prompt 开发',
+    label: I18n.t('prompt_development'),
   },
 ];

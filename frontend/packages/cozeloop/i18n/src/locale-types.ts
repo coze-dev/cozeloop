@@ -13,41 +13,6 @@ export interface I18nWithInterpolation {
     /** string */
     date: ReactNode;
   };
-  /** 获取元数据信息失败：{msg} */
-  fornax_analytics_fetch_meta_error: {
-    /** string */
-    msg: ReactNode;
-  };
-  /** 输入Tokens: {count}  */
-  fornax_analytics_input_tokens_count: {
-    /** string */
-    count: ReactNode;
-  };
-  /** 输出Tokens: {count} */
-  fornax_analytics_output_tokens_count: {
-    /** string */
-    count: ReactNode;
-  };
-  /** 推理Tokens: {count} */
-  fornax_analytics_reasoning_tokens_count: {
-    /** string */
-    count: ReactNode;
-  };
-  /** 过去 {count} 天 */
-  fornax_analytics_time_last_days: {
-    /** string */
-    count: ReactNode;
-  };
-  /** 过去 {count} 小时 */
-  fornax_analytics_time_last_hours: {
-    /** string */
-    count: ReactNode;
-  };
-  /** 过去{count}分钟 */
-  fornax_analytics_time_last_minutes: {
-    /** string */
-    count: ReactNode;
-  };
   /** {field}已存在 */
   field_exists: {
     /** string */
@@ -242,6 +207,11 @@ export interface I18nWithInterpolation {
     /** string */
     num: ReactNode;
   };
+  /** 请查看{manual}或尝试修改更大的时间范围，修改过滤器中的过滤条件 */
+  trace_empty_tip: {
+    /** string */
+    manual: ReactNode;
+  };
   /** 最多展示{num}个视图 */
   max_display_view_num: {
     /** string */
@@ -251,6 +221,46 @@ export interface I18nWithInterpolation {
   name_length_limit: {
     /** string */
     num: ReactNode;
+  };
+  /** 了解数据是优化您应用的第一步，快点接入{sdk}上报数据吧，我保证这个操作真的很简单 */
+  using_cozeloop_sdk_tip: {
+    /** string */
+    sdk: ReactNode;
+  };
+  /** 获取元数据信息失败：{msg} */
+  observation_fetch_meta_error: {
+    /** string */
+    msg: ReactNode;
+  };
+  /** 输入Tokens: {count}  */
+  observation_input_tokens_count: {
+    /** string */
+    count: ReactNode;
+  };
+  /** 输出Tokens: {count} */
+  observation_output_tokens_count: {
+    /** string */
+    count: ReactNode;
+  };
+  /** 推理Tokens: {count} */
+  observation_reasoning_tokens_count: {
+    /** string */
+    count: ReactNode;
+  };
+  /** 过去 {count} 天 */
+  observation_time_last_days: {
+    /** string */
+    count: ReactNode;
+  };
+  /** 过去 {count} 小时 */
+  observation_time_last_hours: {
+    /** string */
+    count: ReactNode;
+  };
+  /** 过去{count}分钟 */
+  observation_time_last_minutes: {
+    /** string */
+    count: ReactNode;
   };
 }
 
@@ -344,70 +354,6 @@ export type I18nKeysNoInterpolation =
   | 'expired_time_forbidden_1'
   /** 抱歉，发生了一些错误... */
   | 'failed'
-  /** 收起 */
-  | 'fornax_analytics_collapse'
-  /** 复制失败 */
-  | 'fornax_analytics_copy_fail'
-  /** 复制成功 */
-  | 'fornax_analytics_copy_success'
-  /** 暂无数据 */
-  | 'fornax_analytics_data_empty'
-  /** 数据不存在或异常 */
-  | 'fornax_analytics_empty_data_abnormal'
-  /** 未选中节点 */
-  | 'fornax_analytics_empty_node_unselected'
-  /** 渲染失败 */
-  | 'fornax_analytics_empty_run_tree_failure'
-  /** 请在左侧选中对应的节点查看详情 */
-  | 'fornax_analytics_empty_to_select_node'
-  /** 展开 */
-  | 'fornax_analytics_extend'
-  /** SpanID */
-  | 'fornax_analytics_query_detail_span_id'
-  /** 本月截止目前 */
-  | 'fornax_analytics_range_this_month'
-  /** StatusCode */
-  | 'fornax_analytics_status_code'
-  /** 调用树 */
-  | 'fornax_analytics_tab_run_tree'
-  /** 开发环境 */
-  | 'fornax_analytics_threads_options_dev'
-  /** 失败 */
-  | 'fornax_analytics_threads_options_fail'
-  /** 线上环境 */
-  | 'fornax_analytics_threads_options_online'
-  /** 成功 */
-  | 'fornax_analytics_threads_options_success'
-  /** 前天 */
-  | 'fornax_analytics_time_day_before_yesterday'
-  /** 过去3月 */
-  | 'fornax_analytics_time_past_3_months'
-  /** 过去一月 */
-  | 'fornax_analytics_time_past_month'
-  /** 过去一周 */
-  | 'fornax_analytics_time_past_week'
-  /** 过去一年 */
-  | 'fornax_analytics_time_past_year'
-  /** 今天截止目前 */
-  | 'fornax_analytics_time_today_so_far'
-  /** 本周截止目前 */
-  | 'fornax_analytics_time_week_so_far'
-  /** 昨天 */
-  | 'fornax_analytics_time_yesterday'
-  /** 节点详情 */
-  | 'fornax_analytics_title_span_detail'
-  /** 添加筛选组条件 */
-  | 'fornax_components_logic_expr_add_filter_group'
-  /** 添加筛选条件 */
-  | 'fornax_components_logic_expr_add_filter'
-  /** 且 */
-  | 'fornax_components_logic_expr_and'
-  /** 删除条件 */
-  | 'fornax_components_logic_expr_delete_filter'
-  /** 非 */
-  | 'fornax_components_logic_expr_not'
-  /** 或 */
-  | 'fornax_components_logic_expr_or'
   /** go */
   | 'go'
   /** 导入 */
@@ -491,28 +437,6 @@ export type I18nKeysNoInterpolation =
   | 'space'
   /** 成功 */
   | 'Success'
-  /** 等于 */
-  | 'task_filter_eq'
-  /** 大于 */
-  | 'task_filter_gt'
-  /** 大于等于 */
-  | 'task_filter_gte'
-  /** 属于 */
-  | 'task_filter_in'
-  /** 为空 */
-  | 'task_filter_is_null'
-  /** 包含 */
-  | 'task_filter_like'
-  /** 小于 */
-  | 'task_filter_lt'
-  /** 小于等于 */
-  | 'task_filter_lte'
-  /** 不等于 */
-  | 'task_filter_not_eq'
-  /** 不属于 */
-  | 'task_filter_not_in'
-  /** 不为空 */
-  | 'task_filter_not_null'
   /** 模板 */
   | 'template_name'
   /** 文本 */
@@ -537,6 +461,8 @@ export type I18nKeysNoInterpolation =
   | 'Workflow'
   /** 账户 */
   | 'account'
+  /** 应用 */
+  | 'apply'
   /** 返回 */
   | 'back'
   /** 清空 */
@@ -1329,6 +1255,8 @@ export type I18nKeysNoInterpolation =
   | 'no_permission_to_view_trace'
   /** 无权限查看 */
   | 'no_permission_to_view'
+  /** 扣子罗盘 SDK 接入指南 */
+  | 'cozeloop_sdk_manual'
   /** 未找到上报的数据 */
   | 'reported_data_not_found'
   /** 请尝试在SDK数据上报时，写入Input和Output信息 */
@@ -1367,7 +1295,121 @@ export type I18nKeysNoInterpolation =
   | 'all_time'
   /** 不允许为空 */
   | 'not_allowed_to_be_empty'
-  /** 视图名称已存在 */
-  | 'view_name_exists'
+  /** 视图名称 */
+  | 'view_name'
   /** TOS URL 不存在,请联系 Cozeloop */
-  | 'tos_url_not_exist';
+  | 'tos_url_not_exist'
+  /** 当前内容无法显示 */
+  | 'current_content_unavailable'
+  /** 上一条 */
+  | 'prev_item'
+  /** 下一条 */
+  | 'next_item'
+  /** 扣子罗盘 SDK */
+  | 'cozeloop_sdk'
+  /** 保存视图 */
+  | 'save_view'
+  /** 另存为视图 */
+  | 'save_as_view'
+  /** 保存至当前视图 */
+  | 'save_to_current_view'
+  /** 自定义视图 */
+  | 'custom_view'
+  /** 过滤器 */
+  | 'filter'
+  /** 过滤项冲突 */
+  | 'filter_item_conflict'
+  /** 查看全部 */
+  | 'view_all'
+  /** 非法 JSON */
+  | 'invalid_json'
+  /** 图片加载失败 */
+  | 'image_load_failed'
+  /** 且 */
+  | 'observation_and'
+  /** 收起 */
+  | 'observation_collapse'
+  /** 复制失败 */
+  | 'observation_copy_fail'
+  /** 复制成功 */
+  | 'observation_copy_success'
+  /** 暂无数据 */
+  | 'observation_data_empty'
+  /** 数据不存在或异常 */
+  | 'observation_empty_data_abnormal'
+  /** 未选中节点 */
+  | 'observation_empty_node_unselected'
+  /** 渲染失败 */
+  | 'observation_empty_run_tree_failure'
+  /** 请在左侧选中对应的节点查看详情 */
+  | 'observation_empty_to_select_node'
+  /** 展开 */
+  | 'observation_extend'
+  /** SpanID */
+  | 'observation_query_detail_span_id'
+  /** 本月截止目前 */
+  | 'observation_range_this_month'
+  /** StatusCode */
+  | 'observation_status_code'
+  /** 调用树 */
+  | 'observation_tab_run_tree'
+  /** 开发环境 */
+  | 'observation_threads_options_dev'
+  /** 失败 */
+  | 'observation_threads_options_fail'
+  /** 线上环境 */
+  | 'observation_threads_options_online'
+  /** 成功 */
+  | 'observation_threads_options_success'
+  /** 前天 */
+  | 'observation_time_day_before_yesterday'
+  /** 过去3月 */
+  | 'observation_time_past_3_months'
+  /** 过去一月 */
+  | 'observation_time_past_month'
+  /** 过去一周 */
+  | 'observation_time_past_week'
+  /** 过去一年 */
+  | 'observation_time_past_year'
+  /** 今天截止目前 */
+  | 'observation_time_today_so_far'
+  /** 本周截止目前 */
+  | 'observation_time_week_so_far'
+  /** 昨天 */
+  | 'observation_time_yesterday'
+  /** 节点详情 */
+  | 'observation_title_span_detail'
+  /** 添加筛选组条件 */
+  | 'logic_expr_add_filter_group'
+  /** 添加筛选条件 */
+  | 'logic_expr_add_filter'
+  /** 且 */
+  | 'logic_expr_and'
+  /** 删除条件 */
+  | 'logic_expr_delete_filter'
+  /** 非 */
+  | 'logic_expr_not'
+  /** 或 */
+  | 'logic_expr_or'
+  /** 等于 */
+  | 'task_filter_eq'
+  /** 大于 */
+  | 'task_filter_gt'
+  /** 大于等于 */
+  | 'task_filter_gte'
+  /** 属于 */
+  | 'task_filter_in'
+  /** 为空 */
+  | 'task_filter_is_null'
+  /** 包含 */
+  | 'task_filter_like'
+  /** 小于 */
+  | 'task_filter_lt'
+  /** 小于等于 */
+  | 'task_filter_lte'
+  /** 不等于 */
+  | 'task_filter_not_eq'
+  /** 不属于 */
+  | 'task_filter_not_in'
+  /** 不为空 */
+  | 'task_filter_not_null';

@@ -65,7 +65,7 @@ const ModelTool = (tool?: Tool) => {
                 {raw?.function?.name}
               </Typography.Text>
 
-              <Tooltip content="复制" theme="dark">
+              <Tooltip content={I18n.t('Copy')} theme="dark">
                 <Button
                   className="!w-[24px] !h-[24px] box-border mr-1"
                   size="small"

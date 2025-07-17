@@ -112,10 +112,10 @@ export const THREADS_STATUS_RECORDS: Partial<
   >
 > = {
   success: {
-    label: I18n.t('fornax_analytics_threads_options_success'),
+    label: I18n.t('observation_threads_options_success'),
   },
   error: {
-    label: I18n.t('fornax_analytics_threads_options_fail'),
+    label: I18n.t('observation_threads_options_fail'),
   },
 };
 
@@ -133,9 +133,9 @@ export const BOT_ENV_RECORDS: Partial<
   >
 > = {
   [BotEnv.DEV]: {
-    label: I18n.t('fornax_analytics_threads_options_dev'),
+    label: I18n.t('observation_threads_options_dev'),
   },
   [BotEnv.ONLINE]: {
-    label: I18n.t('fornax_analytics_threads_options_online'),
+    label: I18n.t('observation_threads_options_online'),
   },
 };
