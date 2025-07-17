@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Button, List } from '@coze-arch/coze-design';
 
 import VersionItem from './version-item';
@@ -32,7 +33,7 @@ export default function VersionList({
           color="primary"
           onClick={() => onLoadMore?.()}
         >
-          显示更多
+          {I18n.t('load_more')}
         </Button>
       </div>
     );

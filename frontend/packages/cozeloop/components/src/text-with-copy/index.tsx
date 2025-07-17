@@ -3,6 +3,7 @@
 import { type CSSProperties } from 'react';
 
 import classNames from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { IconCozCopy } from '@coze-arch/coze-design/icons';
 import { IconButton, Tooltip, Typography } from '@coze-arch/coze-design';
 
@@ -56,7 +57,10 @@ export function TextWithCopy({
         {displayText || content || ''}
       </Typography.Text>
       {content ? (
-        <Tooltip content={copyTooltipText || '复制内容'} theme="dark">
+        <Tooltip
+          content={copyTooltipText || I18n.t('copy_content')}
+          theme="dark"
+        >
           <IconButton
             size="mini"
             color="secondary"

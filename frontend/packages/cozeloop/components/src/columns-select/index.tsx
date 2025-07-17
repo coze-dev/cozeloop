@@ -5,7 +5,11 @@
 import * as sort from 'react-sortable-hoc';
 import { Fragment, useEffect, useMemo, useState } from 'react';
 
-import { IconCozHandle, IconCozTableSetting } from '@coze-arch/coze-design/icons';
+import { I18n } from '@cozeloop/i18n-adapter';
+import {
+  IconCozHandle,
+  IconCozTableSetting,
+} from '@coze-arch/coze-design/icons';
 import {
   Button,
   Checkbox,
@@ -43,7 +47,7 @@ export const ColumnSelector = ({
   defaultColumns = columns,
   onChange,
   buttonText,
-  resetButtonText = '重置为默认',
+  resetButtonText = I18n.t('reset_to_default'),
   className,
   sortable = true,
   itemRender,
@@ -62,7 +66,7 @@ export const ColumnSelector = ({
   const DragHandle = sortableHandle(() => (
     <IconCozHandle
       className="cursor-grab"
-      aria-label="拖动排序"
+      aria-label={I18n.t('drag_to_sort')}
       role="button"
     />
   ));
@@ -113,7 +117,7 @@ export const ColumnSelector = ({
           <Checkbox
             disabled={disabledKeys.includes(value.key ?? '') || value.disabled}
             checked={selectedKeys.includes(value.key ?? '')}
-            aria-label={`选择${value.value}`}
+            aria-label={I18n.t('select_x', { field: value.value })}
           />
           <Typography.Text
             ellipsis={{
@@ -233,7 +237,11 @@ export const ColumnSelector = ({
         trigger="click"
       >
         <div>
-          <Tooltip content="列管理" theme="dark" position="top">
+          <Tooltip
+            content={I18n.t('column_management')}
+            theme="dark"
+            position="top"
+          >
             <Button
               icon={<IconCozTableSetting />}
               type="primary"

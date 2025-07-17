@@ -19,6 +19,7 @@ import { getOptionsNotInList, transformValueToArray } from './utils';
 import { type BaseSelectProps } from './types';
 
 import styles from './index.module.less';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 /**
  * 基础选择器组件
@@ -162,7 +163,7 @@ const BaseSearchSelect = (props: BaseSelectProps) => {
     <Select
       suffix={
         showRefreshBtn && dropdownVisible ? (
-          <Tooltip theme="dark" content="刷新">
+          <Tooltip theme="dark" content={I18n.t('refresh')}>
             <div className="flex flex-row items-center">
               <Button
                 className="!h-6 !w-6"

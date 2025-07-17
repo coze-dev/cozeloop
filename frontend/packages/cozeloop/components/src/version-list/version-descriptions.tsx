@@ -3,12 +3,14 @@
 /* eslint-disable complexity */
 import cs from 'classnames';
 import { formatTimestampToString } from '@cozeloop/toolkit';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type UserInfo } from '@cozeloop/api-schema/evaluation';
 import { Descriptions, Tag, Typography } from '@coze-arch/coze-design';
 
 import { UserProfile } from '../user-profile';
 
 import styles from './index.module.less';
+
 export type Integer64 = string;
 
 export interface Version {
@@ -30,7 +32,7 @@ export default function VersionDescriptions({
 }) {
   const {
     version: versionName,
-    draftSubmitText = '保存时间',
+    draftSubmitText = I18n.t('save_time'),
     submitTime,
     submitter,
     description,
@@ -40,16 +42,16 @@ export default function VersionDescriptions({
   return (
     <Descriptions align="left" className={cs(styles.description, className)}>
       <Tag color={isDraft ? 'primary' : 'green'} className="mb-2">
-        {isDraft ? '当前草稿' : '提交'}
+        {isDraft ? I18n.t('current_draft') : I18n.t('submit')}
       </Tag>
       {isDraft ? null : (
-        <Descriptions.Item itemKey="版本">
+        <Descriptions.Item itemKey={I18n.t('version')}>
           <span className="font-medium">{versionName ?? '-'}</span>
         </Descriptions.Item>
       )}
       {!submitTime ? null : (
         <Descriptions.Item
-          itemKey={isDraft ? draftSubmitText : '提交时间'}
+          itemKey={isDraft ? draftSubmitText : I18n.t('submit_time')}
           className="!text-[13px]"
         >
           <span className="font-medium !text-[13px]">
@@ -60,7 +62,10 @@ export default function VersionDescriptions({
         </Descriptions.Item>
       )}
       {isDraft && !submitter ? null : (
-        <Descriptions.Item itemKey="提交人" className="!text-[13px]">
+        <Descriptions.Item
+          itemKey={I18n.t('submitter')}
+          className="!text-[13px]"
+        >
           <UserProfile
             name={submitter?.name}
             avatarUrl={submitter?.avatar_url}
@@ -68,7 +73,10 @@ export default function VersionDescriptions({
         </Descriptions.Item>
       )}
       {isDraft ? null : (
-        <Descriptions.Item itemKey="版本说明" className="!text-[13px]">
+        <Descriptions.Item
+          itemKey={I18n.t('version_description')}
+          className="!text-[13px]"
+        >
           <Typography.Text
             ellipsis={{ rows: 2, showTooltip: true }}
             className="!text-[13px]"

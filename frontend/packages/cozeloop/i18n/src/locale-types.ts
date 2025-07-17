@@ -88,6 +88,11 @@ export interface I18nWithInterpolation {
     /** string */
     field: ReactNode;
   };
+  /** 选择{field} */
+  select_x: {
+    /** string */
+    field: ReactNode;
+  };
   /** 请先同意{agreement} */
   please_agree_first: {
     /** string */

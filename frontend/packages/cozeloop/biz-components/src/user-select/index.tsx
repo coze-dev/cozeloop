@@ -1,6 +1,7 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import cs from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { UserProfile } from '@cozeloop/components';
 import { useUserInfo } from '@cozeloop/biz-hooks-adapter';
 import { Select, type SelectProps, Tag } from '@coze-arch/coze-design';
@@ -61,7 +62,7 @@ export const UserSelect = ({
     <Select
       className={cs('w-[200px]', className)}
       dropdownClassName={'w-[260px]'}
-      placeholder={placeholder || '搜索创建人'}
+      placeholder={placeholder || I18n.t('search_creator')}
       multiple={true}
       defaultActiveFirstOption={false}
       autoClearSearchValue={false}
@@ -73,7 +74,7 @@ export const UserSelect = ({
         onChange?.(res as string[]);
       }}
     >
-      <Select.OptGroup label="当前用户">
+      <Select.OptGroup label={I18n.t('current_user')}>
         {DefaultOption.map(item => (
           <Select.Option key={item.value} value={item.value} data={item.data}>
             {item.label}

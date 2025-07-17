@@ -1,6 +1,7 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import copy from 'copy-to-clipboard';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Toast } from '@coze-arch/coze-design';
 
 export const handleCopy = async (value: string, hideToast?: boolean) => {
@@ -8,14 +9,14 @@ export const handleCopy = async (value: string, hideToast?: boolean) => {
     copy(value);
     !hideToast &&
       Toast.success({
-        content: '复制成功',
+        content: I18n.t('copy_success'),
         showClose: false,
         zIndex: 99999,
       });
     return Promise.resolve(true);
   } catch (e) {
     Toast.warning({
-      content: '复制失败',
+      content: I18n.t('copy_failed'),
       showClose: false,
       zIndex: 99999,
     });

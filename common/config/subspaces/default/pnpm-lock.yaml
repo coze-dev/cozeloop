@@ -1492,6 +1492,9 @@ importers:
       '@cozeloop/components':
         specifier: workspace:*
         version: link:../components
+      '@cozeloop/i18n-adapter':
+        specifier: workspace:*
+        version: link:../i18n
       classnames:
         specifier: ^2.3.2
         version: 2.5.1

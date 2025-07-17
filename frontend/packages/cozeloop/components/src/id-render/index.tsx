@@ -1,6 +1,7 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import classNames from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { IconCozCopy } from '@coze-arch/coze-design/icons';
 import { Toast, Tooltip } from '@coze-arch/coze-design';
 
@@ -39,7 +40,7 @@ export function IDRender({
         )}
       </Tooltip>
       {enableCopy ? (
-        <Tooltip content="复制 ID" theme="dark">
+        <Tooltip content={I18n.t('copy_id')} theme="dark">
           <div>
             <IconButtonContainer
               className={classNames(
@@ -51,10 +52,10 @@ export function IDRender({
                 e.stopPropagation();
                 try {
                   await navigator.clipboard.writeText(idString);
-                  Toast.success('复制成功');
+                  Toast.success(I18n.t('copy_success'));
                 } catch (error) {
                   console.error(error);
-                  Toast.error('复制失败');
+                  Toast.error(I18n.t('copy_failed'));
                 }
               }}
             />

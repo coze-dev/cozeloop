@@ -6,7 +6,7 @@
   "please_input_password": "Please enter the password",
   "register": "Register",
   "login": "Login",
-  "please_agree_first": "Please agree {agreement}.",
+  "please_agree_first": "Please agree {agreement}",
   "user_agreement": "User Agreement",
   "token_show_only_once": "This token will be displayed only once. Keep this key in a secure and accessible place. Do not share it with others, nor expose it in browser or other client code.",
   "name": "Name",
