@@ -1,32 +1,15 @@
-import { useState } from 'react';
-
-import { I18n } from '@cozeloop/i18n-adapter';
-import { Switch } from '@coze-arch/coze-design';
-
+// Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
+// SPDX-License-Identifier: Apache-2.0
+import { useI18nStore } from '@/stores';
 import { ReactComponent as IconZhCN } from '@/assets/images/zh-cn.svg';
 import { ReactComponent as IconEnUS } from '@/assets/images/en-us.svg';
 
-// TODO
 export function SwitchLang() {
-  // 'zh-CN' | 'en-US'
-  const [lang, setLang] = useState(() => I18n.lang);
-
-  const toggleLang = async () => {
-    const switchMap: Record<string, string> = {
-      'zh-CN': 'en-US',
-      'en-US': 'zh-CN',
-    };
-    const targetLang = switchMap[lang] ?? 'zh-CN';
-    await I18n.setLang(switchMap[I18n.lang]);
-    setLang(targetLang);
-  };
+  const toggleLang = useI18nStore(s => s.toggleLng);
+  const lang = useI18nStore(s => s.lng);
 
   return (
     <div className="inline-block cursor-pointer" onClick={toggleLang}>
-      <Switch
-        checkedText={<IconZhCN className="h-5 w-5" />}
-        uncheckedText={<IconEnUS className="h-5 w-5" />}
-      />
       {lang === 'en-US' ? (
         <IconEnUS className="h-5 w-5" />
       ) : (
