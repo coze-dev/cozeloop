@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { TooltipWhenDisabled } from '@cozeloop/components';
 import { type FieldSchema } from '@cozeloop/api-schema/evaluation';
 import { type FieldMapping } from '@cozeloop/api-schema/data';
@@ -33,7 +34,7 @@ export const ColumnMapField = ({
           <div>
             <ReadonlyItem
               className="w-[276px] overflow-hidden"
-              title={'评测集列'}
+              title={I18n.t('evaluation_set_column')}
               typeText={getTypeText(item?.fieldSchema)}
               value={item.target}
             />
@@ -43,7 +44,7 @@ export const ColumnMapField = ({
         <Select
           prefix={
             <Typography.Text className="!coz-fg-secondary ml-3">
-              导入数据列
+              {I18n.t('import_data_column')}
             </Typography.Text>
           }
           className="!w-[276px]"

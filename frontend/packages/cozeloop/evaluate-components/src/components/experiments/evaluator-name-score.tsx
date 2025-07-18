@@ -4,6 +4,7 @@
 import { useRef, useState } from 'react';
 
 import classNames from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { IconButtonContainer, JumpIconButton } from '@cozeloop/components';
 import { useBaseURL } from '@cozeloop/biz-hooks-adapter';
 import {
@@ -64,14 +65,14 @@ export function EvaluatorResultPanel({
   return (
     <div className="w-80">
       <div className="font-bold mb-1 flex items-center">
-        得分
+        {I18n.t('score')}
         {correction ? (
           <Tag
             color="brand"
             size="small"
             className="ml-1 rounded-[3px] font-normal"
           >
-            人工校准
+            {I18n.t('manual_calibration')}
           </Tag>
         ) : null}
       </div>
@@ -87,7 +88,7 @@ export function EvaluatorResultPanel({
         <div>{score}</div>
       )}
       <div className="mt-3">
-        <div className="font-bold mb-1">原因</div>
+        <div className="font-bold mb-1">{I18n.t('reason')}</div>
         <div>{(correction ? correction?.explain : reasoning) || '-'}</div>
       </div>
     </div>
@@ -189,7 +190,7 @@ export function EvaluatorNameScoreTag({
       </div>
       <div className={classNames('flex items-center', hasAction ? 'ml-1' : '')}>
         {enableLinkJump ? (
-          <Tooltip theme="dark" content="查看评估器详情">
+          <Tooltip theme="dark" content={I18n.t('view_evaluator_details')}>
             <div className="flex items-center">
               <JumpIconButton
                 className={defaultShowAction ? '' : 'hidden group-hover:flex'}
@@ -203,7 +204,7 @@ export function EvaluatorNameScoreTag({
           </Tooltip>
         ) : null}
         {enableTrace && traceID ? (
-          <Tooltip theme="dark" content="查看评估器 Trace">
+          <Tooltip theme="dark" content={I18n.t('view_evaluator_trace')}>
             <div
               className="flex items-center"
               onClick={() => onReportEvaluatorTrace?.()}
@@ -227,12 +228,12 @@ export function EvaluatorNameScoreTag({
             customSubmitManualScore={customSubmitManualScore}
             onSuccess={() => {
               setVisible(false);
-              Toast.success('更新评分成功');
+              Toast.success(I18n.t('update_rating_success'));
               onSuccess?.();
             }}
           >
             <div className="flex items-center">
-              <Tooltip theme="dark" content="人工校准">
+              <Tooltip theme="dark" content={I18n.t('manual_calibration')}>
                 <div
                   className={
                     defaultShowAction ? 'h-5' : 'h-5 !hidden group-hover:!flex'

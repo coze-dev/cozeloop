@@ -1,8 +1,14 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type Expr, type ExprGroup } from '@cozeloop/components';
 import { UserSelect } from '@cozeloop/biz-components-adapter';
-import { CozInputNumber, DatePicker, Input, Select } from '@coze-arch/coze-design';
+import {
+  CozInputNumber,
+  DatePicker,
+  Input,
+  Select,
+} from '@coze-arch/coze-design';
 
 interface LogicOperation {
   label: string;
@@ -51,19 +57,19 @@ export interface LogicDataType {
 
 const baseOperations: LogicOperation[] = [
   {
-    label: '等于',
+    label: I18n.t('equal_to'),
     value: 'equals',
   },
   {
-    label: '不等于',
+    label: I18n.t('not_equal_to'),
     value: 'not-equals',
   },
   {
-    label: '包含',
+    label: I18n.t('contain'),
     value: 'contains',
   },
   {
-    label: '不包含',
+    label: I18n.t('not_contain'),
     value: 'not-contains',
   },
 ];
@@ -72,57 +78,57 @@ const stringOperations: LogicOperation[] = [...baseOperations];
 
 const numberOperations: LogicOperation[] = [
   {
-    label: '等于',
+    label: I18n.t('equal_to'),
     value: 'equals',
   },
   {
-    label: '不等于',
+    label: I18n.t('not_equal_to'),
     value: 'not-equals',
   },
   {
-    label: '大于',
+    label: I18n.t('greater_than'),
     value: 'greater-than',
   },
   {
-    label: '大于等于',
+    label: I18n.t('greater_than_or_equal_to'),
     value: 'greater-than-equals',
   },
   {
-    label: '小于',
+    label: I18n.t('less_than'),
     value: 'less-than',
   },
   {
-    label: '小于等于',
+    label: I18n.t('less_than_or_equal_to'),
     value: 'less-than-equals',
   },
 ];
 
 const dateOperations: LogicOperation[] = [
   {
-    label: '等于',
+    label: I18n.t('equal_to'),
     value: 'equals',
   },
   {
-    label: '不等于',
+    label: I18n.t('not_equal_to'),
     value: 'not-equals',
   },
   {
-    label: '晚于',
+    label: I18n.t('later_than'),
     value: 'greater-than',
   },
   {
-    label: '早于',
+    label: I18n.t('earlier_than'),
     value: 'less-than',
   },
 ];
 
 const selectOperations: LogicOperation[] = [
   {
-    label: '包含',
+    label: I18n.t('contain'),
     value: 'contains',
   },
   {
-    label: '不包含',
+    label: I18n.t('not_contain'),
     value: 'not-contains',
   },
 ];
@@ -130,14 +136,16 @@ const selectOperations: LogicOperation[] = [
 const userOperations: LogicOperation[] = [...baseOperations];
 
 function StringSetter(props: DataTypeSetterProps<string>) {
-  return <Input placeholder="请输入" {...props} />;
+  return (
+    <Input placeholder={I18n.t('please_input', { field: '' })} {...props} />
+  );
 }
 
 function NumberSetter(props: DataTypeSetterProps<number>) {
   const { value, onChange, ...rest } = props;
   return (
     <CozInputNumber
-      placeholder="请输入"
+      placeholder={I18n.t('please_input', { field: '' })}
       {...rest}
       className={`w-full ${(props as { className?: string }).className ?? ''}`}
       value={value}
@@ -165,7 +173,7 @@ function SelectSetter(
   const { value, onChange, optionList = [], className = '', ...rest } = props;
   return (
     <Select
-      placeholder="请选择"
+      placeholder={I18n.t('please_select', { field: '' })}
       {...rest}
       className={`w-full ${className}`}
       optionList={optionList}
@@ -181,7 +189,7 @@ function CozeUserSetter(
   const { value, onChange, className = '', ...rest } = props;
   return (
     <UserSelect
-      placeholder="请选择"
+      placeholder={I18n.t('please_select', { field: '' })}
       {...rest}
       className={`w-full ${className}`}
       value={value}

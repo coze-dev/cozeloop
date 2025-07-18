@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { EvalTargetRunStatus } from '@cozeloop/api-schema/evaluation';
 
 import { type CozeTagColor } from '../types';
@@ -14,13 +15,13 @@ export interface EvalTargetRunStatusInfo {
 /** 评测对象运行状态信息列表 */
 export const evalTargetRunStatusInfoList: EvalTargetRunStatusInfo[] = [
   {
-    name: '成功',
+    name: I18n.t('success'),
     status: EvalTargetRunStatus.Success,
     color: 'green',
     tagColor: 'green',
   },
   {
-    name: '失败',
+    name: I18n.t('failure'),
     status: EvalTargetRunStatus.Fail,
     color: 'red',
     tagColor: 'red',

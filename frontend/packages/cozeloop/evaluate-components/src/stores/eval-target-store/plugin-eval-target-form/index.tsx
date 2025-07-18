@@ -14,6 +14,7 @@ import { DEFAULT_TEXT_STRING_SCHEMA } from '../../../const/evaluate-target';
 import { EvaluateTargetMappingField } from '../../../components/selectors/evaluate-target';
 import usePromptDetail from './use-prompt-detail';
 import { EvalTargetPromptDetail } from './eval-target-prompt-detail';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 const EvaluateTargetMappingFieldLabel = (
   <div className="inline-flex flex-row items-center">
@@ -127,11 +128,17 @@ const PluginEvalTargetForm = (props: PluginEvalTargetFormProps) => {
                   // 需要配置变量, 并且配置过字段映射
                   // 没有值, 或者为空对象
                   if (variableList?.length > 0 && isEmpty(value)) {
-                    return new Error('请配置字段映射');
+                    return new Error(
+                      I18n.t('please_configure', {
+                        field: I18n.t('field_mapping'),
+                      }),
+                    );
                   }
                   return true;
                 },
-                message: '请配置字段映射',
+                message: I18n.t('please_configure', {
+                  field: I18n.t('field_mapping'),
+                }),
               },
             ]}
             loading={loading}

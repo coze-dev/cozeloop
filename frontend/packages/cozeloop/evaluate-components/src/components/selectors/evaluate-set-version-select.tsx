@@ -7,6 +7,7 @@ import { StoneEvaluationApi } from '@cozeloop/api-schema';
 import { type FormSelect, Typography } from '@coze-arch/coze-design';
 
 import NoVersionJumper from '../common/no-version-jumper';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 export function EvaluateSetVersionSelect({
   evaluationSetId,
@@ -73,7 +74,9 @@ export function EvaluateSetVersionSelect({
 
   return (
     <BaseSearchFormSelect
-      placeholder={'请选择评测集版本'}
+      placeholder={I18n.t('please_select', {
+        field: I18n.t('evaluation_set_version'),
+      })}
       remote
       loading={service.loading}
       showRefreshBtn={true}

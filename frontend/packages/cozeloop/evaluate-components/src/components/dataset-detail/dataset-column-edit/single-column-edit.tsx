@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useRef, useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
+import { GuardPoint, useGuard } from '@cozeloop/guard';
 import { EditIconButton } from '@cozeloop/components';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import {
@@ -28,7 +30,6 @@ import {
   convertDataTypeToSchema,
   convertSchemaToDataType,
 } from '../../../utils/field-convert';
-import { GuardPoint, useGuard } from '@cozeloop/guard';
 
 interface ColumnForm {
   columns: FieldSchema[];
@@ -96,7 +97,7 @@ export const DatasetSingleColumnEdit = ({
         zIndex={1061}
         title={
           <div className="flex overflow-hidden">
-            <span>编辑列：</span>
+            <span>{I18n.t('edit_column')}：</span>
             <Typography.Text
               className="!text-[18px] !font-semibold flex-1"
               ellipsis={{
@@ -114,9 +115,9 @@ export const DatasetSingleColumnEdit = ({
           formApiRef.current?.submitForm();
         }}
         keepDOM={false}
-        okText="保存"
+        okText={I18n.t('save')}
         okButtonProps={{ loading, disabled: guardData.readonly }}
-        cancelText="取消"
+        cancelText={I18n.t('Cancel')}
       >
         <Form<ColumnForm>
           getFormApi={formApi => (formApiRef.current = formApi)}
@@ -126,13 +127,15 @@ export const DatasetSingleColumnEdit = ({
           }}
         >
           <FormInput
-            label="名称"
+            label={I18n.t('name')}
             maxLength={50}
             field={`columns.${selectedFieldIndex}.name`}
             rules={[
               {
                 required: true,
-                message: '请输入列名称',
+                message: I18n.t('please_input', {
+                  field: I18n.t('column_name'),
+                }),
               },
               {
                 validator: columnNameRuleValidator,
@@ -150,22 +153,31 @@ export const DatasetSingleColumnEdit = ({
                   }
                   return true;
                 },
-                message: '列名称已存在',
+                message: I18n.t('field_exists', {
+                  field: I18n.t('column_name'),
+                }),
               },
             ]}
           ></FormInput>
           <Form.Select
-            label="数据类型"
+            label={I18n.t('data_type')}
             zIndex={1070}
             fieldClassName="flex-1"
             disabled={disabledDataTypeSelect}
             optionList={DATA_TYPE_LIST}
             field={`columns.${selectedFieldIndex}.type`}
             className="w-full"
-            rules={[{ required: true, message: '请选择数据类型' }]}
+            rules={[
+              {
+                required: true,
+                message: I18n.t('please_select', {
+                  field: I18n.t('data_type'),
+                }),
+              },
+            ]}
           ></Form.Select>
           <Form.Select
-            label="查看格式"
+            label={I18n.t('view_format')}
             zIndex={1070}
             fieldClassName="flex-1"
             field={`columns.${selectedFieldIndex}.default_display_format`}
@@ -174,10 +186,17 @@ export const DatasetSingleColumnEdit = ({
               label: DISPLAY_FORMAT_MAP[item],
               value: item,
             }))}
-            rules={[{ required: true, message: '请选择查看格式' }]}
+            rules={[
+              {
+                required: true,
+                message: I18n.t('please_select', {
+                  field: I18n.t('view_format'),
+                }),
+              },
+            ]}
           ></Form.Select>
           <Form.TextArea
-            label="描述"
+            label={I18n.t('description')}
             maxLength={200}
             field={`columns.${selectedFieldIndex}.description`}
           ></Form.TextArea>

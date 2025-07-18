@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type Version } from '@cozeloop/components';
 import { type EvaluationSet } from '@cozeloop/api-schema/evaluation';
 import { Tag } from '@coze-arch/coze-design';
@@ -24,11 +25,11 @@ export const DatasetVersionTag = ({
   }
   return datasetDetail?.change_uncommitted ? (
     <Tag color="yellow" className="font-normal">
-      修改未提交
+      {I18n.t('changes_not_submitted')}
     </Tag>
   ) : (
     <Tag color="primary" className="font-normal">
-      草稿版本
+      {I18n.t('draft_version')}
     </Tag>
   );
 };

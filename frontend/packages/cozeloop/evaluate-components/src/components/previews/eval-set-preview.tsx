@@ -1,6 +1,7 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import classNames from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { JumpIconButton } from '@cozeloop/components';
 import { useBaseURL } from '@cozeloop/biz-hooks-adapter';
 import { type EvaluationSet } from '@cozeloop/api-schema/evaluation';
@@ -46,7 +47,7 @@ export function EvaluationSetPreview({
         {evaluation_set_version?.version ?? '-'}
       </Tag>
       {enableLinkJump ? (
-        <Tooltip theme="dark" content="查看详情">
+        <Tooltip theme="dark" content={I18n.t('view_detail')}>
           <div>
             <JumpIconButton
               className={classNames(

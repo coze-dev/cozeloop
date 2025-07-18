@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Input } from '@coze-arch/coze-design';
 
 import { type DatasetItemProps } from '../../type';
@@ -10,7 +11,7 @@ export const IntegerDatasetItemEdit = ({
 }: DatasetItemProps) => (
   <>
     <Input
-      placeholder="请输入integer"
+      placeholder={I18n.t('please_input', { field: I18n.t('integer') })}
       className="rounded-[6px]"
       value={fieldContent?.text}
       onChange={value => {

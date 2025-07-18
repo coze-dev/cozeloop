@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { IconCozIllusAdd } from '@coze-arch/coze-design/illustrations';
 import { EmptyState } from '@coze-arch/coze-design';
 
@@ -12,11 +13,15 @@ export function ExperimentListEmptyState({
     <EmptyState
       size="full_screen"
       icon={<IconCozIllusAdd />}
-      title={hasFilterCondition ? '未能找到相关结果' : '暂无实验'}
+      title={
+        hasFilterCondition
+          ? I18n.t('failed_to_find_related_results')
+          : I18n.t('no_experiment')
+      }
       description={
         hasFilterCondition
-          ? '请尝试其他关键词或修改筛选项'
-          : '点击右上角新建实验按钮进行创建'
+          ? I18n.t('try_other_keywords_or_modify_filter_options')
+          : I18n.t('click_to_create_experiment')
       }
     />
   );

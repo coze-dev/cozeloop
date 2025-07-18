@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { UserProfile } from '@cozeloop/components';
 import {
   ExptRetryMode,
@@ -30,7 +31,7 @@ export function getExperimentColumns({
 }) {
   const columns: ColumnProps<Experiment>[] = [
     {
-      title: '实验名称',
+      title: I18n.t('experiment_name'),
       disableColumnManage: true,
       dataIndex: 'name',
       key: 'name',
@@ -38,7 +39,7 @@ export function getExperimentColumns({
       render: text => <TypographyText>{text}</TypographyText>,
     },
     {
-      title: '评测对象类型',
+      title: I18n.t('evaluation_object_type'),
       dataIndex: 'type',
       key: 'type',
       width: 120,
@@ -51,7 +52,7 @@ export function getExperimentColumns({
       },
     },
     {
-      title: '评测对象',
+      title: I18n.t('evaluation_object'),
       dataIndex: 'eval_target',
       key: 'eval_target',
       width: 215,
@@ -68,7 +69,7 @@ export function getExperimentColumns({
       },
     },
     {
-      title: '关联评测集',
+      title: I18n.t('associated_evaluation_set'),
       dataIndex: 'eval_set',
       key: 'eval_set',
       width: 215,
@@ -81,7 +82,7 @@ export function getExperimentColumns({
       ),
     },
     {
-      title: '状态',
+      title: I18n.t('status'),
       dataIndex: 'status',
       key: 'status',
       width: 100,
@@ -97,7 +98,7 @@ export function getExperimentColumns({
       ),
     },
     {
-      title: '得分',
+      title: I18n.t('score'),
       dataIndex: 'score',
       key: 'score',
       width: 330,
@@ -112,14 +113,14 @@ export function getExperimentColumns({
       ),
     },
     {
-      title: '描述',
+      title: I18n.t('description'),
       dataIndex: 'desc',
       key: 'desc',
       width: 160,
       render: val => <TypographyText>{val || '-'}</TypographyText>,
     },
     {
-      title: '创建人',
+      title: I18n.t('creator'),
       dataIndex: 'base_info.created_by',
       key: 'create_by',
       width: 160,
@@ -131,7 +132,7 @@ export function getExperimentColumns({
         ),
     },
     {
-      title: '创建时间',
+      title: I18n.t('create_time'),
       dataIndex: 'start_time',
       key: 'start_time',
       width: 180,
@@ -140,7 +141,7 @@ export function getExperimentColumns({
       render: val => formateTime(val),
     },
     {
-      title: '结束时间',
+      title: I18n.t('end_time'),
       dataIndex: 'end_time',
       key: 'end_time',
       width: 180,
@@ -160,15 +161,12 @@ export function handleDelete({
   onRefresh?: () => void;
 }) {
   Modal.confirm({
-    title: '删除实验',
-    content: (
-      <>
-        确定要删除<span className="font-medium px-[2px]">{record.name}</span>
-        吗？此修改将不可逆。
-      </>
-    ),
-    okText: '删除',
-    cancelText: '取消',
+    title: I18n.t('delete_experiment'),
+    content: I18n.t('confirm_to_delete_x', {
+      name: <span className="font-medium px-[2px]">{record.name}</span>,
+    }),
+    okText: I18n.t('delete'),
+    cancelText: I18n.t('Cancel'),
     okButtonColor: 'red',
     width: 420,
     autoLoading: true,
@@ -193,10 +191,10 @@ export function handleRetry({
   onRefresh?: () => void;
 }) {
   Modal.confirm({
-    title: '重试实验',
-    content: '仅针对执行失败的部分重新评测。',
-    okText: '确认',
-    cancelText: '取消',
+    title: I18n.t('retry_experiment'),
+    content: I18n.t('only_re_evaluate_failed_part'),
+    okText: I18n.t('confirm'),
+    cancelText: I18n.t('Cancel'),
     width: 420,
     autoLoading: true,
     async onOk() {
@@ -218,15 +216,12 @@ export function handleCopy({
   onOk: () => void;
 }) {
   Modal.confirm({
-    title: '复制实验配置',
-    content: (
-      <>
-        复制<span className="font-medium px-[2px]">{record.name}</span>
-        配置，直接或修改配置后发起实验。
-      </>
-    ),
-    okText: '确认',
-    cancelText: '取消',
+    title: I18n.t('copy_experiment_config'),
+    content: I18n.t('copy_and_run_experiment', {
+      name: <span className="font-medium px-[2px]">{record.name}</span>,
+    }),
+    okText: I18n.t('confirm'),
+    cancelText: I18n.t('Cancel'),
     width: 420,
     onOk,
   });

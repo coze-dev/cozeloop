@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type LeftRenderProps } from '@cozeloop/components';
 import { Select } from '@coze-arch/coze-design';
 
@@ -13,7 +14,7 @@ export default function LeftRender(
   return (
     <div className="w-40">
       <Select
-        placeholder="请选择"
+        placeholder={I18n.t('please_select', { field: '' })}
         value={expr.left}
         className="w-full"
         disabled={disabled}

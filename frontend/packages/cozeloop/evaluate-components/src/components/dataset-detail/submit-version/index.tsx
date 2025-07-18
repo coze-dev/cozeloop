@@ -97,7 +97,10 @@ export const SubmitVersion = ({
             label={
               <div className="inline-flex items-center gap-1">
                 {I18n.t('version')}
-                <Tooltip theme="dark" content="版本格式为a.b.c，且每段为0-999">
+                <Tooltip
+                  theme="dark"
+                  content={I18n.t('version_format_and_range')}
+                >
                   <div className="h-[15px] cursor-pointer">
                     <IconCozInfoCircle className="text-[var(--coz-fg-secondary)] hover:text-[var(--coz-fg-primary)]" />
                   </div>
@@ -118,7 +121,7 @@ export const SubmitVersion = ({
                       value,
                     )
                   ) {
-                    callback('请输入正确的版本，格式为a.b.c，且每段为0-999');
+                    callback(I18n.t('eval_version_number_format'));
                     return false;
                   }
                   if (
@@ -129,7 +132,9 @@ export const SubmitVersion = ({
                     ) <= 0
                   ) {
                     callback(
-                      `新版本必须大于当前版本：${datasetDetail?.latest_version}`,
+                      I18n.t('eval_version_number_gt_current', {
+                        version: datasetDetail?.latest_version || '',
+                      }),
                     );
                     return false;
                   }
@@ -138,7 +143,11 @@ export const SubmitVersion = ({
               },
             ]}
           />
-          <Form.TextArea maxCount={200} field="desc" label="版本说明" />
+          <Form.TextArea
+            maxCount={200}
+            field="desc"
+            label={I18n.t('version_description')}
+          />
         </Form>
       </Modal>
     </>

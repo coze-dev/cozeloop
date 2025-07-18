@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 
 import cs from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { GuardPoint, Guard } from '@cozeloop/guard';
 import { InfoTooltip } from '@cozeloop/components';
 import { useNavigateModule, useSpace } from '@cozeloop/biz-hooks-adapter';
@@ -49,7 +50,7 @@ export const DatasetCreateForm = ({ header }: DatasetCreateFormProps) => {
           workspace_id: spaceID,
         },
       });
-      Toast.success('创建成功');
+      Toast.success(I18n.t('create_success'));
       navigate(`evaluation/datasets/${res.evaluation_set_id}`);
     } finally {
       setLoading(false);
@@ -70,7 +71,7 @@ export const DatasetCreateForm = ({ header }: DatasetCreateFormProps) => {
               );
             }}
           >
-            如何创建评测集
+            {I18n.t('how_to_create_evaluation_set')}
           </Typography.Text>
         </div>
       </div>
@@ -83,21 +84,33 @@ export const DatasetCreateForm = ({ header }: DatasetCreateFormProps) => {
         onSubmit={onSubmit}
       >
         <div className="w-[800px] mx-auto flex flex-col gap-[40px]">
-          <FormSectionLayout title="基本信息" className="!mb-[14px]">
+          <FormSectionLayout
+            title={I18n.t('basic_info')}
+            className="!mb-[14px]"
+          >
             <FormInput
-              label="名称"
+              label={I18n.t('name')}
               maxLength={50}
               field="name"
-              placeholder="请输入评测集名称"
+              placeholder={I18n.t('please_input', {
+                field: I18n.t('evaluation_set_name'),
+              })}
               rules={[
-                { required: true, message: '请输入评测集名称' },
+                {
+                  required: true,
+                  message: I18n.t('please_input', {
+                    field: I18n.t('evaluation_set_name'),
+                  }),
+                },
                 { validator: sourceNameRuleValidator },
               ]}
             ></FormInput>
             <FormTextArea
-              label="描述"
+              label={I18n.t('description')}
               field="description"
-              placeholder="请输入评测集描述"
+              placeholder={I18n.t('please_input', {
+                field: I18n.t('evaluation_set_description'),
+              })}
               maxLength={200}
               maxCount={200}
             ></FormTextArea>
@@ -106,8 +119,8 @@ export const DatasetCreateForm = ({ header }: DatasetCreateFormProps) => {
           <FormSectionLayout
             title={
               <div className="flex items-center gap-1">
-                配置列
-                <InfoTooltip content="评测集创建完成后，仍可修改列配置" />
+                {I18n.t('configuration_column')}
+                <InfoTooltip content={I18n.t('can_still_modify_column')} />
               </div>
             }
             className="!mb-[24px]"
@@ -128,7 +141,7 @@ export const DatasetCreateForm = ({ header }: DatasetCreateFormProps) => {
             }}
             loading={loading}
           >
-            创建
+            {I18n.t('create')}
           </Button>
         </Guard>
       </div>

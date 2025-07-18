@@ -170,6 +170,48 @@ export interface I18nWithInterpolation {
     /** string */
     index: ReactNode;
   };
+  /** 成功添加{num}条数据 */
+  add_x_data_item_success: {
+    /** string */
+    num: ReactNode;
+  };
+  /** 列 {index} */
+  column_index: {
+    /** string */
+    index: ReactNode;
+  };
+  /** 共有{num}/{total}列 */
+  total_of_columns: {
+    /** string */
+    num: ReactNode;
+    /** string */
+    total: ReactNode;
+  };
+  /** 新版本必须大于当前版本：{version} */
+  eval_version_number_gt_current: {
+    /** string */
+    version: ReactNode;
+  };
+  /** 确定删除{name}吗？此修改将不可逆 */
+  confirm_to_delete_x: {
+    /** string */
+    name: ReactNode;
+  };
+  /** 确定删除数据项{name}吗？此修改将不可逆 */
+  confirm_to_delete_data_item: {
+    /** string */
+    name: ReactNode;
+  };
+  /** 确定已选的{num}数据项吗？此修改将不可逆 */
+  confirm_to_delete_selected_data_item: {
+    /** string */
+    num: ReactNode;
+  };
+  /** 已选{num}条数据 */
+  x_data_item_selected: {
+    /** string */
+    num: ReactNode;
+  };
   /** 确认删除{num}列，此操作不可逆 */
   confirm_delete_x_columns: {
     /** string */
@@ -195,10 +237,20 @@ export interface I18nWithInterpolation {
     /** string */
     precision: ReactNode;
   };
+  /** 确定删除评测集{name}吗？此修改将不可逆。 */
+  confirm_to_delete_evaluation_set: {
+    /** string */
+    name: ReactNode;
+  };
   /** 原因：{reason} */
   reason_is: {
     /** string */
     reason: ReactNode;
+  };
+  /** {num}分 */
+  x_score: {
+    /** string */
+    num: ReactNode;
   };
   /** 最多保留小数点后{num}位 */
   keep_precision_num: {
@@ -209,6 +261,11 @@ export interface I18nWithInterpolation {
   confirm_batch_delete_x_experiment: {
     /** string */
     num: ReactNode;
+  };
+  /** 复制{name}配置，或修改配置后发起实验。 */
+  copy_and_run_experiment: {
+    /** string */
+    name: ReactNode;
   };
   /** 实验对比最大数量不能超过 {num} 个，请重新选择。 */
   experiment_comparison_max_number: {
@@ -501,6 +558,8 @@ export type I18nKeysNoInterpolation =
   | 'name'
   /** 网络错误 */
   | 'network_error'
+  /** 否 */
+  | 'no'
   /** 操作 */
   | 'operation'
   /** 输出 */
@@ -531,10 +590,16 @@ export type I18nKeysNoInterpolation =
   | 'today'
   /** 明天 */
   | 'tomorrow'
-  /** 用户协议 */
-  | 'user_agreement'
+  /** 更新 */
+  | 'update'
   /** 未知问题 */
   | 'unknown_error'
+  /** 用户协议 */
+  | 'user_agreement'
+  /** 查看 */
+  | 'view'
+  /** 是 */
+  | 'yes'
   /** 昨天 */
   | 'yesterday'
   /** 搜索创建人 */
@@ -919,7 +984,7 @@ export type I18nKeysNoInterpolation =
   | 'go_submit'
   /** 选择实验 */
   | 'select_experiment'
-  /** 发起实验对比 */
+  /** 实验对比 */
   | 'experiment_comparison'
   /** 发起实验对比 */
   | 'run_experiment_comparison'
@@ -1145,6 +1210,46 @@ export type I18nKeysNoInterpolation =
   | 'draft_unsubmitted_tip'
   /** 至少保留一个数据项 */
   | 'retain_one_data_item'
+  /** 添加数据项 */
+  | 'add_data_item'
+  /** 添加数据 */
+  | 'add_data'
+  /** 草稿版本存在存量数据项，不支持修改数据类型。 */
+  | 'cannot_modify_data_type_tip'
+  /** 至少保留一个列 */
+  | 'retain_one_data_column'
+  /** 创建成功 */
+  | 'create_success'
+  /** 如何创建评测集 */
+  | 'how_to_create_evaluation_set'
+  /** 折叠全部列 */
+  | 'collapse_all_columns'
+  /** 展开全部列 */
+  | 'expand_all_columns'
+  /** 编辑列 */
+  | 'edit_column'
+  /** 请输入正确的版本，格式为a.b.c，且每段为0-999 */
+  | 'eval_version_number_format'
+  /** 手动添加 */
+  | 'add_manually'
+  /** 本地导入 */
+  | 'import_from_local'
+  /** 删除数据项 */
+  | 'delete_data_item'
+  /** 取消选择 */
+  | 'unselect'
+  /** 更新成功 */
+  | 'update_success'
+  /** 导入数据列 */
+  | 'import_data_column'
+  /** 追加数据 */
+  | 'append_data'
+  /** 全量覆盖 */
+  | 'overwrite_data'
+  /** 保存成功 */
+  | 'save_success'
+  /** 列 */
+  | 'column'
   /** 折叠全部数据项 */
   | 'collapse_all_data_items'
   /** 展开全部数据项 */
@@ -1233,12 +1338,18 @@ export type I18nKeysNoInterpolation =
   | 'view_data_item'
   /** 数据项 */
   | 'data_item'
+  /** 数据项 ID */
+  | 'data_item_id'
   /** 删除评测集 */
   | 'delete_evaluation_set'
   /** 调试失败 */
   | 'debug_failure'
   /** 调试成功 */
   | 'debugging_succeeded'
+  /** 得分仅预览效果，非实际结果。 */
+  | 'score_only_for_preview'
+  /** 总览 */
+  | 'overview'
   /** Prompt 详情 */
   | 'prompt_detail'
   /** 正在加载 Prompt 详情 */
@@ -1271,6 +1382,8 @@ export type I18nKeysNoInterpolation =
   | 'bar_chart'
   /** 暂无实验 */
   | 'no_experiment'
+  /** 实验列表 */
+  | 'experiment_list'
   /** 点击右上角新建实验按钮进行创建 */
   | 'click_to_create_experiment'
   /** schema 不匹配 */
@@ -1287,6 +1400,8 @@ export type I18nKeysNoInterpolation =
   | 'system_error'
   /** 包含非法内容 */
   | 'contains_illegal_content'
+  /** 存在以下原因导致执行失败，请自行纠正后重试 */
+  | 'failure_reasons_and_retry'
   /** 操作符 */
   | 'operator'
   /** 等于 */
@@ -1337,6 +1452,8 @@ export type I18nKeysNoInterpolation =
   | 'only_re_evaluate_failed_part'
   /** 复制实验配置 */
   | 'copy_experiment_config'
+  /** 请选择 Prompt key 和版本号后再查看 */
+  | 'select_prompt_key_and_version_to_view'
   /** 评测集字段到评测对象字段的映射，用于评测对象准确获取输入。 */
   | 'evaluation_set_field_to_evaluation_object_field_mapping'
   /** 获取评测对象遇到错误 */

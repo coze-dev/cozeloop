@@ -3,6 +3,7 @@
 /* eslint-disable @coze-arch/max-line-per-function */
 import { useEffect, useRef, useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { GuardPoint, useGuards, GuardActionType } from '@cozeloop/guard';
 import {
   TableColActions,
@@ -130,7 +131,7 @@ export function useExperimentListColumns({
 
   useEffect(() => {
     const actionsColumn: ColumnProps<Experiment> = {
-      title: '操作',
+      title: I18n.t('operation'),
       disableColumnManage: true,
       dataIndex: 'action',
       key: 'action',
@@ -144,8 +145,8 @@ export function useExperimentListColumns({
         const actions: TableColAction[] = [
           {
             label: (
-              <Tooltip content="仅针对执行失败的部分重新评测" theme="dark">
-                重试
+              <Tooltip content={I18n.t('re_evaluate_failed_only')} theme="dark">
+                {I18n.t('retry')}
               </Tooltip>
             ),
             hide: hideRun,
@@ -154,16 +155,19 @@ export function useExperimentListColumns({
           },
           {
             label: (
-              <Tooltip content="查看详情" theme="dark">
-                详情
+              <Tooltip content={I18n.t('view_detail')} theme="dark">
+                {I18n.t('detail')}
               </Tooltip>
             ),
             onClick: () => handleDetailOnClick(record),
           },
           {
             label: (
-              <Tooltip content="复制实验配置并新建实验" theme="dark">
-                复制
+              <Tooltip
+                content={I18n.t('copy_and_create_experiment')}
+                theme="dark"
+              >
+                {I18n.t('copy')}
               </Tooltip>
             ),
             hide: actionVisibleControl?.copy === false,
@@ -174,7 +178,7 @@ export function useExperimentListColumns({
         // 收起来的操作
         const shrinkActions: TableColAction[] = [
           {
-            label: '删除',
+            label: I18n.t('delete'),
             type: 'danger',
             hide: actionVisibleControl?.delete === false,
             disabled: deleteGuardType === GuardActionType.READONLY,

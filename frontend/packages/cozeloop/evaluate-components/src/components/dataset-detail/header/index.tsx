@@ -3,6 +3,7 @@
 /* eslint-disable complexity */
 import { Fragment } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { formatTimestampToString } from '@cozeloop/toolkit';
 import { RouteBackAction, UserProfile } from '@cozeloop/components';
 import { useNavigateModule } from '@cozeloop/biz-hooks-adapter';
@@ -20,12 +21,12 @@ export const DatasetDetailHeader = ({
 }) => {
   const navigate = useNavigateModule();
   const detail = [
-    `描述：${datasetDetail?.description || '-'}`,
-    `更新时间：${formatTimestampToString(
+    `${I18n.t('description')}：${datasetDetail?.description || '-'}`,
+    `${I18n.t('update_time')}：${formatTimestampToString(
       datasetDetail?.base_info?.updated_at || '',
       'YYYY-MM-DD HH:mm:ss',
     )}`,
-    `创建时间：${formatTimestampToString(
+    `${I18n.t('create_time')}：${formatTimestampToString(
       datasetDetail?.base_info?.created_at || '',
       'YYYY-MM-DD HH:mm:ss',
     )}`,
@@ -87,7 +88,7 @@ export const DatasetDetailHeader = ({
                   size="small"
                   className="!coz-fg-secondary !leading-[16px] !text-[12px]"
                 >
-                  创建人：
+                  {I18n.t('creator')}：
                 </Typography.Text>
                 <UserProfile
                   className="flex-1 !coz-fg-secondary !leading-[16px] !text-[12px]"

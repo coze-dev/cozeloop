@@ -3,6 +3,7 @@
 /* eslint-disable @coze-arch/max-line-per-function */
 import { useRef, useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { sendEvent, EVENT_NAMES } from '@cozeloop/tea-adapter';
 import { GuardPoint, useGuard } from '@cozeloop/guard';
 import { ResizeSidesheet } from '@cozeloop/components';
@@ -60,8 +61,8 @@ export const useDatasetColumnEdit = ({
     fieldSchemas?.length,
   );
   const { expand, ExpandNode } = useExpandButton({
-    shrinkTooltip: '折叠全部列',
-    expandTooltip: '展开全部列',
+    shrinkTooltip: I18n.t('collapse_all_columns'),
+    expandTooltip: I18n.t('expand_all_columns'),
   });
   const [loading, setLoading] = useState(false);
   const handleSubmit = async (values: ColumnForm) => {
@@ -89,7 +90,7 @@ export const useDatasetColumnEdit = ({
         sendEvent(EVENT_NAMES.cozeloop_dataset_column_edit);
       }}
     >
-      编辑列
+      {I18n.t('edit_column')}
     </Button>
   );
 
@@ -112,9 +113,14 @@ export const useDatasetColumnEdit = ({
         title={
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-2">
-              编辑列
+              {I18n.t('edit_column')}
               <Typography.Text className="!coz-fg-secondary">
-                (共有{currentColumnNum}/50列)
+                (
+                {I18n.t('total_of_columns', {
+                  num: currentColumnNum,
+                  total: 50,
+                })}
+                )
               </Typography.Text>
             </div>
             {ExpandNode}
@@ -129,10 +135,10 @@ export const useDatasetColumnEdit = ({
                 formApiRef.current?.submitForm();
               }}
             >
-              保存
+              {I18n.t('save')}
             </Button>
             <Button color="primary" onClick={() => setVisible(false)}>
-              取消
+              {I18n.t('Cancel')}
             </Button>
             <Divider layout="vertical" className="h-[12px] mx-[9px]" />
             <Button
@@ -142,7 +148,7 @@ export const useDatasetColumnEdit = ({
                 columnConfigRef.current?.addColumn();
               }}
             >
-              添加列
+              {I18n.t('add_column')}
             </Button>
           </div>
         }

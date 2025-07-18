@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   type CommonFieldProps,
   type SelectProps,
@@ -17,8 +18,13 @@ const PromptEvalTargetFormSelect: React.FC<
     remote
     onChangeWithObject
     label="Prompt key"
-    rules={[{ required: true, message: '请选择Prompt key' }]}
-    placeholder="请选择Prompt key"
+    rules={[
+      {
+        required: true,
+        message: I18n.t('please_select', { field: I18n.t('prompt_key') }),
+      },
+    ]}
+    placeholder={I18n.t('please_select', { field: I18n.t('prompt_key') })}
     showCreateBtn={true}
     {...props}
   />

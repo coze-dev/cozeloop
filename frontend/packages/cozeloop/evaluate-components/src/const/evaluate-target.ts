@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   ContentType,
   EvalTargetType,
@@ -7,7 +8,7 @@ import {
 } from '@cozeloop/api-schema/evaluation';
 
 export const evalTargetTypeMap = {
-  [EvalTargetType.CozeBot]: 'Coze 智能体',
+  [EvalTargetType.CozeBot]: I18n.t('coze_agent'),
   [EvalTargetType.CozeLoopPrompt]: 'Prompt',
 };
 

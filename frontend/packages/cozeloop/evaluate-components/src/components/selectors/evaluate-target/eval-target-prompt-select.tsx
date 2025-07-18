@@ -14,6 +14,7 @@ import { type SelectProps } from '@coze-arch/coze-design';
 import { useGlobalEvalConfig } from '@/stores/eval-global-config';
 
 import { getPromptEvalTargetOption } from './utils';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 /**
  * 评测对象选择器, 公共, 开源逻辑
@@ -49,7 +50,7 @@ const PromptEvalTargetSelect = ({
     <>
       <BaseSearchSelect
         className={classNames(props.className)}
-        emptyContent="暂无数据"
+        emptyContent={I18n.t('no_data')}
         loading={service.loading}
         onSearch={handleSearch.run}
         showRefreshBtn={true}
@@ -64,7 +65,7 @@ const PromptEvalTargetSelect = ({
             >
               <IconCozPlus className="h-4 w-4 text-brand-9 mr-2" />
               <div className="text-sm font-medium text-brand-9">
-                {'新建 Prompt'}
+                {I18n.t('new_prompt')}
               </div>
             </div>
           ) : null

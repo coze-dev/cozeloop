@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 
 import classNames from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type prompt as promptDomain } from '@cozeloop/api-schema/prompt';
 import { type Message } from '@cozeloop/api-schema/evaluation';
 import { IconCozArrowRight, IconCozEmpty } from '@coze-arch/coze-design/icons';
@@ -54,7 +55,7 @@ export function EvalTargetPromptDetail(props: {
         <Loading
           className="!w-full"
           size="large"
-          label="正在加载 Prompt 详情"
+          label={I18n.t('loading_prompt_detail')}
           loading={true}
         />
       </div>
@@ -67,7 +68,7 @@ export function EvalTargetPromptDetail(props: {
         className="h-5 flex flex-row items-center cursor-pointer text-sm coz-fg-primary font-semibold"
         onClick={() => setOpen(pre => !pre)}
       >
-        {'Prompt 详情'}
+        {I18n.t('prompt_detail')}
         <IconCozArrowRight
           className={classNames(
             'h-4 w-4 ml-2 coz-fg-plus transition-transform',
@@ -82,9 +83,9 @@ export function EvalTargetPromptDetail(props: {
             <EmptyState
               size="default"
               icon={<IconCozEmpty className="coz-fg-dim text-32px" />}
-              title="暂无数据"
+              title={I18n.t('no_data')}
               className={emptyStyles['empty-state']}
-              description="请选择 Prompt key 和版本号后再查看"
+              description={I18n.t('select_prompt_key_and_version_to_view')}
             />
           </div>
         ) : (

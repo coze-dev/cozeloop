@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Guard, GuardPoint } from '@cozeloop/guard';
 import { TableHeader } from '@cozeloop/components';
 import { useNavigateModule } from '@cozeloop/biz-hooks-adapter';
@@ -28,14 +29,14 @@ export function ExperimentRowSelectionActions({
       actions={
         <>
           <div className="text-xs">
-            已选 {experiments.length} 条数据{' '}
+            {I18n.t('x_data_item_selected', { num: experiments.length })}
             <span
               className="ml-1 text-[rgb(var(--coze-up-brand-9))] cursor-pointer"
               onClick={() => {
                 onCancelSelect?.();
               }}
             >
-              取消选择
+              {I18n.t('unselect')}
             </span>
           </div>
           <Button
@@ -53,7 +54,7 @@ export function ExperimentRowSelectionActions({
               }
             }}
           >
-            实验对比
+            {I18n.t('experiment_comparison')}
           </Button>
 
           <Guard point={GuardPoint['eval.experiments.batch_delete']}>
@@ -65,10 +66,12 @@ export function ExperimentRowSelectionActions({
                   return;
                 }
                 Modal.confirm({
-                  title: '批量删除实验',
-                  content: `确认批量删除 ${experiments.length} 条实验数据吗？此修改将不可逆。`,
-                  okText: '删除',
-                  cancelText: '取消',
+                  title: I18n.t('batch_delete_experiment'),
+                  content: I18n.t('confirm_batch_delete_x_experiment', {
+                    num: experiments.length,
+                  }),
+                  okText: I18n.t('delete'),
+                  cancelText: I18n.t('Cancel'),
                   okButtonColor: 'red',
                   width: 420,
                   autoLoading: true,
@@ -82,7 +85,7 @@ export function ExperimentRowSelectionActions({
                 });
               }}
             >
-              删除
+              {I18n.t('delete')}
             </Button>
           </Guard>
         </>

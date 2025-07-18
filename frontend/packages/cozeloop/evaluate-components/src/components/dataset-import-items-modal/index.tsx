@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 
 import { debounce } from 'lodash-es';
 import cs from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { GuardPoint, useGuard } from '@cozeloop/guard';
 import { InfoTooltip } from '@cozeloop/components';
 import { useSpace, useDataImportApi } from '@cozeloop/biz-hooks-adapter';
@@ -104,7 +105,7 @@ export const DatasetImportItemsModal = ({
   return (
     <>
       <Modal
-        title="导入数据"
+        title={I18n.t('import_data')}
         width={640}
         visible={visible}
         keepDOM={true}
@@ -133,7 +134,7 @@ export const DatasetImportItemsModal = ({
                 <div className={cs(styles.form, 'styled-scrollbar')}>
                   <Form.Upload
                     field="file"
-                    label="上传数据"
+                    label={I18n.t('upload_data')}
                     limit={1}
                     onChange={({ fileList }) => {
                       if (fileList.length === 0) {
@@ -150,14 +151,14 @@ export const DatasetImportItemsModal = ({
                     )}
                     className={styles.upload}
                     dragIcon={<IconCozUpload className="w-[32px] h-[32px]" />}
-                    dragMainText="点击上传或者拖拽文件至此处"
+                    dragMainText={I18n.t('click_or_drag_file_to_upload')}
                     dragSubText={
                       <div>
                         <Typography.Text
                           className="!coz-fg-secondary"
                           size="small"
                         >
-                          推荐使用模板上传1个文件，支持CSV格式
+                          {I18n.t('recommend_template_upload_tip')}
                         </Typography.Text>
                         <Typography.Text
                           link
@@ -169,7 +170,7 @@ export const DatasetImportItemsModal = ({
                             downloadCSV();
                           }}
                         >
-                          下载模板
+                          {I18n.t('download_template')}
                         </Typography.Text>
                       </div>
                     }
@@ -179,7 +180,7 @@ export const DatasetImportItemsModal = ({
                     rules={[
                       {
                         required: true,
-                        message: '请上传文件',
+                        message: I18n.t('upload_file'),
                       },
                     ]}
                   ></Form.Upload>
@@ -193,15 +194,15 @@ export const DatasetImportItemsModal = ({
                           size="small"
                           className="!coz-fg-secondary"
                         >
-                          如果待导入数据集的列没有配置映射关系，则该列不会被导入。
+                          {I18n.t('no_mapping_no_import')}
                         </Typography.Text>
                       }
                       label={
                         <div className="inline-flex items-center gap-1 !coz-fg-primary">
-                          <div>列映射</div>
+                          <div>{I18n.t('column_mapping')}</div>
                           <InfoTooltip
                             className="h-[15px]"
-                            content="待导入数据的列名和当前评测集列名的映射关系。"
+                            content={I18n.t('source_column_mapping')}
                           />
                         </div>
                       }
@@ -209,7 +210,7 @@ export const DatasetImportItemsModal = ({
                       rules={[
                         {
                           required: true,
-                          message: '请配置列映射',
+                          message: I18n.t('configure_column_mapping'),
                         },
                         {
                           validator: (_, data) => {
@@ -218,15 +219,22 @@ export const DatasetImportItemsModal = ({
                             }
                             return true;
                           },
-                          message: '请配置最少一个导入列',
+                          message: I18n.t(
+                            'configure_at_least_one_import_column',
+                          ),
                         },
                       ]}
                     />
                   ) : null}
                   <FormOverWriteField
                     field="overwrite"
-                    rules={[{ required: true, message: '请选择导入方式' }]}
-                    label={'导入方式'}
+                    rules={[
+                      {
+                        required: true,
+                        message: I18n.t('select_import_method'),
+                      },
+                    ]}
+                    label={I18n.t('import_method')}
                   />
                 </div>
                 <div className="flex justify-end p-[24px] pb-0">
@@ -237,7 +245,7 @@ export const DatasetImportItemsModal = ({
                       onCancel();
                     }}
                   >
-                    取消
+                    {I18n.t('Cancel')}
                   </Button>
                   <Button
                     color="brand"
@@ -247,7 +255,7 @@ export const DatasetImportItemsModal = ({
                     loading={loading}
                     disabled={guard.data.readonly || !file?.[0]?.response?.Uri}
                   >
-                    导入
+                    {I18n.t('import')}
                   </Button>
                 </div>
               </>

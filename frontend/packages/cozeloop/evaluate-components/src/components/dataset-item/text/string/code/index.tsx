@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { CodeEditor, handleCopy } from '@cozeloop/components';
 import { IconCozCopy } from '@coze-arch/coze-design/icons';
 import { Button, SemiSelect } from '@coze-arch/coze-design';
@@ -42,7 +43,7 @@ export const CodeDatasetItem = ({
           color="primary"
           size="small"
         >
-          复制
+          {I18n.t('copy')}
         </Button>
       </div>
       <div className="flex-1">

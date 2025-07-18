@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { RouteBackAction } from '@cozeloop/components';
 import { useNavigateModule } from '@cozeloop/biz-hooks-adapter';
 import { useBreadcrumb } from '@cozeloop/base-hooks';
@@ -10,7 +11,7 @@ import { DatasetCreateForm } from '../../components/dataset-create-form';
 export const CreateDatasetPage = () => {
   const navigate = useNavigateModule();
   useBreadcrumb({
-    text: '新建评测集',
+    text: I18n.t('new_evaluation_set'),
   });
 
   return (
@@ -23,7 +24,7 @@ export const CreateDatasetPage = () => {
               heading={6}
               className="!coz-fg-plus !font-medium !text-[18px] !leading-[20px]"
             >
-              新建评测集
+              {I18n.t('new_evaluation_set')}
             </Typography.Title>
           </div>
         }

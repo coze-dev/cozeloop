@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Modal, Radio, RadioGroup } from '@coze-arch/coze-design';
 
 interface OverWriteFieldProps {
@@ -13,10 +14,10 @@ export const OverWriteField = ({ value, onChange }: OverWriteFieldProps) => (
       const newValue = e.target.value === 'true';
       if (newValue) {
         Modal.confirm({
-          title: '确认选择全量覆盖',
-          content: '继续导入数据将覆盖现有数据',
-          okText: '确认',
-          cancelText: '取消',
+          title: I18n.t('confirm_select_full_coverage'),
+          content: I18n.t('continue_will_override_existing_data'),
+          okText: I18n.t('confirm'),
+          cancelText: I18n.t('Cancel'),
           onOk: () => {
             onChange?.(true);
           },
@@ -32,7 +33,7 @@ export const OverWriteField = ({ value, onChange }: OverWriteFieldProps) => (
       }
     }}
   >
-    <Radio value={'false'}>追加数据</Radio>
-    <Radio value={'true'}>全量覆盖</Radio>
+    <Radio value={'false'}>{I18n.t('append_data')}</Radio>
+    <Radio value={'true'}>{I18n.t('overwrite_data')}</Radio>
   </RadioGroup>
 );

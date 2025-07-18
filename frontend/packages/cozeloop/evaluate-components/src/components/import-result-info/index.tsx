@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { ItemErrorType } from '@cozeloop/api-schema/data';
 import {
   type DatasetIOJobProgress,
@@ -8,13 +9,13 @@ import {
 import { Typography } from '@coze-arch/coze-design';
 
 const ErrorTypeMap = {
-  [ItemErrorType.MismatchSchema]: 'schema 不匹配',
-  [ItemErrorType.EmptyData]: '空数据',
-  [ItemErrorType.ExceedMaxItemSize]: '单条数据大小超限',
-  [ItemErrorType.ExceedDatasetCapacity]: '数据集容量超限',
-  [ItemErrorType.MalformedFile]: '文件格式错误',
-  [ItemErrorType.InternalError]: '系统错误',
-  [ItemErrorType.IllegalContent]: '包含非法内容',
+  [ItemErrorType.MismatchSchema]: I18n.t('schema_mismatch'),
+  [ItemErrorType.EmptyData]: I18n.t('empty_data'),
+  [ItemErrorType.ExceedMaxItemSize]: I18n.t('single_data_size_exceeded'),
+  [ItemErrorType.ExceedDatasetCapacity]: I18n.t('dataset_capacity_exceeded'),
+  [ItemErrorType.MalformedFile]: I18n.t('file_format_error'),
+  [ItemErrorType.InternalError]: I18n.t('system_error'),
+  [ItemErrorType.IllegalContent]: I18n.t('contains_illegal_content'),
 };
 
 export const ImportResultInfo = ({
@@ -27,21 +28,21 @@ export const ImportResultInfo = ({
   <div>
     <div className="flex gap-2 items-center">
       <Typography.Text className="flex-1 leading-[16px]">
-        成功
+        {I18n.t('success')}
         <Typography.Text className="!font-medium mx-1">
           {progress?.added || 0}
         </Typography.Text>
-        条， 失败
+        {I18n.t('item_unit')}， {I18n.t('failure')}
         <Typography.Text className="!font-medium mx-1">
           {Number(progress?.processed) - Number(progress?.added) || 0}
         </Typography.Text>
-        条
+        {I18n.t('item_unit')}
       </Typography.Text>
     </div>
     {errors?.length ? (
       <div className="mt-2 rounded-[4px] p-2 coz-mg-secondary border border-solid border-[var(--coz-stroke-primary)]">
         <Typography.Text size="small" className="coz-fg-secondary">
-          存在以下原因导致执行失败，请自行纠正后重试
+          {I18n.t('failure_reasons_and_retry')}
         </Typography.Text>
         {errors.map(log => (
           <div className="flex items-center">
@@ -50,7 +51,7 @@ export const ImportResultInfo = ({
               {ErrorTypeMap[log?.type || ItemErrorType.InternalError]}
               <Typography.Text size="small" className="!font-medium">
                 {log?.error_count && log?.error_count > 0
-                  ? `（${log?.error_count}条）`
+                  ? `（${log?.error_count}${I18n.t('item_unit')}）`
                   : ''}
               </Typography.Text>
             </Typography.Text>

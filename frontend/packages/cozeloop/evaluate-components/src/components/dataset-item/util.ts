@@ -3,6 +3,7 @@
 /* eslint-disable @coze-arch/use-error-in-catch */
 import JSONBig from 'json-bigint';
 import Decimal from 'decimal.js';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type FieldSchema } from '@cozeloop/api-schema/evaluation';
 
 import { ContentType, COLUMN_TYPE_MAP, DataType } from './type';
@@ -113,6 +114,7 @@ export const validateAndFormat = ({
   }
 };
 
+// eslint-disable-next-line complexity -- skip
 export const validarDatasetItem = (
   value: string,
   callback: (error?: string) => void,
@@ -123,7 +125,7 @@ export const validarDatasetItem = (
     return true;
   }
   if (!/^-?(?:0|[1-9]\d*)(?:\.\d+)?$/.test(value)) {
-    callback('请输入数字');
+    callback(I18n.t('please_input', { field: I18n.t('number') }));
     return false;
   }
   // 校验value 是否为数字；
@@ -136,29 +138,33 @@ export const validarDatasetItem = (
     const minValue = minimum ? new Decimal(minimum) : undefined;
     const maxValue = maximum ? new Decimal(maximum) : undefined;
     if (minValue && decimalValue.lt(minValue)) {
-      callback(`请输入大于等于${minimum}的数字`);
+      callback(I18n.t('input_num_gte', { num: I18n.t('number') }));
       return false;
     }
     if (maxValue && decimalValue.gt(maxValue)) {
-      callback(`请输入小于等于${maximum}的数字`);
+      callback(I18n.t('input_num_lte', { num: I18n.t('number') }));
       return false;
     }
 
     if (type === DataType.Integer && decimalValue.isInteger() === false) {
-      callback('请输入整数');
+      callback(I18n.t('please_input', { field: I18n.t('integer') }));
       return false;
     }
     if (type === DataType.Float && multipleOf) {
       const multipleOfDecimal = new Decimal(multipleOf);
       const division = decimalValue.dividedBy(multipleOfDecimal);
       if (!division.isInteger()) {
-        callback(`仅支持精确到小数点后${multipleOfDecimal.decimalPlaces()}位`);
+        callback(
+          I18n.t('support_precision', {
+            precision: multipleOfDecimal.decimalPlaces(),
+          }),
+        );
         return false;
       }
     }
     return true;
   } catch (error) {
-    callback('请输入数字');
+    callback(I18n.t('please_input', { field: I18n.t('number') }));
     return false;
   }
 };

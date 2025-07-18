@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Radio } from '@coze-arch/coze-design';
 
 import { saftJsonParse } from '../../util';
@@ -21,10 +22,10 @@ export const BoolDatasetItemEdit = ({
   return (
     <div className="flex items-center gap-6">
       <Radio checked={isTrue} onChange={() => handleChange(true)}>
-        是
+        {I18n.t('yes')}
       </Radio>
       <Radio checked={isFalse} onChange={() => handleChange(false)}>
-        否
+        {I18n.t('no')}
       </Radio>
     </div>
   );

@@ -13,6 +13,7 @@ import { type FormSelect } from '@coze-arch/coze-design';
 
 import { NoVersionJumper } from '../../common';
 import { getPromptEvalTargetVersionOption } from './utils';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 const PromptEvalTargetVersionSelect = ({
   promptId,
@@ -64,8 +65,8 @@ const PromptEvalTargetVersionSelect = ({
   return (
     <BaseSearchSelect
       loading={service.loading}
-      emptyContent={'暂无数据'}
-      placeholder={'请选择版本'}
+      emptyContent={I18n.t('no_data')}
+      placeholder={I18n.t('please_select', { field: I18n.t('version') })}
       showRefreshBtn={true}
       onClickRefresh={() => service.run()}
       optionList={service.data}

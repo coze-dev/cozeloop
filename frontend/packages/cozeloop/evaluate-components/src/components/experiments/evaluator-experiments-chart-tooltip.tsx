@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { get } from 'lodash-es';
 import { type Datum } from '@visactor/vchart/esm/typings';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   type Evaluator,
   type Experiment,
@@ -60,7 +61,7 @@ export function EvaluatorExperimentsChartTooltip(
 
       {showEvalTarget ? (
         <div className="flex items-center gap-2 justify-between">
-          <span>评测对象</span>
+          <span>{I18n.t('evaluation_object')}</span>
           <div className="font-medium text-[var(--coz-fg-plus)]">
             <EvalTargetPreview
               spaceID={spaceID}
@@ -73,7 +74,7 @@ export function EvaluatorExperimentsChartTooltip(
 
       {showEvalSet ? (
         <div className="flex items-center gap-2 justify-between">
-          <span>评测集</span>
+          <span>{I18n.t('evaluation_set')}</span>
           <div className="font-medium text-[var(--coz-fg-plus)]">
             <EvaluationSetPreview evalSet={experiment?.eval_set} />
           </div>
@@ -81,7 +82,7 @@ export function EvaluatorExperimentsChartTooltip(
       ) : null}
 
       <div className="flex relative w-full items-center gap-2 justify-between">
-        <span>评估器</span>
+        <span>{I18n.t('evaluator')}</span>
         <div
           className="font-medium relative text-[var(--coz-fg-plus)] flex  justify-end"
           style={{ width: '164px' }}

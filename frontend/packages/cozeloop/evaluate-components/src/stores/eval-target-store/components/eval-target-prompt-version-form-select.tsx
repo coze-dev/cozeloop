@@ -1,6 +1,7 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import { useBaseURL } from '@cozeloop/biz-hooks-adapter';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   type CommonFieldProps,
   type SelectProps,
@@ -29,9 +30,14 @@ const PromptEvalTargetVersionFormSelect: React.FC<
     <FormSelectInner
       remote
       onChangeWithObject
-      rules={[{ required: true, message: '请选择版本' }]}
+      rules={[
+        {
+          required: true,
+          message: I18n.t('please_select', { field: I18n.t('version') }),
+        },
+      ]}
       label={{
-        text: '版本',
+        text: I18n.t('version'),
         className: 'justify-between pr-0',
         extra: (
           <>

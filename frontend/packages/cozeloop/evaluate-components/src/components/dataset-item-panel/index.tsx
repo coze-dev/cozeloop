@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useRef, useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { GuardPoint, Guard } from '@cozeloop/guard';
 import { ResizeSidesheet } from '@cozeloop/components';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
@@ -10,7 +11,10 @@ import {
   type EvaluationSetItem,
 } from '@cozeloop/api-schema/evaluation';
 import { StoneEvaluationApi } from '@cozeloop/api-schema';
-import { IconCozArrowLeft, IconCozArrowRight } from '@coze-arch/coze-design/icons';
+import {
+  IconCozArrowLeft,
+  IconCozArrowRight,
+} from '@coze-arch/coze-design/icons';
 import { Button, Form, type FormApi, Toast } from '@coze-arch/coze-design';
 
 import IDWithCopy from '../id-with-copy';
@@ -61,7 +65,7 @@ export const DatasetItemPanel = ({
         turns: newTurnsData,
         workspace_id: spaceID,
       });
-      Toast.success('保存成功');
+      Toast.success(I18n.t('save_success'));
       onSave();
     } catch (error) {
       console.error(error);
@@ -99,23 +103,23 @@ export const DatasetItemPanel = ({
                 }}
                 disabled={loading}
               >
-                保存
+                {I18n.t('save')}
               </Button>
             </Guard>
           ) : (
             <Button color="primary" onClick={() => setIsEdit(true)}>
-              编辑
+              {I18n.t('edit')}
             </Button>
           )}
           <Button color="primary" onClick={() => onCancel()}>
-            取消
+            {I18n.t('Cancel')}
           </Button>
         </div>
       }
       title={
         <div className="text-[18px] font-medium flex items-center gap-2">
           <div className="flex">
-            {isEdit ? '编辑数据项：' : '查看数据项：'}
+            {isEdit ? I18n.t('edit_data_item') : I18n.t('view_data_item')}
             <IDWithCopy id={datasetItem?.id ?? ''} />
           </div>
           {switchConfig ? (
@@ -129,7 +133,7 @@ export const DatasetItemPanel = ({
                   switchConfig?.onSwith('pre');
                 }}
               >
-                上一条
+                {I18n.t('prev_item')}
               </Button>
               <Button
                 icon={<IconCozArrowRight />}
@@ -141,7 +145,7 @@ export const DatasetItemPanel = ({
                   switchConfig?.onSwith('next');
                 }}
               >
-                下一条
+                {I18n.t('next_item')}
               </Button>
             </div>
           ) : null}

@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type RuleItem } from '@coze-arch/coze-design';
 
 export const sourceNameRuleValidator: RuleItem['validator'] = (
@@ -14,9 +15,13 @@ export const sourceNameRuleValidator: RuleItem['validator'] = (
     const firstChar = value.charAt(0);
     console.log(firstChar);
     if (/^[-_.]/.test(firstChar)) {
-      callback('仅支持英文字母、数字、中文开头');
+      callback(
+        I18n.t(
+          'only_support_english_letters_numbers_and_chinese_at_the_beginning',
+        ),
+      );
     } else {
-      callback('仅支持英文字母、数字、中文，“-”，“_”，“.”');
+      callback(I18n.t('only_support_english_letters_numbers_and_chinese_and_'));
     }
   }
   return true;
@@ -28,7 +33,11 @@ export const columnNameRuleValidator: RuleItem['validator'] = (
   callback,
 ) => {
   if (!/^[a-zA-Z][a-zA-Z0-9_]*$/.test(value)) {
-    callback('仅支持英文、数字、下划线，且需要以字母开头');
+    callback(
+      I18n.t(
+        'only_support_english_numbers_and_underscores_and_start_with_a_letter',
+      ),
+    );
   }
   return true;
 };

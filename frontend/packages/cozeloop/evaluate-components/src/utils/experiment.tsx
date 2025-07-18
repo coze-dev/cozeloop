@@ -10,6 +10,7 @@ import {
 import { Modal } from '@coze-arch/coze-design';
 
 import { MAX_EXPERIMENT_CONTRAST_COUNT } from '../constants/experiment';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 /**
  * 提取实验列表中所有评估器并按照评估器唯一版本去重
@@ -38,12 +39,13 @@ export function uniqueExperimentsEvaluators(experiments: Experiment[]) {
 export function verifyContrastExperiment(experiments: Experiment[]) {
   let warnText = '';
   if (!hasSameDataset(experiments)) {
-    warnText =
-      '仅评测集相同且已执行完成的实验可进行对比。目前选择的实验有关联评测集不同的情况，请重新选择。';
+    warnText = I18n.t('experiments_compared_tip');
   } else if (experiments.length > MAX_EXPERIMENT_CONTRAST_COUNT) {
-    warnText = `实验对比最大数量不能超过 ${MAX_EXPERIMENT_CONTRAST_COUNT} 个，请重新选择。`;
+    warnText = I18n.t('experiment_comparison_max_number', {
+      num: MAX_EXPERIMENT_CONTRAST_COUNT,
+    });
   } else if (!checkExperimentsStatus(experiments)) {
-    warnText = '仅已执行完成的实验可进行对比，请重新选择。';
+    warnText = I18n.t('only_completed_experiments_can_be_compared');
   }
   if (!warnText) {
     return true;
@@ -54,9 +56,9 @@ export function verifyContrastExperiment(experiments: Experiment[]) {
   });
 
   Modal.info({
-    title: '实验对比发起失败',
+    title: I18n.t('experiment_comparison_initiation_failure'),
     content: <div className="mt-2">{warnText}</div>,
-    okText: '已知晓',
+    okText: I18n.t('known'),
     closable: true,
     width: 420,
   });
@@ -112,5 +114,5 @@ export function getExperimentNameWithIndex(
   index: number,
   showName = true,
 ) {
-  return `${index <= 0 ? '基准组' : `实验组${index}`}${showName ? ` - ${experiment?.name}` : ''}`;
+  return `${index <= 0 ? I18n.t('benchmark_group') : I18n.t('experimental_group_index', { index })}${showName ? ` - ${experiment?.name}` : ''}`;
 }

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useMemo } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { GuardPoint, useGuard } from '@cozeloop/guard';
 import { FieldType } from '@cozeloop/api-schema/evaluation';
 import { type SelectProps } from '@coze-arch/coze-design';
@@ -34,7 +35,9 @@ function EvalTargetCascadeSelectSetter(props: SelectProps) {
         maxTagCount: 1,
         onlyShowOptionName: true,
         filter: true,
-        placeholder: '请选择评测对象',
+        placeholder: I18n.t('please_select', {
+          field: I18n.t('evaluation_object'),
+        }),
       }}
     />
   );
@@ -68,7 +71,7 @@ export function ExperimentEvaluatorLogicFilter({
   const filterFields = useMemo(() => {
     const newFilterFields: LogicField[] = [
       {
-        title: '评测集',
+        title: I18n.t('evaluation_set'),
         name: getLogicFieldName(FieldType.EvalSetID, 'eval_set'),
         type: 'options',
         setter: EvaluateSetSelect,
@@ -80,13 +83,13 @@ export function ExperimentEvaluatorLogicFilter({
         },
       },
       {
-        title: '评测对象',
+        title: I18n.t('evaluation_object'),
         name: getLogicFieldName(FieldType.SourceTarget, 'eval_target'),
         type: 'options',
         setter: EvalTargetCascadeSelectSetter,
       },
       {
-        title: '评测对象类型',
+        title: I18n.t('evaluation_object_type'),
         name: getLogicFieldName(FieldType.TargetType, 'eval_target_type'),
         type: 'options',
         setterProps: {
@@ -97,7 +100,7 @@ export function ExperimentEvaluatorLogicFilter({
         },
       },
       {
-        title: '评估器',
+        title: I18n.t('evaluator'),
         name: getLogicFieldName(FieldType.EvaluatorID, 'evaluator'),
         type: 'options',
         setter: EvaluatorSelect,
@@ -110,7 +113,7 @@ export function ExperimentEvaluatorLogicFilter({
       ...(!guardData.readonly
         ? [
             {
-              title: '创建人',
+              title: I18n.t('creator'),
               name: getLogicFieldName(FieldType.CreatorBy, 'create_by'),
               type: 'coze_user' as const,
             },

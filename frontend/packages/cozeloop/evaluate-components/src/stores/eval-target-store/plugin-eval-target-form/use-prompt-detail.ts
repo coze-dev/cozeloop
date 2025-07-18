@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import { useRequest } from 'ahooks';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import { type prompt as promptDomain } from '@cozeloop/api-schema/prompt';
 import { StonePromptApi } from '@cozeloop/api-schema';
@@ -54,7 +55,7 @@ const usePromptDetail = ({
         setLoading(false);
         return prompt;
       } catch (e) {
-        console.error('获取评测对象遇到错误', e);
+        console.error(I18n.t('get_evaluation_object_error'), e);
       } finally {
         setLoading(false);
       }

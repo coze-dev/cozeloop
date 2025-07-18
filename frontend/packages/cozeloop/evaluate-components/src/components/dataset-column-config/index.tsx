@@ -4,6 +4,7 @@ import { forwardRef, useImperativeHandle, useState } from 'react';
 
 import cs from 'classnames';
 import { useUpdateEffect } from 'ahooks';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { TooltipWhenDisabled } from '@cozeloop/components';
 import { IconCozPlus } from '@coze-arch/coze-design/icons';
 import {
@@ -61,7 +62,7 @@ export const DatasetColumnConfig = forwardRef(
 
     const addColumn = () => {
       if (fieldSchema?.length >= 50) {
-        Toast.error('最多支持50列');
+        Toast.error(I18n.t('max_support_columns', { num: 50 }));
         return;
       }
       fieldApi.setValue([...fieldSchema, DEFAULT_COLUMN_SCHEMA]);
@@ -93,7 +94,7 @@ export const DatasetColumnConfig = forwardRef(
                 setActiveKey={setActiveKey}
                 onDelete={() => {
                   if (fieldSchema?.length === 1) {
-                    Toast.error('至少保留一个列');
+                    Toast.error(I18n.t('retain_one_data_column'));
                     return;
                   }
                   formApi.validate().catch(err => {
@@ -103,7 +104,7 @@ export const DatasetColumnConfig = forwardRef(
                 }}
                 onCopy={() => {
                   if (fieldSchema?.length >= 50) {
-                    Toast.error('最多支持50列');
+                    Toast.error(I18n.t('max_support_columns', { num: 50 }));
                     return;
                   }
                   //往index+1位置插入一个item
@@ -141,7 +142,7 @@ export const DatasetColumnConfig = forwardRef(
         </Collapse>
         {showAddButton ? (
           <TooltipWhenDisabled
-            content="最多支持50列"
+            content={I18n.t('max_support_columns', { num: 50 })}
             theme="dark"
             disabled={fieldSchema?.length >= 50}
           >
@@ -152,7 +153,7 @@ export const DatasetColumnConfig = forwardRef(
               disabled={fieldSchema?.length >= 50}
               onClick={addColumn}
             >
-              添加列
+              {I18n.t('add_column')}
             </Button>
           </TooltipWhenDisabled>
         ) : null}
