@@ -7,6 +7,7 @@ import { useCallback, useRef, useState } from 'react';
 
 import { cloneDeep } from 'lodash-es';
 import { type ParsedEvent } from 'eventsource-parser';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type DebugToolCall } from '@cozeloop/api-schema/prompt';
 import { promptDebug } from '@cozeloop/api-schema';
 import { fetchStream } from '@coze-arch/fetch-stream';
@@ -191,7 +192,9 @@ export const useLLMStreamRun = (uid?: number) => {
                     messageChunk?.biz_extra?.biz_err_custom_extra;
                   const extra = JSON.parse(bizExtra || '{}');
                   debugIdRef.current = extra?.debug_id;
-                  throw new Error(messageChunk?.msg || '模型运行出错');
+                  throw new Error(
+                    messageChunk?.msg || I18n.t('model_run_error'),
+                  );
                 }
                 const {
                   tool_calls,
@@ -275,7 +278,7 @@ export const useLLMStreamRun = (uid?: number) => {
                 console.error(error);
 
                 const errMsg = error instanceof Error ? error.message : '';
-                Toast.error(errMsg || '模型运行错误');
+                Toast.error(errMsg || I18n.t('model_run_error'));
                 resolve({
                   debugId: debugIdRef.current,
                   message: autoExecuteResultRef.current,
@@ -307,7 +310,9 @@ export const useLLMStreamRun = (uid?: number) => {
             },
             onError: e => {
               abort();
-              Toast.error(e?.fetchStreamError?.msg || '模型运行错误');
+              Toast.error(
+                e?.fetchStreamError?.msg || I18n.t('model_run_error'),
+              );
               console.error(e?.fetchStreamError?.msg);
             },
           },

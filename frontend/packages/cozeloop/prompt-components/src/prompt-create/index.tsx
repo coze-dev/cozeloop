@@ -16,6 +16,7 @@ import {
   Modal,
   type FormApi,
 } from '@coze-arch/coze-design';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 interface PromptCreateProps {
   visible: boolean;
@@ -119,12 +120,12 @@ export function PromptCreate({
 
   const modalTitle = useMemo(() => {
     if (isEdit) {
-      return '编辑 Prompt';
+      return I18n.t('edit_prompt');
     }
     if (isCopy) {
-      return '创建副本';
+      return I18n.t('create_copy');
     }
-    return '创建 Prompt';
+    return I18n.t('create_prompt');
   }, [isCopy, isEdit]);
 
   return (
@@ -133,8 +134,8 @@ export function PromptCreate({
       visible={visible}
       onCancel={onCancel}
       onOk={handleOk}
-      cancelText="取消"
-      okText="确定"
+      cancelText={I18n.t('Cancel')}
+      okText={I18n.t('confirm')}
       okButtonProps={{
         loading:
           createService.loading || updateService.loading || copyService.loading,
@@ -164,15 +165,18 @@ export function PromptCreate({
         <FormInput
           label="Prompt Key"
           field="prompt_key"
-          placeholder="请输入 Prompt key"
+          placeholder={I18n.t('please_input', { field: I18n.t('prompt_key') })}
           rules={[
-            { required: true, message: '请输入 Prompt Key' },
+            {
+              required: true,
+              message: I18n.t('field_is_required', {
+                field: I18n.t('prompt_key'),
+              }),
+            },
             {
               validator: (_rule, value) => {
                 if (value && !/^[a-zA-Z][a-zA-Z0-9_.]*$/.test(value)) {
-                  return new Error(
-                    '仅支持英文字母、数字、“_”、“.”，且仅支持英文字母开头',
-                  );
+                  return new Error(I18n.t('prompt_key_format'));
                 }
                 return true;
               },
@@ -183,22 +187,23 @@ export function PromptCreate({
           disabled={isEdit}
         />
         <FormInput
-          label="Prompt 名称"
+          label={I18n.t('prompt_name')}
           field="prompt_name"
-          placeholder="请输入 Prompt 名称"
+          placeholder={I18n.t('please_input', { field: I18n.t('prompt_name') })}
           rules={[
-            { required: true, message: '请输入 Prompt 名称' },
+            {
+              required: true,
+              message: I18n.t('field_is_required', {
+                field: I18n.t('prompt_name'),
+              }),
+            },
             {
               validator: (_rule, value) => {
                 if (value && !/^[\u4e00-\u9fa5a-zA-Z0-9_.-]+$/.test(value)) {
-                  return new Error(
-                    '仅支持英文字母、数字、中文，“-”，“_”，“.”，且仅支持英文字母、数字、中文开头',
-                  );
+                  return new Error(I18n.t('prompt_name_format'));
                 }
                 if (value && /^[_.-]/.test(value)) {
-                  return new Error(
-                    '仅支持英文字母、数字、中文，“-”，“_”，“.”，且仅支持英文字母、数字、中文开头',
-                  );
+                  return new Error(I18n.t('prompt_name_format'));
                 }
                 return true;
               },
@@ -208,9 +213,11 @@ export function PromptCreate({
           max={100}
         />
         <FormTextArea
-          label="Prompt 描述"
+          label={I18n.t('prompt_description')}
           field="prompt_description"
-          placeholder="请输入 Prompt 描述"
+          placeholder={I18n.t('please_input', {
+            field: I18n.t('prompt_description'),
+          })}
           maxCount={500}
           maxLength={500}
         />

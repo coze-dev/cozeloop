@@ -4,6 +4,7 @@
 import { forwardRef, type ReactNode, useState } from 'react';
 
 import cn from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type Message, Role, VariableType } from '@cozeloop/api-schema/prompt';
 import { IconCozHandle } from '@coze-arch/coze-design/icons';
 import { IconButton, Input, Space } from '@coze-arch/coze-design';
@@ -170,7 +171,7 @@ export const PromptEditor = forwardRef(
               }}
               onFocus={() => setEditorActive(true)}
               onBlur={() => setEditorActive(false)}
-              placeholder="支持输入英文字母和下划线，且首字母必须是字母"
+              placeholder={I18n.t('prompt_var_format')}
             />
           ) : (
             <PromptBasicEditor

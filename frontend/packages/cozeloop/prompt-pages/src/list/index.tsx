@@ -36,6 +36,7 @@ import { PromptDelete } from '@/components/prompt-delete';
 import { columns } from './column';
 
 import styles from './index.module.less';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 const FormSearch = withField(Search);
 interface PromptSearchProps {
@@ -83,7 +84,7 @@ export function PromptList() {
   const deleteModal = useModalData<Prompt>();
 
   const operateCol: ColumnProps<Prompt> = {
-    title: '操作',
+    title: I18n.t('operation'),
     key: 'action',
     dataIndex: 'action',
     width: 110,
@@ -93,11 +94,11 @@ export function PromptList() {
       <TableColActions
         actions={[
           {
-            label: '详情',
+            label: I18n.t('detail'),
             onClick: () => navigate(`${row.id}`),
           },
           {
-            label: '删除',
+            label: I18n.t('delete'),
             onClick: () => {
               if (row?.id) {
                 deleteModal.open(row);
@@ -118,7 +119,7 @@ export function PromptList() {
 
   return (
     <PrimaryPage
-      pageTitle="Prompt 开发"
+      pageTitle={I18n.t('prompt_development')}
       filterSlot={
         <div className="flex align-center justify-between">
           <Form<PromptSearchProps>
@@ -128,14 +129,14 @@ export function PromptList() {
           >
             <FormSearch
               field="key_word"
-              placeholder="搜索 Prompt Key 或 Prompt 名称"
+              placeholder={I18n.t('search_prompt_key_or_prompt_name')}
               width={360}
               noLabel
             />
           </Form>
 
           <Button icon={<IconCozPlus />} onClick={() => createModal.open()}>
-            创建 Prompt
+            {I18n.t('create_prompt')}
           </Button>
         </div>
       }
@@ -179,15 +180,17 @@ export function PromptList() {
             <EmptyState
               size="full_screen"
               icon={<IconCozIllusEmpty />}
-              title="未能找到相关结果"
-              description="请尝试其他关键词或修改筛选项"
+              title={I18n.t('failed_to_find_related_results')}
+              description={I18n.t(
+                'try_other_keywords_or_modify_filter_options',
+              )}
             />
           ) : (
             <EmptyState
               size="full_screen"
               icon={<IconCozIllusAdd />}
-              title="暂无 Prompt"
-              description="点击右上角创建按钮进行创建"
+              title={I18n.t('no_prompt')}
+              description={I18n.t('click_to_create')}
             />
           )
         }

@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import Sortable from 'sortablejs';
 import { type PromptMessage } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Role } from '@cozeloop/api-schema/prompt';
 import { IconCozPlus } from '@coze-arch/coze-design/icons';
 import { Button, Modal } from '@coze-arch/coze-design';
@@ -116,12 +117,12 @@ export function PlaceholderModal({
 
   return (
     <Modal
-      title={`模拟消息组-${variableKey}`}
+      title={I18n.t('mock_message_group', { key: variableKey })}
       visible={visible}
       onCancel={onCancel}
       width={920}
-      cancelText="取消"
-      okText="确定"
+      cancelText={I18n.t('Cancel')}
+      okText={I18n.t('confirm')}
       onOk={handleOk}
     >
       <div className="flex flex-col gap-2 h-[500px] overflow-y-auto">
@@ -163,7 +164,9 @@ export function PlaceholderModal({
               maxHeight={240}
               forbidJinjaHighlight
               forbidVariables
-              placeholder="请输入模拟消息"
+              placeholder={I18n.t('please_input', {
+                field: I18n.t('mock_message'),
+              })}
             />
           ))}
         </div>
@@ -174,7 +177,7 @@ export function PlaceholderModal({
           disabled={streaming || readonly}
           color="primary"
         >
-          添加消息
+          {I18n.t('add_message')}
         </Button>
       </div>
     </Modal>

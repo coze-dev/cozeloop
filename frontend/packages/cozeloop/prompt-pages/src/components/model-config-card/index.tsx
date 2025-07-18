@@ -5,6 +5,7 @@ import React from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import { useRequest } from 'ahooks';
 import { BasicModelConfigEditor } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { CollapseCard } from '@cozeloop/components';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import { Scenario } from '@cozeloop/api-schema/llm-manage';
@@ -43,7 +44,7 @@ export function ModelConfigCard() {
 
   return (
     <CollapseCard
-      title={<Typography.Text strong>模型配置</Typography.Text>}
+      title={<Typography.Text strong>{I18n.t('model_config')}</Typography.Text>}
       defaultVisible
       key={`${modelConfig?.model_id}-${promptInfo?.prompt_commit?.commit_info?.version}`}
     >

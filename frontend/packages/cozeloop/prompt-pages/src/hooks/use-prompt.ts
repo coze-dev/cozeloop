@@ -11,6 +11,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { nanoid } from 'nanoid';
 import { isEqual } from 'lodash-es';
 import { useRequest } from 'ahooks';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import { TemplateType } from '@cozeloop/api-schema/prompt';
 import { promptDebug, promptManage } from '@cozeloop/api-schema';
@@ -29,7 +30,10 @@ interface UsePromptProps {
   registerSub?: boolean;
 }
 
-export const usePrompt = ({ promptID, registerSub = false }: UsePromptProps) => {
+export const usePrompt = ({
+  promptID,
+  registerSub = false,
+}: UsePromptProps) => {
   const { spaceID } = useSpace();
 
   const { setReadonly, setSaveLock } = useBasicStore(
@@ -244,7 +248,7 @@ export const usePrompt = ({ promptID, registerSub = false }: UsePromptProps) => 
             runSavePrompt({ ...val, promptInfo: currentPromptInfo });
           }
           if (currentPromptInfo?.id && currentPromptInfo.id !== promptID) {
-            console.error('promptID 不一致');
+            console.error(I18n.t('prompt_id_inconsistent'));
           }
         },
         {

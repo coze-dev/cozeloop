@@ -2898,6 +2898,9 @@ importers:
       '@cozeloop/components':
         specifier: workspace:*
         version: link:../components
+      '@cozeloop/i18n-adapter':
+        specifier: workspace:*
+        version: link:../i18n
       '@cozeloop/observation-component-adapter':
         specifier: workspace:*
         version: link:../observation/trace-detail

@@ -15,6 +15,7 @@ import { useBasicStore } from '@/store/use-basic-store';
 import { useCompare } from '@/hooks/use-compare';
 
 import { LoopPromptEditor } from '../loop-prompt-editor';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 interface PromptEditorCardProps {
   uid?: number;
@@ -79,7 +80,9 @@ export function PromptEditorCard({
 
   return (
     <CollapseCard
-      title={<Typography.Text strong>Prompt 模板</Typography.Text>}
+      title={
+        <Typography.Text strong>{I18n.t('prompt_template')}</Typography.Text>
+      }
       defaultVisible={defaultVisible}
       disableCollapse={!canCollapse}
     >
@@ -146,7 +149,7 @@ export function PromptEditorCard({
           onClick={handleAddMessage}
           disabled={readonly}
         >
-          添加消息
+          {I18n.t('add_message')}
         </Button>
       </div>
     </CollapseCard>

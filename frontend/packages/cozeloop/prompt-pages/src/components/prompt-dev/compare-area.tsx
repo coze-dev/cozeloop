@@ -9,6 +9,7 @@ import { useShallow } from 'zustand/react/shallow';
 import { nanoid } from 'nanoid';
 import { cloneDeep, debounce } from 'lodash-es';
 import { sendEvent, EVENT_NAMES } from '@cozeloop/tea-adapter';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type Message } from '@cozeloop/api-schema/prompt';
 
 import { usePromptStore } from '@/store/use-prompt-store';
@@ -158,7 +159,7 @@ export function CompareArea() {
           <CompareItem
             key={idx}
             uid={idx}
-            title={`对照组${idx + 1}`}
+            title={I18n.t('control_group_index', { index: idx + 1 })}
             ref={el => (singleAreaRefs.current[idx + 1] = el)}
             deleteCompare={() => !allStreaming && deleteComparePrompt(idx)}
             exchangePromptToDraft={() =>

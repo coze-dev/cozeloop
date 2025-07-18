@@ -17,6 +17,7 @@ import {
   Prec,
   PromptBasicEditor,
 } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import { uploadFile } from '@cozeloop/biz-components-adapter';
 import {
@@ -187,7 +188,7 @@ export function SendMsgArea({
       }));
     } catch (error) {
       console.info('error', error);
-      Toast.error('图片上传失败，请稍后重试');
+      Toast.error(I18n.t('image_upload_error'));
       setQueryMsg(v => ({
         ...v,
         parts: (v?.parts || []).filter((it: ContentPartLoop) => it.uid !== uid),
@@ -211,13 +212,19 @@ export function SendMsgArea({
       for (const item of Array.from(items)) {
         if (item.type.includes('image')) {
           if (isMaxImgSizeRef.current) {
-            Toast.warning(`最多上传${MAX_IMAGE_FILE}张图片`);
+            Toast.warning(
+              I18n.t('max_upload_picture_num', { num: MAX_IMAGE_FILE }),
+            );
             return;
           }
           const file = item.getAsFile();
           if (file) {
             if (file.size / 1024 > MAX_FILE_SIZE) {
-              Toast.error(`图片大小不能超过${MAX_FILE_SIZE_MB}MB`);
+              Toast.error(
+                I18n.t('image_size_not_exceed_num_mb', {
+                  num: MAX_FILE_SIZE_MB,
+                }),
+              );
               return;
             }
             uploadRef.current?.insert([file], 0);
@@ -299,13 +306,13 @@ export function SendMsgArea({
                 size="mini"
                 onClick={stopStreaming}
               >
-                停止响应
+                {I18n.t('stop_respond')}
               </Button>
             </Space>
           ) : null}
         </div>
         {isCompare ? null : (
-          <Tooltip content="清空历史消息" theme="dark">
+          <Tooltip content={I18n.t('clear_history_messages')} theme="dark">
             <IconButton
               icon={<IconCozBroom />}
               onClick={clearHistoricChat}
@@ -362,7 +369,7 @@ export function SendMsgArea({
             height={44}
             variables={variables?.filter(it => it.type === VariableType.String)}
             readOnly={streaming || inputReadonly}
-            linePlaceholder="请输入问题测试大模型回复，回车发送，Shift+回车换行"
+            linePlaceholder={I18n.t('input_question_tip')}
             customExtensions={extensions}
             onFocus={() => setEditorActive(true)}
             onBlur={() => setEditorActive(false)}
@@ -371,7 +378,7 @@ export function SendMsgArea({
         <div className="flex items-center justify-between w-full gap-0.5 px-3">
           <div className="flex items-center gap-2">
             {isCompare ? (
-              <Tooltip content="清空历史消息" theme="dark">
+              <Tooltip content={I18n.t('clear_history_messages')} theme="dark">
                 <IconButton
                   icon={<IconCozBroom />}
                   onClick={clearHistoricChat}
@@ -390,9 +397,19 @@ export function SendMsgArea({
               maxSize={MAX_FILE_SIZE}
               limit={canUploadFileSize}
               onSizeError={() =>
-                Toast.error(`图片大小不能超过${MAX_FILE_SIZE_MB}MB`)
+                Toast.error(
+                  Toast.error(
+                    I18n.t('image_size_not_exceed_num_mb', {
+                      num: MAX_FILE_SIZE_MB,
+                    }),
+                  ),
+                )
               }
-              onExceed={() => Toast.warning(`最多上传${MAX_IMAGE_FILE}张图片`)}
+              onExceed={() =>
+                Toast.warning(
+                  I18n.t('max_upload_picture_num', { num: MAX_IMAGE_FILE }),
+                )
+              }
               multiple
               fileList={imgParts.map(it => ({
                 uid: it.uid || '',
@@ -418,7 +435,7 @@ export function SendMsgArea({
                 type="tertiary"
                 icon={<IconCozInfoCircle />}
               >
-                该模型不支持上传图片
+                {I18n.t('model_not_support_picture')}
               </Typography.Text>
             )}
           </div>
@@ -427,12 +444,12 @@ export function SendMsgArea({
             onClick={handleSendMessage}
             disabled={executeDisabled}
           >
-            运行
+            {I18n.t('run')}
           </Button>
         </div>
       </div>
       <Typography.Text size="small" type="tertiary" className="text-center">
-        内容由AI生成，无法确保真实准确，仅供参考。
+        {I18n.t('generated_by_ai_tip')}
       </Typography.Text>
     </div>
   );

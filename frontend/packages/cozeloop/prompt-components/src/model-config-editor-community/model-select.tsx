@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useMemo } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type Model } from '@cozeloop/api-schema/llm-manage';
 import { Select, type SelectProps } from '@coze-arch/coze-design';
 
@@ -35,7 +36,7 @@ export function ModelSelectWithObject(
 
   return (
     <Select
-      placeholder="请选择模型"
+      placeholder={I18n.t('please_select', { field: I18n.t('model') })}
       {...props}
       optionList={optionList}
       // 使value为option对象，不能去掉

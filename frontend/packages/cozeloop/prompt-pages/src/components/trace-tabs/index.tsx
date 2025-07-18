@@ -11,6 +11,7 @@ import {
   TraceDetail,
   SpanType,
 } from '@cozeloop/observation-component-adapter';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { ResizeSidesheet, TextWithCopy } from '@cozeloop/components';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import {
@@ -136,14 +137,14 @@ export const TraceTab = ({
                 type="tertiary"
                 className="flex items-center gap-1"
               >
-                Prompt调试数据在路上，请刷新重试
+                {I18n.t('prompt_debug_data_refresh_retry')}
               </Typography.Text>
               <Typography.Text
                 className="text-brand-9 cursor-pointer pt-3"
                 icon={<IconCozRefresh className="text-secondary" />}
                 onClick={runAsync}
               >
-                刷新
+                {I18n.t('refresh')}
               </Typography.Text>
             </div>
           }
@@ -162,7 +163,7 @@ export const TraceTab = ({
             {spansItem?.map((item, index) => (
               <TabPane
                 tabIndex={index}
-                tab={`第${index + 1}步`}
+                tab={I18n.t('x_step', { num: index + 1 })}
                 key={item.span_id || index}
                 itemKey={String(index)}
                 className="px-5"

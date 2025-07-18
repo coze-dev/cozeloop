@@ -1,8 +1,14 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import { useShallow } from 'zustand/react/shallow';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { IconCozCross } from '@coze-arch/coze-design/icons';
-import { IconButton, Loading, Skeleton, Typography } from '@coze-arch/coze-design';
+import {
+  IconButton,
+  Loading,
+  Skeleton,
+  Typography,
+} from '@coze-arch/coze-design';
 
 import { usePromptStore } from '@/store/use-prompt-store';
 import { usePromptMockDataStore } from '@/store/use-mockdata-store';
@@ -71,7 +77,9 @@ export function PromptDev({ getPromptLoading }: PromptDevProps) {
                 className="h-[40px] px-6 py-2 box-border coz-fg-plus w-full flex justify-between items-center border-0 border-r border-t border-b border-solid"
                 style={{ background: '#F6F6FB' }}
               >
-                <Typography.Text strong>版本记录</Typography.Text>
+                <Typography.Text strong>
+                  {I18n.t('version_record')}
+                </Typography.Text>
                 <IconButton
                   icon={<IconCozCross />}
                   color="secondary"

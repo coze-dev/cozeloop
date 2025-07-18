@@ -9,6 +9,7 @@ import {
   formatTimestampToString,
   safeParseJson,
 } from '@cozeloop/toolkit';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   ContentType,
   type Message,
@@ -29,12 +30,12 @@ export const messageId = () => {
 
 export function versionValidate(val?: string, basedVersion?: string): string {
   if (!val) {
-    return '需要提供 Prompt 版本号';
+    return I18n.t('prompt_version_number_needed');
   }
   const pattern = /^(?:0|[1-9]\d{0,3})(?:\.(?:0|[1-9]\d{0,3})){2}$/;
   const isValid = pattern.test(val);
   if (!isValid) {
-    return '版本号格式不正确';
+    return I18n.t('incorrect_version_number');
   }
   const versionNos = val.split('.') || [];
   const basedNos = basedVersion?.split('.') || [0, 0, 0];
@@ -46,7 +47,7 @@ export function versionValidate(val?: string, basedVersion?: string): string {
       return '';
     }
     if (curV < baseV) {
-      return '版本号不能小于当前版本';
+      return I18n.t('version_number_lt_error');
     }
   }
   return '';

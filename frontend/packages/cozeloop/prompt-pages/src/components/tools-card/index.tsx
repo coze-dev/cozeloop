@@ -4,10 +4,14 @@
 /* eslint-disable complexity */
 import { useShallow } from 'zustand/react/shallow';
 import { EVENT_NAMES, sendEvent } from '@cozeloop/tea-adapter';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { CollapseCard } from '@cozeloop/components';
 import { useModalData } from '@cozeloop/base-hooks';
 import { ToolChoiceType } from '@cozeloop/api-schema/prompt';
-import { IconCozPlus, IconCozWarningCircle } from '@coze-arch/coze-design/icons';
+import {
+  IconCozPlus,
+  IconCozWarningCircle,
+} from '@coze-arch/coze-design/icons';
 import { Button, Space, Switch, Tag, Typography } from '@coze-arch/coze-design';
 
 import { usePromptStore } from '@/store/use-prompt-store';
@@ -82,11 +86,11 @@ export function ToolsCard({ uid, defaultVisible }: ToolsCardProps) {
         subInfo={
           functionCallEnabled || !currentModel ? null : (
             <Tag size="mini" color="red" prefixIcon={<IconCozWarningCircle />}>
-              模型不支持
+              {I18n.t('model_not_support')}
             </Tag>
           )
         }
-        title={<Typography.Text strong>函数</Typography.Text>}
+        title={<Typography.Text strong>{I18n.t('function')}</Typography.Text>}
         extra={
           <Space spacing="tight">
             <div
@@ -109,7 +113,9 @@ export function ToolsCard({ uid, defaultVisible }: ToolsCardProps) {
                 }}
                 disabled={currentReadonly || !functionCallEnabled}
               />
-              <Typography.Text size="small">启用函数</Typography.Text>
+              <Typography.Text size="small">
+                {I18n.t('enable_function')}
+              </Typography.Text>
             </div>
             {isCompare ? null : (
               <div
@@ -131,7 +137,9 @@ export function ToolsCard({ uid, defaultVisible }: ToolsCardProps) {
                     currentReadonly
                   }
                 />
-                <Typography.Text size="small">单步调试</Typography.Text>
+                <Typography.Text size="small">
+                  {I18n.t('single_step_debugging')}
+                </Typography.Text>
               </div>
             )}
           </Space>
@@ -163,7 +171,7 @@ export function ToolsCard({ uid, defaultVisible }: ToolsCardProps) {
             onClick={() => toolModal.open()}
             disabled={currentReadonly || !functionCallEnabled}
           >
-            新增函数
+            {I18n.t('new_function')}
           </Button>
         </div>
       </CollapseCard>

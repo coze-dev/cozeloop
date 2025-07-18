@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { forwardRef, useImperativeHandle, useMemo, useRef } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type VariableDef } from '@cozeloop/api-schema/prompt';
 import {
   EditorProvider,
@@ -74,7 +75,7 @@ export const PromptBasicEditor = forwardRef<
       forbidJinjaHighlight,
       forbidVariables,
       readOnly,
-      linePlaceholder = '请输入内容，支持按此格式书写变量：{{USER_NAME}}',
+      linePlaceholder = I18n.t('please_input_with_vars'),
       customExtensions,
       autoScrollToBottom,
       onBlur,

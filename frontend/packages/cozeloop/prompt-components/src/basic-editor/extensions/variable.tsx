@@ -4,6 +4,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 import { useEffect, useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type VariableDef } from '@cozeloop/api-schema/prompt';
 import {
   Mention,
@@ -114,7 +115,7 @@ function Variable({ variables }: { variables: VariableDef[] }) {
         content={
           <div className="p-1 min-w-[100px] flex flex-col gap-1">
             <Typography.Text type="secondary" strong>
-              插入变量
+              {I18n.t('insert_variable')}
             </Typography.Text>
             <div className="max-h-[200px] overflow-y-auto">
               {variables.map((variable, index) => (

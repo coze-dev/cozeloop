@@ -31,7 +31,6 @@
   "evaluator_type": "评估器类型",
   "model_selection": "模型选择",
   "debug": "调试",
-  "preview_and_debug": "预览与调试",
   "construct_test_data_to_preview_evaluator_runtime_result": "可通过构造测试数据，预览评估器的运行结果。",
   "config_info": "配置信息",
   "construct_test_data": "构造测试数据",

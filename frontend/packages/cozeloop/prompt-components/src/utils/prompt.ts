@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   type Message,
   Role,
@@ -13,17 +14,19 @@ export const getPlaceholderErrorContent = (
 ) => {
   if (message?.role === Role.Placeholder) {
     if (!message?.content) {
-      return 'Placeholder 变量名不能为空';
+      return I18n.t('field_not_empty', {
+        field: I18n.t('placeholder_var_name'),
+      });
     }
     if (!/^[A-Za-z][A-Za-z0-9_]*$/.test(message?.content)) {
-      return '只允许输入英文、数字及下划线且首字母需为英文';
+      return I18n.t('placeholder_format');
     }
     const normalVariables = variables?.filter(
       it => it.type !== VariableType.Placeholder,
     );
     const hasSameKey = normalVariables?.find(it => it.key === message?.content);
     if (hasSameKey) {
-      return '文本变量名称已存在，请修改 Placeholder 变量名';
+      return I18n.t('placeholder_name_exists');
     }
   }
   return '';

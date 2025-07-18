@@ -1,6 +1,7 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import { formatTimestampToString } from '@cozeloop/toolkit';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { TextWithCopy, UserProfile } from '@cozeloop/components';
 import { type Prompt } from '@cozeloop/api-schema/prompt';
 import { type UserInfoDetail } from '@cozeloop/api-schema/foundation';
@@ -8,7 +9,7 @@ import { type ColumnProps, Tag, Typography } from '@coze-arch/coze-design';
 
 export const columns: ColumnProps<Prompt & { user?: UserInfoDetail }>[] = [
   {
-    title: 'Prompt Key',
+    title: I18n.t('prompt_key'),
     dataIndex: 'prompt_key',
     width: 260,
     render: (key?: string, item?: Prompt) => (
@@ -23,7 +24,7 @@ export const columns: ColumnProps<Prompt & { user?: UserInfoDetail }>[] = [
     ),
   },
   {
-    title: 'Prompt 名称',
+    title: I18n.t('prompt_name'),
     dataIndex: 'prompt_basic.display_name',
     width: 200,
     render: (text: string) => (
@@ -38,7 +39,7 @@ export const columns: ColumnProps<Prompt & { user?: UserInfoDetail }>[] = [
     ),
   },
   {
-    title: 'Prompt 描述',
+    title: I18n.t('prompt_description'),
     dataIndex: 'prompt_basic.description',
     width: 220,
     render: (text: string) => (
@@ -53,13 +54,13 @@ export const columns: ColumnProps<Prompt & { user?: UserInfoDetail }>[] = [
     ),
   },
   {
-    title: '最新版本',
+    title: I18n.t('latest_version'),
     dataIndex: 'prompt_basic.latest_version',
     width: 140,
     render: (text: string) => (text ? <Tag color="primary">{text}</Tag> : '-'),
   },
   {
-    title: '最近提交时间',
+    title: I18n.t('recent_submission_time'),
     dataIndex: 'prompt_basic.latest_committed_at',
     width: 200,
     render: (text: string) => (
@@ -74,7 +75,7 @@ export const columns: ColumnProps<Prompt & { user?: UserInfoDetail }>[] = [
     sorter: true,
   },
   {
-    title: '创建人',
+    title: I18n.t('creator'),
     dataIndex: 'user',
     width: 140,
     render: (user?: UserInfoDetail) => (
@@ -82,7 +83,7 @@ export const columns: ColumnProps<Prompt & { user?: UserInfoDetail }>[] = [
     ),
   },
   {
-    title: '创建时间',
+    title: I18n.t('create_time'),
     dataIndex: 'prompt_basic.created_at',
     width: 200,
     render: (text: string) => (

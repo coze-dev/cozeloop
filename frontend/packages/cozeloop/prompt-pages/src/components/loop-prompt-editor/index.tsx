@@ -7,6 +7,7 @@ import {
   PromptEditor,
   type PromptEditorProps,
 } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { handleCopy } from '@cozeloop/components';
 import { Role } from '@cozeloop/api-schema/prompt';
 import { IconCozCopy, IconCozTrashCan } from '@coze-arch/coze-design/icons';
@@ -47,10 +48,10 @@ export const LoopPromptEditor = forwardRef<
             />
             {!restProps.onDelete ? null : (
               <Popconfirm
-                title="删除 Prompt 模板"
-                content="确定删除当前 Prompt 模板？"
-                cancelText="取消"
-                okText="删除"
+                title={I18n.t('delete_prompt_template')}
+                content={I18n.t('confirm_delete_current_prompt_template')}
+                cancelText={I18n.t('Cancel')}
+                okText={I18n.t('delete')}
                 okButtonProps={{ color: 'red' }}
                 onConfirm={() =>
                   restProps.onDelete?.(

@@ -14,6 +14,7 @@ import {
   getPlaceholderErrorContent,
   PromptCreate,
 } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   EditIconButton,
   getBaseUrl,
@@ -178,7 +179,7 @@ export function PromptHeader() {
           loading={versionChangeLoading}
           disabled={streaming}
         >
-          返回草稿版本
+          {I18n.t('revert_draft_version')}
         </Button>
       );
     }
@@ -190,7 +191,9 @@ export function PromptHeader() {
     return (
       <TooltipWhenDisabled
         content={
-          !hasPeDraft ? '当前无草稿变更' : 'Placeholder 变量不存在或命名错误'
+          !hasPeDraft
+            ? I18n.t('no_draft_change')
+            : I18n.t('placeholder_var_create_error')
         }
         disabled={hasPlaceholderError || !hasPeDraft}
         theme="dark"
@@ -205,7 +208,7 @@ export function PromptHeader() {
             !hasPeDraft
           }
         >
-          提交新版本
+          {I18n.t('submit_new_version')}
         </Button>
       </TooltipWhenDisabled>
     );
@@ -263,11 +266,11 @@ export function PromptHeader() {
               className="!py-0.5"
               prefixIcon={<IconCozLoading spin />}
             >
-              草稿保存中...
+              {I18n.t('draft_saving')}
             </Tag>
           ) : (
             <Tag color="primary">
-              草稿已自动保存于
+              {I18n.t('draft_auto_saved_in')}
               {promptInfo?.prompt_draft?.draft_info?.updated_at
                 ? convertDisplayTime(
                     promptInfo?.prompt_draft?.draft_info?.updated_at,
@@ -315,7 +318,7 @@ export function PromptHeader() {
               <TextWithCopy
                 content={promptInfo.prompt_key}
                 maxWidth={200}
-                copyTooltipText="复制 Prompt Key"
+                copyTooltipText={I18n.t('copy_prompt_key')}
                 textClassName="!text-xs"
                 textType="tertiary"
               />
@@ -328,14 +331,16 @@ export function PromptHeader() {
                   color={isDraftEdit ? 'yellow' : 'brand'}
                   className="!py-0.5"
                 >
-                  {isDraftEdit ? '修改未提交' : '已提交'}
+                  {isDraftEdit
+                    ? I18n.t('modify_not_submitted')
+                    : I18n.t('submitted')}
                 </Tag>
               ) : (
                 <Tag
                   color={isDraftEdit ? 'yellow' : 'brand'}
                   className="!py-0.5"
                 >
-                  修改未提交
+                  {I18n.t('modify_not_submitted')}
                 </Tag>
               )}
               {autoSaving ? (
@@ -344,11 +349,11 @@ export function PromptHeader() {
                   className="!py-0.5"
                   prefixIcon={<IconCozLoading spin />}
                 >
-                  草稿保存中...
+                  {I18n.t('draft_saving')}
                 </Tag>
               ) : isDraftEdit ? (
                 <Tag color="primary" className="!py-0.5">
-                  草稿已自动保存于
+                  {I18n.t('draft_auto_saved_in')}
                   {promptInfo?.prompt_draft?.draft_info?.updated_at ||
                   promptInfo?.prompt_commit?.commit_info?.committed_at
                     ? convertDisplayTime(
@@ -384,7 +389,7 @@ export function PromptHeader() {
               icon={<IconCozBattle />}
               disabled={streaming || versionChangeLoading || readonly}
             >
-              进入自由对比模式
+              {I18n.t('enter_free_comparison_mode')}
             </Button>
             {promptInfo?.prompt_key ? (
               <Button
@@ -392,12 +397,12 @@ export function PromptHeader() {
                 onClick={() => setVersionChangeVisible(v => Boolean(!v))}
                 disabled={streaming}
               >
-                版本记录
+                {I18n.t('version_record')}
               </Button>
             ) : null}
             {promptInfo?.prompt_key ? null : (
               <TooltipWhenDisabled
-                content="Placeholder 变量名不存在或命名错误，无法创建"
+                content={I18n.t('placeholder_var_create_error')}
                 disabled={hasPlaceholderError}
                 theme="dark"
               >
@@ -424,7 +429,7 @@ export function PromptHeader() {
                   }}
                   disabled={hasPlaceholderError || streaming}
                 >
-                  快捷创建
+                  {I18n.t('quick_create')}
                 </Button>
               </TooltipWhenDisabled>
             )}
@@ -441,7 +446,7 @@ export function PromptHeader() {
                       className="!px-2"
                       onClick={() => setExecuteHistoryVisible(true)}
                     >
-                      调试历史
+                      {I18n.t('debug_history')}
                     </Dropdown.Item>
                     {readonly ? (
                       <Dropdown.Item
@@ -455,7 +460,7 @@ export function PromptHeader() {
                         }
                         disabled={streaming || versionChangeLoading}
                       >
-                        创建副本
+                        {I18n.t('create_copy')}
                       </Dropdown.Item>
                     ) : null}
                     <Dropdown.Item
@@ -463,7 +468,9 @@ export function PromptHeader() {
                       onClick={() => onDeletePrompt(promptInfo)}
                       disabled={streaming}
                     >
-                      <Typography.Text type="danger">删除</Typography.Text>
+                      <Typography.Text type="danger">
+                        {I18n.t('delete')}
+                      </Typography.Text>
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 }
@@ -483,7 +490,7 @@ export function PromptHeader() {
               icon={<IconCozExit />}
               disabled={streaming}
             >
-              退出自由对比模式
+              {I18n.t('exit_free_comparison_mode')}
             </Button>
             <Button
               color="primary"
@@ -491,7 +498,7 @@ export function PromptHeader() {
               disabled={(compareConfig?.groups || []).length >= 3 || streaming}
               onClick={handleAddNewComparePrompt}
             >
-              增加对照组
+              {I18n.t('add_control_group')}
             </Button>
           </>
         )}

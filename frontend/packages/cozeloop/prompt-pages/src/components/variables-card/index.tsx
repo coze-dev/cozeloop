@@ -3,6 +3,7 @@
 import { useShallow } from 'zustand/react/shallow';
 import { nanoid } from 'nanoid';
 import { type PromptMessage } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { CollapseCard } from '@cozeloop/components';
 import { Role, VariableType } from '@cozeloop/api-schema/prompt';
 import { Typography } from '@coze-arch/coze-design';
@@ -97,7 +98,9 @@ export function VariablesCard({ uid, defaultVisible }: VariablesCardProps) {
 
   return (
     <CollapseCard
-      title={<Typography.Text strong>Prompt 变量</Typography.Text>}
+      title={
+        <Typography.Text strong>{I18n.t('prompt_variable')}</Typography.Text>
+      }
       defaultVisible={defaultVisible}
     >
       <div className="flex flex-col gap-2 pt-4 pb-3">
@@ -122,7 +125,7 @@ export function VariablesCard({ uid, defaultVisible }: VariablesCardProps) {
             type="tertiary"
             style={{ color: 'var(--coz-fg-dim)' }}
           >
-            暂无变量
+            {I18n.t('no_variable')}
           </Typography.Text>
         )}
       </div>

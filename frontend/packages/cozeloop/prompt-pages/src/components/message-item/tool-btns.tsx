@@ -30,6 +30,7 @@ import { type DebugMessage } from '@/store/use-mockdata-store';
 import { useBasicStore } from '@/store/use-basic-store';
 
 import styles from './index.module.less';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 interface ToolBtnsProps {
   item: DebugMessage;
@@ -91,7 +92,7 @@ export function ToolBtns({
     parts?.find(it => it?.type === ContentType.Text)?.text || item.content;
 
   const copyBtn = !btnConfig?.hideCopy && (
-    <Tooltip content="复制" theme="dark">
+    <Tooltip content={I18n.t('Copy')} theme="dark">
       <IconButton
         className={styles['icon-button']}
         icon={<IconCozCopy fontSize={14} />}
@@ -116,7 +117,7 @@ export function ToolBtns({
   );
 
   const editBtn = !btnConfig?.hideEdit && (
-    <Tooltip content="编辑" theme="dark">
+    <Tooltip content={I18n.t('edit')} theme="dark">
       <IconButton
         className={styles['icon-button']}
         icon={<IconCozPencil fontSize={14} />}
@@ -130,10 +131,10 @@ export function ToolBtns({
     <Popconfirm
       trigger="custom"
       visible={showPopconfirm}
-      title="删除消息"
-      content="确认删除该消息吗？"
-      cancelText="取消"
-      okText="删除"
+      title={I18n.t('delete_message')}
+      content={I18n.t('confirm_delete_message')}
+      cancelText={I18n.t('Cancel')}
+      okText={I18n.t('delete')}
       okButtonProps={{ color: 'red' }}
       stopPropagation={true}
       onConfirm={() => {
@@ -151,7 +152,7 @@ export function ToolBtns({
         />
       ) : (
         <span>
-          <Tooltip content="删除" theme="dark">
+          <Tooltip content={I18n.t('delete')} theme="dark">
             <IconButton
               className={styles['icon-button']}
               icon={<IconCozTrashCan fontSize={14} />}
@@ -172,7 +173,7 @@ export function ToolBtns({
       className={styles['icon-button']}
       onClick={() => updateEditable?.(false)}
     >
-      取消
+      {I18n.t('Cancel')}
     </Button>
   );
 
@@ -183,12 +184,12 @@ export function ToolBtns({
       icon
       onClick={() => updateMessageItem?.({ ...item, isEdit: false })}
     >
-      确认
+      {I18n.t('confirm')}
     </Button>
   );
 
   const refreshBtn = !btnConfig?.hideRerun && (
-    <Tooltip content="重新运行" theme="dark">
+    <Tooltip content={I18n.t('rerun')} theme="dark">
       <IconButton
         className={styles['icon-button']}
         icon={<IconCozRefresh fontSize={14} />}

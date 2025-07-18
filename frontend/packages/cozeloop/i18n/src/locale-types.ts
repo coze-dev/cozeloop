@@ -100,6 +100,11 @@ export interface I18nWithInterpolation {
     /** string */
     key: ReactNode;
   };
+  /** 第{num}步 */
+  x_step: {
+    /** string */
+    num: ReactNode;
+  };
   /** 百科知识数据集 {index} */
   pedia_dataset: {
     /** string */
@@ -274,7 +279,7 @@ export type I18nKeysNoInterpolation =
   | 'add_new_pat_1'
   /** 添加新令牌 */
   | 'add_new_token_button_1'
-  /** 添加 */
+  /** 新增 */
   | 'add'
   /** 图片不可访问 */
   | 'analytics_image_error'
@@ -481,8 +486,12 @@ export type I18nKeysNoInterpolation =
   | 'email'
   /** 实验 */
   | 'experiment'
+  /** 失败 */
+  | 'failure'
   /** 字段 */
   | 'field'
+  /** 输入 */
+  | 'input'
   /** 登录 */
   | 'login'
   /** 名称 */
@@ -491,6 +500,8 @@ export type I18nKeysNoInterpolation =
   | 'network_error'
   /** 操作 */
   | 'operation'
+  /** 输出 */
+  | 'output'
   /** 密码 */
   | 'password'
   /** 永久 */
@@ -511,6 +522,8 @@ export type I18nKeysNoInterpolation =
   | 'save'
   /** 提交 */
   | 'submit'
+  /** 成功 */
+  | 'success'
   /** 今天 */
   | 'today'
   /** 明天 */
@@ -697,6 +710,8 @@ export type I18nKeysNoInterpolation =
   | 'no_debug_record'
   /** 调试历史 */
   | 'debug_history'
+  /** Prompt 模板 */
+  | 'prompt_template'
   /** 删除 Prompt 模板 */
   | 'delete_prompt_template'
   /** 确定删除当前 Prompt 模板？ */
@@ -717,10 +732,12 @@ export type I18nKeysNoInterpolation =
   | 'rerun'
   /** 删除成功 */
   | 'delete_success'
-  /** 删除Prompt */
+  /** 删除 Prompt */
   | 'delete_prompt'
   /** 复制 Prompt Key */
   | 'copy_prompt_key'
+  /** 输入想要删除的Prompt Key： */
+  | 'input_prompt_key_to_delete'
   /** 请输入 Prompt Key 再次确认 */
   | 'prompt_key_again_confirm'
   /** 编排 */
@@ -729,6 +746,8 @@ export type I18nKeysNoInterpolation =
   | 'collapse_model_and_var_area'
   /** 展开模型配置与变量区 */
   | 'expand_model_and_var_area'
+  /** 预览与调试 */
+  | 'preview_and_debug'
   /** 展开预览与调试 */
   | 'expand_preview_and_debug'
   /** 收起预览与调试 */
@@ -803,7 +822,7 @@ export type I18nKeysNoInterpolation =
   | 'model_run_error'
   /** 模型运行错误 */
   | 'model_runtime_error'
-  /** promptID 不一致 */
+  /** Prompt ID 不一致 */
   | 'prompt_id_inconsistent'
   /** 最近提交时间 */
   | 'recent_submission_time'
@@ -815,6 +834,74 @@ export type I18nKeysNoInterpolation =
   | 'prompt_version_number_needed'
   /** 版本号格式不正确 */
   | 'incorrect_version_number'
+  /** 停止响应 */
+  | 'stop_respond'
+  /** 耗时 */
+  | 'time_consumed'
+  /** Tokens */
+  | 'tokens'
+  /** 请求发起时间 */
+  | 'request_initiation_time'
+  /** 函数调用 */
+  | 'function_call'
+  /** 模型配置 */
+  | 'model_config'
+  /** 添加消息 */
+  | 'add_message'
+  /** 返回草稿版本 */
+  | 'revert_draft_version'
+  /** 草稿 */
+  | 'draft'
+  /** 草稿保存中... */
+  | 'draft_saving'
+  /** 草稿已自动保存于 */
+  | 'draft_auto_saved_in'
+  /** 进入自由对比模式 */
+  | 'enter_free_comparison_mode'
+  /** 退出自由对比模式 */
+  | 'exit_free_comparison_mode'
+  /** 快捷创建 */
+  | 'quick_create'
+  /** 增加对照组 */
+  | 'add_control_group'
+  /** 变量设置 */
+  | 'variable_setting'
+  /** 函数 */
+  | 'function'
+  /** 接入 CozeLoop SDK 上报数据，进行数据观测 */
+  | 'cozeloop_sdk_data_report_observation'
+  /** 立即前往 */
+  | 'go_immediately'
+  /** 对 Prompt 进行效果评估，提升应用效果 */
+  | 'prompt_effect_evaluation'
+  /** 确认版本差异 */
+  | 'confirm_version_difference'
+  /** 确认版本信息 */
+  | 'confirm_version_info'
+  /** 该模型不支持上传图片 */
+  | 'model_not_support_picture'
+  /** 模型不支持 */
+  | 'model_not_support'
+  /** 启用函数 */
+  | 'enable_function'
+  /** 单步调试 */
+  | 'single_step_debugging'
+  /** 插入模版 */
+  | 'insert_template'
+  /** 默认模拟值 */
+  | 'default_mock_value'
+  /** Prompt 调试数据在路上，请刷新重试 */
+  | 'prompt_debug_data_refresh_retry'
+  /** 编辑 Placeholder */
+  | 'edit_placeholder'
+  /** Prompt 变量 */
+  | 'prompt_variable'
+  /** 暂无变量 */
+  | 'no_variable'
+  /** 插入变量 */
+  | 'insert_variable'
+  /** 参数配置 */
+  | 'parameter_config'
   /** 版本号不能小于当前版本 */
   | 'version_number_lt_error'
   /** 紧凑视图 */
@@ -873,8 +960,6 @@ export type I18nKeysNoInterpolation =
   | 'evaluator_type'
   /** 模型选择 */
   | 'model_selection'
-  /** 预览与调试 */
-  | 'preview_and_debug'
   /** 可通过构造测试数据，预览评估器的运行结果。 */
   | 'construct_test_data_to_preview_evaluator_runtime_result'
   /** 配置信息 */
@@ -1139,8 +1224,6 @@ export type I18nKeysNoInterpolation =
   | 'select_evaluator_and_version_number_to_view'
   /** 模型 */
   | 'model'
-  /** 输出 */
-  | 'output'
   /** 通过 Function Call 从 LLM 中提取数据，固定评估器输出格式为“得分-原因”。 */
   | 'extract_via_function_call'
   /** 得分： */

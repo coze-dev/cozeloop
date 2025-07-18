@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 
 import { useRequest } from 'ahooks';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { TextWithCopy } from '@cozeloop/components';
 import { type Prompt } from '@cozeloop/api-schema/prompt';
 import { StonePromptApi } from '@cozeloop/api-schema';
@@ -27,7 +28,7 @@ export function PromptDelete({
       manual: true,
       onSuccess: () => {
         Toast.success({
-          content: '删除成功',
+          content: I18n.t('delete_success'),
           showClose: false,
         });
         onOk?.();
@@ -48,7 +49,7 @@ export function PromptDelete({
   }, [visible]);
   return (
     <Modal
-      title="删除Prompt"
+      title={I18n.t('delete_prompt')}
       visible={visible}
       onCancel={onCacnel}
       onOk={handleOk}
@@ -56,22 +57,22 @@ export function PromptDelete({
         disabled: Boolean(!deleteKey || deleteKey !== data?.prompt_key),
         loading: deleteLoading,
       }}
-      okText="确定"
-      cancelText="取消"
+      okText={I18n.t('confirm')}
+      cancelText={I18n.t('Cancel')}
     >
       <Space vertical style={{ width: '100%' }} align="start">
         <Typography.Text>
-          输入想要删除的Prompt Key：
+          {I18n.t('input_prompt_key_to_delete')}
           <TextWithCopy
             content={data?.prompt_key}
             maxWidth={400}
             className="gap-2"
-            copyTooltipText="复制 Prompt Key"
+            copyTooltipText={I18n.t('copy_prompt_key')}
           />
         </Typography.Text>
         <Input
           style={{ width: '100%' }}
-          placeholder="请输入 Prompt Key 再次确认"
+          placeholder={I18n.t('prompt_key_again_confirm')}
           value={deleteKey}
           onChange={setDeleteKey}
         />

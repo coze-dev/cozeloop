@@ -18,6 +18,7 @@
     "@cozeloop/biz-components-adapter": "workspace:*",
     "@cozeloop/biz-hooks-adapter": "workspace:*",
     "@cozeloop/components": "workspace:*",
+    "@cozeloop/i18n-adapter": "workspace:*",
     "@cozeloop/observation-component-adapter": "workspace:*",
     "@cozeloop/prompt-components": "workspace:*",
     "@cozeloop/tea-adapter": "workspace:*",
@@ -60,4 +61,3 @@
     "react-router-dom": "^6.22.0"
   }
 }
-

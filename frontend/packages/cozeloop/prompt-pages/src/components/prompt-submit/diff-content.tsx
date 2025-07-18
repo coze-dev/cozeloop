@@ -10,6 +10,7 @@ import { type ReactNode, useMemo } from 'react';
 import { isEqual } from 'lodash-es';
 import { useRequest } from 'ahooks';
 import { PromptDiffEditor } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import { type Prompt, ToolChoiceType } from '@cozeloop/api-schema/prompt';
 import { Scenario } from '@cozeloop/api-schema/llm-manage';
@@ -96,7 +97,7 @@ export function DiffContent({
     };
 
     addDiffItem(
-      '模型 ID',
+      I18n.t('model_id'),
       baseItem.modelConfig?.model_id,
       currentItem.modelConfig?.model_id,
     );
@@ -109,21 +110,25 @@ export function DiffContent({
     );
 
     if (baseModel?.name !== currentModel?.name) {
-      addDiffItem('模型名称', baseModel?.name || '', currentModel?.name || '');
+      addDiffItem(
+        I18n.t('model_name'),
+        baseModel?.name || '',
+        currentModel?.name || '',
+      );
     }
 
     addDiffItem(
-      '生成随机性',
+      I18n.t('temperature'),
       baseItem.modelConfig?.temperature,
       currentItem.modelConfig?.temperature,
     );
     addDiffItem(
-      '最大回复长度',
+      I18n.t('max_tokens'),
       baseItem.modelConfig?.max_tokens,
       currentItem.modelConfig?.max_tokens,
     );
     addDiffItem(
-      'Top P',
+      I18n.t('top_p'),
       baseItem.modelConfig?.top_p,
       currentItem.modelConfig?.top_p,
     );
@@ -155,7 +160,7 @@ export function DiffContent({
         key: item.key || '',
         value: (
           <div className="flex items-center gap-4">
-            <Tag color="primary">删除</Tag>
+            <Tag color="primary">{I18n.t('delete')}</Tag>
             <Typography.Text className="flex gap-1 items-center!font-semibold">
               {item.key}
             </Typography.Text>
@@ -169,7 +174,7 @@ export function DiffContent({
         key: item.key || '',
         value: (
           <div className="flex items-center gap-4">
-            <Tag color="primary">新增</Tag>
+            <Tag color="primary">{I18n.t('add')}</Tag>
             <Typography.Text className="flex gap-1 items-center!font-semibold">
               {item.key}
             </Typography.Text>
@@ -193,7 +198,7 @@ export function DiffContent({
         <EmptyState
           icon={<IconCozIllusEmpty width="160" height="160" />}
           darkModeIcon={<IconCozIllusEmptyDark width="160" height="160" />}
-          title="本次提交无版本差异"
+          title={I18n.t('submission_no_version_diff')}
         />
       </div>
     );
@@ -202,7 +207,9 @@ export function DiffContent({
     <div className="w-full flex flex-col gap-5">
       {modelDiffData.length ? (
         <div className="flex flex-col gap-2">
-          <Typography.Text className="!font-semibold">模型设置</Typography.Text>
+          <Typography.Text className="!font-semibold">
+            {I18n.t('model_config')}
+          </Typography.Text>
           <div className={styles['diff-desc-table']}>
             {modelDiffData.map(it => (
               <div key={it.key} className={styles['diff-desc-table-row']}>
@@ -215,7 +222,7 @@ export function DiffContent({
       {!templateIsSame ? (
         <div className="flex flex-col gap-2">
           <Typography.Text className="!font-semibold">
-            Prompt 模板
+            {I18n.t('prompt_template')}
           </Typography.Text>
           <div className={styles['diff-info-compare']}>
             <div className={styles['diff-info-compare-header']}>
@@ -231,7 +238,7 @@ export function DiffContent({
                 size="small"
                 strong
               >
-                草稿
+                {I18n.t('draft')}
               </Typography.Text>
             </div>
             <div className="w-full h-[234px] overflow-auto styled-scrollbar !pr-[6px]">
@@ -263,7 +270,9 @@ export function DiffContent({
       ) : null}
       {variabdlesDiffData.length ? (
         <div className="flex flex-col gap-2">
-          <Typography.Text className="!font-semibold">变量设置</Typography.Text>
+          <Typography.Text className="!font-semibold">
+            {I18n.t('variable_setting')}
+          </Typography.Text>
           <div className={styles['diff-desc-table']}>
             {variabdlesDiffData.map(it => (
               <div key={it.key} className={styles['diff-desc-table-row']}>
@@ -275,22 +284,24 @@ export function DiffContent({
       ) : null}
       {!toolCallConfigIsSame || !toolsIsSame ? (
         <div className="flex flex-col gap-2">
-          <Typography.Text className="!font-semibold">函数</Typography.Text>
+          <Typography.Text className="!font-semibold">
+            {I18n.t('function')}
+          </Typography.Text>
           {toolCallConfigIsSame ? null : (
             <div className={styles['diff-desc-table']}>
               <div className={styles['diff-desc-table-row']}>
                 <div className="flex items-center gap-4">
-                  <Tag color="primary">函数</Tag>
+                  <Tag color="primary">{I18n.t('function')}</Tag>
                   <Typography.Text className="flex gap-1 items-center !font-semibold">
                     {baseItem.toolCallConfig?.tool_choice ===
                     ToolChoiceType.Auto
-                      ? '打开 启用函数'
-                      : '关闭 启用函数'}
+                      ? I18n.t('open_enable_function')
+                      : I18n.t('close_enable_function')}
                     <IconCozArrowRightFill />
                     {currentItem.toolCallConfig?.tool_choice ===
                     ToolChoiceType.Auto
-                      ? '打开 启用函数'
-                      : '关闭 启用函数'}
+                      ? I18n.t('open_enable_function')
+                      : I18n.t('close_enable_function')}
                   </Typography.Text>
                 </div>
               </div>
@@ -311,7 +322,7 @@ export function DiffContent({
                   size="small"
                   strong
                 >
-                  草稿
+                  {I18n.t('draft')}
                 </Typography.Text>
               </div>
 

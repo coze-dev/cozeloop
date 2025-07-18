@@ -7,6 +7,7 @@ import React, { useEffect } from 'react';
 
 import { useShallow } from 'zustand/react/shallow';
 import { getPlaceholderErrorContent } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type Message, Role } from '@cozeloop/api-schema/prompt';
 import { Toast } from '@coze-arch/coze-design';
 
@@ -18,8 +19,6 @@ import {
   usePromptMockDataStore,
 } from '@/store/use-mockdata-store';
 import { useBasicStore } from '@/store/use-basic-store';
-// import { SendMsgArea } from '../send-msg-area';
-// import { CompareMessageArea } from '../message-area';
 import { isResponding, useLLMStreamRun } from '@/hooks/use-llm-stream-run';
 
 import { SendMsgArea } from '../send-msg-area';
@@ -109,7 +108,7 @@ export function ExecuteArea() {
     );
 
     if (historyHasEmpty) {
-      return Toast.error('历史数据有空内容');
+      return Toast.error(I18n.t('historical_data_has_empty_content'));
     }
 
     const placeholderHasError = messageList?.some(message => {
@@ -121,7 +120,7 @@ export function ExecuteArea() {
       return false;
     });
     if (placeholderHasError) {
-      return Toast.error('Placeholder 变量不存在或命名错误');
+      return Toast.error(I18n.t('placeholder_var_error'));
     }
 
     setHistoricMessage?.(history);
@@ -168,7 +167,7 @@ export function ExecuteArea() {
 
   const sendMessage = (message?: Message) => {
     if (!messageList?.length && !(message?.content || message?.parts?.length)) {
-      Toast.error('请添加 Prompt 模板或输入提问内容');
+      Toast.error(I18n.t('add_prompt_tpl_or_input_question'));
       return;
     }
 
@@ -179,7 +178,7 @@ export function ExecuteArea() {
       return false;
     });
     if (placeholderHasError) {
-      return Toast.error('Placeholder 变量不存在或命名错误');
+      return Toast.error(I18n.t('placeholder_var_create_error'));
     }
     const chatArray = historicMessage.filter(v => Boolean(v));
     const historyHasEmpty = Boolean(
@@ -194,7 +193,7 @@ export function ExecuteArea() {
 
     if (message?.content || message?.parts?.length) {
       if (historyHasEmpty) {
-        return Toast.error('历史数据有空内容');
+        return Toast.error(I18n.t('historical_data_has_empty_content'));
       }
 
       if (message) {
@@ -223,7 +222,7 @@ export function ExecuteArea() {
         rerunSendMessage();
       } else {
         if (historyHasEmpty && chatArray.length > 2) {
-          return Toast.error('历史数据有空内容');
+          return Toast.error(I18n.t('historical_data_has_empty_content'));
         }
         const history = chatArray.slice(0, chatArray.length - 1).map(it => ({
           role: it.role,

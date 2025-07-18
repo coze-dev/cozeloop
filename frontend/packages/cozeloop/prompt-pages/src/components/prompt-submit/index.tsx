@@ -10,6 +10,7 @@ import { useShallow } from 'zustand/react/shallow';
 import classNames from 'classnames';
 import { useRequest } from 'ahooks';
 import { EVENT_NAMES, sendEvent } from '@cozeloop/tea-adapter';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { getBaseUrl } from '@cozeloop/components';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import { type Prompt } from '@cozeloop/api-schema/prompt';
@@ -78,7 +79,7 @@ export function PromptSubmit({
 
   const showSuccessModal = () => {
     const modal = Modal.info({
-      title: '提交新版本',
+      title: I18n.t('submit_new_version'),
       width: 960,
       closable: true,
       content: (
@@ -88,13 +89,13 @@ export function PromptSubmit({
             darkModeIcon={<IconCozIllusDoneDark width="160" height="160" />}
             title={
               <Typography.Title heading={5} className="!my-4">
-                提交成功
+                {I18n.t('version_submit_success')}
               </Typography.Title>
             }
             description={
               <div className="flex flex-col items-center gap-2 w-[400px]">
                 <Typography.Text className="flex gap-2 items-center">
-                  接入 CozeLoop SDK 上报数据，进行数据观测
+                  {I18n.t('cozeloop_sdk_data_report_observation')}
                   <Typography.Text
                     link
                     onClick={() => {
@@ -102,11 +103,11 @@ export function PromptSubmit({
                       modal.destroy();
                     }}
                   >
-                    立即前往
+                    {I18n.t('go_immediately')}
                   </Typography.Text>
                 </Typography.Text>
                 <Typography.Text className="flex gap-2 items-center">
-                  对 Prompt 进行效果评估，提升应用效果
+                  {I18n.t('prompt_effect_evaluation')}
                   <Typography.Text
                     link
                     onClick={() => {
@@ -114,7 +115,7 @@ export function PromptSubmit({
                       modal.destroy();
                     }}
                   >
-                    立即前往
+                    {I18n.t('go_immediately')}
                   </Typography.Text>
                 </Typography.Text>
               </div>
@@ -122,7 +123,7 @@ export function PromptSubmit({
           />
         </div>
       ),
-      okText: '关闭',
+      okText: I18n.t('close'),
     });
   };
 
@@ -173,7 +174,7 @@ export function PromptSubmit({
         });
       });
     } else {
-      setOkButtonText('继续');
+      setOkButtonText(I18n.t('continue'));
       setBasePrompt(undefined);
       setCurrentPrompt(undefined);
       formApi.current?.reset();
@@ -187,18 +188,20 @@ export function PromptSubmit({
     >
       <Form.Input
         label={{
-          text: '版本',
+          text: I18n.t('version'),
           required: true,
         }}
         field="version"
         required
         validate={val => versionValidate(val, initVersion)}
-        placeholder="请输入版本号，版本号格式为a.b.c, 且每段为0-9999"
+        placeholder={I18n.t('input_version_number')}
       />
       <Form.TextArea
-        label="版本说明"
+        label={I18n.t('version_description')}
         field="description"
-        placeholder="请输入版本说明"
+        placeholder={I18n.t('please_input', {
+          field: I18n.t('version_description'),
+        })}
         maxCount={200}
         maxLength={200}
         rows={5}
@@ -207,8 +210,8 @@ export function PromptSubmit({
   );
 
   const handleSubmit = () => {
-    if (okButtonText === '继续') {
-      setOkButtonText('提交');
+    if (okButtonText === I18n.t('continue')) {
+      setOkButtonText(I18n.t('submit'));
     } else {
       submitRunAsync();
     }
@@ -219,10 +222,10 @@ export function PromptSubmit({
       className="min-h-[calc(100vh - 140px)]"
       width={900}
       visible={visible}
-      title="提交新版本"
+      title={I18n.t('submit_new_version')}
       onCancel={onCancel}
-      okText={basePrompt ? okButtonText : '提交'}
-      cancelText="取消"
+      okText={basePrompt ? okButtonText : I18n.t('submit')}
+      cancelText={I18n.t('cancel')}
       onOk={basePrompt ? handleSubmit : submitRunAsync}
       okButtonProps={{ loading: submitLoading }}
       height="fit-content"
@@ -248,7 +251,7 @@ export function PromptSubmit({
                     'cursor-pointer',
                   )}
                   icon={
-                    okButtonText === '提交' ? (
+                    okButtonText === I18n.t('submit') ? (
                       <span className={styles['tab-icon']}>
                         <IconCozCheckMarkFill />
                       </span>
@@ -256,21 +259,21 @@ export function PromptSubmit({
                       <span className={styles['tab-icon']}>1</span>
                     )
                   }
-                  onClick={() => setOkButtonText('继续')}
+                  onClick={() => setOkButtonText(I18n.t('continue'))}
                 >
-                  确认版本差异
+                  {I18n.t('confirm_version_difference')}
                 </Typography.Text>
                 <Typography.Text
                   className={classNames(styles['tab-step'], {
-                    [styles['tab-active']]: okButtonText === '提交',
+                    [styles['tab-active']]: okButtonText === I18n.t('submit'),
                   })}
                   icon={<span className={styles['tab-icon']}>2</span>}
                 >
-                  确认版本信息
+                  {I18n.t('confirm_version_info')}
                 </Typography.Text>
               </div>
               <div className="flex-1">
-                {okButtonText === '继续' ? (
+                {okButtonText === I18n.t('continue') ? (
                   <DiffContent base={basePrompt} current={currentPrompt} />
                 ) : (
                   submitForm

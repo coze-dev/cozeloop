@@ -10,13 +10,21 @@ import { useShallow } from 'zustand/react/shallow';
 import { useRequest } from 'ahooks';
 import { sendEvent, EVENT_NAMES } from '@cozeloop/tea-adapter';
 import { PromptCreate } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { getBaseUrl } from '@cozeloop/components';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import { useModalData } from '@cozeloop/base-hooks';
 import { type CommitInfo, type Prompt } from '@cozeloop/api-schema/prompt';
 import { promptManage } from '@cozeloop/api-schema';
 import { IconCozDuplicate, IconCozUpdate } from '@coze-arch/coze-design/icons';
-import { Button, List, Modal, Space, Spin, Toast } from '@coze-arch/coze-design';
+import {
+  Button,
+  List,
+  Modal,
+  Space,
+  Spin,
+  Toast,
+} from '@coze-arch/coze-design';
 
 import { sleep } from '@/utils/prompt';
 import { usePromptStore } from '@/store/use-prompt-store';
@@ -79,7 +87,7 @@ export function VersionList() {
       ready: Boolean(spaceID && promptInfo?.id && activeVersion),
       refreshDeps: [spaceID, promptInfo?.id, activeVersion],
       onSuccess: async () => {
-        Toast.success('回滚成功');
+        Toast.success(I18n.t('rollback_success'));
         setVersionChangeLoading(true);
         await sleep(CALL_SLEEP_TIME);
         getPromptByVersion()
@@ -191,7 +199,7 @@ export function VersionList() {
             icon={<IconCozDuplicate />}
             onClick={() => promptInfoModal.open(promptInfo)}
           >
-            创建副本
+            {I18n.t('create_copy')}
           </Button>
           <Button
             className="flex-1"
@@ -200,11 +208,11 @@ export function VersionList() {
             icon={<IconCozUpdate />}
             onClick={() =>
               Modal.confirm({
-                title: '还原为此版本',
-                content: '还原后将覆盖最新编辑的提示词。确认还原为此版本？',
+                title: I18n.t('restore_to_this_version'),
+                content: I18n.t('restore_version_tip'),
                 onOk: rollbackRunAsync,
-                cancelText: '取消',
-                okText: '还原',
+                cancelText: I18n.t('Cancel'),
+                okText: I18n.t('restore'),
                 okButtonProps: {
                   color: 'red',
                 },
@@ -212,7 +220,7 @@ export function VersionList() {
               })
             }
           >
-            还原为此版本
+            {I18n.t('restore_to_this_version')}
           </Button>
         </Space>
       ) : null}

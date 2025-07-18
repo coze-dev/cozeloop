@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import cn from 'classnames';
 import { type PromptMessage } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { TextWithCopy } from '@cozeloop/components';
 import { useModalData } from '@cozeloop/base-hooks';
 import { type Message, VariableType } from '@cozeloop/api-schema/prompt';
@@ -56,7 +57,7 @@ export function VariableInput({
         <TextWithCopy
           content={variableKey}
           maxWidth={200}
-          copyTooltipText="复制变量名"
+          copyTooltipText="copy_variable_name"
           textClassName="variable-text"
         />
         {readonly ? (
@@ -69,10 +70,10 @@ export function VariableInput({
           />
         ) : (
           <Popconfirm
-            title="删除变量"
-            content="将删除 Prompt 模板中的该变量。确认删除吗？"
-            cancelText="取消"
-            okText="删除"
+            title={I18n.t('delete_variable')}
+            content={I18n.t('confirm_delete_var_in_tpl')}
+            cancelText={I18n.t('Cancel')}
+            okText={I18n.t('confirm')}
             okButtonProps={{ color: 'red' }}
             onConfirm={() => onDelete?.(variableKey)}
           >
@@ -121,7 +122,7 @@ export function VariableInput({
             }}
             size="small"
           >
-            编辑Placeholder
+            {I18n.t('edit_placeholder')}
           </Button>
         </>
       ) : (
@@ -130,7 +131,7 @@ export function VariableInput({
           onChange={(value: string) =>
             onValueChange?.({ key: variableKey, value })
           }
-          placeholder="请输入参数值"
+          placeholder={I18n.t('please_input', { field: I18n.t('param_value') })}
           borderless
           autosize={{ minRows: 1, maxRows: 3 }}
           disabled={readonly}

@@ -12,6 +12,7 @@ import classNames from 'classnames';
 import { useSize } from 'ahooks';
 import { sendEvent, EVENT_NAMES } from '@cozeloop/tea-adapter';
 import { DevLayout } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   IconCozColumnCollapse,
   IconCozColumnExpand,
@@ -112,15 +113,15 @@ export function NormalArea() {
         }}
       >
         <DevLayout
-          title="编排"
+          title={I18n.t('orchestration')}
           actionBtns={
             <Space spacing="tight">
               <Tooltip
                 theme="dark"
                 content={
                   configAreaVisible
-                    ? '收起模型配置与变量区'
-                    : '展开模型配置与变量区'
+                    ? I18n.t('collapse_model_and_var_area')
+                    : I18n.t('expand_model_and_var_area')
                 }
               >
                 <IconButton
@@ -143,7 +144,10 @@ export function NormalArea() {
                 />
               </Tooltip>
               {configExecuteVisible ? null : (
-                <Tooltip theme="dark" content="展开预览与调试">
+                <Tooltip
+                  theme="dark"
+                  content={I18n.t('expand_preview_and_debug')}
+                >
                   <IconButton
                     size="mini"
                     color="primary"
@@ -219,9 +223,9 @@ export function NormalArea() {
           },
         )}
         style={{ minWidth: '35%' }}
-        title="预览与调试"
+        title={I18n.t('preview_and_debug')}
         actionBtns={
-          <Tooltip theme="dark" content="收起预览与调试">
+          <Tooltip theme="dark" content={I18n.t('collapse_preview_and_debug')}>
             <IconButton
               size="mini"
               color="primary"

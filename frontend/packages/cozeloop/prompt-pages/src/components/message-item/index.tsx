@@ -9,6 +9,7 @@ import { useMemo, useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import classNames from 'classnames';
 import { formateMsToSeconds } from '@cozeloop/toolkit';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { useUserInfo } from '@cozeloop/biz-hooks-adapter';
 import {
   type ContentPart,
@@ -19,7 +20,6 @@ import {
   Role,
   type VariableVal,
 } from '@cozeloop/api-schema/prompt';
-import { MdBoxLazy } from '@coze-arch/bot-md-box-adapter/lazy';
 import { IconCozArrowDown } from '@coze-arch/coze-design/icons';
 import {
   Avatar,
@@ -32,6 +32,7 @@ import {
   Typography,
   Image,
 } from '@coze-arch/coze-design';
+import { MdBoxLazy } from '@coze-arch/bot-md-box-adapter/lazy';
 
 import {
   usePromptMockDataStore,
@@ -202,7 +203,7 @@ export function MessageItem({
                   />
                 }
               >
-                {content ? '已深度思考' : '深度思考中'}
+                {content ? I18n.t('deeply_thought') : I18n.t('deep_thinking')}
               </Tag>
               {reasoningExpand ? (
                 <MdBoxLazy
@@ -267,16 +268,17 @@ export function MessageItem({
                 type="tertiary"
                 className="flex-1 flex-shrink-0"
               >
-                耗时: {formateMsToSeconds(cost_ms)} | Tokens:
+                {I18n.t('time_consumed')}: {formateMsToSeconds(cost_ms)} |
+                Tokens:
                 <Tooltip
                   theme="dark"
                   content={
                     <Space vertical align="start">
                       <Typography.Text style={{ color: '#fff' }}>
-                        输入 Tokens: {input_tokens}
+                        {I18n.t('input')} Tokens: {input_tokens}
                       </Typography.Text>
                       <Typography.Text style={{ color: '#fff' }}>
-                        输出 Tokens: {output_tokens}
+                        {I18n.t('output')} Tokens: {output_tokens}
                       </Typography.Text>
                     </Space>
                   }
@@ -289,7 +291,7 @@ export function MessageItem({
                     } Tokens`}
                   </span>
                 </Tooltip>
-                {`| 字数: ${content.length}`}
+                {`| ${I18n.t('num_words', { num: content.length })}`}
               </Typography.Text>
             ) : null}
 
@@ -346,7 +348,7 @@ export function MessageItem({
             {stepDebuggingTrace && stepDebugger && !isCompare ? (
               <div className="w-full text-right">
                 <Button color="brand" size="mini" onClick={stepSendMessage}>
-                  确认
+                  {I18n.t('confirm')}
                 </Button>
               </div>
             ) : null}

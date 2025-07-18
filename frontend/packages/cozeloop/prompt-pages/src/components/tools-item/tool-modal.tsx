@@ -23,6 +23,7 @@ import {
 } from '@coze-arch/coze-design';
 
 import { type ToolWithMock } from '.';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 interface ToolModalProps {
   visible?: boolean;
@@ -181,7 +182,7 @@ export function ToolModal({
 
     if (hasItem) {
       Toast.warning({
-        content: '当前方法已经存在，请重新命名',
+        content: I18n.t('method_exists'),
         zIndex: 99999,
       });
       return;
@@ -206,7 +207,7 @@ export function ToolModal({
 
   return (
     <Modal
-      title={data?.function?.name || '新函数'}
+      title={data?.function?.name || I18n.t('new_function')}
       width={960}
       visible={visible}
       onCancel={onClose}
@@ -216,14 +217,14 @@ export function ToolModal({
         disabled ? null : (
           <Space>
             <Button className="mr-2" onClick={onClose} color="primary">
-              取消
+              {I18n.t('cancel')}
             </Button>
             <TooltipWhenDisabled
-              content="方法名称必须是 a-z、A-Z、0-9，或包含下划线和破折号，长度最长为 64。"
+              content={I18n.t('method_name_rule')}
               disabled={Boolean(schema && !canSaveTool)}
             >
               <Button onClick={handleSaveTool} disabled={!canSaveTool}>
-                确认
+                {I18n.t('confirm')}
               </Button>
             </TooltipWhenDisabled>
           </Space>
@@ -250,7 +251,7 @@ export function ToolModal({
                   setMockValue('Sunny');
                 }}
               >
-                插入模版
+                {I18n.t('insert_template')}
               </Button>
             )}
           </div>
@@ -265,7 +266,7 @@ export function ToolModal({
         <Col span={10}>
           <div className="flex justify-between items-center w-full h-8 mb-2">
             <Typography.Text className="font-semibold" type="tertiary">
-              默认模拟值
+              {I18n.t('default_mock_value')}
             </Typography.Text>
             <Select
               value={mockType}
@@ -281,7 +282,7 @@ export function ToolModal({
             language={mockType}
             value={mockValue}
             onChange={v => setMockValue(v)}
-            placeholder="在此处输入模拟值以模拟函数的返回值。"
+            placeholder={I18n.t('input_mock_value_here')}
             readOnly={disabled}
           />
         </Col>
