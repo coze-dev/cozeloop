@@ -12,6 +12,7 @@
     "cozeloop",
     "dotenv",
     "eslintcache",
+    "Expt",
     "immer",
     "pnpmfile",
     "Popconfirm",
@@ -23,6 +24,9 @@
     "stylelint",
     "tailwindcss",
     "tanstack",
+    "testrun",
+    "vchart",
+    "visactor",
     "webp",
     "zustand"
   ],

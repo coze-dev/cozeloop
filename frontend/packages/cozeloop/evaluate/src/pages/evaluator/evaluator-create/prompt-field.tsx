@@ -10,6 +10,7 @@ import {
   PromptEditor,
   type PromptEditorProps,
 } from '@cozeloop/prompt-components';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   PromptVariablesList,
   extractDoubleBraceFields,
@@ -108,7 +109,7 @@ export function PromptField({
               icon={<IconCozTemplate />}
               onClick={() => setTemplateVisible(true)}
             >
-              {`选择模板${
+              {`${I18n.t('select_template')}${
                 promptEvaluator?.prompt_template_name
                   ? `(${promptEvaluator.prompt_template_name})`
                   : ''
@@ -125,13 +126,13 @@ export function PromptField({
                 icon={<IconCozTrashCan />}
                 disabled={disabled}
               >
-                {'清空'}
+                {I18n.t('clear')}
               </Button>
             ) : (
               <Popconfirm
-                title={'确认清空 Prompt？'}
-                cancelText="取消"
-                okText="清空"
+                title={I18n.t('confirm_clear_prompt')}
+                cancelText={I18n.t('Cancel')}
+                okText={I18n.t('clear')}
                 okButtonProps={{ color: 'red' }}
                 onConfirm={() => {
                   promptEvaluatorFieldApi.setValue({
@@ -156,7 +157,7 @@ export function PromptField({
                   className="!px-[3px] !h-5"
                   icon={<IconCozTrashCan />}
                 >
-                  {'清空'}
+                  {I18n.t('clear')}
                 </Button>
               </Popconfirm>
             )}
@@ -171,7 +172,9 @@ export function PromptField({
           }
           disabled={disabled}
           noLabel
-          rules={[{ required: true, message: 'System Prompt 不可为空' }]}
+          rules={[
+            { required: true, message: I18n.t('system_prompt_not_empty') },
+          ]}
           minHeight={300}
           maxHeight={500}
           dragBtnHidden
@@ -206,7 +209,9 @@ export function PromptField({
             }
             noLabel
             disabled={disabled}
-            rules={[{ required: true, message: 'User Prompt 不可为空' }]}
+            rules={[
+              { required: true, message: I18n.t('user_prompt_not_empty') },
+            ]}
             maxHeight={500}
             messageTypeDisabled={true}
             messageTypeList={messageTypeList}
@@ -230,10 +235,10 @@ export function PromptField({
             }}
             rightActionBtns={
               <Popconfirm
-                title="删除 User Prompt"
-                content="确认删除 User Prompt ？"
-                okText="确认"
-                cancelText="取消"
+                title={I18n.t('delete_user_prompt')}
+                content={I18n.t('confirm_delete_user_prompt')}
+                okText={I18n.t('confirm')}
+                cancelText={I18n.t('Cancel')}
                 okButtonProps={{ color: 'red' }}
                 onConfirm={() => {
                   const messageList = promptEvaluator?.message_list || [];
@@ -273,7 +278,7 @@ export function PromptField({
             disabled={disabled}
             icon={<IconCozPlus />}
           >
-            {'添加 User Prompt'}
+            {I18n.t('add_user_prompt')}
           </Button>
         )}
 

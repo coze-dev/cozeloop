@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import { useRequest } from 'ahooks';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   type EvalTarget,
   EvalTargetType,
@@ -86,7 +87,7 @@ export default function PromptEvalTargetTreeSelect({
       loadData={onLoadChildren}
       treeData={treeData}
       style={{ width: '100%' }}
-      placeholder="请选择Prompt"
+      placeholder={I18n.t('please_select', { field: I18n.t('prompt') })}
       multiple={true}
       filterTreeNode={true}
       dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}

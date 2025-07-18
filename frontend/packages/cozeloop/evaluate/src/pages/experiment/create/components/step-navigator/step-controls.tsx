@@ -2,8 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 import React from 'react';
 
-import { Button } from '@coze-arch/coze-design';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type GuardPoint, Guard } from '@cozeloop/guard';
+import { Button } from '@coze-arch/coze-design';
 
 import { type StepConfig } from '../../constants/steps';
 
@@ -29,7 +30,7 @@ export const StepControls: React.FC<StepControlsProps> = ({
       <div className="w-[800px] mx-auto flex flex-row items-center justify-end gap-2">
         {currentStep > 0 && (
           <Button color="primary" onClick={onPrevious}>
-            上一步
+            {I18n.t('prev_step')}
           </Button>
         )}
 

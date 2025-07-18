@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { isEqual } from 'lodash-es';
 import { useDebounceFn } from 'ahooks';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   COMMON_OUTPUT_FIELD_NAME,
   DEFAULT_TEXT_STRING_SCHEMA,
@@ -27,7 +28,7 @@ export interface EvaluatorFormProps {
 const evaluateTargetSchemas: FieldSchema[] = [
   {
     name: COMMON_OUTPUT_FIELD_NAME,
-    description: '实际输出',
+    description: I18n.t('actual_output'),
     ...DEFAULT_TEXT_STRING_SCHEMA,
   },
 ];

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { type FC, useMemo } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { getTypeText } from '@cozeloop/evaluate-components';
 import { type FieldSchema } from '@cozeloop/api-schema/evaluation';
 import { IconCozEmpty } from '@coze-arch/coze-design/icons';
@@ -71,7 +72,7 @@ export const EvaluatorMappingField: FC<
         <Loading
           className="!w-full"
           size="large"
-          label={'正在加载字段映射'}
+          label={I18n.t('loading_field_mapping')}
           loading={true}
         ></Loading>
       </div>
@@ -84,7 +85,7 @@ export const EvaluatorMappingField: FC<
         <EmptyState
           size="default"
           icon={<IconCozEmpty className="coz-fg-dim text-32px" />}
-          title="暂无数据"
+          title={I18n.t('no_data')}
           className={emptyStyles['empty-state']}
           // description="请选择评估器和版本号后再查看"
         />
@@ -100,17 +101,17 @@ export const EvaluatorMappingField: FC<
           noLabel
           field={`${prefixField}.${k.name}`}
           fieldClassName="!pt-0"
-          keyTitle="评估器"
+          keyTitle={I18n.t('evaluator')}
           keySchema={k}
           optionGroups={optionGroups}
           rules={[
             {
               validator: (_rule, v) => {
                 if (!v) {
-                  return new Error('请选择');
+                  return new Error(I18n.t('please_select', { field: '' }));
                 }
                 if (getTypeText(v) !== getTypeText(k)) {
-                  return new Error('所选字段数据类型不一致，请重新选择');
+                  return new Error(I18n.t('selected_fields_inconsistent'));
                 }
                 return true;
               },

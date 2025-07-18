@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 import { useRequest } from 'ahooks';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import { sourceNameRuleValidator } from '@cozeloop/evaluate-components';
 import { EvaluatorType, type Evaluator } from '@cozeloop/api-schema/evaluation';
@@ -63,11 +64,11 @@ export function BaseInfoModal({
   return (
     <Modal
       width={600}
-      title="编辑评估器"
+      title={I18n.t('edit_evaluator')}
       visible={visible}
-      cancelText="取消"
+      cancelText={I18n.t('Cancel')}
       onCancel={onCancel}
-      okText="提交"
+      okText={I18n.t('submit')}
       okButtonProps={{
         loading: saveService.loading,
       }}
@@ -75,14 +76,17 @@ export function BaseInfoModal({
     >
       <Form ref={formRef}>
         <FormInput
-          label="名称"
+          label={I18n.t('name')}
           field="name"
-          placeholder={'请输入名称'}
+          placeholder={I18n.t('please_input', { field: I18n.t('name') })}
           required
           maxLength={50}
           trigger="blur"
           rules={[
-            { required: true, message: '请输入名称' },
+            {
+              required: true,
+              message: I18n.t('please_input', { field: I18n.t('name') }),
+            },
             { validator: sourceNameRuleValidator },
             {
               asyncValidator: async (_, value: string) => {
@@ -92,7 +96,9 @@ export function BaseInfoModal({
                     name: value,
                   });
                   if (!pass) {
-                    throw new Error('名称已存在');
+                    throw new Error(
+                      I18n.t('field_exists', { field: I18n.t('name') }),
+                    );
                   }
                 }
               },
@@ -100,9 +106,9 @@ export function BaseInfoModal({
           ]}
         />
         <FormTextArea
-          label="描述"
+          label={I18n.t('description')}
           field="description"
-          placeholder={'请输入描述'}
+          placeholder={I18n.t('please_input', { field: I18n.t('description') })}
           maxCount={200}
           maxLength={200}
         />

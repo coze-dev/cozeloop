@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   type EvalTarget,
   type EvalTargetVersion,
@@ -40,7 +41,7 @@ export async function listSourceEvalTargetVersion(
         eval_target_content: {
           coze_bot: {
             bot_name: `CozeBot ${index + 1}`,
-            description: '版本描述',
+            description: I18n.t('version_description'),
           },
           prompt: {
             name: `Prompt ${index + 1}`,
@@ -72,7 +73,7 @@ export async function listSourceEvalTarget(
           eval_target_content: {
             coze_bot: {
               bot_name: `CozeBot ${params.name ?? ''} ${index + 1}`,
-              description: '这是一个 CozeBot',
+              description: I18n.t('this_is_a_coze_bot'),
             },
             prompt: {
               name: `Prompt ${params.name ?? ''} ${index + 1}`,
@@ -98,7 +99,7 @@ export async function listEvaluationSets(
   const targets = new Array(10).fill(1).map((_, index) => {
     const item: EvaluationSet = {
       id: createId(),
-      name: `百科知识数据集 ${index}`,
+      name: I18n.t('pedia_dataset', { index }),
       base_info: {
         created_at: new Date().toLocaleString(),
         created_by: {
@@ -133,7 +134,7 @@ export async function listEvaluationSetVersions(
       const item: EvaluationSetVersion = {
         id: createId(),
         version: `0.0.${index + 1}`,
-        description: '版本描述',
+        description: I18n.t('version_description'),
       };
       return item;
     });

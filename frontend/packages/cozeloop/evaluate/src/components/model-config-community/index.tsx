@@ -5,6 +5,7 @@ import { PopoverModelConfigEditorQuery } from '@cozeloop/prompt-components';
 import { type ModelConfigEditorProps } from '@cozeloop/evaluate-components';
 import { type Model } from '@cozeloop/api-schema/llm-manage';
 import { IconCozSetting } from '@coze-arch/coze-design/icons';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 export function ModelConfigCommunity(props: ModelConfigEditorProps) {
   const renderDisplayContent = (
@@ -23,12 +24,12 @@ export function ModelConfigCommunity(props: ModelConfigEditorProps) {
         {selectModel ? (
           selectModel?.name
         ) : (
-          <span className="coz-fg-dim">请选择模型</span>
+          <span className="coz-fg-dim">{I18n.t('choose_model')}</span>
         )}
       </div>
       {props.disabled ? (
         <div className="flex-shrink-0 text-sm text-brand-9 font-normal cursor-pointer">
-          {'查看参数'}
+          {I18n.t('check_parameters')}
         </div>
       ) : (
         <IconCozSetting className="flex-shrink-0 w-4 h-4 ml-6px coz-fg-secondary" />

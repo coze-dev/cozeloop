@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useMemo } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { OutputInfo, useGlobalEvalConfig } from '@cozeloop/evaluate-components';
 import { EvaluatorType } from '@cozeloop/api-schema/evaluation';
 import { FormSelect, withField } from '@coze-arch/coze-design';
@@ -25,17 +26,17 @@ export function ConfigContent({
   return (
     <>
       <FormSelect
-        label="评估器类型"
+        label={I18n.t('evaluator_type')}
         field="evaluator_type"
         initValue={EvaluatorType.Prompt}
         fieldClassName="hidden"
       />
       <FormModelConfig
         refreshModelKey={refreshEditorModelKey}
-        label="模型选择"
+        label={I18n.t('model_selection')}
         disabled={disabled}
         field="current_version.evaluator_content.prompt_evaluator.model_config"
-        rules={[{ required: true, message: '请选择模型' }]}
+        rules={[{ required: true, message: I18n.t('choose_model') }]}
       />
       <PromptField
         disabled={disabled}

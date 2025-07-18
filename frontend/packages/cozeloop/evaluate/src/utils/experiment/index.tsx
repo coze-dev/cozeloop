@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { get } from 'lodash-es';
 import classNames from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   DatasetItem,
   getFieldColumnConfig,
@@ -88,7 +89,10 @@ export function getActualOutputColumn(params?: {
     title: (
       <div className="flex items-center gap-1">
         <div>actual_output</div>
-        <Tooltip theme="dark" content="评测对象的实际输出">
+        <Tooltip
+          theme="dark"
+          content={I18n.t('evaluation_object_actual_output')}
+        >
           <IconCozInfoCircle className="text-[var(--coz-fg-secondary)] hover:text-[var(--coz-fg-primary)]" />
         </Tooltip>
       </div>

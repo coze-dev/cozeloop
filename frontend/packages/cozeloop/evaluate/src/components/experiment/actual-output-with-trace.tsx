@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   TraceTrigger,
   useGlobalEvalConfig,
@@ -47,7 +48,7 @@ export default function ActualOutputWithTrace({
       />
 
       {enableTrace && traceID ? (
-        <Tooltip theme="dark" content="查看实际输出的trace">
+        <Tooltip theme="dark" content={I18n.t('view_actual_output_trace')}>
           <div className="flex ml-auto" onClick={e => e.stopPropagation()}>
             <TraceTrigger
               className="ml-1 invisible group-hover:visible"

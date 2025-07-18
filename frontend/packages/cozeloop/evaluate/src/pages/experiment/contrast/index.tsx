@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 import { isEqual } from 'lodash-es';
 import { useRequest } from 'ahooks';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   verifyContrastExperiment,
   ExperimentContrastChart,
@@ -27,7 +28,7 @@ export default function ExperimentContrast() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useBreadcrumb({
-    text: `对比${experimentIds.length}个实验`,
+    text: I18n.t('compare_x_experiments', { num: experimentIds.length }),
   });
 
   const service = useRequest(
@@ -87,8 +88,8 @@ export default function ExperimentContrast() {
           tabPaneMotion={false}
           keepDOM={false}
           tabList={[
-            { tab: '数据明细', itemKey: 'detail' },
-            { tab: '指标统计', itemKey: 'chart' },
+            { tab: I18n.t('data_detail'), itemKey: 'detail' },
+            { tab: I18n.t('measure_stat'), itemKey: 'chart' },
           ]}
         />
       </div>

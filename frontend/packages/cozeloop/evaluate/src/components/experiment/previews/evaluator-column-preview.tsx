@@ -1,6 +1,7 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import classNames from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { TypographyText } from '@cozeloop/evaluate-components';
 import { JumpIconButton } from '@cozeloop/components';
 import { useBaseURL } from '@cozeloop/biz-hooks-adapter';
@@ -54,7 +55,7 @@ export default function EvaluatorColumnPreview({
         {version}
       </Tag>
       {enableLinkJump ? (
-        <Tooltip theme="dark" content="查看详情">
+        <Tooltip theme="dark" content={I18n.t('view_detail')}>
           <div>
             <JumpIconButton
               className={defaultShowLinkJump ? '' : '!hidden group-hover:!flex'}

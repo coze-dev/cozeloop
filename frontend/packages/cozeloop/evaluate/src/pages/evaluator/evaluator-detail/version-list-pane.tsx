@@ -1,6 +1,7 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import { useRequest } from 'ahooks';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { VersionItem } from '@cozeloop/components';
 import {
   type EvaluatorVersion,
@@ -38,7 +39,9 @@ export function VersionListPane({
   return (
     <div className="flex-shrink-0 w-[340px] h-full overflow-hidden flex flex-col border-0 border-l border-solid coz-stroke-primary">
       <div className="flex-shrink-0 h-12 px-6 flex flex-row items-center justify-between coz-mg-secondary border-0 border-b border-solid coz-stroke-primary">
-        <div className="text-sm font-medium coz-fg-plus">{'版本记录'}</div>
+        <div className="text-sm font-medium coz-fg-plus">
+          {I18n.t('version_record')}
+        </div>
         <IconButton
           className="flex-shrink-0"
           color="secondary"

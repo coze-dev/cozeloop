@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useEffect, useMemo, useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   TypographyText,
   getExperimentNameWithIndex,
@@ -141,7 +142,7 @@ export default function ContrastItemDetailTable({
     <div className="h-full flex flex-col overflow-hidden">
       <div className="flex items-center shrink-0 bg-[var(--coz-mg-secondary)] py-3 px-5 text-sm font-medium">
         <TypographyText>{selectedExperimentText}</TypographyText>
-        <span className="shrink-0 ml-1">- 评测集</span>
+        <span className="shrink-0 ml-1">- {I18n.t('evaluation_set')}</span>
         {showDataset ? (
           <Dropdown
             position="bottomLeft"
@@ -161,7 +162,7 @@ export default function ContrastItemDetailTable({
           onClick={() => setShowDataset(!showDataset)}
         >
           <span className="text-xs font-normal">
-            {showDataset ? '收起' : '展开'}
+            {showDataset ? I18n.t('collapse') : I18n.t('expand')}
           </span>
           {showDataset ? <IconCozArrowDown /> : <IconCozArrowRight />}
         </div>

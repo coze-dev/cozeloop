@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 /* eslint-disable @coze-arch/max-line-per-function */
 /* eslint-disable max-len */
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, type RefObject } from 'react';
 
@@ -26,6 +25,7 @@ import { getEvaluationSetVersion } from '@/request/evaluation-set';
 
 import { evaluateSetValidators } from '../validators/evaluate-set';
 import { EvaluateSetColList } from '../../evaluate-set-col-list';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 export interface EvaluateSetFormProps {
   formRef: RefObject<Form<CreateExperimentValues>>;
@@ -140,8 +140,10 @@ export const EvaluateSetForm = (props: EvaluateSetFormProps) => {
           <FormEvaluateSetSelect
             className="w-full"
             field="evaluationSet"
-            label="评测集"
-            placeholder={'请选择评测集'}
+            label={I18n.t('evaluation_set')}
+            placeholder={I18n.t('please_select', {
+              field: I18n.t('evaluation_set'),
+            })}
             rules={evaluateSetValidators.evaluationSet}
             onChange={handleOnEvaluateSetSelectChange}
             onChangeWithObject={false}
@@ -154,7 +156,7 @@ export const EvaluateSetForm = (props: EvaluateSetFormProps) => {
               className="w-full"
               field="evaluationSetVersion"
               label={{
-                text: '版本',
+                text: I18n.t('version'),
                 className: 'justify-between pr-0',
                 extra: (
                   <>
@@ -167,23 +169,25 @@ export const EvaluateSetForm = (props: EvaluateSetFormProps) => {
                   </>
                 ),
               }}
-              placeholder={'请选择版本号'}
+              placeholder={I18n.t('please_select', {
+                field: I18n.t('version_number'),
+              })}
               rules={evaluateSetValidators.evaluationSetVersion}
             />
           </div>
         </div>
       </div>
-      <Form.Slot label="描述">
+      <Form.Slot label={I18n.t('description')}>
         <div className="text-sm coz-fg-primary font-normal">
           {versionDetail?.description || '-'}
         </div>
       </Form.Slot>
-      <Form.Slot label="列名">
+      <Form.Slot label={I18n.t('column_name')}>
         {formSetVersionId && formSetId
           ? renderColumns(versionDetail?.evaluation_set_schema?.field_schemas)
           : null}
       </Form.Slot>
-      <Form.Slot label="数据总量">
+      <Form.Slot label={I18n.t('data_total_count')}>
         <div className="text-sm coz-fg-primary font-normal">
           {versionDetail?.item_count ?? '-'}
         </div>

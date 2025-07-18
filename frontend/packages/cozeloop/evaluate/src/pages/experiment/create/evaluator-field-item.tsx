@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from 'react';
 
 import classNames from 'classnames';
 import { useRequest } from 'ahooks';
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   EvaluatorVersionDetail,
   EvaluatorSelect,
@@ -152,7 +153,7 @@ export function EvaluatorFieldItem(props: EvaluatorFieldItemProps) {
             ) : null}
           </div>
           <div className="flex flex-row items-center gap-1 invisible group-hover:visible">
-            <Tooltip content={'删除'} theme="dark">
+            <Tooltip content={I18n.t('delete')} theme="dark">
               <Button
                 color="secondary"
                 size="small"
@@ -174,10 +175,19 @@ export function EvaluatorFieldItem(props: EvaluatorFieldItemProps) {
                 className="w-full"
                 field={`${arrayField.field}.evaluator`}
                 fieldStyle={{ paddingBottom: 16 }}
-                label="名称"
-                placeholder="请选择评估器"
+                label={I18n.t('name')}
+                placeholder={I18n.t('please_select', {
+                  field: I18n.t('evaluator'),
+                })}
                 onChangeWithObject
-                rules={[{ required: true, message: '请选择评估器' }]}
+                rules={[
+                  {
+                    required: true,
+                    message: I18n.t('please_select', {
+                      field: I18n.t('evaluator'),
+                    }),
+                  },
+                ]}
                 onChange={v => {
                   evaluatorProApi.setValue({
                     evaluator: v,
@@ -194,7 +204,7 @@ export function EvaluatorFieldItem(props: EvaluatorFieldItemProps) {
                   onChangeWithObject
                   variableRequired={true}
                   label={{
-                    text: '版本',
+                    text: I18n.t('version'),
                     className: 'justify-between pr-0',
                     extra: (
                       <>
@@ -209,8 +219,17 @@ export function EvaluatorFieldItem(props: EvaluatorFieldItemProps) {
                       </>
                     ),
                   }}
-                  placeholder="请选择版本号"
-                  rules={[{ required: true, message: '请选择版本号' }]}
+                  placeholder={I18n.t('please_select', {
+                    field: I18n.t('version_number'),
+                  })}
+                  rules={[
+                    {
+                      required: true,
+                      message: I18n.t('please_select', {
+                        field: I18n.t('version_number'),
+                      }),
+                    },
+                  ]}
                   evaluatorId={evaluatorPro?.evaluator?.evaluator_id}
                   disabledVersionIds={selectedVersionIds}
                 />
@@ -227,12 +246,10 @@ export function EvaluatorFieldItem(props: EvaluatorFieldItemProps) {
             prefixField={`${arrayField.field}.evaluatorMapping`}
             label={
               <div className="inline-flex flex-row items-center">
-                {'字段映射'}
+                {I18n.t('field_mapping')}
                 <Tooltip
                   theme="dark"
-                  content={
-                    '评测集字段、评测对象实际输出到评估器字段的映射，用于评估器准确获取输入进行评估。'
-                  }
+                  content={I18n.t('evaluation_set_field_mapping_tip')}
                 >
                   <IconCozInfoCircle className="ml-1 w-4 h-4 coz-fg-secondary" />
                 </Tooltip>
@@ -247,7 +264,11 @@ export function EvaluatorFieldItem(props: EvaluatorFieldItemProps) {
                 required: true,
                 validator: (_, value) => {
                   if (versionDetailService.loading && !value) {
-                    return new Error('请配置字段映射');
+                    return new Error(
+                      I18n.t('please_configure', {
+                        field: I18n.t('field_mapping'),
+                      }),
+                    );
                   }
                   return true;
                 },
@@ -268,7 +289,7 @@ export function EvaluatorFieldItem(props: EvaluatorFieldItemProps) {
           }}
           disabled={disableAdd}
         >
-          {'添加评估器'}
+          {I18n.t('add_evaluator')}
         </Button>
       ) : null}
     </>

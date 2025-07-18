@@ -21,6 +21,7 @@ import {
 } from '@cozeloop/api-schema/evaluation';
 import { IconCozIllusAdd } from '@coze-arch/coze-design/illustrations';
 import { EmptyState } from '@coze-arch/coze-design';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 const spec: ISpec = {
   type: 'pie',
@@ -83,16 +84,18 @@ function ComplexTooltipContent(props: CustomTooltipProps) {
   }
   return (
     <div className="w-[220px] flex flex-col gap-2">
-      <div className="text-sm font-medium">得分明细</div>
+      <div className="text-sm font-medium">{I18n.t('score_details')}</div>
       <div className="flex items-center gap-2 text-xs">
         <div className="w-2 h-2" style={{ backgroundColor: prefixBgColor }} />
-        <span>得分 {item.score ?? '-'}</span>
+        <span>
+          {I18n.t('score')} {item.score ?? '-'}
+        </span>
         <span className="font-semibold ml-auto">
           <span className="font-medium text-[var(--coz-fg-primary)]">
             {item.count ?? '-'}
           </span>
           <span className="text-[var(--coz-fg-secondary)]">
-            条 ({getScorePercentage(item.percentage)})
+            {I18n.t('item_unit')} ({getScorePercentage(item.percentage)})
           </span>
         </span>
       </div>
@@ -148,7 +151,7 @@ export function EvaluatorsDraggableCard({
       const versionId = evaluator?.current_version?.id ?? '';
       const scoreCountMap = evaluatorScoreMap[versionId] ?? {};
       const values = Object.entries(scoreCountMap).map(([score, item]) => ({
-        name: `得分${score} - ${getScorePercentage(item?.percentage)}`,
+        name: `${I18n.t('score')}${score} - ${getScorePercentage(item?.percentage)}`,
         score: item?.count,
         item,
       }));
@@ -168,8 +171,8 @@ export function EvaluatorsDraggableCard({
               <EmptyState
                 size="full_screen"
                 icon={<IconCozIllusAdd />}
-                title="暂无数据"
-                description="实验完成后，再刷新重试"
+                title={I18n.t('no_data')}
+                description={I18n.t('refresh_after_experiment')}
               />
             </div>
           ) : (

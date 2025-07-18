@@ -9,6 +9,7 @@ import IconButtonContainer from '@/components/common/icon-button-container';
 
 import ExperimentResult from '../experiment-result';
 import { type ExperimentContrastItem } from '../../utils/tools';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 function ExperimentColumnHeader({
   experiment,
@@ -24,19 +25,19 @@ function ExperimentColumnHeader({
   return (
     <div className="flex items-center">
       <TypographyText>
-        {index === 0 ? '基准组' : `实验组 ${index}`} - {experiment?.name}
+        {index === 0
+          ? I18n.t('benchmark_group')
+          : I18n.t('experimental_group_index', { index })}{' '}
+        - {experiment?.name}
       </TypographyText>
       {index !== 0 && enableDelete ? (
         <Popconfirm
-          title="移除实验组"
-          content={
-            <>
-              确认要移除 <span className="font-medium">{experiment?.name}</span>{' '}
-              吗？
-            </>
-          }
-          okText="移除"
-          cancelText="取消"
+          title={I18n.t('remove_experimental_group')}
+          content={I18n.t('confirm_to_remove_x', {
+            name: <span className="font-medium">{experiment?.name}</span>,
+          })}
+          okText={I18n.t('remove')}
+          cancelText={I18n.t('Cancel')}
           showArrow={true}
           okButtonProps={{ color: 'red' }}
           onConfirm={onDelete}

@@ -16,6 +16,7 @@ import { ExperimentItemRunStatus } from '@/components/experiment';
 
 import EvaluatorScore from '../evaluator-score';
 import { EvaluatorColumnHeader } from './evaluator-column-header';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 const experimentDataToRecordItems = (data: ItemResult[]) => {
   const recordItems: ExperimentItem[] = [];
@@ -140,7 +141,7 @@ const getActionColumn = (params: {
   const { onClick } = params;
 
   return {
-    title: '操作',
+    title: I18n.t('operation'),
     disableColumnManage: true,
     dataIndex: 'action',
     key: 'action',
@@ -152,8 +153,8 @@ const getActionColumn = (params: {
         actions={[
           {
             label: (
-              <Tooltip content="查看详情" theme="dark">
-                详情
+              <Tooltip content={I18n.t('view_detail')} theme="dark">
+                {I18n.t('detail')}
               </Tooltip>
             ),
             onClick: () => onClick(record),

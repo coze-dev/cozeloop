@@ -15,6 +15,7 @@ import { batchGetExperimentAggrResult } from '@/request/experiment';
 
 import EvaluatorsScoreChart from './evaluators-score-chart';
 import { EvaluatorsDraggableCard } from './draggable-cards';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 export default function ExperimentChart({
   spaceID,
@@ -81,12 +82,16 @@ export default function ExperimentChart({
           spaceID={spaceID}
         />
         <div className="flex items-center gap-2 h-[32px] mt-5 mb-3">
-          <div className="text-sm font-semibold">得分明细 - 数据项分布</div>
+          <div className="text-sm font-semibold">
+            {I18n.t('score_details_data_item_distribution')}
+          </div>
           <EvaluatorSelectLocalData
             multiple
             maxTagCount={1}
-            prefix="指标"
-            placeholder="请选择指标"
+            prefix={I18n.t('indicator')}
+            placeholder={I18n.t('please_select', {
+              field: I18n.t('indicator'),
+            })}
             className="ml-auto"
             style={{ minWidth: 220 }}
             evaluators={experiment?.evaluators}

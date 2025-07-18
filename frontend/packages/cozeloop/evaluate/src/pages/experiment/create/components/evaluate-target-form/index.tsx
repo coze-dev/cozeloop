@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { useEvalTargetDefinition } from '@cozeloop/evaluate-components';
 import { type EvalTargetType } from '@cozeloop/api-schema/evaluation';
 import { type Form, FormSelect, useFormState } from '@coze-arch/coze-design';
@@ -67,9 +68,9 @@ export const EvaluateTargetForm = (props: EvaluateTargetFormProps) => {
       <FormSelect
         className="w-full"
         field="evalTargetType"
-        label="类型"
+        label={I18n.t('type')}
         optionList={evalTargetTypeOptions}
-        placeholder="请选择类型"
+        placeholder={I18n.t('please_select', { field: I18n.t('type') })}
         rules={evaluateTargetValidators.evalTargetType}
         onChange={v => handleEvalTargetTypeChange(v as EvalTargetType)}
       />

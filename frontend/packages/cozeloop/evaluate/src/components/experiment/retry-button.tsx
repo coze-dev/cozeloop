@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Guard, GuardPoint } from '@cozeloop/guard';
 import { ExptRetryMode, ExptStatus } from '@cozeloop/api-schema/evaluation';
 import { StoneEvaluationApi } from '@cozeloop/api-schema';
@@ -26,7 +27,7 @@ export default function RetryButton({
     const onClick = async () => {
       setLoading(true);
       Toast.info({
-        content: '重试中',
+        content: I18n.t('retrying'),
         icon: <></>,
         className: styles.toast,
       });
@@ -50,7 +51,7 @@ export default function RetryButton({
           disabled={loading}
           onClick={() => onClick?.()}
         >
-          {'重试'}
+          {I18n.t('retry')}
         </Button>
       </Guard>
     );

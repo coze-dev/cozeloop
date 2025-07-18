@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { GuardPoint } from '@cozeloop/guard';
 
 export interface StepConfig {
@@ -12,29 +13,29 @@ export interface StepConfig {
 
 export const STEPS: StepConfig[] = [
   {
-    title: '基础信息',
-    nextStepText: '下一步：评测集',
+    title: I18n.t('basic_info'),
+    nextStepText: I18n.t('next_step_evaluation_set'),
     guardPoint: GuardPoint['eval.experiment_create.confirm'],
   },
   {
-    title: '评测集',
-    nextStepText: '下一步：评测对象',
+    title: I18n.t('evaluation_set'),
+    nextStepText: I18n.t('next_step_evaluation_object'),
     guardPoint: GuardPoint['eval.experiment_create.confirm'],
   },
   {
-    title: '评测对象',
-    nextStepText: '下一步：评估器',
+    title: I18n.t('evaluation_object'),
+    nextStepText: I18n.t('next_step_evaluator'),
     guardPoint: GuardPoint['eval.experiment_create.confirm'],
   },
   {
-    title: '评估器',
-    nextStepText: '确认实验配置',
+    title: I18n.t('evaluator'),
+    nextStepText: I18n.t('confirm_experiment_config'),
     guardPoint: GuardPoint['eval.experiment_create.confirm'],
   },
   {
     hiddenStepBar: true,
-    title: '确认实验配置',
-    nextStepText: '发起实验',
+    title: I18n.t('confirm_experiment_config'),
+    nextStepText: I18n.t('initiate_experiment'),
     isLast: true,
     guardPoint: GuardPoint['eval.experiment_create.confirm'],
   },

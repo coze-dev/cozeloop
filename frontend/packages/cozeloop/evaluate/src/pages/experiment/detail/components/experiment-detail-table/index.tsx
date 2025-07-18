@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useEffect, useMemo, useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   ColumnsManage,
   dealColumnsFromStorage,
@@ -274,25 +275,23 @@ export default function ({
       <EmptyState
         size="full_screen"
         icon={<IconCozIllusAdd />}
-        title="实验初始化中"
-        description={
-          <>
-            稍等几秒后
+        title={I18n.t('experiment_initializing')}
+        description={I18n.t('wait_and_refresh_page', {
+          refresh: (
             <span
               className="text-[rgb(var(--coze-up-brand-9))] cursor-pointer"
               onClick={onRefreshPage}
             >
               刷新
             </span>
-            页面查看
-          </>
-        }
+          ),
+        })}
       />
     ) : (
       <EmptyState
         size="full_screen"
         icon={<IconCozIllusAdd />}
-        title="暂无数据"
+        title={I18n.t('no_data')}
       />
     );
 

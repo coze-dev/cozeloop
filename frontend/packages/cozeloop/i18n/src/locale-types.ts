@@ -126,7 +126,7 @@ export interface I18nWithInterpolation {
     desc: ReactNode;
   };
   /** 复制{name}配置，并新建评估器 */
-  copy_record_name_config_and_create_new_evaluator: {
+  copy_and_create_evaluator: {
     /** string */
     name: ReactNode;
   };
@@ -140,11 +140,14 @@ export interface I18nWithInterpolation {
     /** string */
     index: ReactNode;
   };
+  /** 确认要移除{name}吗？ */
+  confirm_to_remove_x: {
+    /** string */
+    name: ReactNode;
+  };
   /** 对比{num}个实验 */
   compare_x_experiments: {
     /** number */
-    count: ReactNode;
-    /** string */
     num: ReactNode;
   };
   /** {num, plural, zero {无} other {#条}} */
@@ -911,15 +914,17 @@ export type I18nKeysNoInterpolation =
   /** 草稿版本 */
   | 'draft_version'
   /** 修改未提交 */
-  | 'modify_not_submitted'
+  | 'changes_not_submitted'
   /** 去提交 */
   | 'go_submit'
   /** 选择实验 */
   | 'select_experiment'
   /** 发起实验对比 */
-  | 'initiate_experiment_comparison'
+  | 'experiment_comparison'
+  /** 发起实验对比 */
+  | 'run_experiment_comparison'
   /** 仅评测集相同且已执行完成的实验可进行对比。 */
-  | 'only_experiments_with_same_evaluation_set_and_completed_can_be_compared'
+  | 'only_experiments_compared_tip'
   /** 已选 */
   | 'selected'
   /** 创建人 */
@@ -937,7 +942,7 @@ export type I18nKeysNoInterpolation =
   /** 状态 */
   | 'status'
   /** 这是一个 CozeBot */
-  | 'this_is_a_cozebot'
+  | 'this_is_a_coze_bot'
   /** 查看实际输出的trace */
   | 'view_actual_output_trace'
   /** 实验名称 */
@@ -961,7 +966,7 @@ export type I18nKeysNoInterpolation =
   /** 模型选择 */
   | 'model_selection'
   /** 可通过构造测试数据，预览评估器的运行结果。 */
-  | 'construct_test_data_to_preview_evaluator_runtime_result'
+  | 'construct_data_to_preview'
   /** 配置信息 */
   | 'config_info'
   /** 构造测试数据 */
@@ -978,12 +983,16 @@ export type I18nKeysNoInterpolation =
   | 'leave_page_tip'
   /** 新建评估器 */
   | 'new_evaluator'
+  /** 基础信息 */
+  | 'basic_info'
   /** 创建 */
   | 'create'
   /** 确认清空 Prompt？ */
   | 'confirm_clear_prompt'
   /** System Prompt 不可为空 */
   | 'system_prompt_not_empty'
+  /** User Prompt 不可为空 */
+  | 'user_prompt_not_empty'
   /** 删除 User Prompt */
   | 'delete_user_prompt'
   /** 确认删除 User Prompt ？ */
@@ -1025,7 +1034,7 @@ export type I18nKeysNoInterpolation =
   /** 创建时间 */
   | 'create_time'
   /** 此操作不可逆，请慎重操作 */
-  | 'this_operation_is_irreversible_please_operate_carefully'
+  | 'caution_of_operation'
   /** 未能找到相关结果 */
   | 'failed_to_find_related_results'
   /** 请尝试其他关键词或修改筛选项 */
@@ -1040,6 +1049,10 @@ export type I18nKeysNoInterpolation =
   | 'remove_experimental_group'
   /** 评测对象的实际输出 */
   | 'evaluation_object_actual_output'
+  /** 添加对比实验 */
+  | 'add_comparison_experiment'
+  /** 对比实验详情 */
+  | 'compare_experiment_detail'
   /** 基准 */
   | 'benchmark'
   /** 基准实验切换成功 */
@@ -1048,6 +1061,8 @@ export type I18nKeysNoInterpolation =
   | 'data_detail'
   /** 指标统计 */
   | 'measure_stat'
+  /** 批量选择 */
+  | 'batch_select'
   /** 数据总量 */
   | 'data_total_count'
   /** 正在加载字段映射 */
@@ -1070,6 +1085,8 @@ export type I18nKeysNoInterpolation =
   | 'name_and_version'
   /** 字段映射 */
   | 'field_mapping'
+  /** 上一步 */
+  | 'prev_step'
   /** 下一步：评测集 */
   | 'next_step_evaluation_set'
   /** 下一步：评测对象 */
@@ -1100,6 +1117,8 @@ export type I18nKeysNoInterpolation =
   | 'score_details'
   /** 得分 */
   | 'score'
+  /** 条 */
+  | 'item_unit'
   /** 实验完成后，再刷新重试 */
   | 'refresh_after_experiment'
   /** 聚合得分 */
@@ -1112,8 +1131,14 @@ export type I18nKeysNoInterpolation =
   | 'experiment_initializing'
   /** 得分理由 */
   | 'score_reason'
+  /** 评测集数据 */
+  | 'evaluation_set_data'
+  /** 评估器得分 */
+  | 'evaluator_score'
   /** 结束时间 */
   | 'end_time'
+  /** 总数 */
+  | 'total'
   /** 确认用于实验的评测集版本 */
   | 'confirm_evaluation_set_version'
   /** 当前草稿有修改未提交，已默认选择最新历史版本 */
@@ -1136,8 +1161,6 @@ export type I18nKeysNoInterpolation =
   | 'column_description'
   /** 添加列 */
   | 'add_column'
-  /** 基础信息 */
-  | 'basic_info'
   /** 评测集名称 */
   | 'evaluation_set_name'
   /** 评测集描述 */

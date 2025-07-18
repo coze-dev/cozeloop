@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   IconCozInfoCircle,
   IconCozWarningCircleFillPalette,
@@ -22,7 +23,10 @@ export default function EvalActualOutputTable({
     <div className="text-sm py-3">
       <div className="flex items-center gap-1 mt-2 mb-3 px-5">
         <div className="font-medium text-xs">actual_output</div>
-        <Tooltip theme="dark" content="评测对象的实际输出">
+        <Tooltip
+          theme="dark"
+          content={I18n.t('evaluation_object_actual_output')}
+        >
           <IconCozInfoCircle className="text-[var(--coz-fg-secondary)] hover:text-[var(--coz-fg-primary)]" />
         </Tooltip>
       </div>

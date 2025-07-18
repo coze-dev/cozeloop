@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 
 import { sendEvent, EVENT_NAMES } from '@cozeloop/tea-adapter';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { GuardPoint, Guard } from '@cozeloop/guard';
 import { TooltipWhenDisabled } from '@cozeloop/components';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
@@ -41,7 +42,7 @@ export const SubmitVersion = ({
         version: values?.version,
         desc: values?.desc,
       });
-      Toast.success('提交成功');
+      Toast.success(I18n.t('version_submit_success'));
       setVisible(false);
       onSubmit();
     } finally {
@@ -54,7 +55,7 @@ export const SubmitVersion = ({
       <Guard point={GuardPoint['eval.dataset.commit']}>
         <TooltipWhenDisabled
           theme="dark"
-          content="暂无修改可提交"
+          content={I18n.t('no_modification_to_submit')}
           disabled={!datasetDetail?.change_uncommitted}
         >
           <Button
@@ -65,7 +66,7 @@ export const SubmitVersion = ({
             }}
             disabled={!datasetDetail?.change_uncommitted}
           >
-            提交新版本
+            {I18n.t('submit_new_version')}
           </Button>
         </TooltipWhenDisabled>
       </Guard>
@@ -76,12 +77,12 @@ export const SubmitVersion = ({
         onOk={() => {
           formRef?.current?.submitForm();
         }}
-        title="提交新版本"
-        okText="提交"
+        title={I18n.t('submit_new_version')}
+        okText={I18n.t('submit')}
         okButtonProps={{
           loading,
         }}
-        cancelText="取消"
+        cancelText={I18n.t('cancel')}
       >
         <Form<CreateEvaluationSetVersionRequest>
           getFormApi={formApi => {
@@ -95,7 +96,7 @@ export const SubmitVersion = ({
             initValue={getNewVersion(datasetDetail?.latest_version || '')}
             label={
               <div className="inline-flex items-center gap-1">
-                版本
+                {I18n.t('version')}
                 <Tooltip theme="dark" content="版本格式为a.b.c，且每段为0-999">
                   <div className="h-[15px] cursor-pointer">
                     <IconCozInfoCircle className="text-[var(--coz-fg-secondary)] hover:text-[var(--coz-fg-primary)]" />
@@ -107,7 +108,9 @@ export const SubmitVersion = ({
               {
                 validator: (_, value, callback) => {
                   if (!value) {
-                    callback('版本不能为空');
+                    callback(
+                      I18n.t('field_not_empty', { field: I18n.t('version') }),
+                    );
                     return false;
                   }
                   if (

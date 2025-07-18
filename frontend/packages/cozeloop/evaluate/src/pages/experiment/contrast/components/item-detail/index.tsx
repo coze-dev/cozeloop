@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { ResizeSidesheet, IDRender } from '@cozeloop/components';
 import {
   type Experiment,
@@ -38,7 +39,8 @@ export default function ExperimentContrastItemDetail({
       closable={false}
       title={
         <div className="flex items-center gap-2">
-          对比实验详情 <IDRender id={experimentContrastItem?.groupID ?? ''} />
+          {I18n.t('compare_experiment_detail')}{' '}
+          <IDRender id={experimentContrastItem?.groupID ?? ''} />
         </div>
       }
       dragOptions={{

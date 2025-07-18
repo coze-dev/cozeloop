@@ -13,6 +13,7 @@ import { Tag, type TreeNodeData, TreeSelect } from '@coze-arch/coze-design';
 
 import { updateTreeData } from './utils';
 import { listEvaluationSets, listEvaluationSetVersions } from './requery';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 type TreeNode = TreeNodeData & {
   evalSet?: EvaluationSet;
@@ -89,7 +90,7 @@ export default function EvalDatasetTreeSelect({
       loadData={onLoadChildren}
       treeData={treeData}
       style={{ width: '100%' }}
-      placeholder="请选择评测集"
+      placeholder={I18n.t('please_select', { field: I18n.t('evaluation_set') })}
       multiple={true}
       filterTreeNode={true}
       dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}

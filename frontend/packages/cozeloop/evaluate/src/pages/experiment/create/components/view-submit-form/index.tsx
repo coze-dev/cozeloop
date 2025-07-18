@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   type EvalTargetDefinition,
   useEvalTargetDefinition,
@@ -56,15 +57,19 @@ const RenderEvalTarget = ({
 const RenderBasicInfo = ({ name, desc }: { name?: string; desc?: string }) => (
   <>
     <div className="text-[16px] leading-[22px] font-medium coz-fg-primary mb-5">
-      {'基础信息'}
+      {I18n.t('basic_info')}
     </div>
     <div className="flex flex-row gap-5">
       <div className="flex-1 w-0">
-        <div className="text-sm font-medium coz-fg-primary mb-2">{'名称'}</div>
+        <div className="text-sm font-medium coz-fg-primary mb-2">
+          {I18n.t('name')}
+        </div>
         <div className="text-sm font-normal coz-fg-primary">{name || '-'}</div>
       </div>
       <div className="flex-1 w-0">
-        <div className="text-sm font-medium coz-fg-primary mb-2">{'描述'}</div>
+        <div className="text-sm font-medium coz-fg-primary mb-2">
+          {I18n.t('description')}
+        </div>
         <div className="text-sm font-normal coz-fg-primary">{desc || '-'}</div>
       </div>
     </div>
@@ -88,12 +93,12 @@ const RenderEvaluationSet = ({
 }) => (
   <>
     <div className="text-[16px] leading-[22px] font-medium coz-fg-primary mb-5">
-      {'评测集'}
+      {I18n.t('evaluation_set')}
     </div>
     <div className="flex flex-row gap-5">
       <div className="flex-1 w-0">
         <div className="text-sm font-medium coz-fg-primary mb-2">
-          {'名称和版本'}
+          {I18n.t('name_and_version')}
         </div>
         <div className="flex flex-row items-center gap-1">
           <div className="text-sm font-normal coz-fg-primary">
@@ -108,7 +113,9 @@ const RenderEvaluationSet = ({
         </div>
       </div>
       <div className="flex-1 w-0">
-        <div className="text-sm font-medium coz-fg-primary mb-2">{'列名'}</div>
+        <div className="text-sm font-medium coz-fg-primary mb-2">
+          {I18n.t('column_name')}
+        </div>
         <EvaluateSetColList
           fieldSchemas={
             evaluationSetVersionDetail?.evaluation_set_schema?.field_schemas
@@ -157,13 +164,13 @@ export const ViewSubmitForm = (props: {
 
       <div>
         <div className="text-sm font-medium coz-fg-primary mb-2">
-          {'字段映射'}
+          {I18n.t('field_mapping')}
         </div>
         <div className="flex flex-col gap-3">
           {Object.entries(evalTargetMapping || {}).map(([k, v]) => (
             <ReadonlyMappingItem
               key={k}
-              keyTitle={'评测对象'}
+              keyTitle={I18n.t('evaluation_object')}
               keySchema={{
                 name: k,
                 ...DEFAULT_TEXT_STRING_SCHEMA,
@@ -177,7 +184,7 @@ export const ViewSubmitForm = (props: {
       <div className="h-10" />
 
       <div className="text-[16px] leading-[22px] font-medium coz-fg-primary mb-5">
-        {'评估器'}
+        {I18n.t('evaluator')}
       </div>
       <div className="flex flex-col gap-5">
         {evaluatorProList?.map((evaluatorPro, index) => (

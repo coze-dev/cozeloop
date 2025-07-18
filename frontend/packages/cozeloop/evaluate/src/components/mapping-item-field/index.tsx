@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { type FC } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   EqualItem,
   ReadonlyItem,
@@ -74,7 +75,7 @@ export const MappingItemField: FC<CommonFieldProps & MappingItemProps> =
         <BaseSearchSelect
           validateStatus={validateStatus}
           className={styles.select}
-          placeholder="请选择"
+          placeholder={I18n.t('please_select', { field: '' })}
           prefix={
             value?.schemaSourceType &&
             schemaSourceTypeMap[value.schemaSourceType]

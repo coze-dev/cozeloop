@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useEffect, useMemo, useState } from 'react';
 
+import { I18n } from '@cozeloop/i18n-adapter';
 import {
   LogicEditor,
   EvaluatorPreview,
@@ -129,7 +130,7 @@ export default function ExperimentContrastTableHeader({
         //   hidden: hiddenFieldMap.token ?? false,
         // },
         {
-          title: '状态',
+          title: I18n.t('status'),
           dataIndex: 'status',
           key: 'status',
           isFieldColumn: true,

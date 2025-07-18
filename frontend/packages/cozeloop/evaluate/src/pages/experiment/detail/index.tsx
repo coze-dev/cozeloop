@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useCallback, useState } from 'react';
 
 import { useRequest } from 'ahooks';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { LoopTabs } from '@cozeloop/components';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import { useBreadcrumb } from '@cozeloop/base-hooks';
@@ -72,8 +73,8 @@ export default function () {
           tabPaneMotion={false}
           keepDOM={false}
           tabList={[
-            { tab: '数据明细', itemKey: 'detail' },
-            { tab: '指标统计', itemKey: 'chart' },
+            { tab: I18n.t('data_detail'), itemKey: 'detail' },
+            { tab: I18n.t('measure_stat'), itemKey: 'chart' },
           ]}
         />
         <div className="grow overflow-hidden">

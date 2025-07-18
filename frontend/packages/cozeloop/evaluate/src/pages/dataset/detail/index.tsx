@@ -15,6 +15,7 @@ import { type Version } from '@cozeloop/components';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import { useBreadcrumb } from '@cozeloop/base-hooks';
 import { Layout, Loading, Tabs } from '@coze-arch/coze-design';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 enum TabKey {
   EVAL = 'eval',
@@ -52,7 +53,7 @@ export default function EvaluateSetDetailPage() {
               itemKey={TabKey.EVAL}
               tab={
                 <>
-                  <span className="mr-2">评测集</span>
+                  <span className="mr-2">{I18n.t('evaluation_set')}</span>
                   <DatasetVersionTag
                     currentVersion={version}
                     datasetDetail={datasetDetail}
@@ -69,7 +70,10 @@ export default function EvaluateSetDetailPage() {
                 />
               ) : null}
             </Tabs.TabPane>
-            <Tabs.TabPane itemKey={TabKey.EXPERIMENT} tab="关联实验">
+            <Tabs.TabPane
+              itemKey={TabKey.EXPERIMENT}
+              tab={I18n.t('associated_experiment')}
+            >
               <DatasetRelatedExperiment
                 spaceID={spaceID}
                 datasetID={datasetDetail?.id ?? ''}

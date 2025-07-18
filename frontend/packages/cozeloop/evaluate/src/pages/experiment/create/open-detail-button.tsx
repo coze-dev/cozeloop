@@ -1,18 +1,18 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import classNames from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { IconCozLongArrowTopRight } from '@coze-arch/coze-design/icons';
 import { Tooltip, Button } from '@coze-arch/coze-design';
 
-export function OpenDetailButton({
-  url,
-  className,
-}: {
+interface Props {
   url: string;
   className?: string;
-}) {
+}
+
+export function OpenDetailButton({ url, className }: Props) {
   return (
-    <Tooltip theme="dark" content="查看详情">
+    <Tooltip theme="dark" content={I18n.t('view_detail')}>
       <Button
         onClick={e => {
           e.stopPropagation();
