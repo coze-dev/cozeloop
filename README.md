@@ -1,5 +1,5 @@
 <div align="center">
-<h1>CozeLoop Community Edition</h1>
+<h1>CozeLoop Open-source Edition</h1>
 <p><strong> Platform-level solution for developing and operating AI agent</strong></p>
 <p>
 <a href="#What-can-CozeLoop-do">CozeLoop</a> •
@@ -20,7 +20,7 @@ English | [中文](README.cn.md)
 
 [CozeLoop ](https://www.coze.cn/loop) (CozeLoop) is a developer-oriented, platform-level solution focused on the development and operation of AI agents. It addresses various challenges faced during the AI agent development process, providing full lifecycle management capabilities from development, debugging, evaluation, to monitoring.
 
-Based on the commercial version, CozeLoop introduces a community edition that offers developers free access to core foundational feature modules. By sharing its core technology framework in an open-source model, developers can customize and extend according to business needs, facilitating community co-construction, sharing, and exchange, helping developers participate in AI agent exploration and practice with zero barriers.
+Based on the commercial version, CozeLoop introduces a open-source edition that offers developers free access to core foundational feature modules. By sharing its core technology framework in an open-source model, developers can customize and extend according to business needs, facilitating community co-construction, sharing, and exchange, helping developers participate in AI agent exploration and practice with zero barriers.
 
 ## What can CozeLoop do?
 CozeLoop helps developers efficiently develop and operate AI agents by providing full-lifecycle management capabilities. Whether it's prompt engineering, AI agent evaluation, or monitoring and optimization after deployment, CozeLoop offers powerful tools and intelligent support, significantly simplifying the AI agent development process and improving the performance and stability of AI agents.
@@ -30,7 +30,7 @@ CozeLoop helps developers efficiently develop and operate AI agents by providing
 * **Observation**: CozeLoop provides developers with visual observation capabilities for the full-chain execution process, fully recording each processing step from user input to AI output. This includes key nodes such as prompt parsing, model invocation, and tool execution, while automatically capturing intermediate results and abnormal states.
 
 ## Feature list
-| **Feature** | **Feature points** | **Commercial version** | **Community Edition** |
+| **Feature** | **Feature points** | **Commercial version** | **Open-source Edition** |
 | --- | --- | --- | --- |
 | Prompt debugging | Playground debugging, comparison, and version management | ✔️ | ✔️ |
 |  | Prompt optimization | ✔️ | - |
@@ -48,19 +48,19 @@ CozeLoop helps developers efficiently develop and operate AI agents by providing
 |  | Enterprise teams and permissions | ✔️ | - |
 ## Quickstart
 Refer to the [Quickstart](https://github.com/coze-dev/cozeloop/wiki/2.-Quickstart) to learn how to install and deploy the latest version of CozeLoop.
-## Using CozeLoop Community Edition
+## Using CozeLoop Open-source Edition
 
 * [Prompt development and debugging](https://loop.coze.cn/open/docs/cozeloop/create-prompt): CozeLoop provides a complete prompt development workflow.
 * [Evaluation](https://loop.coze.cn/open/docs/cozeloop/create-prompt): CozeLoop's evaluation functionality offers standardized evaluation data management, automated assessment engines, and comprehensive experimental result statistics.
 * [Trace reporting and querying](https://loop.coze.cn/open/docs/cozeloop/trace-integrate): CozeLoop supports automatic Trace reporting for prompt debugging conducted on the platform, enabling real-time tracking of each Trace data.
-* [Community Edition usage of the CozeLoop SDK](https://github.com/coze-dev/cozeloop/wiki/8.-Community-edition-uses-CozeLoop-SDK): The CozeLoop SDK in three languages is suitable for both commercial and community editions. For the Community Edition, developers only need to modify some parameter configurations during initialization.
+* [Open-source Edition usage of the CozeLoop SDK](https://github.com/coze-dev/cozeloop/wiki/8.-Open-source-edition-uses-CozeLoop-SDK): The CozeLoop SDK in three languages is suitable for both commercial and open-source editions. For the Open-source Edition, developers only need to modify some parameter configurations during initialization.
 
 ## Development guide
 
-* [System architecture](https://github.com/coze-dev/cozeloop/wiki/3.-Architecture): Learn about the technical architecture and core components of CozeLoop Community Edition.
-* [Startup mode](https://github.com/coze-dev/cozeloop/wiki/4.-Service-startup-modes): When installing and deploying CozeLoop Community Edition, the default development mode allows backend file modifications without requiring service redeployment.
-* [Model configuration](https://github.com/coze-dev/cozeloop/wiki/5.-Model-configuration): CozeLoop Community Edition supports various LLM models through the Eino framework. Refer to this document to view the supported model list and learn how to configure models.
-* [Code development and testing](https://github.com/coze-dev/cozeloop/wiki/6.-Code-development-and-testing): Learn how to perform secondary development and testing based on CozeLoop Community Edition.
+* [System architecture](https://github.com/coze-dev/cozeloop/wiki/3.-Architecture): Learn about the technical architecture and core components of CozeLoop Open-source Edition.
+* [Startup mode](https://github.com/coze-dev/cozeloop/wiki/4.-Service-startup-modes): When installing and deploying CozeLoop Open-source Edition, the default development mode allows backend file modifications without requiring service redeployment.
+* [Model configuration](https://github.com/coze-dev/cozeloop/wiki/5.-Model-configuration): CozeLoop Open-source Edition supports various LLM models through the Eino framework. Refer to this document to view the supported model list and learn how to configure models.
+* [Code development and testing](https://github.com/coze-dev/cozeloop/wiki/6.-Code-development-and-testing): Learn how to perform secondary development and testing based on CozeLoop Open-source Edition.
 * [Fault troubleshooting](https://github.com/coze-dev/cozeloop/wiki/7.-Troubleshooting): Learn how to check container status and system logs.
 
 ## License
@@ -72,6 +72,7 @@ If you identify potential security issues in this project or believe you may hav
 Please **do not** create public GitHub Issues.
 ## Join the Community
 Scan the QR code below on the Lark mobile app to join the CozeLoop technical discussion group
+
 ![Image](https://p9-arcosite.byteimg.com/tos-cn-i-goo7wpa0wc/8fae8f0e7b124831b1dd94aa9a5c60c1~tplv-goo7wpa0wc-image.image)
 ## Acknowledgments
 Thanks to all developers and community members who contributed to the CozeLoop project Special thanks:
