@@ -4,3 +4,4 @@ export { AuthFrame } from './auth-frame';
 export { Logo } from './logo';
 export { LoginPanel } from './login-panel';
 export { AccountSetting } from './account-setting';
+export { SwitchLang } from './switch-lng';

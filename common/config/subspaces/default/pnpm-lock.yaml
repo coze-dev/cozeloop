@@ -1400,6 +1400,9 @@ importers:
       '@cozeloop/i18n-adapter':
         specifier: workspace:*
         version: link:../i18n
+      '@cozeloop/stores':
+        specifier: workspace:*
+        version: link:../stores
       ahooks:
         specifier: 3.7.8
         version: 3.7.8(patch_hash=sa4ddrxdk2yhjzudeck6u5ww3i)(react@18.2.0)
@@ -3104,6 +3107,9 @@ importers:
 
   ../../../frontend/packages/cozeloop/stores:
     dependencies:
+      '@cozeloop/i18n-adapter':
+        specifier: workspace:*
+        version: link:../i18n
       '@cozeloop/toolkit':
         specifier: workspace:*
         version: link:../toolkit

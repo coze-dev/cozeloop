@@ -2,9 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useEffect } from 'react';
 
+import { useI18nStore } from '@cozeloop/stores';
 import { I18n } from '@cozeloop/i18n-adapter';
-
-import { useI18nStore } from '@/stores';
 
 export function useSetupI18n() {
   const setLng = useI18nStore(s => s.setLng);

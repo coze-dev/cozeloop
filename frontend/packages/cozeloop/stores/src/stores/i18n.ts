@@ -3,7 +3,7 @@
 import { create } from 'zustand';
 import { I18n } from '@cozeloop/i18n-adapter';
 
-type I18nLang = 'zh-CN' | 'en-US';
+export type I18nLang = 'zh-CN' | 'en-US';
 
 interface I18nState {
   lng: I18nLang;

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { type PropsWithChildren } from 'react';
 
+import { useI18nStore } from '@cozeloop/stores';
 import { I18n } from '@cozeloop/i18n-adapter';
 import { en_US, zh_CN } from '@coze-arch/coze-design/locales';
 import {
@@ -10,8 +11,6 @@ import {
   enUS,
   zhCN,
 } from '@coze-arch/coze-design';
-
-import { useI18nStore } from '@/stores';
 
 function langToLocale(lang: string) {
   if (!lang) {

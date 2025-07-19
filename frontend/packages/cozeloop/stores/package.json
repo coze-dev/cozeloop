@@ -11,6 +11,7 @@
     "test:cov": "npm run test -- --coverage"
   },
   "dependencies": {
+    "@cozeloop/i18n-adapter": "workspace:*",
     "@cozeloop/toolkit": "workspace:*",
     "eventemitter3": "^5.0.1",
     "immer": "^10.0.3",

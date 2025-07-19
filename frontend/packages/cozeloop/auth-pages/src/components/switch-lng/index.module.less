@@ -1,0 +1,25 @@
+.container {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
+  padding: 2px 4px;
+
+  border-radius: 4px;
+
+  &:hover, &:active {
+    background-color: rgba(var(--coze-bg-5), var(--coze-bg-5-alpha));
+  }
+
+  > svg {
+    font-size: 0;
+  }
+}
+
+.text {
+  user-select: none;
+  margin-left: 4px;
+  font-size: 13px;
+  color: var(--coz-fg-primary);
+}

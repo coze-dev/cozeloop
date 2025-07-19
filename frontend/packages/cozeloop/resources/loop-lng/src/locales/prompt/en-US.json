@@ -118,7 +118,7 @@
   "prompt_effect_evaluation": "Conduct a performance evaluation of the prompt to improve application effectiveness.",
   "confirm_version_difference": "Confirm the version differences",
   "confirm_version_info": "Confirm the version information",
-  "model_not_support_picture": "The model does not support uploading pictures",
+  "model_not_support_picture": "The model does not support images",
   "model_not_support": "The model is not supported.",
   "enable_function": "Enable function",
   "single_step_debugging": "Single-step debugging",

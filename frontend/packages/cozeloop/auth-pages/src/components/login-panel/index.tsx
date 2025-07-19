@@ -9,6 +9,7 @@ import loopBanner from '@/assets/loop-banner.png';
 import { ReactComponent as IconGithub } from '@/assets/github.svg';
 
 import s from './index.module.less';
+import { SwitchLang } from '../switch-lng';
 
 interface Props {
   loading?: boolean;
@@ -34,6 +35,7 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
 
   return (
     <div className={s.container}>
+      <SwitchLang className="absolute right-[12px] top-[12px]" />
       <div className="flex flex-col items-center">
         <img src={loopBanner} className={s.banner} />
         <div className="text-[18px] font-medium leading-[36px] my-[20px]">
