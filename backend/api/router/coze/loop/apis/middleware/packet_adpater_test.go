@@ -10,7 +10,10 @@ import (
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/stretchr/testify/assert"
+	"go.uber.org/mock/gomock"
 
+	"github.com/coze-dev/cozeloop/backend/infra/i18n"
+	"github.com/coze-dev/cozeloop/backend/infra/i18n/mocks"
 	"github.com/coze-dev/cozeloop/backend/modules/foundation/pkg/errno"
 )
 
@@ -187,6 +190,72 @@ func TestRespPacket_ParseBaseResp(t *testing.T) {
 			ctx := context.Background()
 			result := tt.packet.parseBaseResp(ctx)
 			assert.Equal(t, tt.expected, result)
+		})
+	}
+}
+
+func TestErrPacket_LocalizeMessage(t *testing.T) {
+	tests := []struct {
+		name      string
+		e         *errPacket
+		locale    string
+		setupMock func(ctrl *gomock.Controller) i18n.ITranslater
+		expectMsg string
+	}{
+		{
+			name:      "translater is nil",
+			e:         &errPacket{Code: 1001, Message: "original error"},
+			locale:    "en-US",
+			setupMock: func(ctrl *gomock.Controller) i18n.ITranslater { return nil },
+			expectMsg: "original error",
+		},
+		{
+			name:   "locale is empty",
+			e:      &errPacket{Code: 1002, Message: "original error 2"},
+			locale: "",
+			setupMock: func(ctrl *gomock.Controller) i18n.ITranslater {
+				mock := mocks.NewMockITranslater(ctrl)
+				// Translate will not be called
+				return mock
+			},
+			expectMsg: "original error 2",
+		},
+		{
+			name:   "translate hit",
+			e:      &errPacket{Code: 1003, Message: "original error 3"},
+			locale: "en-US",
+			setupMock: func(ctrl *gomock.Controller) i18n.ITranslater {
+				mock := mocks.NewMockITranslater(ctrl)
+				mock.EXPECT().
+					MustTranslate(gomock.Any(), "1003", "en-US").
+					Return("translated-1003")
+				return mock
+			},
+			expectMsg: "translated-1003",
+		},
+		{
+			name:   "translate miss (empty)",
+			e:      &errPacket{Code: 1004, Message: "original error 4"},
+			locale: "en-US",
+			setupMock: func(ctrl *gomock.Controller) i18n.ITranslater {
+				mock := mocks.NewMockITranslater(ctrl)
+				mock.EXPECT().
+					MustTranslate(gomock.Any(), "1004", "en-US").
+					Return("")
+				return mock
+			},
+			expectMsg: "original error 4",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ctrl := gomock.NewController(t)
+			defer ctrl.Finish()
+			translater := tt.setupMock(ctrl)
+			ctx := context.Background()
+			result := tt.e.localizeMessage(ctx, tt.locale, translater)
+			assert.Equal(t, tt.expectMsg, result.Message)
 		})
 	}
 }
