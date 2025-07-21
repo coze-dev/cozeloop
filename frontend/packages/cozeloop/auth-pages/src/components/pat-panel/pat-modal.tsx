@@ -5,7 +5,13 @@ import { useEffect, useRef, useState } from 'react';
 import { I18n } from '@cozeloop/i18n-adapter';
 import { DurationDay } from '@cozeloop/api-schema/foundation';
 import { IconCozInfoCircle } from '@coze-arch/coze-design/icons';
-import { Form, type FormApi, Input, Modal, Tooltip } from '@coze-arch/coze-design';
+import {
+  Form,
+  Input,
+  Modal,
+  Tooltip,
+  type FormApi,
+} from '@coze-arch/coze-design';
 
 import { disabledDate, formatDate, getExpirationOptions } from './utils';
 
@@ -74,10 +80,7 @@ export function PatModal({
         <Form.Input
           trigger={['blur', 'change']}
           field="name"
-          label={{
-            text: I18n.t('coze_api_list1'),
-            required: true,
-          }}
+          label={{ text: I18n.t('name'), required: true }}
           placeholder={'Input token name'}
           maxLength={20}
         />
