@@ -17,7 +17,7 @@ export const columns: ColumnProps<Prompt & { user?: UserInfoDetail }>[] = [
         <TextWithCopy
           content={key}
           className="overflow-hidden !text-[13px]"
-          copyTooltipText="复制 Prompt Key"
+          copyTooltipText={I18n.t('copy_prompt_key')}
           textType="primary"
         />
       </div>

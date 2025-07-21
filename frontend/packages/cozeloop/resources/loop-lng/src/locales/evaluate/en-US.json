@@ -75,7 +75,7 @@
   "copy_evaluator_config": "Copy the evaluator config",
   "copy_and_create_evaluator": "Copy the config of {name} and create a new evaluator",
   "evaluator_name": "Evaluator name",
-  "latest_version": "The latest version",
+  "latest_version": "Latest version",
   "updated_person": "Updater",
   "update_time": "Update time",
   "create_time": "Creation time",

@@ -1,4 +1,11 @@
 {
+  "analytics_image_error": "图片不可访问",
+  "analytics_trace_arguments": "Arguments",
+  "analytics_trace_description": "Description",
+  "analytics_trace_metadata": "Metadata",
+  "analytics_trace_run": "Run",
+  "analytics_trace_runtime": "Runtime",
+  "analytics_trace_type": "Type",
   "current_trace_expired_to_view": "当前 Trace 已过期无法查看",
   "no_permission_to_view_trace": "当前的角色权限暂时无法查看该 Trace 详情",
   "no_permission_to_view": "无权限查看",

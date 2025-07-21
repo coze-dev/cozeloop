@@ -1,4 +1,11 @@
 {
+  "analytics_image_error": "The picture is inaccessible",
+  "analytics_trace_arguments": "Arguments",
+  "analytics_trace_description": "Description",
+  "analytics_trace_metadata": "Metadata",
+  "analytics_trace_run": "Run",
+  "analytics_trace_runtime": "Runtime",
+  "analytics_trace_type": "Type",
   "current_trace_expired_to_view": "The current Trace has expired and cannot be viewed",
   "no_permission_to_view_trace": "The current role permissions temporarily do not allow viewing the details of this Trace.",
   "no_permission_to_view": "No permission to view.",

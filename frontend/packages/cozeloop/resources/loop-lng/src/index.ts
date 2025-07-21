@@ -1,9 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 /* eslint-disable import/order -- skip*/
-import rootLocaleZhCN from './locales/zh-CN.json';
-import rootLocaleEnUS from './locales/en-US.json';
-
 // auth
 import authLocaleZhCN from './locales/auth/zh-CN.json';
 import authLocaleEnUS from './locales/auth/en-US.json';
@@ -34,7 +31,6 @@ import promptLocaleEnUS from './locales/prompt/en-US.json';
 
 export const localeZhCN = Object.assign(
   {},
-  rootLocaleZhCN,
   commonLocaleZhCN,
   componentsLocaleZhCN,
   baseLocaleZhCN,
@@ -46,7 +42,6 @@ export const localeZhCN = Object.assign(
 
 export const localeEnUS = Object.assign(
   {},
-  rootLocaleEnUS,
   commonLocaleEnUS,
   componentsLocaleEnUS,
   baseLocaleEnUS,

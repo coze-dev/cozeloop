@@ -6,13 +6,6 @@ import { type ReactNode } from 'react';
 
 /** I18n with interpolation */
 export interface I18nWithInterpolation {
-  /** {num, plural, other {{num}天（{date}）}} */
-  expired_time_days_1: {
-    /** number */
-    num: ReactNode;
-    /** string */
-    date: ReactNode;
-  };
   /** {field}已存在 */
   field_exists: {
     /** string */
@@ -331,239 +324,88 @@ export interface I18nWithInterpolation {
 
 /** I18n keys without interpolation */
 export type I18nKeysNoInterpolation =
+  /** 账户 */
+  | 'account'
   /** 操作 */
   | 'actions'
-  /** 点击按钮添加个人访问令牌 */
-  | 'add_api_token_1'
-  /** 添加新的个人访问令牌 */
-  | 'add_new_pat_1'
-  /** 添加新令牌 */
-  | 'add_new_token_button_1'
   /** 新增 */
   | 'add'
-  /** 图片不可访问 */
-  | 'analytics_image_error'
-  /** Arguments */
-  | 'analytics_trace_arguments'
-  /** Description */
-  | 'analytics_trace_description'
-  /** Metadata */
-  | 'analytics_trace_metadata'
-  /** Run */
-  | 'analytics_trace_run'
-  /** Runtime */
-  | 'analytics_trace_runtime'
-  /** Type */
-  | 'analytics_trace_type'
-  /** 状态 */
-  | 'api_status_1'
-  /** 有效 */
-  | 'api_status_active_1'
-  /** 已过期 */
-  | 'api_status_expired_1'
-  /** 永久有效 */
-  | 'api_status_permanent_1'
-  /** 个人访问令牌 */
-  | 'auth_tab_pat'
-  /** 取消 */
-  | 'Cancel'
+  /** 应用 */
+  | 'apply'
+  /** 返回 */
+  | 'back'
   /** 取消 */
   | 'cancel'
+  /** 取消 */
+  | 'Cancel'
+  /** 清空 */
+  | 'clear'
   /** 代码 */
   | 'code'
-  /** 确认 */
-  | 'Confirm'
+  /** 收起 */
+  | 'collapse'
   /** 确认 */
   | 'confirm'
+  /** 确认 */
+  | 'Confirm'
   /** 内容 */
   | 'Content'
   /** 复制 */
   | 'Copy'
   /** 复制 */
   | 'copy'
-  /** API 使用说明 */
-  | 'coze_api_instru'
-  /** 名称 */
-  | 'coze_api_list1'
-  /** 创建时间 */
-  | 'coze_api_list3'
-  /** 最近使用时间 */
-  | 'coze_api_list4'
-  /** 操作 */
-  | 'coze_api_list5'
-  /** 创作者 */
-  | 'creators'
-  /** 自定义 */
-  | 'customize_key_1'
-  /** 此操作不可撤回 */
-  | 'delete_desc'
-  /** 确认删除 */
-  | 'delete_title'
-  /** 删除 */
-  | 'Delete'
-  /** 删除 */
-  | 'delete'
-  /** 描述 */
-  | 'Description'
-  /** 编辑个人访问令牌 */
-  | 'edit_pat_1'
-  /** 编辑 */
-  | 'Edit'
-  /** 抱歉，发生了一些错误，请稍后重试。 */
-  | 'error'
-  /** 展开 */
-  | 'expand'
-  /** 过期时间 */
-  | 'expire_time_1'
-  /** 请谨慎选择过期时间，个人访问令牌生成后，将不支持修改 */
-  | 'expired_time_forbidden_1'
-  /** 抱歉，发生了一些错误... */
-  | 'failed'
-  /** go */
-  | 'go'
-  /** 导入 */
-  | 'import'
-  /** 输入 */
-  | 'Input'
-  /** 语言 */
-  | 'language'
-  /** 最新版本 */
-  | 'latest_version'
-  /** 加载完成 */
-  | 'loaded'
-  /** 加载中 */
-  | 'loading'
-  /** 加载中 */
-  | 'Loading'
-  /** 退出登录 */
-  | 'logout'
-  /** 我的 */
-  | 'Me'
-  /** 移动端 */
-  | 'mobile'
-  /** 模型家族 */
-  | 'model_family'
-  /** 模型信息
- */
-  | 'model_info'
-  /** 模型名称 */
-  | 'model_name'
-  /** 新的个人访问令牌 */
-  | 'new_pat_1'
-  /** 下一步 */
-  | 'next'
-  /** 还没有个人访问令牌 */
-  | 'no_api_token_1'
-  /** 或 */
-  | 'or'
-  /** 输出 */
-  | 'Output'
-  /** 参数 */
-  | 'parameters'
-  /** 用于其他应用程序和平台的个人访问令牌。详细说明请查看： */
-  | 'pat_reminder_1'
-  /** 不要与他人共享您的个人访问令牌，也不要在浏览器或其他客户端代码中暴露它，以保护您账户的安全。若在公开场合发现任何泄露的个人访问令牌，该令牌可能会被自动禁用。 */
-  | 'pat_reminder_2'
-  /** 扣子 */
-  | 'platform_name'
-  /** 插件 */
-  | 'Plugins'
-  /** 指令为必填项 */
-  | 'prompt_generate_instruction_validate'
-  /** 指令为必填项 */
-  | 'prompt_generate_statement_validate'
-  /** 停止回答 */
-  | 'prompt_generate_stop_responding'
-  /** 停止扩写 */
-  | 'prompt_generate_stop'
-  /** 提交 */
-  | 'prompt_submit'
-  /** 版本提交后即刻生效，确定要提交么 */
-  | 'prompt_version_submit'
-  /** Python */
-  | 'python'
-  /** 替换 */
-  | 'replace'
-  /** 必填 */
-  | 'required'
-  /** 响应回答中 */
-  | 'Responding'
-  /** 重试 */
-  | 'Retry'
-  /** 重试 */
-  | 'retry'
-  /** 保存 */
-  | 'Save'
-  /** 搜索 */
-  | 'Search'
-  /** 选择过期时间 */
-  | 'select_expired_time_1'
-  /** 空格 */
-  | 'space'
-  /** 成功 */
-  | 'Success'
-  /** 模板 */
-  | 'template_name'
-  /** 文本 */
-  | 'text'
-  /** 工具 */
-  | 'Tools'
-  /** 类型 */
-  | 'Type'
-  /** 类型 */
-  | 'type'
-  /** 未定义 */
-  | 'undefined'
-  /** 用户昵称 */
-  | 'user_info_custom_name'
-  /** 邮箱 */
-  | 'user_info_email'
-  /** 用户名 */
-  | 'user_info_username'
-  /** 版本 */
-  | 'version'
-  /** 工作流 */
-  | 'Workflow'
-  /** 账户 */
-  | 'account'
-  /** 应用 */
-  | 'apply'
-  /** 返回 */
-  | 'back'
-  /** 清空 */
-  | 'clear'
-  /** 收起 */
-  | 'collapse'
   /** 调试 */
   | 'debug'
+  /** 删除 */
+  | 'delete'
+  /** 删除 */
+  | 'Delete'
   /** Demo 空间 */
   | 'demo_space'
   /** 描述 */
   | 'description'
   /** 详情 */
   | 'detail'
+  /** 编辑 */
+  | 'Edit'
   /** 邮箱 */
   | 'email'
+  /** 展开 */
+  | 'expand'
   /** 实验 */
   | 'experiment'
   /** 失败 */
   | 'failure'
   /** 字段 */
   | 'field'
+  /** 导入 */
+  | 'import'
   /** 输入 */
   | 'input'
+  /** 输入 */
+  | 'Input'
+  /** 语言 */
+  | 'language'
   /** 登录 */
   | 'login'
+  /** 退出登录 */
+  | 'logout'
   /** 名称 */
   | 'name'
   /** 网络错误 */
   | 'network_error'
+  /** 下一步 */
+  | 'next'
   /** 否 */
   | 'no'
   /** 操作 */
   | 'operation'
+  /** 或 */
+  | 'or'
   /** 输出 */
   | 'output'
+  /** 输出 */
+  | 'Output'
   /** 密码 */
   | 'password'
   /** 永久 */
@@ -576,26 +418,36 @@ export type I18nKeysNoInterpolation =
   | 'register'
   /** 移除 */
   | 'remove'
+  /** 重试 */
+  | 'retry'
   /** 重试中 */
   | 'retrying'
   /** 运行 */
   | 'run'
   /** 保存 */
   | 'save'
+  /** 搜索 */
+  | 'Search'
   /** 提交 */
   | 'submit'
   /** 成功 */
   | 'success'
+  /** 文本 */
+  | 'text'
   /** 今天 */
   | 'today'
   /** 明天 */
   | 'tomorrow'
-  /** 更新 */
-  | 'update'
+  /** 未定义 */
+  | 'undefined'
   /** 未知问题 */
   | 'unknown_error'
+  /** 更新 */
+  | 'update'
   /** 用户协议 */
   | 'user_agreement'
+  /** 版本 */
+  | 'version'
   /** 查看 */
   | 'view'
   /** 是 */
@@ -676,7 +528,7 @@ export type I18nKeysNoInterpolation =
   | 'not_join_space'
   /** API 授权 */
   | 'api_authorization'
-  /** 欢迎使用扣子罗盘-社区版 */
+  /** 欢迎使用扣子罗盘-开源版 */
   | 'welcome_to_cozeloop'
   /** 请输入邮箱 */
   | 'please_input_email'
@@ -702,6 +554,8 @@ export type I18nKeysNoInterpolation =
   | 'expired'
   /** 新的个人访问令牌 */
   | 'new_pat'
+  /** 个人访问令牌 */
+  | 'auth_tab_pat'
   /** 添加新令牌 */
   | 'add_token'
   /** 添加个人访问令牌 */
@@ -772,6 +626,8 @@ export type I18nKeysNoInterpolation =
   | 'set_to_reference_group'
   /** 删除对照组 */
   | 'delete_control_group'
+  /** 加载中 */
+  | 'loading'
   /** 加载更多 */
   | 'load_more'
   /** 暂无调试记录 */
@@ -828,6 +684,8 @@ export type I18nKeysNoInterpolation =
   | 'placeholder_var_create_error'
   /** 模型 ID */
   | 'model_id'
+  /** 模型名称 */
+  | 'model_name'
   /** 本次提交无版本差异 */
   | 'submission_no_version_diff'
   /** 打开 启用函数 */
@@ -1092,6 +950,8 @@ export type I18nKeysNoInterpolation =
   | 'copy_evaluator_config'
   /** 评估器名称 */
   | 'evaluator_name'
+  /** 最新版本 */
+  | 'latest_version'
   /** 更新人 */
   | 'updated_person'
   /** 更新时间 */
@@ -1132,6 +992,8 @@ export type I18nKeysNoInterpolation =
   | 'data_total_count'
   /** 正在加载字段映射 */
   | 'loading_field_mapping'
+  /** 类型 */
+  | 'type'
   /** 请选择类型 */
   | 'select_type'
   /** 实际输出 */
@@ -1472,6 +1334,20 @@ export type I18nKeysNoInterpolation =
   | 'only_support_english_letters_numbers_and_chinese_and_'
   /** 仅支持英文、数字、下划线，且需要以字母开头 */
   | 'only_support_english_numbers_and_underscores_and_start_with_a_letter'
+  /** 图片不可访问 */
+  | 'analytics_image_error'
+  /** Arguments */
+  | 'analytics_trace_arguments'
+  /** Description */
+  | 'analytics_trace_description'
+  /** Metadata */
+  | 'analytics_trace_metadata'
+  /** Run */
+  | 'analytics_trace_run'
+  /** Runtime */
+  | 'analytics_trace_runtime'
+  /** Type */
+  | 'analytics_trace_type'
   /** 当前 Trace 已过期无法查看 */
   | 'current_trace_expired_to_view'
   /** 当前的角色权限暂时无法查看该 Trace 详情 */
