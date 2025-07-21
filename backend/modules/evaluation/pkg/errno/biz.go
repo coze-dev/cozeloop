@@ -7,7 +7,7 @@ const (
 	evaluatorResultErrCode = 12
 	turnOtherErrCode       = 13
 
-	ServiceInternalErrMsg = "系统内部错误"
+	ServiceInternalErrMsg = "Server internal error"
 )
 
 func NeedMQRetry(err error) bool {

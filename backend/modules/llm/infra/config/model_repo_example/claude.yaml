@@ -55,43 +55,43 @@
   param_config: #Required.
     param_schemas: #Required. This parameter determines which parameters of the model can be modified in the prompt and evaluator interface. Currently only supports following params.
       - name: "temperature"
-        label: "生成随机性" # Displayed as a name on the front end
-        desc: "调高温度会使得模型的输出更多样性和创新性，反之，降低温度会使输出内容更加遵循指令要求但减少多样性。建议不要与 “Top p” 同时调整。" # Displayed as a description on the front end
+        label: "temperature" # Displayed as a name on the front end
+        desc: "Increasing the temperature will make the model output more diverse and creative. Conversely, lowering the temperature will make the output more compliant with instructions but less diverse. It is recommended not to adjust together with 'Top p'." # Displayed as a description on the front end
         type: "float" # Required. Must be float, int, bool, string
         min: "0"
         max: "1.0"
         default_val: "0.7"
       - name: "max_tokens"
-        label: "最大回复长度"  # Displayed as a name on the front end
-        desc: "控制模型输出的 Tokens 长度上限。通常 100 Tokens 约等于 150 个中文汉字。"
+        label: "max_tokens"  # Displayed as a name on the front end
+        desc: "Controls the maximum length of tokens output by the model. Typically, 100 tokens are approximately equal to 150 Chinese characters." # Displayed as a description on the front end
         type: "int" # Required. Must be float, int, bool, string
         min: "1"
         max: "4096"
         default_val: "2048"
       - name: "top_k"
-        label: "顶部 k 概率采样"  # Displayed as a name on the front end
-        desc: "仅从概率最高的 k 个 token 中采样生成，限制候选范围，提升生成稳定性。" # Displayed as a description on the front end
+        label: "top_k"  # Displayed as a name on the front end
+        desc: "Samples from the top k tokens with the highest probability, limiting the candidate range and improving generation stability." # Displayed as a description on the front end
         type: "int" # Required. Must be float, int, bool, string
         min: "1"
         max: "100"
         default_val: "50"
       - name: "top_p"
-        label: "核采样概率"  # Displayed as a name on the front end
-        desc: "生成时选取累计概率达 top_p 的最小 token 集合，集合外 token 被排除，平衡多样性与合理性。" # Displayed as a description on the front end
+        label: "top_p"  # Displayed as a name on the front end
+        desc: "During generation, selects the smallest set of tokens whose cumulative probability reaches top_p. Tokens outside the set are excluded, balancing diversity and reasonableness." # Displayed as a description on the front end
         type: "float" # Required. Must be float, int, bool, string
         min: "0.001"
         max: "1.0"
         default_val: "0.7"
       - name: "frequency_penalty"
-        label: "频率惩罚"  # Displayed as a name on the front end
-        desc: "惩罚已生成过的 token，频率越高惩罚越大，抑制重复内容。" # Displayed as a description on the front end
+        label: "frequency_penalty"  # Displayed as a name on the front end
+        desc: "Penalizes tokens that have already been generated. The higher the frequency, the greater the penalty, suppressing repeated content." # Displayed as a description on the front end
         type: "float" # Required. Must be float, int, bool, string
         min: "0"
         max: "2.0"
         default_val: "0"
       - name: "presence_penalty"
-        label: "出现惩罚"  # Displayed as a name on the front end
-        desc: "惩罚所有出现过的 token，防止同一内容反复出现，增加内容多样性。" # Displayed as a description on the front end
+        label: "presence_penalty"  # Displayed as a name on the front end
+        desc: "Penalizes all tokens that have appeared, preventing the same content from appearing repeatedly and increasing content diversity." # Displayed as a description on the front end
         type: "float" # Required. Must be float, int, bool, string
         min: "0"
         max: "2.0"
