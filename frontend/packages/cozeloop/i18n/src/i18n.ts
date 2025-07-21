@@ -6,7 +6,7 @@ import {
 } from '@cozeloop/loop-lng';
 import { intlClient, type IntlClientOptions } from '@cozeloop/intl';
 
-import { type CozeloopI18n } from './types';
+import { type CozeloopI18n } from './locale-types';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention -- skip
 const I18n: CozeloopI18n = intlClient;
@@ -35,5 +35,9 @@ async function initIntl(options: IntlClientOptions = {}) {
     },
   });
 }
+
+I18n.t('please_add');
+
+I18n.t('Confirm');
 
 export { I18n, initIntl };

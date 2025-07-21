@@ -1,7 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import classNames from 'classnames';
-import { type I18nKeysNoOptionsType } from '@cozeloop/i18n-adapter';
 import { I18n } from '@cozeloop/i18n-adapter';
 import { Select } from '@coze-arch/coze-design';
 
@@ -52,9 +51,7 @@ export function LogicToggle(props: LogicToggleProps) {
       })}
     >
       {readonly ? (
-        <div className={styles['logic-toggle-tag']}>
-          {I18n.t(label as I18nKeysNoOptionsType)}
-        </div>
+        <div className={styles['logic-toggle-tag']}>{I18n.unsafeT(label)}</div>
       ) : (
         <Select
           size="small"
@@ -77,13 +74,13 @@ export function LogicToggle(props: LogicToggleProps) {
                   }}
                 />
               ) : null}
-              {I18n.t(label as I18nKeysNoOptionsType)}
+              {I18n.unsafeT(label)}
               <SelectIcon className={styles['logic-toggle-tag-icon']} />
             </div>
           )}
           optionList={filteredLogicOptions.map(item => ({
             ...item,
-            label: I18n.t(item.label as I18nKeysNoOptionsType),
+            label: I18n.unsafeT(item.label),
           }))}
           value={operator}
           onChange={val => {

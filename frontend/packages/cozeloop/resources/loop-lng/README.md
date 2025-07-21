@@ -1,6 +1,6 @@
 # @cozeloop/loop-lng
 
-A architecture package for the Coze Loop ecosystem
+Language data of Cozeloop.
 
 ## Overview
 
@@ -45,8 +45,7 @@ import {} from /* exported functions/components */ '@cozeloop/loop-lng';
 
 ### Exports
 
-- `localeEn, localeZhCN, defaultConfig ;`
-- `type  I18nOptionsMap, I18nKeysHasOptionsType, I18nKeysNoOptionsType, LocaleData`
+- `localeEn, localeZhCN`
 
 For detailed API documentation, please refer to the TypeScript definitions.
 

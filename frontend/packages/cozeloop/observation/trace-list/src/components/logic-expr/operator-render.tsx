@@ -4,7 +4,7 @@ import { useCallback, useMemo, useEffect } from 'react';
 
 import { isEmpty } from 'lodash-es';
 import classNames from 'classnames';
-import { I18n, type I18nKeysNoOptionsType } from '@cozeloop/i18n-adapter';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { type FieldMeta } from '@cozeloop/api-schema/observation';
 import { type OptionProps, Select } from '@coze-arch/coze-design';
 
@@ -45,9 +45,7 @@ export const OperatorRenderer = ({
   const tagOperatorOption: OptionProps[] = useMemo(
     () =>
       tagFilterRecord[left]?.filter_types?.map(item => ({
-        label: I18n.t(
-          (LOGIC_OPERATOR_RECORDS[item]?.label ?? '') as I18nKeysNoOptionsType,
-        ),
+        label: I18n.unsafeT(LOGIC_OPERATOR_RECORDS[item]?.label ?? ''),
         value: item,
       })) ?? [],
     [left, tagFilterRecord],

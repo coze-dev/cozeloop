@@ -1,5 +1,6 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
+import { I18n } from '@cozeloop/i18n-adapter';
 import { FieldDisplayFormat } from '@cozeloop/api-schema/data';
 
 import {
@@ -22,14 +23,14 @@ export const DEFAULT_DATASET_CREATE_FORM: IDatasetCreateForm = {
       content_type: ContentType.Text,
       type: DataType.String,
       default_display_format: FieldDisplayFormat.PlainText,
-      description: '作为输入投递给评测对象',
+      description: I18n.t('input_for_evaluation_object'),
     },
     {
       name: 'reference_output',
       content_type: ContentType.Text,
       type: DataType.String,
       default_display_format: FieldDisplayFormat.PlainText,
-      description: '预期理想输出，可作为评估时的参考标准',
+      description: I18n.t('expected_ideal_output'),
     },
   ],
   description: '',

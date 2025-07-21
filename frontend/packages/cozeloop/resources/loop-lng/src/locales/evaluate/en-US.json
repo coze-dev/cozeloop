@@ -293,6 +293,8 @@
   "copy_experiment_config": "Duplicate the experimental config",
   "copy_and_run_experiment": "Copy the {name} configuration, or modify the configuration and start the experiment.",
   "select_prompt_key_and_version_to_view": "Select Prompt key and version to view",
+  "input_for_evaluation_object": "Submit as input to the evaluation object",
+  "expected_ideal_output": "Expected ideal output, which can serve as a reference standard for evaluation",
   "evaluation_set_field_to_evaluation_object_field_mapping": "Mapping from evaluation set fields to evaluation object fields, enabling evaluation objects to accurately acquire inputs",
   "get_evaluation_object_error": "An error occurred while obtaining the evaluation object",
   "experiments_compared_tip": "Only experiments with the same evaluation set and completed execution can be compared. The currently selected experiments involve different associated evaluation sets. Please reselect.",

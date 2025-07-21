@@ -293,6 +293,8 @@
   "copy_experiment_config": "复制实验配置",
   "copy_and_run_experiment": "复制{name}配置，或修改配置后发起实验。",
   "select_prompt_key_and_version_to_view": "请选择 Prompt key 和版本号后再查看",
+  "input_for_evaluation_object": "作为输入投递给评测对象",
+  "expected_ideal_output": "预期理想输出，可作为评估时的参考标准",
   "evaluation_set_field_to_evaluation_object_field_mapping": "评测集字段到评测对象字段的映射，用于评测对象准确获取输入。",
   "get_evaluation_object_error": "获取评测对象遇到错误",
   "experiments_compared_tip": "仅评测集相同且已执行完成的实验可进行对比。目前选择的实验有关联评测集不同的情况，请重新选择。",
