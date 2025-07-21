@@ -13,6 +13,9 @@ export const COZELOOP_DOC_URL =
 /** github url */
 export const COZELOOP_GITHUB_URL = 'https://github.com/coze-dev/cozeloop';
 
+/** discord url */
+export const COZELOOP_DISCORD_URL = 'https://discord.gg/x8kbtMwrJ2';
+
 /** lark group url */
 export const COZELOOP_LARK_GROUP_URL =
   'https://applink.larkoffice.com/client/chat/chatter/add_by_link?link_token=decke114-4486-45de-a7a1-3bc2efd47795';

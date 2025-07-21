@@ -16,8 +16,10 @@ import {
   COZELOOP_DOC_URL,
   COZELOOP_LARK_GROUP_URL,
   COZELOOP_GITHUB_URL,
+  COZELOOP_DISCORD_URL,
 } from '@/constants';
 import { ReactComponent as IconGithub } from '@/assets/images/github.svg';
+import { ReactComponent as IconDiscord } from '@/assets/images/discord.svg';
 
 import { ItemWithLink } from './item-with-link';
 
@@ -54,6 +56,12 @@ export function FooterMenus({ isCollapsed, isHovered }: Props) {
       key: 'actions/github',
       icon: <IconGithub className="w-[14px] h-[14px]" />,
       onClick: () => window.open(COZELOOP_GITHUB_URL),
+    },
+    {
+      text: 'Discord',
+      key: 'actions/discord',
+      icon: <IconDiscord className="w-[14px] h-[14px]" />,
+      onClick: () => window.open(COZELOOP_DISCORD_URL),
     },
   ];
 
