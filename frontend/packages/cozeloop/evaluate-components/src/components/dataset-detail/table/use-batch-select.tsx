@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import { sendEvent, EVENT_NAMES } from '@cozeloop/tea-adapter';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { Guard, GuardPoint } from '@cozeloop/guard';
 import { useSpace } from '@cozeloop/biz-hooks-adapter';
 import {
@@ -17,7 +18,6 @@ import {
   Typography,
   type ColumnProps,
 } from '@coze-arch/coze-design';
-import { I18n } from '@cozeloop/i18n-adapter';
 
 export const useBatchSelect = ({
   itemList,
@@ -102,8 +102,8 @@ export const useBatchSelect = ({
       content: I18n.t('confirm_to_delete_selected_data_item', {
         num: batchSelectItems.size,
       }),
-      okText: '删除',
-      cancelText: '取消',
+      okText: I18n.t('delete'),
+      cancelText: I18n.t('Cancel'),
       okButtonProps: {
         color: 'red',
       },

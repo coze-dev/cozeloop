@@ -171,7 +171,7 @@ export function PlaceholderModal({
           ))}
         </div>
         <Button
-          className="flex-shrink-0 w-[100px]"
+          className="flex-shrink-0 w-[fit-content]"
           icon={<IconCozPlus />}
           onClick={addMessage}
           disabled={streaming || readonly}

@@ -65,7 +65,7 @@
   "observation_range_this_month": "As of this month",
   "observation_reasoning_tokens_count": "Reasoning tokens: {count}",
   "observation_status_code": "StatusCode",
-  "observation_tab_run_tree": "Invocation tree",
+  "observation_tab_run_tree": "Run tree",
   "observation_threads_options_dev": "Development",
   "observation_threads_options_fail": "Fail",
   "observation_threads_options_online": "Online",

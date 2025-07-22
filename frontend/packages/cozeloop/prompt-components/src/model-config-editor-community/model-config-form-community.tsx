@@ -15,7 +15,7 @@ import {
   withField,
 } from '@coze-arch/coze-design';
 
-import { DEFAULT_MAX_TOKENS, modelConfigLabelMap } from '@/consts';
+import { DEFAULT_MAX_TOKENS } from '@/consts';
 
 import { getDefaultModelConfig } from './utils';
 
@@ -42,9 +42,7 @@ export const getInputSliderConfig = (
     label: {
       text: (
         <Typography.Text>
-          {param?.label
-            ? param?.label
-            : modelConfigLabelMap[param?.name || ''] || ''}
+          {param?.label || I18n.unsafeT(param?.name || '')}
         </Typography.Text>
       ),
       extra: (

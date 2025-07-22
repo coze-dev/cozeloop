@@ -53,7 +53,7 @@ export enum PresetRange {
 
 export const timePickerPresets = {
   [PresetRange.Unset]: {
-    text: '自定义',
+    text: I18n.t('customize'),
     start: () => new Date(),
     end: () => new Date(),
   },
