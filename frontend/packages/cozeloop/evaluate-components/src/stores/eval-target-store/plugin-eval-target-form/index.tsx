@@ -3,6 +3,7 @@
 import { useEffect, useMemo } from 'react';
 
 import { isEmpty } from 'lodash-es';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { EvalTargetType } from '@cozeloop/api-schema/evaluation';
 import { IconCozInfoCircle } from '@coze-arch/coze-design/icons';
 import { Form, Tooltip } from '@coze-arch/coze-design';
@@ -14,14 +15,15 @@ import { DEFAULT_TEXT_STRING_SCHEMA } from '../../../const/evaluate-target';
 import { EvaluateTargetMappingField } from '../../../components/selectors/evaluate-target';
 import usePromptDetail from './use-prompt-detail';
 import { EvalTargetPromptDetail } from './eval-target-prompt-detail';
-import { I18n } from '@cozeloop/i18n-adapter';
 
 const EvaluateTargetMappingFieldLabel = (
   <div className="inline-flex flex-row items-center">
-    {'字段映射'}
+    {I18n.t('field_mapping')}
     <Tooltip
       theme="dark"
-      content="评测集字段到评测对象字段的映射，用于评测对象准确获取输入。"
+      content={I18n.t(
+        'evaluation_set_field_to_evaluation_object_field_mapping',
+      )}
     >
       <IconCozInfoCircle className="ml-1 w-4 h-4 coz-fg-secondary" />
     </Tooltip>

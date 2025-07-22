@@ -1,11 +1,11 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
 import classNames from 'classnames';
+import { I18n } from '@cozeloop/i18n-adapter';
 import { JumpIconButton } from '@cozeloop/components';
 import { type Ellipsis, Tag, Tooltip } from '@coze-arch/coze-design';
 
 import { TypographyText } from '../../components/text-ellipsis';
-import { I18n } from '@cozeloop/i18n-adapter';
 
 export function BaseTargetPreview({
   name,

@@ -282,7 +282,7 @@ export default function ({
               className="text-[rgb(var(--coze-up-brand-9))] cursor-pointer"
               onClick={onRefreshPage}
             >
-              刷新
+              {I18n.t('refresh')}
             </span>
           ),
         })}

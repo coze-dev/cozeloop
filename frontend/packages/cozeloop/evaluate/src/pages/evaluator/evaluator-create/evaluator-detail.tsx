@@ -112,10 +112,10 @@ function EvaluatorCreatePage() {
         }}
       >
         <div className="h-[28px] mb-3 text-[16px] leading-7 font-medium coz-fg-plus">
-          {'basic_info'}
+          {I18n.t('basic_info')}
         </div>
         <FormInput
-          label="名称"
+          label={I18n.t('name')}
           field="name"
           placeholder={I18n.t('please_input', { field: I18n.t('name') })}
           required
