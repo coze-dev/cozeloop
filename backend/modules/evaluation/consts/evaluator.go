@@ -11,5 +11,5 @@ const (
 
 const (
 	DefaultEvaluatorToolKey         = "score_range"
-	DefaultEvaluatorPromptSuffixKey = "function_call"
+	DefaultEvaluatorPromptSuffixKey = "content"
 )

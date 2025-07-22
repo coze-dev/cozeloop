@@ -443,6 +443,6 @@ func (p *EvaluatorSourcePromptServiceImpl) injectParseType(ctx context.Context, 
 		evaluatorDO.GetEvaluatorVersion().SetParseType(entity.ParseType(suffixKey))
 	} else {
 		evaluatorDO.GetEvaluatorVersion().SetPromptSuffix(p.configer.GetEvaluatorPromptSuffix(ctx)[consts.DefaultEvaluatorPromptSuffixKey])
-		evaluatorDO.GetEvaluatorVersion().SetParseType(entity.ParseTypeFunctionCall)
+		evaluatorDO.GetEvaluatorVersion().SetParseType(entity.ParseTypeContent)
 	}
 }
