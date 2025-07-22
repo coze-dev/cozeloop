@@ -17,7 +17,7 @@ export default createRsbuildConfig({
     },
   },
   html: {
-    title: '扣子罗盘',
+    title: 'Coze Loop',
     template: './src/assets/template.html',
     favicon: './src/assets/images/coze.svg',
     crossorigin: 'anonymous',

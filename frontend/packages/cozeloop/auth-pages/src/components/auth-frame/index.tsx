@@ -1,8 +1,10 @@
 // Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
 // SPDX-License-Identifier: Apache-2.0
-import type { ReactNode } from 'react';
+import { useEffect, type ReactNode } from 'react';
 
 import cls from 'classnames';
+import { useI18nStore } from '@cozeloop/stores';
+import { I18n } from '@cozeloop/i18n-adapter';
 
 import s from './index.module.less';
 
@@ -14,6 +16,15 @@ interface Props {
 }
 
 export function AuthFrame({ className, classNames, brand, children }: Props) {
+  const lng = useI18nStore(state => state.lng);
+
+  useEffect(() => {
+    const title = I18n.t('platform_name');
+    if (document.title !== title) {
+      document.title = title;
+    }
+  }, [lng]);
+
   return (
     <div className={cls(s.frame, className)}>
       {brand ? (

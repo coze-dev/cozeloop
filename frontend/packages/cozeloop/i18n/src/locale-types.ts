@@ -253,6 +253,8 @@ interface I18nTranslateFn {
   (key: 'version_description', fallbackText?: string): string;
   /** 版本记录 */
   (key: 'version_record', fallbackText?: string): string;
+  /** 扣子罗盘 */
+  (key: 'platform_name', fallbackText?: string): string;
   /** 空间不存在 */
   (key: 'space_not_exists', fallbackText?: string): string;
   /** 点击重试 */
