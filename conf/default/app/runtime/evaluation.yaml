@@ -178,7 +178,7 @@ evaluator_prompt_suffix_en-US:
   content: |
 
     <Output Requirements>
-    The final output must be a JSON object containing the fields reason and score. It must be output in strict accordance with the following format, without any extra characters:
+    The final output must be a JSON object containing the fields reason and score. It must be output in strict accordance with the following format, without any extra characters, where score must be of json number type:
     {
       "reason": "The reason for the score",
       "score": "The score. Can only be 1 or 0 / score from 0 to 1"
@@ -192,7 +192,7 @@ evaluator_prompt_suffix:
   content: |
     
     <输出要求>
-    最终输出必须是一个 json 对象，包含 reason 和 score 两个字段。必须严格按照下面的格式输出，不能包含其他任何多余字符：
+    最终输出必须是一个 json 对象，包含 reason 和 score 两个字段。必须严格按照下面的格式输出，不能包含其他任何多余字符，其中 score 必须是json number类型：
     {
       "reason":"打分的理由",
       "score":"得分。只能是 1 或者 0/得分从 0 到 1"
@@ -200,8 +200,6 @@ evaluator_prompt_suffix:
     </输出要求>
 
 evaluator_prompt_mapping:
-  3: 'function_call'
-  2: 'content'
 
 evaluator_template_conf:
   prompt:
