@@ -32,7 +32,7 @@
   "expired_time_tip": "请谨慎选择过期时间，个人访问令牌生成后，将不支持修改",
   "expired_time_days": "{num, plural, other {{num}天（{date}）}}",
   "no_pat": "暂无个人访问令牌",
-  "toggle_lng_tip": "点击切换切换语言，将刷新页面。",
+  "toggle_lng_tip": "点击切换语言，将刷新页面。",
   "username": "用户名",
   "user_custom_name": "用户昵称"
 }

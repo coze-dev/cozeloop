@@ -27,12 +27,12 @@ export const UserSelect = ({
         <UserProfile
           className="ml-[6px]"
           avatarUrl={userInfo?.avatar_url}
-          name={userInfo?.name}
+          name={userInfo?.screen_name || userInfo.name}
         />
       ),
       value: userInfo?.user_id_str || '',
       data: {
-        user_name: userInfo?.name,
+        user_name: userInfo?.screen_name || userInfo.name,
         avatar_url: userInfo?.avatar_url,
       },
     },

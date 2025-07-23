@@ -21,7 +21,7 @@ export function SwitchLang({ className }: Props) {
   };
 
   return (
-    <Tooltip content={I18n.t('toggle_lng_tip')}>
+    <Tooltip content={I18n.t('toggle_lng_tip')} clickTriggerToHide={true}>
       <div className={cls(s.container, className)} onClick={toggleLang}>
         <svg
           viewBox="0 0 1024 1024"
