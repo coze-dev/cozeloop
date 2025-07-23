@@ -30,8 +30,11 @@ export function LocaleProvider({ children }: PropsWithChildren) {
   const { locale, cdLocale } = langToLocale(lang);
 
   return (
-    <ConfigProvider key={lang} locale={locale}>
-      <CDLocaleProvider locale={cdLocale} i18n={I18n}>
+    <ConfigProvider locale={locale}>
+      <CDLocaleProvider
+        locale={cdLocale}
+        i18n={{ t: (key: string) => I18n.unsafeT(key) }}
+      >
         {children}
       </CDLocaleProvider>
     </ConfigProvider>

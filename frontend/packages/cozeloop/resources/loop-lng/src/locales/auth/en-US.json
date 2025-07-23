@@ -32,6 +32,7 @@
   "expired_time_tip": "Please select the expiration time carefully, as the personal access token cannot be modified once generated",
   "expired_time_days": "{num, plural, one {# day ({date})} other {# days ({date})}}",
   "no_pat": "No Personal Access Token",
+  "toggle_lng_tip": "Click to toggle language and the page will be refreshed.",
   "username": "Username",
   "user_custom_name": "Alias"
 }

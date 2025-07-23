@@ -332,7 +332,7 @@ export function PromptHeader() {
                   className="!py-0.5"
                 >
                   {isDraftEdit
-                    ? I18n.t('modify_not_submitted')
+                    ? I18n.t('changes_not_submitted')
                     : I18n.t('submitted')}
                 </Tag>
               ) : (
@@ -340,7 +340,7 @@ export function PromptHeader() {
                   color={isDraftEdit ? 'yellow' : 'brand'}
                   className="!py-0.5"
                 >
-                  {I18n.t('modify_not_submitted')}
+                  {I18n.t('changes_not_submitted')}
                 </Tag>
               )}
               {autoSaving ? (
