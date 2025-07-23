@@ -33,7 +33,7 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
       <div className="flex flex-col items-center">
         <img src={loopBanner} className={s.banner} />
         <div className="text-[18px] font-medium leading-[36px] my-[20px]">
-          {'欢迎使用扣子罗盘-社区版'}
+          {'欢迎使用扣子罗盘-开源版'}
         </div>
       </div>
       <div className="w-[320px] flex flex-col items-stretch">
@@ -77,7 +77,7 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
           >
             {'请先同意'}
             <a
-              href="" // 协议链接
+              href="https://www.coze.cn/open/docs/guides/terms-of-service" // 协议链接
               target="_blank"
               className="no-underline coz-fg-hglt"
               onClick={e => {
