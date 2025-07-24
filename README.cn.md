@@ -47,7 +47,7 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
 * [Prompt 开发与调试](https://loop.coze.cn/open/docs/cozeloop/create-prompt)：Coze Loop 提供了完整的提示词开发流程。
 * [评测](https://loop.coze.cn/open/docs/cozeloop/evaluation-quick-start)：Coze Loop 的评测功能提供标准评测数据管理、自动化评估引擎和综合的实验结果统计。
 * [Trace 上报与查询](https://loop.coze.cn/open/docs/cozeloop/trace_integrate)：Coze Loop 支持对平台上创建的 Prompt 调试的 Trace 自动上报，实时追踪每一条 Trace 数据。
-* [开源版使用Coze Loop  SDK](https://github.com/coze-dev/cozeloop/wiki/8.-%E5%BC%80%E6%BA%90%E7%89%88%E4%BD%BF%E7%94%A8-CozeLoop-SDK)：Coze Loop 三个语言的 [SDK](https://loop.coze.cn/open/docs/CozeLoop/sdk) 均适用于商业版和开源版。对于开源版，开发者只需要初始化时修改部分参数配置。
+* [开源版使用Coze Loop SDK](https://github.com/coze-dev/cozeloop/wiki/8.-%E5%BC%80%E6%BA%90%E7%89%88%E4%BD%BF%E7%94%A8-CozeLoop-SDK)：Coze Loop 三个语言的 [SDK](https://loop.coze.cn/open/docs/cozeloop/sdk) 均适用于商业版和开源版。对于开源版，开发者只需要初始化时修改部分参数配置。
 
 ## 开发指南
 
