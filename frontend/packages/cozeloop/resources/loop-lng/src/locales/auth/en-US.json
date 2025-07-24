@@ -33,6 +33,7 @@
   "expired_time_days": "{num, plural, one {# day ({date})} other {# days ({date})}}",
   "no_pat": "No Personal Access Token",
   "toggle_lng_tip": "Click to toggle language and the page will be refreshed.",
+  "deploy_info": "Deploy with",
   "username": "Username",
   "user_custom_name": "Alias"
 }

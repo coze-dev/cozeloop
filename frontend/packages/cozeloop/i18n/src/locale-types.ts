@@ -354,8 +354,10 @@ interface I18nTranslateFn {
   ): string;
   /** 暂无个人访问令牌 */
   (key: 'no_pat', fallbackText?: string): string;
-  /** 点击切换切换语言，将刷新页面。 */
+  /** 点击切换语言，将刷新页面。 */
   (key: 'toggle_lng_tip', fallbackText?: string): string;
+  /** 基于开源代码部署 */
+  (key: 'deploy_info', fallbackText?: string): string;
   /** 用户名 */
   (key: 'username', fallbackText?: string): string;
   /** 用户昵称 */

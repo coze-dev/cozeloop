@@ -8,8 +8,9 @@ import { Input, Button, Typography } from '@coze-arch/coze-design';
 import loopBanner from '@/assets/loop-banner.png';
 import { ReactComponent as IconGithub } from '@/assets/github.svg';
 
-import s from './index.module.less';
 import { SwitchLang } from '../switch-lng';
+
+import s from './index.module.less';
 
 interface Props {
   loading?: boolean;
@@ -95,7 +96,6 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
                 </a>
               ),
             })}
-            {'请先同意'}
           </Checkbox>
         </div> */}
       </div>
@@ -104,7 +104,7 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
           ©2025 Coze Loop
         </Text>
         <Text type="secondary">
-          基于开源代码部署
+          {I18n.t('deploy_info')}
           <span> · </span>
           <Text
             link={{

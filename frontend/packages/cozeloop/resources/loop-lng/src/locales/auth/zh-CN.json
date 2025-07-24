@@ -33,6 +33,7 @@
   "expired_time_days": "{num, plural, other {{num}天（{date}）}}",
   "no_pat": "暂无个人访问令牌",
   "toggle_lng_tip": "点击切换语言，将刷新页面。",
+  "deploy_info": "基于开源代码部署",
   "username": "用户名",
   "user_custom_name": "用户昵称"
 }
