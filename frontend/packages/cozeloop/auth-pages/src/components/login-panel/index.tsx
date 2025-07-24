@@ -2,7 +2,8 @@
 // SPDX-License-Identifier: Apache-2.0
 import { useState } from 'react';
 
-import { Input, Checkbox, Button } from '@coze-arch/coze-design';
+import { Input, Button, Typography } from '@coze-arch/coze-design';
+import { ReactComponent as IconGithub } from '@/assets/github.svg';
 
 import loopBanner from '@/assets/loop-banner.png';
 
@@ -14,11 +15,13 @@ interface Props {
   onRegister?: (email: string, password: string) => void;
 }
 
+const { Text } = Typography;
+
 export function LoginPanel({ loading, onLogin, onRegister }: Props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [consent, setConsent] = useState(false);
-  const canSubmit = Boolean(email && password && consent);
+  // const [consent, setConsent] = useState(false);
+  const canSubmit = Boolean(email && password);
 
   const onClickRegister = () => {
     onRegister?.(email, password);
@@ -69,7 +72,7 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
             {'登录'}
           </Button>
         </div>
-        <div className="mt-[20px] flex">
+        {/* <div className="mt-[20px] flex">
           <Checkbox
             checked={consent}
             onChange={e => setConsent(Boolean(e.target.checked))}
@@ -77,7 +80,7 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
           >
             {'请先同意'}
             <a
-              href="https://www.coze.cn/open/docs/guides/terms-of-service" // 协议链接
+              href="" // 协议链接
               target="_blank"
               className="no-underline coz-fg-hglt"
               onClick={e => {
@@ -87,7 +90,36 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
               用户协议
             </a>
           </Checkbox>
-        </div>
+        </div> */}
+      </div>
+      <div className={s.copyright}>
+        <Text component="div" type="secondary">
+          ©2025 Coze Loop
+        </Text>
+        <Text type="secondary">
+          基于开源代码部署
+          <span> · </span>
+          <Text
+            link={{
+              href: 'https://github.com/coze-dev/cozeloop?tab=Apache-2.0-1-ov-file',
+              target: '_blank',
+            }}
+          >
+            Apache 2.0 License
+          </Text>
+          <span> | </span>
+          <Text
+            link={{
+              href: 'https://github.com/coze-dev/cozeloop',
+              target: '_blank',
+            }}
+            icon={
+              <IconGithub className="w-[14px] h-[14px] translate-y-[1px]" />
+            }
+          >
+            coze-dev/cozeloop
+          </Text>
+        </Text>
       </div>
     </div>
   );
