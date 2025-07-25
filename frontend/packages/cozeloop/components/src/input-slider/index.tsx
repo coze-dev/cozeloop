@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
+// Copyright (c) 2025 coze-dev Authors
 // SPDX-License-Identifier: Apache-2.0
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-magic-numbers */
@@ -7,7 +7,11 @@ import { useRef } from 'react';
 
 import { isInteger, isUndefined } from 'lodash-es';
 import classNames from 'classnames';
-import { CozInputNumber, Slider, type SliderProps } from '@coze-arch/coze-design';
+import {
+  CozInputNumber,
+  Slider,
+  type SliderProps,
+} from '@coze-arch/coze-design';
 
 import styles from './index.module.less';
 

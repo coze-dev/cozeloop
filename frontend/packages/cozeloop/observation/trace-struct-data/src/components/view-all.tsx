@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
+// Copyright (c) 2025 coze-dev Authors
 // SPDX-License-Identifier: Apache-2.0
 import { useState } from 'react';
 
@@ -6,7 +6,13 @@ import { fileDownload } from '@cozeloop/toolkit';
 import { LargeTxtRender } from '@cozeloop/components';
 import { IconCozIllusNone } from '@coze-arch/coze-design/illustrations';
 import { IconCozCross, IconCozDownload } from '@coze-arch/coze-design/icons';
-import { Button, Divider, Spin, Typography, Empty } from '@coze-arch/coze-design';
+import {
+  Button,
+  Divider,
+  Spin,
+  Typography,
+  Empty,
+} from '@coze-arch/coze-design';
 
 import { TagType, type Span } from '../types';
 import { useFetchResource } from '../hooks/use-fetch-resource';

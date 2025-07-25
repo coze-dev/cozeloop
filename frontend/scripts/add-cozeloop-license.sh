@@ -4,12 +4,12 @@
 TARGET_DIR=${1:-.}
 
 # license 头内容
-LICENSE_HEADER="// Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
+LICENSE_HEADER="// Copyright (c) 2025 coze-dev Authors
 // SPDX-License-Identifier: Apache-2.0"
 
 # 函数：检查文件是否已有 license 头
 has_license_header() {
-    grep -q "Copyright (c) 2025 Bytedance Ltd. and/or its affiliates" "$1"
+    grep -q "Copyright (c) 2025 coze-dev Authors" "$1"
 }
 
 add_header_in_dir() {

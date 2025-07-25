@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
+// Copyright (c) 2025 coze-dev Authors
 // SPDX-License-Identifier: Apache-2.0
 export { default as ExperimentItemDetailTable } from './experiment-item-detail-table';
 export { default as ExperimentItemRunStatus } from './previews/experiment-item-run-status';

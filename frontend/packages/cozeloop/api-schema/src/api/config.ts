@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
+// Copyright (c) 2025 coze-dev Authors
 // SPDX-License-Identifier: Apache-2.0
 import { createAPI as apiFactory } from '@coze-arch/idl2ts-runtime';
 import { type IMeta } from '@coze-arch/idl2ts-runtime';

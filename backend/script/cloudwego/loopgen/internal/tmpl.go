@@ -1,4 +1,4 @@
-// Copyright (c) 2025 Bytedance Ltd. and/or its affiliates
+// Copyright (c) 2025 coze-dev Authors
 // SPDX-License-Identifier: Apache-2.0
 
 package internal
@@ -62,7 +62,7 @@ func New{{.ClientType}}(impl {{.ServicePkg}}.{{.ServiceType}}, mds ...endpoint.M
 {{ else if .ServerStreaming}}func (l *{{$.ClientType}}) {{.Name}}({{.In}}) ({{.Out}}) {
 	ctx = l.injectRPCInfo(ctx, "{{.Name}}")
 	errCh := make(chan error)
-	msgCh := make(chan {{.StreamRespIdent}}) 
+	msgCh := make(chan {{.StreamRespIdent}})
 	ls := localstream.NewInMemStream(ctx, msgCh, errCh)
 
 	go func() {
@@ -77,7 +77,7 @@ func New{{.ClientType}}(impl {{.ServicePkg}}.{{.ServiceType}}, mds ...endpoint.M
 			errCh <- err
 		}
 	}()
-	
+
 	return ls, nil
 }
 
