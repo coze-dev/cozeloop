@@ -37,7 +37,7 @@ export function EvaluatorTestRunResult({
       {!isError ? (
         <div className="mb-2 text-[16px] leading-[28px] coz-fg-primary font-medium">
           <span className="coz-fg-primary font-bold text-xxl">
-            {I18n.t('x_score', { num: evaluatorResult?.score || '-' })}
+            {I18n.t('x_score', { num: evaluatorResult?.score ?? '-' })}
           </span>
           <span className="coz-fg-dim text-[13px] ml-2">
             {I18n.t('score_only_for_preview')}
