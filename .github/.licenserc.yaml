@@ -2,7 +2,7 @@ header:
   license:
     spdx-id: Apache-2.0
     pattern: |
-      Copyright (c) \d{4} Bytedance Ltd. and/or its affiliates
+      Copyright (c) \d{4} coze-dev Authors
       SPDX-License-Identifier: Apache-2.0
 
   paths:
