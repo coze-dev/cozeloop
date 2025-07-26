@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  setup: 
-    name: Setup jobs
+  setup:
+    name: TS Check
     runs-on: ubuntu-latest
     env:
       NODE_VERSION: '18'
@@ -37,7 +37,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      
+
       - name: Cache
         uses: actions/cache@v4
         with:
@@ -57,7 +57,7 @@ jobs:
           git fetch origin $TARGET_BRANCH
           sh .github/scripts/branch-diff.sh origin/$TARGET_BRANCH > changed.json
           echo "file=changed.json" >> "$GITHUB_OUTPUT"
-      
+
       - name: Install Dependencies
         run: |
           node common/scripts/install-run-rush.js increment --action install -p ${{ steps.branch-diff.outputs.file }}
@@ -65,7 +65,7 @@ jobs:
       - name: Prepare Basic Packages
         run: |
           node common/scripts/install-run-rush.js pre-build -v
-    
+
       - name: TS Check
         run: |
           node common/scripts/install-run-rush.js increment --action ts-check -p ${{ steps.branch-diff.outputs.file }}
