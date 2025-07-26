@@ -40,22 +40,22 @@ Coze Loop helps developers efficiently develop and operate AI agents by providin
 
 
 ## Quickstart
-Refer to the [Quickstart](https://github.com/coze-dev/CozeLoop/wiki/2.-Quickstart) to learn how to install and deploy the latest version of Coze Loop.
+Refer to the [Quickstart](https://github.com/coze-dev/coze-loop/wiki/2.-Quickstart) to learn how to install and deploy the latest version of Coze Loop.
 
 ## Using Coze Loop Open-source Edition
 
 * [Prompt development and debugging](https://loop.coze.cn/open/docs/cozeloop/create-prompt): Coze Loop provides a complete prompt development workflow.
 * [Evaluation](https://loop.coze.cn/open/docs/cozeloop/evaluation-quick-start): Coze Loop's evaluation functionality offers standardized evaluation data management, automated assessment engines, and comprehensive experimental result statistics.
 * [Trace reporting and querying](https://loop.coze.cn/open/docs/cozeloop/trace_integrate): Coze Loop supports automatic Trace reporting for prompt debugging conducted on the platform, enabling real-time tracking of each Trace data.
-* [Open-source Edition usage of the Coze Loop SDK](https://github.com/coze-dev/cozeLoop/wiki/8.-Open-source-edition-uses-CozeLoop-SDK): The Coze Loop SDK in three languages is suitable for both commercial and open-source editions. For the Open-source Edition, developers only need to modify some parameter configurations during initialization.
+* [Open-source Edition usage of the Coze Loop SDK](https://github.com/coze-dev/coze-loop/wiki/8.-Open-source-edition-uses-CozeLoop-SDK): The Coze Loop SDK in three languages is suitable for both commercial and open-source editions. For the Open-source Edition, developers only need to modify some parameter configurations during initialization.
 
 ## Developer guide
 
-* [System architecture](https://github.com/coze-dev/CozeLoop/wiki/3.-Architecture): Learn about the technical architecture and core components of Coze Loop Open-source Edition.
-* [Startup mode](https://github.com/coze-dev/CozeLoop/wiki/4.-Service-startup-modes): When installing and deploying Coze Loop Open-source Edition, the default development mode allows backend file modifications without requiring service redeployment.
-* [Model configuration](https://github.com/coze-dev/CozeLoop/wiki/5.-Model-configuration): Coze Loop Open-source Edition supports various LLM models through the Eino framework. Refer to this document to view the supported model list and learn how to configure models.
-* [Code development and testing](https://github.com/coze-dev/CozeLoop/wiki/6.-Code-development-and-testing): Learn how to perform secondary development and testing based on Coze Loop Open-source Edition.
-* [Fault troubleshooting](https://github.com/coze-dev/CozeLoop/wiki/7.-Troubleshooting): Learn how to check container status and system logs.
+* [System architecture](https://github.com/coze-dev/coze-loop/wiki/3.-Architecture): Learn about the technical architecture and core components of Coze Loop Open-source Edition.
+* [Startup mode](https://github.com/coze-dev/coze-loop/wiki/4.-Service-startup-modes): When installing and deploying Coze Loop Open-source Edition, the default development mode allows backend file modifications without requiring service redeployment.
+* [Model configuration](https://github.com/coze-dev/coze-loop/wiki/5.-Model-configuration): Coze Loop Open-source Edition supports various LLM models through the Eino framework. Refer to this document to view the supported model list and learn how to configure models.
+* [Code development and testing](https://github.com/coze-dev/coze-loop/wiki/6.-Code-development-and-testing): Learn how to perform secondary development and testing based on Coze Loop Open-source Edition.
+* [Fault troubleshooting](https://github.com/coze-dev/coze-loop/wiki/7.-Troubleshooting): Learn how to check container status and system logs.
 
 ## License
 

@@ -135,7 +135,7 @@ def generate_biz_code(biz_name: str, biz_code: int, common_errors: List[Dict], o
 
     # Generate and output code
     project_dir = os.environ.get('PROJECT_DIR',
-                             os.path.join(os.environ['GOPATH'], 'src/github.com/coze-dev/cozeloop'))
+                             os.path.join(os.environ['GOPATH'], 'src/github.com/coze-dev/coze-loop'))
     if not output_dir:
         output_dir = os.path.join(project_dir, 'backend/modules', biz_name, 'pkg/errno')
     else:
