@@ -33,7 +33,7 @@ nvm use lts/iron
 
 ```bash
 # clone the repository
-git clone git@github.com:coze-dev/cozeloop.git
+git clone git@github.com:coze-dev/coze-loop.git
 
 # change current work dir
 cd frontend
