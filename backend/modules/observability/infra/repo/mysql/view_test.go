@@ -13,10 +13,10 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	dbmock "github.com/coze-dev/cozeloop/backend/infra/db/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	dbmock "github.com/coze-dev/coze-loop/backend/infra/db/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/infra/repo/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func TestViewRepoImpl_ListViews(t *testing.T) {

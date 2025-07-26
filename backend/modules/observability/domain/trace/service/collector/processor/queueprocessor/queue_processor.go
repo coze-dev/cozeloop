@@ -15,11 +15,11 @@ import (
 	"github.com/alitto/pond/v2"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/component"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/consumer"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/processor"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/goroutine"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/component"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/consumer"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/processor"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/goroutine"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func createDefaultConfig() component.Config {

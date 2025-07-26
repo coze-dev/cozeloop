@@ -11,9 +11,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/fileserver"
-	mock_fileserver "github.com/coze-dev/cozeloop/backend/infra/fileserver/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/vfs"
+	"github.com/coze-dev/coze-loop/backend/infra/fileserver"
+	mock_fileserver "github.com/coze-dev/coze-loop/backend/infra/fileserver/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/vfs"
 )
 
 func TestClient_Stat(t *testing.T) {

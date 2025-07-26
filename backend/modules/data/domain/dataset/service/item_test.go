@@ -12,16 +12,16 @@ import (
 	"go.uber.org/mock/gomock"
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/infra/db/mocks"
-	idgenmock "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
-	confmocks "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-	mock_repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
-	common_entity "github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/infra/db/mocks"
+	idgenmock "github.com/coze-dev/coze-loop/backend/infra/idgen/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf"
+	confmocks "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo"
+	mock_repo "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo/mocks"
+	common_entity "github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/pagination"
 )
 
 func TestDatasetServiceImpl_LoadItemData(t *testing.T) {

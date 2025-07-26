@@ -7,16 +7,16 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/coze-dev/cozeloop/backend/infra/idgen"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/component/conf"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/service/llmfactory"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/service/llminterface"
-	llm_errorx "github.com/coze-dev/cozeloop/backend/modules/llm/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/pkg/httputil"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/localos"
+	"github.com/coze-dev/coze-loop/backend/infra/idgen"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/component/conf"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/service/llmfactory"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/service/llminterface"
+	llm_errorx "github.com/coze-dev/coze-loop/backend/modules/llm/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/pkg/httputil"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/localos"
 )
 
 //go:generate mockgen -destination=mocks/runtime.go -package=mocks . IRuntime

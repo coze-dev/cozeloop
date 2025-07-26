@@ -9,9 +9,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/repo/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/infra/repo/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func TestPromptDO2BasicPO(t *testing.T) {

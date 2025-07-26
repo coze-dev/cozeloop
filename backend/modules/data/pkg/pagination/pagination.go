@@ -14,8 +14,8 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/goroutine"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/goroutine"
 )
 
 const (

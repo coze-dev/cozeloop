@@ -1,4 +1,4 @@
-module github.com/coze-dev/cozeloop/backend
+module github.com/coze-dev/coze-loop/backend
 
 go 1.23.4
 

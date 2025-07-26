@@ -6,7 +6,7 @@ package span_processor
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/loop_span"
 )
 
 type Settings struct {

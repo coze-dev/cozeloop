@@ -6,8 +6,8 @@ package service
 import (
 	"github.com/Masterminds/semver/v3"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
 )
 
 func validateVersion(preVersion, newVersion string) error {

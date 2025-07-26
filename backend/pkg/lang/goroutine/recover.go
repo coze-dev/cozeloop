@@ -10,7 +10,7 @@ import (
 
 	"github.com/samber/lo"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func Recover(ctx context.Context, errPtr *error) {

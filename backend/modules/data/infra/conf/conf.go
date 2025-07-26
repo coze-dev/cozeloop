@@ -8,9 +8,9 @@ import (
 
 	"github.com/samber/lo"
 
-	dataset_conf "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/consts"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
+	dataset_conf "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/consts"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
 )
 
 func NewConfiger(configFactory conf.IConfigLoaderFactory) (dataset_conf.IConfig, error) {

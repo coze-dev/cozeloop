@@ -6,9 +6,9 @@ package convertor
 import (
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/domain/prompt"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/domain/prompt"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func PromptDTO2DO(dto *prompt.Prompt) *entity.Prompt {

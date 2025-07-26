@@ -12,9 +12,9 @@ import (
 	"gorm.io/driver/clickhouse"
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/ck/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/loop_span"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/infra/repo/ck/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func TestBuildSql(t *testing.T) {

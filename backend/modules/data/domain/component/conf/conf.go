@@ -6,8 +6,8 @@ package conf
 import (
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	common_entity "github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	common_entity "github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
 )
 
 //go:generate mockgen -destination=mocks/conf.go -package=mocks . IConfig

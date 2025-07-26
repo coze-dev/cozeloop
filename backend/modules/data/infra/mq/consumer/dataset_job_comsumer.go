@@ -8,13 +8,13 @@ import (
 
 	json "github.com/bytedance/sonic"
 
-	"github.com/coze-dev/cozeloop/backend/infra/mq"
-	"github.com/coze-dev/cozeloop/backend/modules/data/application"
-	dataset_conf "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
+	"github.com/coze-dev/coze-loop/backend/infra/mq"
+	"github.com/coze-dev/coze-loop/backend/modules/data/application"
+	dataset_conf "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/conv"
 )
 
 type DatasetJobConsumer struct {

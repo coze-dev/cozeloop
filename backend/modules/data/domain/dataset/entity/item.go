@@ -11,7 +11,7 @@ import (
 	"github.com/bytedance/gg/gptr"
 	"github.com/bytedance/gg/gslice"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
 )
 
 type Item struct {

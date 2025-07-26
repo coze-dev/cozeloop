@@ -1,0 +1,2 @@
+Info 2025-07-26 11:59:06,612 v1(7) client.go:78 192.168.2.176 - 202507251520091921680021760890012 default - 0 method=KnowledgeClient.MatchTerms invoke success, query=exit, cost_msec=58
+Info 2025-07-26 11:59:06,662 v1(7) caribou.go:70 192.168.2.176 - 202507251520091921680021760890012 default - 0 coda finished, cost_msec=2280255

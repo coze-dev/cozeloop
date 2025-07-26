@@ -12,13 +12,13 @@ import (
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/pkg/errors"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/component/mq"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/component/mq"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/pagination"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/conv"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 type snapshotContext struct {

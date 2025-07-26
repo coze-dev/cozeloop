@@ -6,8 +6,8 @@ package trace
 import (
 	"github.com/coze-dev/cozeloop-go/spec/tracespec"
 
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func VariableValsToSpanPromptVariables(variables []*entity.VariableVal) []*tracespec.PromptArgument {

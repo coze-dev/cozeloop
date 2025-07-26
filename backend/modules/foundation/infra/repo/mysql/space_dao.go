@@ -6,9 +6,9 @@ package mysql
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/infra/repo/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/infra/repo/mysql/gorm_gen/query"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/infra/repo/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/infra/repo/mysql/gorm_gen/query"
 )
 
 //go:generate mockgen -destination=mocks/space_dao.go -package=mocks . ISpaceDAO

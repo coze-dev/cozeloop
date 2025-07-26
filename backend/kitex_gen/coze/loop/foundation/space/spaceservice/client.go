@@ -6,7 +6,7 @@ import (
 	"context"
 	client "github.com/cloudwego/kitex/client"
 	callopt "github.com/cloudwego/kitex/client/callopt"
-	space "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/space"
+	space "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/space"
 )
 
 // Client is designed to provide IDL-compatible methods with call-option parameter for kitex framework.

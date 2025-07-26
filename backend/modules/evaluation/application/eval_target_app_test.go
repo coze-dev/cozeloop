@@ -12,17 +12,17 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	domain_eval_target "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_target"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_target"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/target"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
-	rpcmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	domain_eval_target "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/eval_target"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/eval_target"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/application/convertor/target"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/consts"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/rpc"
+	rpcmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/rpc/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/service"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/service/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 func TestEvalTargetApplicationImpl_CreateEvalTarget(t *testing.T) {

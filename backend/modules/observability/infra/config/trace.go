@@ -7,9 +7,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/component/config"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 const (

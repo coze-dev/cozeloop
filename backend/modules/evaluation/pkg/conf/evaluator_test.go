@@ -11,10 +11,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	evaluatordto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
-	mock_conf "github.com/coze-dev/cozeloop/backend/pkg/conf/mocks"
-	"github.com/coze-dev/cozeloop/backend/pkg/contexts"
+	evaluatordto "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
+	mock_conf "github.com/coze-dev/coze-loop/backend/pkg/conf/mocks"
+	"github.com/coze-dev/coze-loop/backend/pkg/contexts"
 )
 
 func TestConfiger_GetEvaluatorPromptSuffix(t *testing.T) {

@@ -6,8 +6,8 @@ package benefit
 import (
 	"context"
 
-	foundationerr "github.com/coze-dev/cozeloop/backend/modules/foundation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	foundationerr "github.com/coze-dev/coze-loop/backend/modules/foundation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 //go:generate mockgen -destination=mocks/benefit_service.go -package=mocks . IBenefitService

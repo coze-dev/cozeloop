@@ -8,7 +8,7 @@ import (
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/pkg/errors"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 const (

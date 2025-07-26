@@ -9,9 +9,9 @@ import (
 	"io/fs"
 	"os"
 
-	"github.com/coze-dev/cozeloop/backend/infra/fileserver"
-	vfs2 "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/vfs"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/vfs"
+	"github.com/coze-dev/coze-loop/backend/infra/fileserver"
+	vfs2 "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/vfs"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/vfs"
 )
 
 type Client struct {

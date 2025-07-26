@@ -1,0 +1,131 @@
+Error 2025-07-25 22:28:20,664 v1(7) file_editor.go:62 192.168.2.176 - 202507251520091921680021760890012 default - 0 method=(*ReadFileTool).InvokableRun failed, err=stat /Users/bytedance/go/src/github.com/coze-dev/cozeloop/.env: no such file or directory
+method=FileSystem.Stat failed, path=.env
+code.byted.org/stone/caribou/utils/file_util.(*FileSystemImpl).IsDir
+	/Users/bytedance/Documents/byteDance/caribou/monorepo/utils/file_util/file_system_impl.go:35
+code.byted.org/stone/caribou/modules/agents/tools/file.(*ReadFileTool).InvokableRun
+	/Users/bytedance/Documents/byteDance/caribou/monorepo/modules/agents/tools/file/file_editor.go:76
+github.com/cloudwego/eino/compose.newRunnablePacker[...].func21
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/utils.go:106
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:161
+github.com/cloudwego/eino/compose.runToolCallTaskByInvoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:286
+github.com/cloudwego/eino/compose.parallelRunToolCall
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:319
+github.com/cloudwego/eino/compose.(*ToolsNode).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:368
+github.com/cloudwego/eino/compose.newRunnablePacker[...].func21
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/utils.go:106
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:161
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).toComposableRunnable.func1
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:130
+github.com/cloudwego/eino/compose.runnableInvoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_run.go:99
+github.com/cloudwego/eino/compose.(*taskManager).execute
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_manager.go:280
+github.com/cloudwego/eino/compose.(*taskManager).submit
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_manager.go:310
+github.com/cloudwego/eino/compose.(*runner).run
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_run.go:287
+github.com/cloudwego/eino/compose.(*runner).invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_run.go:84
+github.com/cloudwego/eino/compose.(*graph).compile.(*runner).toComposableRunnable.func3
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_run.go:844
+github.com/cloudwego/eino/compose.toGenericRunnable[...].func1
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:454
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).wrapRunnableCtx.func1
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:84
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:161
+github.com/cloudwego/eino/flow/agent/react.(*Agent).Generate
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/flow/agent/react/react.go:370
+code.byted.org/stone/caribou/modules/agents/coding_agent.(*agentImpl).Invoke
+	/Users/bytedance/Documents/byteDance/caribou/monorepo/modules/agents/coding_agent/agent_impl.go:111
+code.byted.org/stone/caribou/modules/agents/tools/agents_as_tools/code.(*codingAgent).InvokableRun
+	/Users/bytedance/Documents/byteDance/caribou/monorepo/modules/agents/tools/agents_as_tools/code/code.go:58
+github.com/cloudwego/eino/compose.newRunnablePacker[...].func21
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/utils.go:106
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:161
+github.com/cloudwego/eino/compose.runToolCallTaskByInvoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:286
+github.com/cloudwego/eino/compose.parallelRunToolCall
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:319
+github.com/cloudwego/eino/compose.(*ToolsNode).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:368
+github.com/cloudwego/eino/compose.newRunnablePacker[...].func21
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/utils.go:106
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:161
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).toComposableRunnable.func1
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:130
+github.com/cloudwego/eino/compose.runnableInvoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_run.go:99
+github.com/cloudwego/eino/compose.(*taskManager).execute
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_manager.go:280
+method=FileSystem.IsDir failed
+code.byted.org/stone/caribou/modules/agents/tools/file.(*ReadFileTool).InvokableRun
+	/Users/bytedance/Documents/byteDance/caribou/monorepo/modules/agents/tools/file/file_editor.go:78
+github.com/cloudwego/eino/compose.newRunnablePacker[...].func21
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/utils.go:106
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:161
+github.com/cloudwego/eino/compose.runToolCallTaskByInvoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:286
+github.com/cloudwego/eino/compose.parallelRunToolCall
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:319
+github.com/cloudwego/eino/compose.(*ToolsNode).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:368
+github.com/cloudwego/eino/compose.newRunnablePacker[...].func21
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/utils.go:106
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:161
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).toComposableRunnable.func1
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:130
+github.com/cloudwego/eino/compose.runnableInvoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_run.go:99
+github.com/cloudwego/eino/compose.(*taskManager).execute
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_manager.go:280
+github.com/cloudwego/eino/compose.(*taskManager).submit
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_manager.go:310
+github.com/cloudwego/eino/compose.(*runner).run
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_run.go:287
+github.com/cloudwego/eino/compose.(*runner).invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_run.go:84
+github.com/cloudwego/eino/compose.(*graph).compile.(*runner).toComposableRunnable.func3
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_run.go:844
+github.com/cloudwego/eino/compose.toGenericRunnable[...].func1
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:454
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).wrapRunnableCtx.func1
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:84
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:161
+github.com/cloudwego/eino/flow/agent/react.(*Agent).Generate
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/flow/agent/react/react.go:370
+code.byted.org/stone/caribou/modules/agents/coding_agent.(*agentImpl).Invoke
+	/Users/bytedance/Documents/byteDance/caribou/monorepo/modules/agents/coding_agent/agent_impl.go:111
+code.byted.org/stone/caribou/modules/agents/tools/agents_as_tools/code.(*codingAgent).InvokableRun
+	/Users/bytedance/Documents/byteDance/caribou/monorepo/modules/agents/tools/agents_as_tools/code/code.go:58
+github.com/cloudwego/eino/compose.newRunnablePacker[...].func21
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/utils.go:106
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:161
+github.com/cloudwego/eino/compose.runToolCallTaskByInvoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:286
+github.com/cloudwego/eino/compose.parallelRunToolCall
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:319
+github.com/cloudwego/eino/compose.(*ToolsNode).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/tool_node.go:368
+github.com/cloudwego/eino/compose.newRunnablePacker[...].func21
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/utils.go:106
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).Invoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:161
+github.com/cloudwego/eino/compose.(*runnablePacker[...]).toComposableRunnable.func1
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/runnable.go:130
+github.com/cloudwego/eino/compose.runnableInvoke
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_run.go:99
+github.com/cloudwego/eino/compose.(*taskManager).execute
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_manager.go:280
+github.com/cloudwego/eino/compose.(*taskManager).submit
+	/Users/bytedance/go/pkg/mod/github.com/cloudwego/eino@v0.3.44/compose/graph_manager.go:310

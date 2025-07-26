@@ -4,10 +4,10 @@
 package convertor
 
 import (
-	druntime "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/domain/runtime"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
+	druntime "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/domain/runtime"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/slices"
 )
 
 func MessagesDTO2DO(dtos []*druntime.Message) (dos []*entity.Message) {

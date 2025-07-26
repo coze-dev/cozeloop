@@ -11,14 +11,14 @@ import (
 	"gorm.io/gen"
 	"gorm.io/gorm/clause"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/query"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/json"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/consts"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/query"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/json"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 //go:generate  mockgen -destination=mocks/expt_item_result.go  -package mocks . IExptItemResultDAO

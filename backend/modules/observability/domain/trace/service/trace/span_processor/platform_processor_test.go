@@ -11,10 +11,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config"
-	confmocks "github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/component/config"
+	confmocks "github.com/coze-dev/coze-loop/backend/modules/observability/domain/component/config/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/loop_span"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func TestPlatformProcessor_Transform(t *testing.T) {

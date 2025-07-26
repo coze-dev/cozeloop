@@ -14,12 +14,12 @@ import (
 	"go.uber.org/mock/gomock"
 	"gorm.io/datatypes"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
-	mysqlmocks "github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/infra/idgen/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
+	mysqlmocks "github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/mocks"
 )
 
 func TestDatasetRepo_CreateIOJob(t *testing.T) {

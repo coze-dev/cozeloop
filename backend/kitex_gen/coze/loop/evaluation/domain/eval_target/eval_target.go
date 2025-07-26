@@ -7,7 +7,7 @@ import (
 	"database/sql/driver"
 	"fmt"
 	"github.com/apache/thrift/lib/go/thrift"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/common"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/common"
 	"strings"
 )
 

@@ -7,10 +7,10 @@ import (
 	"database/sql/driver"
 	"fmt"
 	"github.com/apache/thrift/lib/go/thrift"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/common"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_set"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_target"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/common"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/eval_set"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/eval_target"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
 	"strings"
 )
 

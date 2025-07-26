@@ -9,10 +9,10 @@ import (
 
 	"github.com/cloudwego/hertz/pkg/app"
 
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user/userservice"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/user"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/user/userservice"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func SessionMW(ss session.ISessionService, us userservice.Client) app.HandlerFunc {

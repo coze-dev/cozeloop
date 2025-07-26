@@ -15,12 +15,12 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 
-	"github.com/coze-dev/cozeloop/backend/infra/ck"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/ck/gorm_gen/model"
-	obErrorx "github.com/coze-dev/cozeloop/backend/modules/observability/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/ck"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/loop_span"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/infra/repo/ck/gorm_gen/model"
+	obErrorx "github.com/coze-dev/coze-loop/backend/modules/observability/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 const (

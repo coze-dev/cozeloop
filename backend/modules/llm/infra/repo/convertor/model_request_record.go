@@ -4,8 +4,8 @@
 package convertor
 
 import (
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/infra/repo/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/infra/repo/gorm_gen/model"
 )
 
 func ModelReqRecordDO2PO(record *entity.ModelRequestRecord) *model.ModelRequestRecord {

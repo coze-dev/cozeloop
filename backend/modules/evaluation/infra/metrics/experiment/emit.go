@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/infra/metrics"
+	"github.com/coze-dev/coze-loop/backend/infra/metrics"
 )
 
 func (e ExperimentMetricImpl) EmitExptExecRun(spaceID, mode int64) {

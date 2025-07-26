@@ -3,7 +3,7 @@ package promptopenapiservice
 
 import (
 	server "github.com/cloudwego/kitex/server"
-	openapi "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/openapi"
+	openapi "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/openapi"
 )
 
 // NewServer creates a server.Server with the given handler and options.

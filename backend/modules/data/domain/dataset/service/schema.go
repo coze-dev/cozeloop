@@ -8,10 +8,10 @@ import (
 
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func (s *DatasetServiceImpl) UpdateSchema(ctx context.Context, ds *entity.Dataset, fields []*entity.FieldSchema, updatedBy string) error {

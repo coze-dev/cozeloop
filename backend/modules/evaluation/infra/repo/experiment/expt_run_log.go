@@ -7,10 +7,10 @@ import (
 	"context"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/convert"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/experiment/mysql"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/experiment/mysql/convert"
 )
 
 func NewExptRunLogRepo(exptRunLogDAO mysql.IExptRunLogDAO) repo.IExptRunLogRepo {

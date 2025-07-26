@@ -11,17 +11,17 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	domain "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/domain/user"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/application/convertor"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/user/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/user/service"
-	servicemocks "github.com/coze-dev/cozeloop/backend/modules/foundation/domain/user/service/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/pkg/unittest"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	domain "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/domain/user"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/user"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/application/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/user/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/user/service"
+	servicemocks "github.com/coze-dev/coze-loop/backend/modules/foundation/domain/user/service/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/unittest"
 )
 
 func TestUserApplicationImpl_Register(t *testing.T) {

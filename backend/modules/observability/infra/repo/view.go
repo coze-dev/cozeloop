@@ -6,10 +6,10 @@ package repo
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/mysql"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/mysql/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/infra/repo/mysql"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/infra/repo/mysql/convertor"
 )
 
 func NewViewRepoImpl(viewDao mysql.IViewDao) repo.IViewRepo {

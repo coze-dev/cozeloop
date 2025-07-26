@@ -11,9 +11,9 @@ import (
 
 	"github.com/cloudwego/hertz/pkg/app"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/json"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/pkg/json"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/conv"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func AccessLogMW() app.HandlerFunc {

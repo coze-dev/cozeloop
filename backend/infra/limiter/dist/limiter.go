@@ -13,15 +13,15 @@ import (
 	"github.com/go-redis/redis_rate/v10"
 	"github.com/samber/lo"
 
-	"github.com/coze-dev/cozeloop/backend/infra/limiter"
-	"github.com/coze-dev/cozeloop/backend/infra/redis"
-	"github.com/coze-dev/cozeloop/backend/pkg/json"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
-	"github.com/coze-dev/cozeloop/backend/pkg/mcache"
-	"github.com/coze-dev/cozeloop/backend/pkg/mcache/byted"
+	"github.com/coze-dev/coze-loop/backend/infra/limiter"
+	"github.com/coze-dev/coze-loop/backend/infra/redis"
+	"github.com/coze-dev/coze-loop/backend/pkg/json"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/conv"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/slices"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/pkg/mcache"
+	"github.com/coze-dev/coze-loop/backend/pkg/mcache/byted"
 )
 
 type factory struct {

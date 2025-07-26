@@ -10,14 +10,14 @@ import (
 
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/idgen"
-	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/repo/mysql"
-	daomocks "github.com/coze-dev/cozeloop/backend/modules/prompt/infra/repo/mysql/mocks"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/pkg/unittest"
+	"github.com/coze-dev/coze-loop/backend/infra/idgen"
+	idgenmocks "github.com/coze-dev/coze-loop/backend/infra/idgen/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/infra/repo/mysql"
+	daomocks "github.com/coze-dev/coze-loop/backend/modules/prompt/infra/repo/mysql/mocks"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/unittest"
 )
 
 func TestDebugContextRepoImpl_SaveDebugContext(t *testing.T) {

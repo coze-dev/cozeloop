@@ -8,8 +8,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/json"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/json"
 )
 
 func TestEvalConfConvert_ConvertEntityToDTO(t *testing.T) {

@@ -6,11 +6,11 @@ import (
 	"context"
 	"fmt"
 	"github.com/apache/thrift/lib/go/thrift"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/base"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/common"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/filter"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/span"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/view"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/base"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/domain/common"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/domain/filter"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/domain/span"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/domain/view"
 	"strings"
 )
 

@@ -7,12 +7,12 @@ import (
 	"context"
 	"io"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/runtime/llmruntimeservice"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/component/rpc"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/rpc/convertor"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/runtime/llmruntimeservice"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/component/rpc"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/infra/rpc/convertor"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 type LLMRPCAdapter struct {

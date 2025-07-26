@@ -104,7 +104,7 @@ def generate_go_code(biz_name: str, biz_code: int, common_errors: List[Dict], bi
 package {os.path.basename(os.path.dirname(output_path))}
 
 import (
-""" + '\t"github.com/coze-dev/cozeloop/backend/pkg/errorx/code"\n' + """
+""" + '\t"github.com/coze-dev/coze-loop/backend/pkg/errorx/code"\n' + """
 )
 
 """ + '\n'.join(constants) + """

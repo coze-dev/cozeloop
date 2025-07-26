@@ -3,7 +3,7 @@ package evaluatorservice
 
 import (
 	server "github.com/cloudwego/kitex/server"
-	evaluation "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation"
+	evaluation "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation"
 )
 
 // NewServer creates a server.Server with the given handler and options.

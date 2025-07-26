@@ -13,15 +13,15 @@ import (
 	"github.com/bytedance/gg/gptr"
 	"github.com/bytedance/gg/gslice"
 
-	"github.com/coze-dev/cozeloop/backend/infra/external/audit"
-	"github.com/coze-dev/cozeloop/backend/infra/external/benefit"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/encoding"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/json"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/external/audit"
+	"github.com/coze-dev/coze-loop/backend/infra/external/benefit"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/pkg/encoding"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/json"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/conv"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 type ExptCheckFn = func(ctx context.Context, expt *entity.Experiment, session *entity.Session) error

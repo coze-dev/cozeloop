@@ -10,8 +10,8 @@ import (
 	"github.com/cloudwego/eino/schema"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/pkg/unittest"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/unittest"
 )
 
 func TestFromDOResponseMeta(t *testing.T) {

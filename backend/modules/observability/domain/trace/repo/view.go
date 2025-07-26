@@ -6,7 +6,7 @@ package repo
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity"
 )
 
 //go:generate mockgen -destination=mocks/view.go -package=mocks . IViewRepo

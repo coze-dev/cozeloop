@@ -8,9 +8,9 @@ import (
 
 	"github.com/bytedance/gg/gslice"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/convertor"
 )
 
 func (d *DatasetRepo) GetSchema(ctx context.Context, spaceID, id int64, opt ...repo.Option) (*entity.DatasetSchema, error) {

@@ -12,10 +12,10 @@ import (
 	"github.com/cloudwego/hertz/pkg/protocol"
 	"github.com/cloudwego/kitex/client/callopt"
 
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user/userservice"
-	"github.com/coze-dev/cozeloop/backend/pkg/hertzutil"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/user"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/user/userservice"
+	"github.com/coze-dev/coze-loop/backend/pkg/hertzutil"
 )
 
 var localUserClient userservice.Client

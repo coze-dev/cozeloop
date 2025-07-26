@@ -8,13 +8,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/auth"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/auth/authservice"
-	authentity "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/domain/auth"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/component/rpc"
-	prompterr "github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/auth"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/auth/authservice"
+	authentity "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/domain/auth"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/component/rpc"
+	prompterr "github.com/coze-dev/coze-loop/backend/modules/prompt/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 type AuthRPCAdapter struct {

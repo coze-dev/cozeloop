@@ -6,10 +6,10 @@ package convertor
 import (
 	"strconv"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/domain/space"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/user/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/domain/space"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/user/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/conv"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func SpaceDO2DTO(spaceDO *entity.Space) *space.Space {

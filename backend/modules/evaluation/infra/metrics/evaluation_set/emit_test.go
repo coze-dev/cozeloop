@@ -9,9 +9,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/metrics"
-	"github.com/coze-dev/cozeloop/backend/infra/metrics/mocks"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/infra/metrics"
+	"github.com/coze-dev/coze-loop/backend/infra/metrics/mocks"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 func TestEvaluationSetMetricsImpl_EmitCreate(t *testing.T) {

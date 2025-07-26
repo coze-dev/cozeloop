@@ -11,7 +11,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/coze-dev/cozeloop/backend/script/kitex/loopgen/internal"
+	"github.com/coze-dev/coze-loop/backend/script/kitex/loopgen/internal"
 )
 
 const (

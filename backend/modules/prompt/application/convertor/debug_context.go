@@ -4,9 +4,9 @@
 package convertor
 
 import (
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/domain/prompt"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/domain/prompt"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func DebugContextDTO2DO(promptID int64, userID string, dto *prompt.DebugContext) *entity.DebugContext {

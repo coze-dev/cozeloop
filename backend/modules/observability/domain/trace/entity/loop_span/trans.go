@@ -8,8 +8,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/slices"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 /*

@@ -16,13 +16,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db/mocks"
-	idgenmock "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	confmocks "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/vfs"
-	mock_vfs "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/vfs/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	mock_repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/db/mocks"
+	idgenmock "github.com/coze-dev/coze-loop/backend/infra/idgen/mocks"
+	confmocks "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/component/vfs"
+	mock_vfs "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/vfs/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	mock_repo "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo/mocks"
 )
 
 func TestNewImportHandler(t *testing.T) {

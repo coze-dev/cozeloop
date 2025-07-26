@@ -7,7 +7,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
 )
 
 //go:generate mockgen -destination mocks/expt_event_publisher_mock.go -package mocks . ExptEventPublisher

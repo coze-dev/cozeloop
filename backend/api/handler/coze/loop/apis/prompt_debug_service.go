@@ -14,8 +14,8 @@ import (
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
 	"github.com/hertz-contrib/sse"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/debug"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/debug/promptdebugservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/debug"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/debug/promptdebugservice"
 )
 
 var promptDebugSvc promptdebugservice.Client

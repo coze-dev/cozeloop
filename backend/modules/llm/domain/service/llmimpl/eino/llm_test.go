@@ -11,10 +11,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/service/llmimpl/eino/mocks"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/pkg/unittest"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/service/llmimpl/eino/mocks"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/unittest"
 )
 
 func TestLLM_Generate(t *testing.T) {

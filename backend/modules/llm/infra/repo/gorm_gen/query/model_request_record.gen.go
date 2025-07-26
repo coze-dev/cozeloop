@@ -10,7 +10,7 @@ import (
 	"gorm.io/gorm/clause"
 	"gorm.io/gorm/schema"
 
-	"github.com/coze-dev/cozeloop/backend/modules/llm/infra/repo/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/infra/repo/gorm_gen/model"
 	"gorm.io/gen"
 	"gorm.io/gen/field"
 	"gorm.io/plugin/dbresolver"

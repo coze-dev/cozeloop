@@ -9,8 +9,8 @@ import (
 	"github.com/bytedance/sonic"
 	"github.com/coze-dev/cozeloop-go/spec/tracespec"
 
-	commonentity "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/maps"
+	commonentity "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/maps"
 )
 
 type ChatMessagePartType string

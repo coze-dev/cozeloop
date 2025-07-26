@@ -10,14 +10,14 @@ import (
 
 	"go.uber.org/mock/gomock"
 
-	dbmock "github.com/coze-dev/cozeloop/backend/infra/db/mocks"
-	lockmocks "github.com/coze-dev/cozeloop/backend/infra/lock/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
-	confmocks "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf/mocks"
-	mqmock "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/component/mq/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	mock_repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
+	dbmock "github.com/coze-dev/coze-loop/backend/infra/db/mocks"
+	lockmocks "github.com/coze-dev/coze-loop/backend/infra/lock/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf"
+	confmocks "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf/mocks"
+	mqmock "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/component/mq/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	mock_repo "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/pagination"
 )
 
 func TestDatasetServiceImpl_RunSnapshotItemJob(t *testing.T) {

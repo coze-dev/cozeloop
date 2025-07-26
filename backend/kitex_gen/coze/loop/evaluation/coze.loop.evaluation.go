@@ -4,10 +4,10 @@ package evaluation
 
 import (
 	"github.com/apache/thrift/lib/go/thrift"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_set"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_target"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/evaluator"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/expt"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/eval_set"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/eval_target"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/evaluator"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/expt"
 )
 
 type EvaluationSetService interface {

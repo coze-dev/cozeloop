@@ -4,7 +4,7 @@
 package entity
 
 import (
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/loop_span"
 )
 
 type TTL string

@@ -16,7 +16,7 @@ import (
 
 	"gorm.io/plugin/dbresolver"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/evaluator/mysql/gorm_gen/model"
 )
 
 func newEvaluatorRecord(db *gorm.DB, opts ...gen.DOOption) evaluatorRecord {

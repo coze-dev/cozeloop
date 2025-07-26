@@ -10,17 +10,17 @@ import (
 
 	"github.com/bytedance/gg/gslice"
 
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	domain "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/domain/user"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/application/convertor"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/user/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/user/service"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	domain "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/domain/user"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/user"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/application/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/user/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/user/service"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/conv"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/slices"
 )
 
 type UserApplicationImpl struct {

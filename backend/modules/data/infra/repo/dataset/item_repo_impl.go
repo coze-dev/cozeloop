@@ -8,14 +8,14 @@ import (
 
 	"github.com/bytedance/gg/gslice"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-	common_entity "github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/convertor"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo"
+	common_entity "github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/pagination"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 func (d *DatasetRepo) CountItems(ctx context.Context, params *repo.ListItemsParams, opt ...repo.Option) (int64, error) {

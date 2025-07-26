@@ -13,12 +13,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	infra_mq "github.com/coze-dev/cozeloop/backend/infra/mq"
-	mock_infra_mq "github.com/coze-dev/cozeloop/backend/infra/mq/mocks" // 使用这个路径
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
-	mock_config "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf/mocks"
-	component_mq "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/component/mq"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
+	infra_mq "github.com/coze-dev/coze-loop/backend/infra/mq"
+	mock_infra_mq "github.com/coze-dev/coze-loop/backend/infra/mq/mocks" // 使用这个路径
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf"
+	mock_config "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf/mocks"
+	component_mq "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/component/mq"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
 )
 
 func TestDatasetJobPublisherSend(t *testing.T) {

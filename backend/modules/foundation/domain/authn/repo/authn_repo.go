@@ -6,7 +6,7 @@ package repo
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/authn/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/authn/entity"
 )
 
 //go:generate mockgen -destination=mocks/authn_repo.go -package=mocks . IAuthNRepo

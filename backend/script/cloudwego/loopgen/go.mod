@@ -1,4 +1,4 @@
-module github.com/coze-dev/cozeloop/backend/script/kitex/loopgen
+module github.com/coze-dev/coze-loop/backend/script/kitex/loopgen
 
 go 1.23.4
 

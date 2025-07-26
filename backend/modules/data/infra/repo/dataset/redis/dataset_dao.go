@@ -10,9 +10,9 @@ import (
 
 	"github.com/bytedance/gg/gslice"
 
-	"github.com/coze-dev/cozeloop/backend/infra/redis"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/rediskey"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/infra/redis"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/rediskey"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
 )
 
 //go:generate mockgen -destination=mocks/dataset_dao.go -package=mocks . DatasetDAO

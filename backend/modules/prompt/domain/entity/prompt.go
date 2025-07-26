@@ -6,7 +6,7 @@ package entity
 import (
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/mem"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/mem"
 )
 
 type Prompt struct {

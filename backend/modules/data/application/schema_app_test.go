@@ -12,14 +12,14 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/external/audit"
-	mock_audit "github.com/coze-dev/cozeloop/backend/infra/external/audit/mocks"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/dataset"
-	dodataset "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset"
-	mock_auth "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/rpc/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	mock_repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
-	mock_dataset "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/external/audit"
+	mock_audit "github.com/coze-dev/coze-loop/backend/infra/external/audit/mocks"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/data/dataset"
+	dodataset "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/data/domain/dataset"
+	mock_auth "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/rpc/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	mock_repo "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo/mocks"
+	mock_dataset "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/service/mocks"
 )
 
 func TestDatasetApplicationImpl_GetDatasetSchema(t *testing.T) {

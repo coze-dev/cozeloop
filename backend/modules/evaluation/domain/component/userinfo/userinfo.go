@@ -8,14 +8,14 @@ import (
 
 	"github.com/bytedance/gg/gptr"
 
-	commondto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/common"
-	common_convertor "github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/common"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	evalerr "github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/json"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	commondto "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/common"
+	common_convertor "github.com/coze-dev/coze-loop/backend/modules/evaluation/application/convertor/common"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/rpc"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	evalerr "github.com/coze-dev/coze-loop/backend/modules/evaluation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/json"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 type UserInfoCarrier interface {

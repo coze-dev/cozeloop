@@ -12,13 +12,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/authn"
-	authn2 "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/domain/authn"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/authn/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/authn/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/authn/repo/mocks"
-	"github.com/coze-dev/cozeloop/backend/pkg/unittest"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/authn"
+	authn2 "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/domain/authn"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/authn/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/authn/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/authn/repo/mocks"
+	"github.com/coze-dev/coze-loop/backend/pkg/unittest"
 )
 
 func TestAuthNApplicationImpl_CreatePersonalAccessToken(t *testing.T) {

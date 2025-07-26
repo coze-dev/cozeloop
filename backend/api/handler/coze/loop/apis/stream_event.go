@@ -9,9 +9,9 @@ import (
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/hertz-contrib/sse"
 
-	middleware "github.com/coze-dev/cozeloop/backend/infra/middleware/errors"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/js_conv"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	middleware "github.com/coze-dev/coze-loop/backend/infra/middleware/errors"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/js_conv"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func publishDataEvent(ctx context.Context, s *sse.Stream, data any) error {

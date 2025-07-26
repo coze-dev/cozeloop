@@ -9,7 +9,7 @@ import (
 	"github.com/go-viper/mapstructure/v2"
 	"github.com/spf13/viper"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
 )
 
 type fileConfLoaderFactoryOpt struct {

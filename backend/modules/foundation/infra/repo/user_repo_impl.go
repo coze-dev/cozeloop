@@ -9,18 +9,18 @@ import (
 
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/infra/idgen"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/user/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/user/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/infra/repo/mysql"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/infra/repo/mysql/convertor"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/infra/repo/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/infra/repo/mysql/gorm_gen/query"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/infra/idgen"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/user/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/user/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/infra/repo/mysql"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/infra/repo/mysql/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/infra/repo/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/infra/repo/mysql/gorm_gen/query"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/conv"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/slices"
 )
 
 type UserRepoImpl struct {

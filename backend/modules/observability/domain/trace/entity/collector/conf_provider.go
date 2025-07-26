@@ -9,13 +9,13 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/component"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/confmap"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/exporter"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/processor"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/receiver"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/service"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/component"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/confmap"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/exporter"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/processor"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/receiver"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/service"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
 )
 
 const traceCollectorCfgKey = "trace_collector_cfg"

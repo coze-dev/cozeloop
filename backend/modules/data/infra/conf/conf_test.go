@@ -11,9 +11,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	dataset_conf "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/consts"
-	mock_conf "github.com/coze-dev/cozeloop/backend/pkg/conf/mocks" // 假设 mock 文件在此路径
+	dataset_conf "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/consts"
+	mock_conf "github.com/coze-dev/coze-loop/backend/pkg/conf/mocks" // 假设 mock 文件在此路径
 )
 
 func TestNewConfiger(t *testing.T) {

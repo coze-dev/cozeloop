@@ -6,7 +6,7 @@ package service
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
 )
 
 // EvaluatorSourceService 定义 Evaluator 的 DO 接口

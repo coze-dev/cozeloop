@@ -4,13 +4,13 @@
 package experiment
 
 import (
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
-	domain_expt "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/expt"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/common"
-	evalsetconv "github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/evaluation_set"
-	evaluatorconv "github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/evaluator"
-	targetconv "github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/target"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
+	domain_expt "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/expt"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/application/convertor/common"
+	evalsetconv "github.com/coze-dev/coze-loop/backend/modules/evaluation/application/convertor/evaluation_set"
+	evaluatorconv "github.com/coze-dev/coze-loop/backend/modules/evaluation/application/convertor/evaluator"
+	targetconv "github.com/coze-dev/coze-loop/backend/modules/evaluation/application/convertor/target"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
 )
 
 func ColumnEvalSetFieldsDO2DTOs(from []*entity.ColumnEvalSetField) []*domain_expt.ColumnEvalSetField {

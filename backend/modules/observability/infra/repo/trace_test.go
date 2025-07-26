@@ -10,15 +10,15 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config"
-	confmocks "github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/config/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/ck"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/ck/gorm_gen/model"
-	ckmock "github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/ck/mocks"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/component/config"
+	confmocks "github.com/coze-dev/coze-loop/backend/modules/observability/domain/component/config/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/loop_span"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/infra/repo/ck"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/infra/repo/ck/gorm_gen/model"
+	ckmock "github.com/coze-dev/coze-loop/backend/modules/observability/infra/repo/ck/mocks"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func TestTraceCkRepoImpl_InsertSpans(t *testing.T) {

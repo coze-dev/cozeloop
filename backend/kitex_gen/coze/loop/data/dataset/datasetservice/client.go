@@ -6,7 +6,7 @@ import (
 	"context"
 	client "github.com/cloudwego/kitex/client"
 	callopt "github.com/cloudwego/kitex/client/callopt"
-	dataset "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/dataset"
+	dataset "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/data/dataset"
 )
 
 // Client is designed to provide IDL-compatible methods with call-option parameter for kitex framework.

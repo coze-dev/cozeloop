@@ -3,7 +3,7 @@ package authnservice
 
 import (
 	server "github.com/cloudwego/kitex/server"
-	authn "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/authn"
+	authn "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/authn"
 )
 
 // NewServer creates a server.Server with the given handler and options.

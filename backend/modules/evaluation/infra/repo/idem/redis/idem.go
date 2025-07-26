@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/infra/redis"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/infra/redis"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 const (

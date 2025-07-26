@@ -7,13 +7,13 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/auth"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/auth/authservice"
-	authentity "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/domain/auth"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/rpc"
-	obErrorx "github.com/coze-dev/cozeloop/backend/modules/observability/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/auth"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/auth/authservice"
+	authentity "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/domain/auth"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/component/rpc"
+	obErrorx "github.com/coze-dev/coze-loop/backend/modules/observability/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 type AuthProviderImpl struct {

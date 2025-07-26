@@ -7,7 +7,7 @@ import (
 	"context"
 	"io/fs"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
 )
 
 //go:generate mockgen -destination=mocks/union.go -package=mocks . IUnionFS

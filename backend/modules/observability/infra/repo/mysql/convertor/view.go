@@ -4,8 +4,8 @@
 package convertor
 
 import (
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/infra/repo/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/infra/repo/mysql/gorm_gen/model"
 )
 
 func ViewDO2PO(view *entity.ObservabilityView) *model.ObservabilityView {

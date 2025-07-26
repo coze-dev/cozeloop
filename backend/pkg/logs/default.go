@@ -13,7 +13,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/consts"
+	"github.com/coze-dev/coze-loop/backend/pkg/consts"
 )
 
 var logger Logger = newDefaultLogger()

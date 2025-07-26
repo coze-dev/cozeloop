@@ -12,9 +12,9 @@ import (
 	"github.com/bytedance/sonic"
 	"gorm.io/datatypes"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	domainEntity "github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	domainEntity "github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
 )
 
 // Helper to create datatypes.JSON for expected values

@@ -9,10 +9,10 @@ import (
 
 	"github.com/samber/lo"
 
-	"github.com/coze-dev/cozeloop/backend/infra/limiter"
-	evaluatordto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
-	"github.com/coze-dev/cozeloop/backend/pkg/contexts"
+	"github.com/coze-dev/coze-loop/backend/infra/limiter"
+	evaluatordto "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
+	"github.com/coze-dev/coze-loop/backend/pkg/contexts"
 )
 
 //go:generate mockgen -destination=mocks/evaluator_configer.go -package=mocks . IConfiger

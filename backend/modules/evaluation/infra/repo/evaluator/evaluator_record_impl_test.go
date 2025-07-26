@@ -11,11 +11,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	dbmocks "github.com/coze-dev/cozeloop/backend/infra/db/mocks"
-	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql/gorm_gen/model"
-	evaluatormocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql/mocks"
+	dbmocks "github.com/coze-dev/coze-loop/backend/infra/db/mocks"
+	idgenmocks "github.com/coze-dev/coze-loop/backend/infra/idgen/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/evaluator/mysql/gorm_gen/model"
+	evaluatormocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/evaluator/mysql/mocks"
 )
 
 func TestEvaluatorRecordRepoImpl_CreateEvaluatorRecord(t *testing.T) {

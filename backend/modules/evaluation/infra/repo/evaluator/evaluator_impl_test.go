@@ -12,16 +12,16 @@ import (
 	"go.uber.org/mock/gomock"
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	dbmocks "github.com/coze-dev/cozeloop/backend/infra/db/mocks"
-	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	"github.com/coze-dev/cozeloop/backend/infra/platestwrite"
-	platestwritemocks "github.com/coze-dev/cozeloop/backend/infra/platestwrite/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql/gorm_gen/model"
-	evaluatormocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	dbmocks "github.com/coze-dev/coze-loop/backend/infra/db/mocks"
+	idgenmocks "github.com/coze-dev/coze-loop/backend/infra/idgen/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/platestwrite"
+	platestwritemocks "github.com/coze-dev/coze-loop/backend/infra/platestwrite/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/evaluator/mysql"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/evaluator/mysql/gorm_gen/model"
+	evaluatormocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/evaluator/mysql/mocks"
 )
 
 func TestEvaluatorRepoImpl_SubmitEvaluatorVersion(t *testing.T) {

@@ -5,7 +5,7 @@ package apis
 import (
 	"github.com/cloudwego/hertz/pkg/app/server"
 
-	apis "github.com/coze-dev/cozeloop/backend/api/handler/coze/loop/apis"
+	apis "github.com/coze-dev/coze-loop/backend/api/handler/coze/loop/apis"
 )
 
 /*

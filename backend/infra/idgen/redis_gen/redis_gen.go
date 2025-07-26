@@ -13,8 +13,8 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/samber/lo"
 
-	"github.com/coze-dev/cozeloop/backend/infra/idgen"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/infra/idgen"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 const (

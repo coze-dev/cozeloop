@@ -8,7 +8,7 @@ import (
 
 	"github.com/cloudwego/hertz/pkg/app"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/ctxcache"
+	"github.com/coze-dev/coze-loop/backend/pkg/ctxcache"
 )
 
 func CtxCacheMW() app.HandlerFunc {

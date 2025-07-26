@@ -9,7 +9,7 @@ import (
 	"github.com/coze-dev/cozeloop-go/spec/tracespec"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func TestMergeStreamMsgs(t *testing.T) {

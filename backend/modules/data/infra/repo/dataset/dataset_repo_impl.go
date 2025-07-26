@@ -9,14 +9,14 @@ import (
 	"github.com/bytedance/gg/gslice"
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/convertor"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/pagination"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func (d *DatasetRepo) SetItemCount(ctx context.Context, datasetID int64, n int64) error {

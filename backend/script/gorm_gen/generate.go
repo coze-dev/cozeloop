@@ -42,7 +42,7 @@ func getGenerateConfig(path string) gen.Config {
 		FieldWithIndexTag: true,                            // 从数据库同步的表结构代码包含gorm的index tag
 		FieldWithTypeTag:  true,
 	}
-	config.WithImportPkgPath(fmt.Sprintf("github.com/coze-dev/cozeloop/backend/%s/model", path))
+	config.WithImportPkgPath(fmt.Sprintf("github.com/coze-dev/coze-loop/backend/%s/model", path))
 	return config
 }
 

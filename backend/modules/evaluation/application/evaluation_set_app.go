@@ -10,19 +10,19 @@ import (
 
 	"github.com/bytedance/gg/gptr"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation"
-	domain_eval_set "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_set"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_set"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/common"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/evaluation_set"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/userinfo"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation"
+	domain_eval_set "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/eval_set"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/eval_set"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/application/convertor/common"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/application/convertor/evaluation_set"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/consts"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/metrics"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/rpc"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/userinfo"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/service"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 var (

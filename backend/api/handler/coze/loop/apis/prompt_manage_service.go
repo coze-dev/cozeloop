@@ -10,7 +10,7 @@ import (
 
 	"github.com/cloudwego/hertz/pkg/app"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/manage/promptmanageservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/manage/promptmanageservice"
 )
 
 var promptManageSvc promptmanageservice.Client

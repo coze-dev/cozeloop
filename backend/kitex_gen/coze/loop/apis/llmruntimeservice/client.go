@@ -9,7 +9,7 @@ import (
 	streamcall "github.com/cloudwego/kitex/client/callopt/streamcall"
 	streaming "github.com/cloudwego/kitex/pkg/streaming"
 	transport "github.com/cloudwego/kitex/transport"
-	runtime "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/runtime"
+	runtime "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/runtime"
 )
 
 // Client is designed to provide IDL-compatible methods with call-option parameter for kitex framework.

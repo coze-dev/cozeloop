@@ -12,7 +12,7 @@ import (
 
 	"golang.org/x/crypto/argon2"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 // Argon2id 参数

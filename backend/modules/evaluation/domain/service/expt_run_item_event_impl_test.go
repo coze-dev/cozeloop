@@ -10,17 +10,17 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	auditmocks "github.com/coze-dev/cozeloop/backend/infra/external/audit/mocks"
-	benefitmocks "github.com/coze-dev/cozeloop/backend/infra/external/benefit/mocks"
-	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	lockmocks "github.com/coze-dev/cozeloop/backend/infra/lock/mocks"
-	idemmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/idem/mocks"
-	metricsmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics/mocks"
-	componentMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	eventmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/events/mocks"
-	repoMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo/mocks"
-	svcmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
+	auditmocks "github.com/coze-dev/coze-loop/backend/infra/external/audit/mocks"
+	benefitmocks "github.com/coze-dev/coze-loop/backend/infra/external/benefit/mocks"
+	idgenmocks "github.com/coze-dev/coze-loop/backend/infra/idgen/mocks"
+	lockmocks "github.com/coze-dev/coze-loop/backend/infra/lock/mocks"
+	idemmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/idem/mocks"
+	metricsmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/metrics/mocks"
+	componentMocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	eventmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/events/mocks"
+	repoMocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/repo/mocks"
+	svcmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/service/mocks"
 )
 
 func TestNewExptRecordEvalService(t *testing.T) {

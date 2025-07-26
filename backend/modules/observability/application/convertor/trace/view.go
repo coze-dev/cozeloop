@@ -6,10 +6,10 @@ package trace
 import (
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/view"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/trace"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/domain/view"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/trace"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func ViewPO2DTO(v *entity.ObservabilityView) *view.View {

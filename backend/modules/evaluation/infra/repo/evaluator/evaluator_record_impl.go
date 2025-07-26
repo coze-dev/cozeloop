@@ -6,12 +6,12 @@ package evaluator
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/infra/idgen"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql/convertor"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/infra/idgen"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/evaluator/mysql"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/evaluator/mysql/convertor"
 )
 
 type EvaluatorRecordRepoImpl struct {

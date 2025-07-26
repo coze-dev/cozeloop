@@ -12,7 +12,7 @@ import (
 
 	"github.com/bytedance/sonic"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 const (

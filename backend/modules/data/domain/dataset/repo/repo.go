@@ -6,9 +6,9 @@ package repo
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	common_entity "github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	common_entity "github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/pagination"
 )
 
 //go:generate mockgen -destination=mocks/repo.go -package=mocks . IDatasetAPI

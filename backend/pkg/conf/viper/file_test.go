@@ -10,7 +10,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
 )
 
 type TestConfig struct {

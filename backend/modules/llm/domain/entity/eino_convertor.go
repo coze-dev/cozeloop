@@ -12,8 +12,8 @@ import (
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/pkg/errors"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/slices"
 )
 
 func FromDOMessages(dos []*Message) []*schema.Message {

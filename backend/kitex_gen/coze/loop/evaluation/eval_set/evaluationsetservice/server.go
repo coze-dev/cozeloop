@@ -3,7 +3,7 @@ package evaluationsetservice
 
 import (
 	server "github.com/cloudwego/kitex/server"
-	eval_set "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_set"
+	eval_set "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/eval_set"
 )
 
 // NewServer creates a server.Server with the given handler and options.

@@ -10,9 +10,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/component"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/consumer"
-	receivermock "github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/receiver/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/component"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/consumer"
+	receivermock "github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/receiver/mocks"
 )
 
 func getComponentID(s string) component.ID {

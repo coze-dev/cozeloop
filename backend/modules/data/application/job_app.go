@@ -12,15 +12,15 @@ import (
 	"github.com/bytedance/gg/gptr"
 	"github.com/bytedance/gg/gslice"
 
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/dataset"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset_job"
-	convertor "github.com/coze-dev/cozeloop/backend/modules/data/application/convertor/dataset"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/rpc"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/service"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/data/dataset"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/data/domain/dataset_job"
+	convertor "github.com/coze-dev/coze-loop/backend/modules/data/application/convertor/dataset"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/component/rpc"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/service"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
 )
 
 func (d *DatasetApplicationImpl) ImportDataset(ctx context.Context, req *dataset.ImportDatasetRequest) (r *dataset.ImportDatasetResponse, err error) {

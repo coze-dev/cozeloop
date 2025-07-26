@@ -16,7 +16,7 @@ import (
 
 	"gorm.io/plugin/dbresolver"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/target/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/target/mysql/gorm_gen/model"
 )
 
 func newTargetVersion(db *gorm.DB, opts ...gen.DOOption) targetVersion {

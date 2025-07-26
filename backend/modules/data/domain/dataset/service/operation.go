@@ -12,8 +12,8 @@ import (
 	"github.com/cenk/backoff"
 	"github.com/pkg/errors"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 const (

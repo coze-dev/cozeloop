@@ -3,7 +3,7 @@
 
 package traceutil
 
-import "github.com/coze-dev/cozeloop/backend/pkg/errorx"
+import "github.com/coze-dev/coze-loop/backend/pkg/errorx"
 
 func GetTraceStatusCode(err error) int32 {
 	if statusErr, ok := errorx.FromStatusError(err); ok {

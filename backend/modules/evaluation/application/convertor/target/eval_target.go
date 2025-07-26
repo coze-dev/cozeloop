@@ -6,10 +6,10 @@ package target
 import (
 	"github.com/bytedance/gg/gptr"
 
-	commondto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/common"
-	dto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/eval_target"
-	commonconvertor "github.com/coze-dev/cozeloop/backend/modules/evaluation/application/convertor/common"
-	do "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
+	commondto "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/common"
+	dto "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/eval_target"
+	commonconvertor "github.com/coze-dev/coze-loop/backend/modules/evaluation/application/convertor/common"
+	do "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
 )
 
 func EvalTargetDTO2DO(targetDTO *dto.EvalTarget) (targetDO *do.EvalTarget) {

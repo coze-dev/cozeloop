@@ -8,7 +8,7 @@ import (
 
 	"github.com/cloudwego/kitex/pkg/endpoint"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/ctxcache"
+	"github.com/coze-dev/coze-loop/backend/pkg/ctxcache"
 )
 
 func CtxCacheMW(next endpoint.Endpoint) endpoint.Endpoint {

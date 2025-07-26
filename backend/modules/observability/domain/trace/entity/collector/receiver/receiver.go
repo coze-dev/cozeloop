@@ -9,8 +9,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/component"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/consumer"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/component"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/consumer"
 )
 
 //go:generate mockgen -destination=mocks/receiver.go -package=mocks . Receiver
