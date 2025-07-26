@@ -86,7 +86,7 @@ struct VerifyTokenResponse {
 }
 
 service AuthNService {
-    // OpenAPI PAT管理，开源版本暂不支持OAuth
+    // OpenAPI PAT管理
     CreatePersonalAccessTokenResponse CreatePersonalAccessToken(1: CreatePersonalAccessTokenRequest req) (api.post='/api/auth/v1/personal_access_tokens')
     DeletePersonalAccessTokenResponse DeletePersonalAccessToken(1: DeletePersonalAccessTokenRequest req) (api.delete='/api/auth/v1/personal_access_tokens/:id')
     UpdatePersonalAccessTokenResponse UpdatePersonalAccessToken(1: UpdatePersonalAccessTokenRequest req) (api.put='/api/auth/v1/personal_access_tokens/:id')

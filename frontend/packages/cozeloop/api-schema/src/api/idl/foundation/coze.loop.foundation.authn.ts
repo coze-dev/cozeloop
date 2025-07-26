@@ -60,7 +60,7 @@ export interface VerifyTokenResponse {
   valid?: boolean,
   user_id?: string,
 }
-/** OpenAPI PAT管理，开源版本暂不支持OAuth */
+/** OpenAPI PAT管理 */
 export const CreatePersonalAccessToken = /*#__PURE__*/createAPI<CreatePersonalAccessTokenRequest, CreatePersonalAccessTokenResponse>({
   "url": "/api/auth/v1/personal_access_tokens",
   "method": "POST",

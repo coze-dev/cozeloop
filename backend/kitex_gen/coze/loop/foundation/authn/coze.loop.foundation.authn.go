@@ -3297,7 +3297,7 @@ func (p *VerifyTokenResponse) Field255DeepEqual(src *base.BaseResp) bool {
 }
 
 type AuthNService interface {
-	// OpenAPI PAT管理，开源版本暂不支持OAuth
+	// OpenAPI PAT管理
 	CreatePersonalAccessToken(ctx context.Context, req *CreatePersonalAccessTokenRequest) (r *CreatePersonalAccessTokenResponse, err error)
 
 	DeletePersonalAccessToken(ctx context.Context, req *DeletePersonalAccessTokenRequest) (r *DeletePersonalAccessTokenResponse, err error)

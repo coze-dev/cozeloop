@@ -23,7 +23,7 @@ func NewLocalAuthNService(impl authn.AuthNService, mds ...endpoint.Middleware) *
 }
 
 // CreatePersonalAccessToken
-// OpenAPI PAT管理，开源版本暂不支持OAuth
+// OpenAPI PAT管理
 func (l *LocalAuthNService) CreatePersonalAccessToken(ctx context.Context, req *authn.CreatePersonalAccessTokenRequest, callOptions ...callopt.Option) (*authn.CreatePersonalAccessTokenResponse, error) {
 	chain := l.mds(func(ctx context.Context, in, out interface{}) error {
 		arg := in.(*authn.AuthNServiceCreatePersonalAccessTokenArgs)
