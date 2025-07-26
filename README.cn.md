@@ -39,8 +39,27 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
 | 模型 | 支持接入 OpenAI、火山方舟等模型 |
 
 ## 快速开始
-
-参考[快速开始](https://github.com/coze-dev/CozeLoop/wiki/2.-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B)，了解如何安装部署 Coze Loop 最新版本。
+> 参考[快速开始](https://github.com/coze-dev/CozeLoop/wiki/2.-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B)，详细了解如何安装部署 Coze Loop 最新版本。
+环境要求：
+* <span style="background-color: rgb(255, 255, 255)"><span style="color: #1F2328">Go ＞ 1.23.4； 配置 GOPATH</span></span>
+* 提前安装 Docker、Docker Compose，并启动 Docker 服务
+操作步骤：
+1. 获取源码。执行以下命令，获取 Coze Loop 最新版本的源码。
+   ```Bash
+   # 克隆代码
+   git clone https://github.com/coze-dev/Coze Loop.git
+   # 进入Coze Loop目录下
+   cd Coze Loop
+   ```
+2. 配置模型。进入目录 `conf/default/app/runtime/`，编辑文件 `model_config.yaml`，修改 api_key 和 model 字段。以火山方舟为例：
+   * api_key：火山方舟 API Key，获取方式可参考[获取 API Key](Keyhttps://www.volcengine.com/docs/82379/1541594)。
+   * model：火山方舟模型接入点的 Endpoint ID，获取方式可参考[获取 Endpoint](https://www.volcengine.com/docs/82379/1099522)。
+3. 启动服务。执行以下命令，使用 Docker Compose 快速部署 Coze Loop 开源版。
+   ```Bash
+   # 启动服务，默认为开发模式
+   docker compose up --build
+   ```
+4. 通过浏览器访问 `http://localhost:8082`，访问 Coze Loop 开源版。
 
 ## 使用 Coze Loop 开源版
 
