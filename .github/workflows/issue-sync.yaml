@@ -1,0 +1,35 @@
+name: Issue Notification
+
+on:
+  issues:
+    types: ['opened', 'reopened', 'closed']
+
+jobs:
+  sync:
+    name: Sync Issues
+    runs-on: ubuntu-latest
+    env:
+      NODE_VERSION: '18'
+      LARK_APP_ID: ${{ secrets.COZELOOP_LARK_APP_ID }}
+      LARK_APP_SECRET: ${{ secrets.COZELOOP_LARK_APP_SECRET }}
+      ISSUE_ACTION: ${{ github.event.action }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      ISSUE_URL: ${{ github.event.issue.html_url }}
+      ISSUE_TITLE: ${{ github.event.issue.title }}
+      ISSUE_BODY: ${{ github.event.issue.body }}
+      REPO_NAME: ${{ github.repository }}
+
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install ci-tools
+        run: |
+          npm install -g @cozeloop/ci-tools@0.0.1
+
+      - name: Notify via lark
+        run: |
+          cozeloop-ci lark sync-issue \
+          --chat-id oc_d02b85f9799a0c35cf164d3a939ef30e
