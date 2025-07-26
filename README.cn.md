@@ -39,7 +39,7 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
 | 模型 | 支持接入 OpenAI、火山方舟等模型 |
 
 ## 快速开始
-> 参考[快速开始](https://github.com/coze-dev/CozeLoop/wiki/2.-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B)，详细了解如何安装部署 Coze Loop 最新版本。
+> 参考[快速开始](https://github.com/coze-dev/coze-loop/wiki/2.-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B)，详细了解如何安装部署 Coze Loop 最新版本。
 环境要求：
 * <span style="background-color: rgb(255, 255, 255)"><span style="color: #1F2328">Go ＞ 1.23.4； 配置 GOPATH</span></span>
 * 提前安装 Docker、Docker Compose，并启动 Docker 服务
@@ -66,15 +66,15 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
 * [Prompt 开发与调试](https://loop.coze.cn/open/docs/cozeloop/create-prompt)：Coze Loop 提供了完整的提示词开发流程。
 * [评测](https://loop.coze.cn/open/docs/cozeloop/evaluation-quick-start)：Coze Loop 的评测功能提供标准评测数据管理、自动化评估引擎和综合的实验结果统计。
 * [Trace 上报与查询](https://loop.coze.cn/open/docs/cozeloop/trace_integrate)：Coze Loop 支持对平台上创建的 Prompt 调试的 Trace 自动上报，实时追踪每一条 Trace 数据。
-* [开源版使用Coze Loop SDK](https://github.com/coze-dev/cozeloop/wiki/8.-%E5%BC%80%E6%BA%90%E7%89%88%E4%BD%BF%E7%94%A8-CozeLoop-SDK)：Coze Loop 三个语言的 [SDK](https://loop.coze.cn/open/docs/cozeloop/sdk) 均适用于商业版和开源版。对于开源版，开发者只需要初始化时修改部分参数配置。
+* [开源版使用Coze Loop SDK](https://github.com/coze-dev/coze-loop/wiki/8.-%E5%BC%80%E6%BA%90%E7%89%88%E4%BD%BF%E7%94%A8-CozeLoop-SDK)：Coze Loop 三个语言的 [SDK](https://loop.coze.cn/open/docs/cozeloop/sdk) 均适用于商业版和开源版。对于开源版，开发者只需要初始化时修改部分参数配置。
 
 ## 开发指南
 
-* [系统架构](https://github.com/coze-dev/CozeLoop/wiki/3.-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84)：了解Coze Loop 开源版的技术架构与核心组件。
-* [启动模式](https://github.com/coze-dev/CozeLoop/wiki/4.-%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F)：安装部署Coze Loop 开源版时，默认使用开发模式，此模式下修改后端文件无需重新部署服务。
-* [模型配置](https://github.com/coze-dev/CozeLoop/wiki/5.-%E6%A8%A1%E5%9E%8B%E9%85%8D%E7%BD%AE)：Coze Loop 开源版通过 Eino 框架支持多种 LLM 模型，参考此文档查看支持的模型列表，了解如何配置模型。
-* [代码开发与测试](https://github.com/coze-dev/CozeLoop/wiki/6.-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E4%B8%8E%E6%B5%8B%E8%AF%95)：了解如何基于Coze Loop 开源版进行二次开发与测试。
-* [故障排查](https://github.com/coze-dev/CozeLoop/wiki/7.-%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5)：了解如何查看容器状态、系统日志。
+* [系统架构](https://github.com/coze-dev/coze-loop/wiki/3.-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84)：了解Coze Loop 开源版的技术架构与核心组件。
+* [启动模式](https://github.com/coze-dev/coze-loop/wiki/4.-%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F)：安装部署Coze Loop 开源版时，默认使用开发模式，此模式下修改后端文件无需重新部署服务。
+* [模型配置](https://github.com/coze-dev/coze-loop/wiki/5.-%E6%A8%A1%E5%9E%8B%E9%85%8D%E7%BD%AE)：Coze Loop 开源版通过 Eino 框架支持多种 LLM 模型，参考此文档查看支持的模型列表，了解如何配置模型。
+* [代码开发与测试](https://github.com/coze-dev/coze-loop/wiki/6.-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E4%B8%8E%E6%B5%8B%E8%AF%95)：了解如何基于Coze Loop 开源版进行二次开发与测试。
+* [故障排查](https://github.com/coze-dev/coze-loop/wiki/7.-%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5)：了解如何查看容器状态、系统日志。
 
 ## License
 
