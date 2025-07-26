@@ -47,7 +47,7 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
 1. 获取源码。执行以下命令，获取 Coze Loop 最新版本的源码。
    ```Bash
    # 克隆代码
-   git clone https://github.com/coze-dev/cozeloop.git
+   git clone https://github.com/coze-dev/coze-loop.git
    # 进入Coze Loop目录下
    cd cozeloop
    ```
