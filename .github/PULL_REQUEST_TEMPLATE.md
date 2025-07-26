@@ -21,7 +21,7 @@ The description of the title will be attached in Release Notes,
 so please describe it from user-oriented, what this PR does / why we need it.
 Please check your PR title with the below requirements:
 -->
-- [ ] This PR title match the format: \<type\>(optional scope): \<description\>
+- [ ] This PR title match the format: \[\<type\>\]\[\<scope\>\]: \<description\>. For example: \[fix\]\[backend\] flaky fix
 - [ ] The description of this PR title is user-oriented and clear enough for others to understand.
 - [ ] Add documentation if the current PR requires user awareness at the usage level.
 
