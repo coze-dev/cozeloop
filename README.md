@@ -1,4 +1,4 @@
-![Image](https://p9-arcosite.byteimg.com/tos-cn-i-goo7wpa0wc/0fe1a642aae842c298076335b6a393bf~tplv-goo7wpa0wc-image.image)
+![Image](https://p9-arcosite.byteimg.com/tos-cn-i-goo7wpa0wc/11faa43b83754c089d2ec953306d3e63~tplv-goo7wpa0wc-image.image)
 
 
 <div align="center">
@@ -103,16 +103,19 @@ To efficiently track and resolve issues while ensuring transparency and collabor
 ### Technical Discussion & Communication
 Join our technical discussion groups to share experiences with other developers and stay updated with the latest project developments:
 
-**Feishu Group Chat**
+**Lark Group Chat**
+
 Scan the QR code below on the Lark mobile app to join the Coze Loop technical discussion group
 
 ![Image](https://p9-arcosite.byteimg.com/tos-cn-i-goo7wpa0wc/818dd6ec45d24041873ca101681186c1~tplv-goo7wpa0wc-image.image)
 
-**Discord Server**  
+**Discord Server**
+
 Click to join: [Coze Community](https://discord.gg/a6YtkysB)
 
-**Telegram Group**  
-Click to join: Telegram Group [Coze](https://t.me/+pP9CkPnomDA0Mjgx)
+**Telegram Group**
+
+Click to join: [Coze](https://t.me/+pP9CkPnomDA0Mjgx)
 
 ## Acknowledgments
 Thanks to all developers and community members who contributed to the Coze Loop project Special thanks:

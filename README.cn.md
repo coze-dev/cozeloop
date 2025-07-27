@@ -1,4 +1,4 @@
-![Image](https://p9-arcosite.byteimg.com/tos-cn-i-goo7wpa0wc/0fe1a642aae842c298076335b6a393bf~tplv-goo7wpa0wc-image.image)
+![Image](https://p9-arcosite.byteimg.com/tos-cn-i-goo7wpa0wc/11faa43b83754c089d2ec953306d3e63~tplv-goo7wpa0wc-image.image)
 
 <div align="center">
 <p>
@@ -99,16 +99,18 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
 ### 技术交流与讨论
 加入我们的技术交流群，与其他开发者分享经验、获取项目最新动态：
 
-**飞书群聊**  
+**飞书群聊**
+
 飞书移动端扫描以下二维码，加入Coze Loop 技术交流群。
 
 ![Image](https://p9-arcosite.byteimg.com/tos-cn-i-goo7wpa0wc/818dd6ec45d24041873ca101681186c1~tplv-goo7wpa0wc-image.image)
 
-**Discord 服务器**  
+**Discord 服务器**
+
 点击加入：[Coze Community](https://discord.gg/a6YtkysB)
 
-**Telegram 群组**  
-点击加入：Telegram Group [Coze](https://t.me/+pP9CkPnomDA0Mjgx)
+**Telegram 群组**
+点击加入：[Coze](https://t.me/+pP9CkPnomDA0Mjgx)
 
 ## 致谢
 感谢所有为 Coze Loop 项目做出贡献的开发者和社区成员。特别感谢：
