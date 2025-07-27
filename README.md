@@ -73,9 +73,26 @@ Please **do not** create public GitHub Issues.
 
 ## Join the Community
 
+We are committed to building an open and friendly developer community. All developers interested in AI Agent development are welcome to join us!
+
+### Issue Reports & Feature Requests
+To efficiently track and resolve issues while ensuring transparency and collaboration, we recommend participating through:
+- **GitHub Issues**: [Submit bug reports or feature requests](https://github.com/coze-dev/coze-loop/issues)
+- **Pull Requests**: [Contribute code or documentation improvements](https://github.com/coze-dev/coze-loop/pulls)
+
+### Technical Discussion & Communication
+Join our technical discussion groups to share experiences with other developers and stay updated with the latest project developments:
+
+**Feishu Group Chat**
 Scan the QR code below on the Lark mobile app to join the Coze Loop technical discussion group
 
 ![Image](https://p9-arcosite.byteimg.com/tos-cn-i-goo7wpa0wc/818dd6ec45d24041873ca101681186c1~tplv-goo7wpa0wc-image.image)
+
+**Discord Server**  
+Click to join: [Coze Community](https://discord.gg/sTVN9EVS4B)
+
+**Telegram Group**  
+Click to join: Telegram Group [Coze](https://t.me/+pP9CkPnomDA0Mjgx)
 
 ## Acknowledgments
 Thanks to all developers and community members who contributed to the Coze Loop project Special thanks:

@@ -41,7 +41,6 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
 ## 快速开始
 > 参考[快速开始](https://github.com/coze-dev/coze-loop/wiki/2.-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B)，详细了解如何安装部署 Coze Loop 最新版本。
 环境要求：
-* <span style="background-color: rgb(255, 255, 255)"><span style="color: #1F2328">Go ＞ 1.23.4； 配置 GOPATH</span></span>
 * 提前安装 Docker、Docker Compose，并启动 Docker 服务
 操作步骤：
 1. 获取源码。执行以下命令，获取 Coze Loop 最新版本的源码。
@@ -89,9 +88,27 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
 请**不要**创建公开的 GitHub Issue。
 
 ## 加入社区
+
+我们致力于构建一个开放、友好的开发者社区，欢迎所有对 AI Agent 开发感兴趣的开发者加入我们！
+
+### 问题反馈与功能建议
+为了更高效地跟踪和解决问题，保证信息透明和便于协同，我们推荐通过以下方式参与：
+- **GitHub Issues**：[提交 Bug 报告或功能请求](https://github.com/coze-dev/coze-loop/issues)
+- **Pull Requests**：[贡献代码或文档改进](https://github.com/coze-dev/coze-loop/pulls)
+
+### 技术交流与讨论
+加入我们的技术交流群，与其他开发者分享经验、获取项目最新动态：
+
+**飞书群聊**  
 飞书移动端扫描以下二维码，加入Coze Loop 技术交流群。
 
 ![Image](https://p9-arcosite.byteimg.com/tos-cn-i-goo7wpa0wc/818dd6ec45d24041873ca101681186c1~tplv-goo7wpa0wc-image.image)
+
+**Discord 服务器**  
+点击加入：[Coze Community](https://discord.gg/sTVN9EVS4B)
+
+**Telegram 群组**  
+点击加入：Telegram Group [Coze](https://t.me/+pP9CkPnomDA0Mjgx)
 
 ## 致谢
 感谢所有为 Coze Loop 项目做出贡献的开发者和社区成员。特别感谢：
