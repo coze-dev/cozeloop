@@ -1,0 +1,40 @@
+name: PR Notification
+
+on:
+  pull_request:
+    types: ['opened', 'reopened', 'closed']
+
+jobs:
+  sync:
+    name: Send Lark Message
+    runs-on: ubuntu-latest
+    env:
+      NODE_VERSION: '18'
+      LARK_APP_ID: ${{ secrets.COZELOOP_LARK_APP_ID }}
+      LARK_APP_SECRET: ${{ secrets.COZELOOP_LARK_APP_SECRET }}
+      REPO_NAME: ${{ github.repository }}
+      PR_ACTION: ${{ github.event.action }}
+      PR_URL: ${{ github.event.pull_request.html_url }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PR_TITLE: ${{ github.event.pull_request.title }}
+      PR_SENDER: ${{ github.event.sender.login }}
+      PR_SOURCE_OWNER: ${{ github.event.pull_request.head.repo.owner.login }}
+      PR_SOURCE_REF: ${{ github.event.pull_request.head.ref }}
+      PR_TARGET_OWNER: ${{ github.event.pull_request.base.repo.owner.login }}
+      PR_TARGET_REF: ${{ github.event.pull_request.base.ref }}
+      PR_MERGED: ${{ github.event.pull_request.merged }}
+
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install ci-tools
+        run: |
+          npm install -g @cozeloop/ci-tools@0.0.4
+
+      - name: Notify via lark
+        run: |
+          cozeloop-ci lark sync-pr \
+          --chat-id oc_d02b85f9799a0c35cf164d3a939ef30e
