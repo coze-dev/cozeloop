@@ -33,7 +33,7 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
 
 | **功能** | **功能点** |
 | --- | --- |
-| Prompt 调试 | * Playground 调试、对比、 <br> * Prompt 版本管理 |
+| Prompt 调试 | * Playground 调试、对比 <br> * Prompt 版本管理 |
 | 评测 | * 管理评测集 <br> * 管理评估器 <br> * 管理实验 |
 | 观测 | * SDK 上报 Trace <br> * Trace 数据观测 |
 | 模型 | 支持接入 OpenAI、火山方舟等模型 |
