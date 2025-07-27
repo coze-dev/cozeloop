@@ -62,10 +62,6 @@ Coze Loop helps developers efficiently develop and operate AI agents by providin
    ```
 4. Access the Coze Loop open-source edition by visiting `http://localhost:8082` in your browser.
 
-
-## Quickstart
-Refer to the [Quickstart](https://github.com/coze-dev/coze-loop/wiki/2.-Quickstart) to learn how to install and deploy the latest version of Coze Loop.
-
 ## Using Coze Loop Open-source Edition
 
 * [Prompt development and debugging](https://loop.coze.cn/open/docs/cozeloop/create-prompt): Coze Loop provides a complete prompt development workflow.
