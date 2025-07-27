@@ -7,19 +7,15 @@ import { pullFeatureFlags, type FEATURE_FLAGS } from '@coze-arch/bot-flags';
 
 import { App } from './app';
 
-const initFlags = () => {
-  pullFeatureFlags({
-    timeout: 1000 * 4,
-    fetchFeatureGating: () => Promise.resolve({} as unknown as FEATURE_FLAGS),
-  });
-};
-
 export async function render() {
   await Promise.all([
     initIntl({
       fallbackLng: ['zh-CN', 'en-US'],
     }),
-    initFlags(),
+    pullFeatureFlags({
+      timeout: 1000 * 4,
+      fetchFeatureGating: () => Promise.resolve({} as unknown as FEATURE_FLAGS),
+    }),
     dynamicImportMdBoxStyle(),
   ]);
 
