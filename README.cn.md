@@ -48,7 +48,7 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
    # 克隆代码
    git clone https://github.com/coze-dev/coze-loop.git
    # 进入Coze Loop目录下
-   cd cozeloop
+   cd coze-loop
    ```
 2. 配置模型。进入目录 `conf/default/app/runtime/`，编辑文件 `model_config.yaml`，修改 api_key 和 model 字段。以火山方舟为例：
    * api_key：火山方舟 API Key，获取方式可参考[获取 API Key](Keyhttps://www.volcengine.com/docs/82379/1541594)。

@@ -38,6 +38,30 @@ Coze Loop helps developers efficiently develop and operate AI agents by providin
 | Observation        | * SDK reporting of Trace <br> * Trace data observation |
 | Model              | Support for integrating models such as OpenAI and Volcano Ark |
 
+## Quick Start
+> Refer to [Quick Start](https://github.com/coze-dev/coze-loop/wiki/2.-Quickstart) for detailed instructions on how to install and deploy the latest version of Coze Loop.
+
+**Environment Requirements:**
+* Install Docker and Docker Compose in advance, and start the Docker service.
+
+**Operation Steps:**
+1. Get the source code. Execute the following command to get the latest version of the Coze Loop source code.
+   ```Bash
+   # Clone the code
+   git clone https://github.com/coze-dev/coze-loop.git
+   # Enter the Coze Loop directory
+   cd coze-loop
+   ```
+2. Configure the model. Go to the `conf/default/app/runtime/` directory, edit the `model_config.yaml` file, and modify the `api_key` and `model` fields. Taking Volcano Ark as an example:
+    * `api_key`: Volcano Ark API Key. For how to obtain it, please refer to [Get API Key](https://www.volcengine.com/docs/82379/1541594).
+    * `model`: The Endpoint ID of the Volcano Ark model access point. For how to obtain it, please refer to [Get Endpoint](https://www.volcengine.com/docs/82379/1099522).
+3. Start the service. Execute the following command to quickly deploy the Coze Loop open-source edition using Docker Compose.
+   ```Bash
+   # Start the service, default is development mode
+   docker compose up --build
+   ```
+4. Access the Coze Loop open-source edition by visiting `http://localhost:8082` in your browser.
+
 
 ## Quickstart
 Refer to the [Quickstart](https://github.com/coze-dev/coze-loop/wiki/2.-Quickstart) to learn how to install and deploy the latest version of Coze Loop.
