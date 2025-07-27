@@ -109,7 +109,7 @@ Scan the QR code below on the Lark mobile app to join the Coze Loop technical di
 ![Image](https://p9-arcosite.byteimg.com/tos-cn-i-goo7wpa0wc/818dd6ec45d24041873ca101681186c1~tplv-goo7wpa0wc-image.image)
 
 **Discord Server**  
-Click to join: [Coze Community](https://discord.gg/sTVN9EVS4B)
+Click to join: [Coze Community](https://discord.gg/a6YtkysB)
 
 **Telegram Group**  
 Click to join: Telegram Group [Coze](https://t.me/+pP9CkPnomDA0Mjgx)

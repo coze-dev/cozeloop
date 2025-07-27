@@ -105,7 +105,7 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
 ![Image](https://p9-arcosite.byteimg.com/tos-cn-i-goo7wpa0wc/818dd6ec45d24041873ca101681186c1~tplv-goo7wpa0wc-image.image)
 
 **Discord 服务器**  
-点击加入：[Coze Community](https://discord.gg/sTVN9EVS4B)
+点击加入：[Coze Community](https://discord.gg/a6YtkysB)
 
 **Telegram 群组**  
 点击加入：Telegram Group [Coze](https://t.me/+pP9CkPnomDA0Mjgx)
