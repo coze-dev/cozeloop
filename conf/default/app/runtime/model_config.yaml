@@ -1,11 +1,11 @@
 models:
-  - id: 1
-    name: "doubao"
-    frame: "eino"
-    protocol: "ark"
+  - id: ${MODEL_CONFIG_ID}
+    name: "${MODEL_CONFIG_NAME}"
+    frame: "${MODEL_CONFIG_FRAME}"
+    protocol: "${MODEL_CONFIG_PROTOCOL}"
     protocol_config:
-      api_key: "***"
-      model: "***"
+      api_key: "${MODEL_CONFIG_API_KEY}"
+      model: "${MODEL_CONFIG_MODEL}"
     param_config:
       param_schemas:
         - name: "temperature"
