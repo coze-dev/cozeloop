@@ -42,3 +42,7 @@ log/
 node_modules/
 
 .eslintcache
+
+# Model configuration files
+conf/default/app/runtime/model_config.yaml
+conf/default/app/runtime/model_runtime_config.yaml

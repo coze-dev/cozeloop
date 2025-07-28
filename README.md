@@ -52,7 +52,12 @@ Coze Loop helps developers efficiently develop and operate AI agents by providin
    # Enter the Coze Loop directory
    cd coze-loop
    ```
-2. Configure the model. Go to the `conf/default/app/runtime/` directory, edit the `model_config.yaml` file, and modify the `api_key` and `model` fields. Taking Volcengine Ark as an example:
+2. Configure the model. Copy the template file and edit the configuration:
+   ```Bash
+   # Copy the template file (taking Volcengine Ark as an example)
+   cp conf/default/app/runtime/template/model_config_ark_doubao.yaml conf/default/app/runtime/model_config.yaml
+   ```
+   Then edit the `conf/default/app/runtime/model_config.yaml` file and modify the `api_key` and `model` fields:
     * `api_key`: Volcengine Ark API Key. For how to obtain it, please refer to [Get API Key](https://www.volcengine.com/docs/82379/1541594).
     * `model`: The Endpoint ID of the Volcengine Ark model access point. For how to obtain it, please refer to [Get Endpoint](https://www.volcengine.com/docs/82379/1099522).
 3. Start the service. Execute the following command to quickly deploy the Coze Loop open-source edition using Docker Compose.
