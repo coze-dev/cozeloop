@@ -1,0 +1,131 @@
+name: ✨ Feature Request
+description: Suggest an idea for Coze Loop
+title: "[FEATURE] "
+labels: ["enhancement", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a feature for Coze Loop!
+
+        **Note:** All feature requests must be submitted in English.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: "📋 Please ensure that:"
+      description: "Please confirm the following requirements:"
+      options:
+        - label: "I have searched existing issues to avoid duplicates"
+          required: true
+        - label: "I have provided a clear problem statement and solution"
+          required: true
+        - label: "I understand this is a feature request and not a bug report"
+          required: true
+        - label: "I am willing to help implement this feature if needed"
+          required: false
+        - label: "I have submitted this feature request in English (otherwise it will not be processed)"
+          required: true
+
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: "🎯 Problem Statement"
+      description: "Is your feature request related to a problem? Please describe."
+      placeholder: "I'm always frustrated when [...]"
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution-description
+    attributes:
+      label: "💡 Proposed Solution"
+      description: "A clear and concise description of what you want to happen."
+      placeholder: "Describe the solution you'd like to see implemented..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: "📋 Use Cases"
+      description: "Describe specific use cases where this feature would be beneficial."
+      placeholder: |
+        - Use case 1: [Description]
+        - Use case 2: [Description]
+        - Use case 3: [Description]
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "⚡ Priority"
+      description: "How important is this feature to you?"
+      options:
+        - "Critical - Essential for my workflow"
+        - "High - Would significantly improve my experience"
+        - "Medium - Nice to have"
+        - "Low - Minor improvement"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: "🔧 Component"
+      description: "Which component of Coze Loop would this feature affect?"
+      options:
+        - "Prompt Development"
+        - "Evaluation"
+        - "Observation"
+        - "Model Integration"
+        - "Infrastructure"
+        - "Documentation"
+        - "Other"
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "🔄 Alternatives Considered"
+      description: "A clear and concise description of any alternative solutions or features you've considered."
+      placeholder: "Describe any alternative solutions you've considered..."
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: "🎨 Mockups/Designs"
+      description: "If applicable, add mockups, wireframes, or design concepts."
+      placeholder: "Add mockups, screenshots, or design concepts here..."
+
+  - type: textarea
+    id: technical-details
+    attributes:
+      label: "⚙️ Technical Details"
+      description: "If you have technical implementation ideas, please share them."
+      placeholder: |
+        - API changes needed
+        - Database schema changes
+        - Frontend components
+        - Backend services
+        - Integration points
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: "✅ Acceptance Criteria"
+      description: "What would make this feature complete? List specific criteria."
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "📝 Additional Context"
+      description: "Add any other context or screenshots about the feature request here."
+      placeholder: "Any additional information that might be helpful..."
