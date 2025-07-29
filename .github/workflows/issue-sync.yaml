@@ -2,7 +2,7 @@ name: Issue Notification
 
 on:
   issues:
-    types: ['opened', 'reopened', 'closed']
+    types: ['opened', 'reopened']
 
 jobs:
   sync:
@@ -32,4 +32,4 @@ jobs:
       - name: Notify via lark
         run: |
           cozeloop-ci lark sync-issue \
-          --chat-id oc_d02b85f9799a0c35cf164d3a939ef30e
+          --chat-id oc_72317b3108b14bd63359a6582cf45443
