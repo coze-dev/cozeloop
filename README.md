@@ -114,6 +114,6 @@ Join our technical discussion groups to share experiences with other developers 
 ## Acknowledgments
 Thanks to all developers and community members who contributed to the Coze Loop project Special thanks:
 
-* LLM integration support provided by the Eino framework team
-* High-performance frameworks developed by the CloudWeGo team
+* LLM integration support provided by the [Eino](https://github.com/cloudwego/eino) framework team
+* High-performance frameworks developed by the [CloudWeGo](https://www.cloudwego.io) team
 * All users who participated in testing and feedback

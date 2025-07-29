@@ -110,6 +110,6 @@ Coze Loop 通过提供全生命周期的管理能力，帮助开发者更高效�
 ## 致谢
 感谢所有为 Coze Loop 项目做出贡献的开发者和社区成员。特别感谢：
 
-* Eino 框架团队提供的 LLM 集成支持
-* CloudWeGo 团队开发的高性能框架
+* [Eino](https://github.com/cloudwego/eino) 框架团队提供的 LLM 集成支持
+* [CloudWeGo](https://www.cloudwego.io) 团队开发的高性能框架
 * 所有参与测试和反馈的用户
