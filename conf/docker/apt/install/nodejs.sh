@@ -2,7 +2,6 @@
 
 set -ex
 
-# 检测系统架构
 ARCH=$(uname -m)
 case $ARCH in
     x86_64)
