@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/infra/metrics"
-	metrics2 "github.com/coze-dev/cozeloop/backend/modules/observability/domain/component/metrics"
+	"github.com/coze-dev/coze-loop/backend/infra/metrics"
+	metrics2 "github.com/coze-dev/coze-loop/backend/modules/observability/domain/component/metrics"
 )
 
 const (

@@ -6,8 +6,8 @@ package conf
 import (
 	"context"
 
-	promptconf "github.com/coze-dev/cozeloop/backend/modules/prompt/domain/component/conf"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
+	promptconf "github.com/coze-dev/coze-loop/backend/modules/prompt/domain/component/conf"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
 )
 
 type PromptConfigProvider struct {

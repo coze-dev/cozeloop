@@ -9,13 +9,13 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	db "github.com/coze-dev/cozeloop/backend/infra/db/mocks"
-	idgen "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	plock "github.com/coze-dev/cozeloop/backend/infra/lock/mocks"
-	conf "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf/mocks"
-	vfs "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/vfs/mocks"
-	mq "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/component/mq/mocks"
-	repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
+	db "github.com/coze-dev/coze-loop/backend/infra/db/mocks"
+	idgen "github.com/coze-dev/coze-loop/backend/infra/idgen/mocks"
+	plock "github.com/coze-dev/coze-loop/backend/infra/lock/mocks"
+	conf "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf/mocks"
+	vfs "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/vfs/mocks"
+	mq "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/component/mq/mocks"
+	repo "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo/mocks"
 )
 
 func TestNewDatasetServiceImpl(t *testing.T) {

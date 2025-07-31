@@ -16,7 +16,7 @@ fi
 
 cd "$API_PATH"
 
-cloudwego_hz update -enable_extends -handler_dir=handler -model_dir=model -use=github.com/coze-dev/cozeloop/backend/kitex_gen --customize_package=tpl/package.yaml -idl $API_IDL
+cloudwego_hz update -enable_extends -handler_dir=handler -model_dir=model -use=github.com/coze-dev/coze-loop/backend/kitex_gen --customize_package=tpl/package.yaml -idl $API_IDL
 
 if ! command -v goimports &> /dev/null; then
     echo "Starting installation of goimports..."

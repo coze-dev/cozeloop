@@ -12,12 +12,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
-	metricsmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics/mocks"
-	rpcmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	configmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/conf/mocks"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
+	metricsmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/metrics/mocks"
+	rpcmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/rpc/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	configmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/pkg/conf/mocks"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 // 修正后的 TestEvaluatorSourcePromptServiceImpl_Run 结构：

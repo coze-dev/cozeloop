@@ -9,7 +9,7 @@ import (
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
 )
 
 func wrapDBErr(err error, msgFormat string, args ...any) error {

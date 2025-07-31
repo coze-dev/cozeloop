@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/json"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
+	"github.com/coze-dev/coze-loop/backend/pkg/json"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/conv"
 )
 
 type ErrImpl struct {

@@ -13,12 +13,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/api/handler/coze/loop/apis"
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/authn"
-	duser "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/domain/user"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/application/mocks"
+	"github.com/coze-dev/coze-loop/backend/api/handler/coze/loop/apis"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/authn"
+	duser "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/domain/user"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/user"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/application/mocks"
 )
 
 func TestPatTokenVerifyMW(t *testing.T) {

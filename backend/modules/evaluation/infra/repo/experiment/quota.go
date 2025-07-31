@@ -11,13 +11,13 @@ import (
 
 	"github.com/samber/lo"
 
-	"github.com/coze-dev/cozeloop/backend/infra/backoff"
-	"github.com/coze-dev/cozeloop/backend/infra/lock"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/redis/dao"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/backoff"
+	"github.com/coze-dev/coze-loop/backend/infra/lock"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/experiment/redis/dao"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func NewQuotaService(quotaDAO dao.IQuotaDAO, mutex lock.ILocker) repo.QuotaRepo {

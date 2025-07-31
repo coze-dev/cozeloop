@@ -13,7 +13,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	gslice "github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
+	gslice "github.com/coze-dev/coze-loop/backend/pkg/lang/slices"
 )
 
 func TestNewPool(t *testing.T) {

@@ -13,12 +13,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
-	confmocks "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	mock_repo "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf"
+	confmocks "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	mock_repo "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/pagination"
 )
 
 func TestDatasetServiceImpl_CreateDataset(t *testing.T) {

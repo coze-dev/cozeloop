@@ -11,9 +11,9 @@ import (
 
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/evaluator/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/consts"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/evaluator/mysql/gorm_gen/model"
 )
 
 // EvaluatorVersionDAO 定义 EvaluatorVersion 的 Dao 接口

@@ -8,10 +8,10 @@ package apis
 import (
 	"github.com/cloudwego/hertz/pkg/app"
 
-	"github.com/coze-dev/cozeloop/backend/api/handler/coze/loop/apis"
-	"github.com/coze-dev/cozeloop/backend/api/router/coze/loop/apis/middleware"
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	"github.com/coze-dev/cozeloop/backend/loop_gen/coze/loop/foundation/louser"
+	"github.com/coze-dev/coze-loop/backend/api/handler/coze/loop/apis"
+	"github.com/coze-dev/coze-loop/backend/api/router/coze/loop/apis/middleware"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	"github.com/coze-dev/coze-loop/backend/loop_gen/coze/loop/foundation/louser"
 )
 
 func rootMw(handler *apis.APIHandler) []app.HandlerFunc {

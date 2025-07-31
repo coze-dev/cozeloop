@@ -4,12 +4,12 @@
 package convertor
 
 import (
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/domain/common"
-	runtimedto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/domain/runtime"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/runtime"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/component/rpc"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/domain/common"
+	runtimedto "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/domain/runtime"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/runtime"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/component/rpc"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func LLMCallParamConvert(param rpc.LLMCallParam) *runtime.ChatRequest {

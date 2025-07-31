@@ -14,7 +14,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/xeipuuv/gojsonschema"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/consts"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/consts"
 )
 
 type DatasetSchema struct {

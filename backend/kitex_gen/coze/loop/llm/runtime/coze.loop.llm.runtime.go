@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"github.com/apache/thrift/lib/go/thrift"
 	"github.com/cloudwego/kitex/pkg/streaming"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/base"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/domain/runtime"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/base"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/domain/runtime"
 )
 
 type ChatRequest struct {

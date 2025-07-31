@@ -7,8 +7,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/rpc"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
 )
 
 var (

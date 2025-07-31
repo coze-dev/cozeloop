@@ -14,9 +14,9 @@ import (
 	"github.com/pkg/errors"
 	"github.com/rs/xid"
 
-	"github.com/coze-dev/cozeloop/backend/infra/redis"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/goroutine"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/redis"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/goroutine"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 //go:generate mockgen -destination=mocks/lock.go -package=mocks . ILocker

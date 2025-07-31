@@ -1,0 +1,138 @@
+name: 🐛 Bug Report
+description: Create a report to help us improve Coze Loop
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+
+        **Note:** All bug reports must be submitted in English.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: "📋 CheckList"
+      description: "Please confirm the following requirements:"
+      options:
+        - label: "I have searched existing issues to avoid duplicates"
+          required: true
+        - label: "I am using a recently maintained version of Coze Loop"
+          required: true
+        - label: "I have provided all required information"
+          required: true
+        - label: "I understand this is a bug report and not a feature request"
+          required: true
+        - label: "I have submitted this report in English (otherwise it will not be processed)"
+          required: true
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: "🐛 Bug Description"
+      description: "A clear and concise description of what the bug is."
+      placeholder: "Describe the bug you encountered..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: "🔄 Steps to Reproduce"
+      description: "Please provide detailed steps to reproduce the issue."
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "✅ Expected Behavior"
+      description: "A clear and concise description of what you expected to happen."
+      placeholder: "Describe what you expected to happen..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: "❌ Actual Behavior"
+      description: "A clear and concise description of what actually happened."
+      placeholder: "Describe what actually happened..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "🚨 Severity"
+      description: "How critical is this bug?"
+      options:
+        - "Critical - System crash or data loss"
+        - "High - Major functionality broken"
+        - "Medium - Minor functionality affected"
+        - "Low - Cosmetic issue or minor inconvenience"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: "🔧 Component"
+      description: "Which component of Coze Loop is affected?"
+      options:
+        - "Prompt Development"
+        - "Evaluation"
+        - "Observation"
+        - "Model Integration"
+        - "Infrastructure"
+        - "Documentation"
+        - "Other"
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "💻 Environment"
+      description: "Please provide your environment details."
+      placeholder: |
+        **OS:** [e.g. macOS 14.0, Ubuntu 22.04, Windows 11]
+        **Go Version:** [e.g. go version go1.23.4 darwin/amd64]
+        **Docker Version:** [e.g. Docker version 24.0.7]
+        **Browser:** [e.g. Chrome 120.0, Firefox 121.0] (if applicable)
+        **Coze Loop Version:** [e.g. v1.0.0, commit hash, or "latest"]
+        **Model Configuration:** [e.g. OpenAI GPT-4, Volcengine Ark]
+    validations:
+      required: false
+
+  - type: textarea
+    id: go-env
+    attributes:
+      label: "🔧 Go Environment"
+      description: "Output of `go env` command"
+      placeholder: "Paste the output of 'go env' here..."
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "📋 Logs"
+      description: "Please provide relevant logs, error messages, or stack traces."
+      placeholder: |
+        ```
+        [Paste logs here]
+        ```
+      render: shell
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "📝 Additional Context"
+      description: "Add any other context about the problem here."
+      placeholder: "Any additional information that might be helpful..."

@@ -8,8 +8,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/infra/metrics"
-	eval_metrics "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics"
+	"github.com/coze-dev/coze-loop/backend/infra/metrics"
+	eval_metrics "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/metrics"
 )
 
 const (

@@ -7,7 +7,7 @@ import (
 	"context"
 	"io/fs"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
 )
 
 func (s *DatasetServiceImpl) StatFile(ctx context.Context, provider entity.Provider, path string) (fs.FileInfo, error) {

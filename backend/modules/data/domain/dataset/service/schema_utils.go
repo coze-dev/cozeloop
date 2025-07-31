@@ -12,8 +12,8 @@ import (
 	"github.com/jinzhu/copier"
 	"github.com/pkg/errors"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
 )
 
 var identityRegexp = regexp.MustCompile("^[a-zA-Z][a-zA-Z0-9_]{0,63}$")

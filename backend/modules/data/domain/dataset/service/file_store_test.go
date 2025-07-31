@@ -11,8 +11,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	mock_vfs "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/vfs/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
+	mock_vfs "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/vfs/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
 )
 
 func TestDatasetServiceImpl_StatFile(t *testing.T) {

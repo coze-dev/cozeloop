@@ -9,8 +9,8 @@ import (
 
 	"github.com/rs/xid"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func (d *DatasetRepo) AddDatasetOperation(ctx context.Context, datasetID int64, op *entity.DatasetOperation) error {

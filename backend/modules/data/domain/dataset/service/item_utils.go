@@ -14,9 +14,9 @@ import (
 	"github.com/bytedance/gg/gptr"
 	"github.com/bytedance/gg/gslice"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/consts"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/consts"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
 )
 
 // SanitizeInputItem 根据 schema 等修剪、填补 item 数据内容，使之与类型相匹配。用于处理用户传入的数据。

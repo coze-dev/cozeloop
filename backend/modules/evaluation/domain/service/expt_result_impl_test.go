@@ -12,13 +12,13 @@ import (
 	"github.com/bytedance/gg/gptr"
 	"go.uber.org/mock/gomock"
 
-	idgenMocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	lwtMocks "github.com/coze-dev/cozeloop/backend/infra/platestwrite/mocks"
-	metricsMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	eventsMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/events/mocks"
-	repoMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo/mocks"
-	svcMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
+	idgenMocks "github.com/coze-dev/coze-loop/backend/infra/idgen/mocks"
+	lwtMocks "github.com/coze-dev/coze-loop/backend/infra/platestwrite/mocks"
+	metricsMocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/metrics/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	eventsMocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/events/mocks"
+	repoMocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/repo/mocks"
+	svcMocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/service/mocks"
 )
 
 func TestExptResultServiceImpl_MGetStats(t *testing.T) {

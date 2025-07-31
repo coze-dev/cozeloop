@@ -16,12 +16,12 @@ import (
 	"github.com/coze-dev/cozeloop-go/entity"
 	"github.com/samber/lo"
 
-	"github.com/coze-dev/cozeloop/backend/infra/looptracer/rpc"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/file"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/span"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/trace"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/looptracer/rpc"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/file"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/domain/span"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/trace"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 const (

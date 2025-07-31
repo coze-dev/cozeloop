@@ -5,7 +5,7 @@ SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_PATH/../../.."
 PROJECT_PATH=$(pwd)
 THRIFT_PATH=${PROJECT_PATH}/idl/thrift
-gen_module="github.com/coze-dev/cozeloop/backend"
+gen_module="github.com/coze-dev/coze-loop/backend"
 
 # Define output directories
 OUTPUT_DIR=${PROJECT_PATH}/output
@@ -44,7 +44,7 @@ loopgen --gomod ${gen_module} \
   --idl-dir ${THRIFT_PATH} \
   --package-prefix "lo" \
   --import-prefix "loop_gen" \
-  --local-stream-import-path "github.com/coze-dev/cozeloop/backend/loop_gen/infra/kitex/localstream" \
+  --local-stream-import-path "github.com/coze-dev/coze-loop/backend/loop_gen/infra/kitex/localstream" \
   -o ${OUTPUT_DIR}
 
 # step 3: move generated files to backend/kitex_gen

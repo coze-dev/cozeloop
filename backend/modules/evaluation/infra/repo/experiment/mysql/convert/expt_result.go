@@ -6,9 +6,9 @@ package convert
 import (
 	"github.com/bytedance/gg/gptr"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/conv"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/experiment/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/conv"
 )
 
 func NewExptItemResultConvertor() ExptItemResultConvertor {

@@ -14,8 +14,8 @@ import (
 	"golang.org/x/text/language"
 	"gopkg.in/yaml.v2"
 
-	internationalization "github.com/coze-dev/cozeloop/backend/infra/i18n"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	internationalization "github.com/coze-dev/coze-loop/backend/infra/i18n"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func NewTranslater(langDir string) (internationalization.ITranslater, error) {

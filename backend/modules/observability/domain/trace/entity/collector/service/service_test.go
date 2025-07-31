@@ -10,14 +10,14 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	mqmocks "github.com/coze-dev/cozeloop/backend/infra/mq/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/component"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/exporter"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/processor"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/receiver"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/collector/exporter/clickhouseexporter"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/collector/processor/queueprocessor"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/collector/receiver/rmqreceiver"
+	mqmocks "github.com/coze-dev/coze-loop/backend/infra/mq/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/component"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/exporter"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/processor"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/receiver"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/service/collector/exporter/clickhouseexporter"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/service/collector/processor/queueprocessor"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/service/collector/receiver/rmqreceiver"
 )
 
 func TestService_Start(t *testing.T) {

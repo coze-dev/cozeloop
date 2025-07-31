@@ -10,10 +10,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/consumer"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
-	repomocks "github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/repo/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/consumer"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/loop_span"
+	repomocks "github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/repo/mocks"
 )
 
 func TestCkExporter_Start(t *testing.T) {

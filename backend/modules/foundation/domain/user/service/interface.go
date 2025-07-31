@@ -6,7 +6,7 @@ package service
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/user/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/user/entity"
 )
 
 //go:generate mockgen -source=interface.go -destination=mocks/user_service.go -package=mocks -mock_names=IUserService=MockIUserService

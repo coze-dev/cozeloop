@@ -8,15 +8,15 @@ import (
 
 	"github.com/bytedance/gg/gptr"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/apis/promptexecuteservice"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/domain/prompt"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/execute"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/manage"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/promptmanageservice"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/rpc"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/apis/promptexecuteservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/domain/prompt"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/execute"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/manage"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/promptmanageservice"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/rpc"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 type PromptRPCAdapter struct {

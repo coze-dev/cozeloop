@@ -9,8 +9,8 @@ import (
 
 	jsonschema "github.com/santhosh-tekuri/jsonschema/v5"
 
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/consts"
-	"github.com/coze-dev/cozeloop/backend/pkg/json"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/consts"
+	"github.com/coze-dev/coze-loop/backend/pkg/json"
 )
 
 var SchemaCompiler *jsonschema.Compiler

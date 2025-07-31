@@ -11,8 +11,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/mq"
-	"github.com/coze-dev/cozeloop/backend/infra/mq/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/mq"
+	"github.com/coze-dev/coze-loop/backend/infra/mq/mocks"
 )
 
 func TestDefaultConsumerRegistry_StartAll(t *testing.T) {

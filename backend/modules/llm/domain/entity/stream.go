@@ -8,8 +8,8 @@ import (
 
 	"github.com/cloudwego/eino/schema"
 
-	llm_errorx "github.com/coze-dev/cozeloop/backend/modules/llm/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	llm_errorx "github.com/coze-dev/coze-loop/backend/modules/llm/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 //go:generate mockgen -destination=mocks/stream.go -package=mocks . IStreamReader

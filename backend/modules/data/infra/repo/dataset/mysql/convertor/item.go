@@ -7,8 +7,8 @@ import (
 	"github.com/bytedance/sonic"
 	"github.com/pkg/errors"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
 )
 
 func ItemDO2PO(s *entity.Item) (*model.DatasetItem, error) {

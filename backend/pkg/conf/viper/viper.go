@@ -13,8 +13,8 @@ import (
 	"github.com/samber/lo"
 	"github.com/spf13/viper"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 var errStopWalk = fmt.Errorf("stop walking")

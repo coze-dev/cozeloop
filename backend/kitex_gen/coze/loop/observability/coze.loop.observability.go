@@ -4,7 +4,7 @@ package observability
 
 import (
 	"github.com/apache/thrift/lib/go/thrift"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/trace"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/trace"
 )
 
 type ObservabilityTraceService interface {

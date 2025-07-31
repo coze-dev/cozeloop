@@ -4,8 +4,8 @@
 package rpc
 
 import (
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/file/fileservice"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/observabilitytraceservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/file/fileservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/observabilitytraceservice"
 )
 
 var loopTracerHandler *LoopTracerHandler

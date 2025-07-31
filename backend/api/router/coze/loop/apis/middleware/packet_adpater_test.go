@@ -12,9 +12,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/i18n"
-	"github.com/coze-dev/cozeloop/backend/infra/i18n/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/infra/i18n"
+	"github.com/coze-dev/coze-loop/backend/infra/i18n/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/pkg/errno"
 )
 
 func TestParseErrPacket(t *testing.T) {

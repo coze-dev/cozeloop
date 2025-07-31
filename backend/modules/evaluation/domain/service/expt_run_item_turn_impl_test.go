@@ -11,11 +11,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/external/benefit"
-	benefitmocks "github.com/coze-dev/cozeloop/backend/infra/external/benefit/mocks"
-	metricsmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	svcmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/external/benefit"
+	benefitmocks "github.com/coze-dev/coze-loop/backend/infra/external/benefit/mocks"
+	metricsmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/metrics/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	svcmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/service/mocks"
 )
 
 // mock DenyReason 实现

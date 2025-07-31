@@ -8,11 +8,11 @@ import (
 
 	"github.com/bytedance/gg/gslice"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/convertor"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/pagination"
 )
 
 func (d *DatasetRepo) BatchUpsertItemSnapshots(ctx context.Context, snapshots []*entity.ItemSnapshot, opt ...repo.Option) (int64, error) {

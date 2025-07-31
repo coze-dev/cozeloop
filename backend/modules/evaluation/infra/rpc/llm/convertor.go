@@ -6,10 +6,10 @@ package llm
 import (
 	"github.com/bytedance/gg/gptr"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/domain/common"
-	runtimedto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/domain/runtime"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/runtime"
-	commonentity "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/domain/common"
+	runtimedto "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/domain/runtime"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/runtime"
+	commonentity "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
 )
 
 func LLMCallParamConvert(param *commonentity.LLMCallParam) *runtime.ChatRequest {

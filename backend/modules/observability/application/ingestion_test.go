@@ -11,8 +11,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service"
-	svcmocks "github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/service"
+	svcmocks "github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/service/mocks"
 )
 
 func TestIngestionApplicationImpl_RunSync(t *testing.T) {

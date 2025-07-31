@@ -11,8 +11,8 @@ import (
 	"github.com/pkg/errors"
 	goredis "github.com/redis/go-redis/v9"
 
-	"github.com/coze-dev/cozeloop/backend/infra/redis"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/redis"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 type LatestWriteTracker struct {

@@ -6,9 +6,9 @@ package dao
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/infra/repo/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/infra/repo/gorm_gen/query"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/infra/repo/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/infra/repo/gorm_gen/query"
 )
 
 type IModelRequestRecordDao interface {

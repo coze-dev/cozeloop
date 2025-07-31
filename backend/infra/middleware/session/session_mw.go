@@ -9,7 +9,7 @@ import (
 	"github.com/cloudwego/kitex/pkg/endpoint"
 	"github.com/pkg/errors"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 // NewSessionMD creates a session middleware for Kitex.

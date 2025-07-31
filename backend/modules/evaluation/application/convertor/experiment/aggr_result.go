@@ -8,8 +8,8 @@ import (
 
 	"github.com/bytedance/gg/gptr"
 
-	domain_expt "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/expt"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
+	domain_expt "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/expt"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
 )
 
 func ExptAggregateResultDOToDTO(data *entity.ExptAggregateResult) *domain_expt.ExptAggregateResult_ {

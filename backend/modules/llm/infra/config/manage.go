@@ -9,9 +9,9 @@ import (
 
 	"gorm.io/gorm"
 
-	llm_conf "github.com/coze-dev/cozeloop/backend/modules/llm/domain/component/conf"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
+	llm_conf "github.com/coze-dev/coze-loop/backend/modules/llm/domain/component/conf"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
 )
 
 type ManageImpl struct {

@@ -33,7 +33,7 @@ nvm use lts/iron
 
 ```bash
 # 克隆仓库
-git clone git@github.com:coze-dev/cozeloop.git
+git clone git@github.com:coze-dev/coze-loop.git
 
 # 切换目录
 cd frontend

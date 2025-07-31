@@ -9,12 +9,12 @@ import (
 	"github.com/bytedance/sonic"
 	"github.com/pkg/errors"
 
-	"github.com/coze-dev/cozeloop/backend/infra/mq"
-	config "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
-	imq "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/component/mq"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/mq"
+	config "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf"
+	imq "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/component/mq"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 type DatasetJobPublisher struct {

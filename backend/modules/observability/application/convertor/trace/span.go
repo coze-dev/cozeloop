@@ -8,12 +8,12 @@ import (
 
 	"github.com/samber/lo"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/filter"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/domain/span"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
-	time_util "github.com/coze-dev/cozeloop/backend/pkg/time"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/domain/filter"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/domain/span"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/loop_span"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/slices"
+	time_util "github.com/coze-dev/coze-loop/backend/pkg/time"
 )
 
 func SpanDO2DTO(s *loop_span.Span) *span.OutputSpan {

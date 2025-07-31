@@ -6,7 +6,7 @@ package conf
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/entity"
 )
 
 //go:generate mockgen -destination=mocks/manage.go -package=mocks . IConfigManage

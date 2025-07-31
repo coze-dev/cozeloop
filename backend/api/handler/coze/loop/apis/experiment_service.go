@@ -11,8 +11,8 @@ import (
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/experimentservice"
-	expt "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/expt"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/experimentservice"
+	expt "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/expt"
 )
 
 var localExptSvc experimentservice.Client

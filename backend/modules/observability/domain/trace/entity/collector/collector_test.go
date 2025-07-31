@@ -12,15 +12,15 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	mqmocks "github.com/coze-dev/cozeloop/backend/infra/mq/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/exporter"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/processor"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/receiver"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/collector/exporter/clickhouseexporter"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/collector/processor/queueprocessor"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/service/collector/receiver/rmqreceiver"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
-	confmocks "github.com/coze-dev/cozeloop/backend/pkg/conf/mocks"
+	mqmocks "github.com/coze-dev/coze-loop/backend/infra/mq/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/exporter"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/processor"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/receiver"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/service/collector/exporter/clickhouseexporter"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/service/collector/processor/queueprocessor"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/service/collector/receiver/rmqreceiver"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
+	confmocks "github.com/coze-dev/coze-loop/backend/pkg/conf/mocks"
 )
 
 var collectorCfg = map[string]any{

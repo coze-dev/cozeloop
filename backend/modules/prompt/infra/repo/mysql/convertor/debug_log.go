@@ -6,9 +6,9 @@ package convertor
 import (
 	"time"
 
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/repo/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/infra/repo/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func DebugLogsPO2DO(pos []*model.PromptDebugLog) []*entity.DebugLog {

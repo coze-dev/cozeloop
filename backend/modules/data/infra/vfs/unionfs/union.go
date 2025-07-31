@@ -8,9 +8,9 @@ import (
 	"fmt"
 	"io/fs"
 
-	ivfs "github.com/coze-dev/cozeloop/backend/modules/data/domain/component/vfs"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/vfs/oss"
+	ivfs "github.com/coze-dev/coze-loop/backend/modules/data/domain/component/vfs"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/vfs/oss"
 )
 
 type UnionFS struct {

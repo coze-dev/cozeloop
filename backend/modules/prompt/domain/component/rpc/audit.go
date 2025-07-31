@@ -6,7 +6,7 @@ package rpc
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
 )
 
 //go:generate mockgen -destination=mocks/audit_provider.go -package=mocks . IAuditProvider

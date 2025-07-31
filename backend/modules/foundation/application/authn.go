@@ -11,13 +11,13 @@ import (
 	"github.com/bytedance/gg/gptr"
 	"github.com/samber/lo"
 
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/authn"
-	authn2 "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/domain/authn"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/authn/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/authn/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/authn"
+	authn2 "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/domain/authn"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/authn/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/authn/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 const (

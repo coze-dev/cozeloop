@@ -10,18 +10,18 @@ import (
 
 	"golang.org/x/exp/maps"
 
-	"github.com/coze-dev/cozeloop/backend/infra/limiter"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/openapi"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/application/convertor"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/component/conf"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/component/rpc"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/service"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/consts"
-	prompterr "github.com/coze-dev/cozeloop/backend/modules/prompt/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/limiter"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/openapi"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/application/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/component/conf"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/component/rpc"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/service"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/pkg/consts"
+	prompterr "github.com/coze-dev/coze-loop/backend/modules/prompt/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func NewPromptOpenAPIApplication(

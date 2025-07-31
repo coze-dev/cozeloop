@@ -3,7 +3,7 @@ package fileservice
 
 import (
 	server "github.com/cloudwego/kitex/server"
-	file "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/file"
+	file "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/file"
 )
 
 // NewServer creates a server.Server with the given handler and options.

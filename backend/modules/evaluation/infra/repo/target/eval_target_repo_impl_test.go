@@ -13,16 +13,16 @@ import (
 	"go.uber.org/mock/gomock"
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	dbmock "github.com/coze-dev/cozeloop/backend/infra/db/mocks"
-	idgen "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	"github.com/coze-dev/cozeloop/backend/infra/platestwrite"
-	platestwrite_mocks "github.com/coze-dev/cozeloop/backend/infra/platestwrite/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/target/mysql/gorm_gen/model"
-	mysqlmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/target/mysql/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	dbmock "github.com/coze-dev/coze-loop/backend/infra/db/mocks"
+	idgen "github.com/coze-dev/coze-loop/backend/infra/idgen/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/platestwrite"
+	platestwrite_mocks "github.com/coze-dev/coze-loop/backend/infra/platestwrite/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/target/mysql/gorm_gen/model"
+	mysqlmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/target/mysql/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 func TestEvalTargetRepoImpl_CreateEvalTarget(t *testing.T) {

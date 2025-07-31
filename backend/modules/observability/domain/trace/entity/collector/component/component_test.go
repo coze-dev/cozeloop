@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/collector/component/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/collector/component/mocks"
 )
 
 func TestID_String(t *testing.T) {

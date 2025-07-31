@@ -51,13 +51,13 @@ jobs:
             ${{ runner.os }}-rush-store-main
             ${{ runner.os }}-rush-store
 
-      - name: Branch Diff
-        id: branch-diff
-        run: |
-          TARGET_BRANCH="${GITHUB_BASE_REF:-main}"
-          git fetch origin $TARGET_BRANCH
-          sh .github/scripts/branch-diff.sh origin/$TARGET_BRANCH > changed.json
-          echo "file=changed.json" >> "$GITHUB_OUTPUT"
+      - name: Changed Files
+        uses: tj-actions/changed-files@v46.0.5
+        with:
+          files: |
+            frontend/**
+          json: true
+          write_output_files: true
 
       - name: Install Dependencies
         run: |
@@ -69,5 +69,5 @@ jobs:
 
       - name: Lint & Style
         run: |
-          node common/scripts/install-run-rush.js increment --action lint -p ${{ steps.branch-diff.outputs.file }}
-          node common/scripts/install-run-rush.js increment --action style -p ${{ steps.branch-diff.outputs.file }}
+          node common/scripts/install-run-rush.js increment --action lint -p .github/outputs/all_changed_files.json
+          node common/scripts/install-run-rush.js increment --action style -p .github/outputs/all_changed_files.json

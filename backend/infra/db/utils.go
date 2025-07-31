@@ -11,7 +11,7 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/slices"
 )
 
 type WhereBuilder struct {

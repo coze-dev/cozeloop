@@ -4,9 +4,9 @@
 package convertor
 
 import (
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/domain/common"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/domain/common"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func ScenarioDO2DTO(s entity.Scenario) common.Scenario {

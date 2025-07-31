@@ -6,7 +6,7 @@ package repo
 import (
 	"context"
 
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
 )
 
 //go:generate mockgen -destination=mocks/manage_repo.go -package=mocks . IManageRepo

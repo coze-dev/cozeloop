@@ -8,11 +8,11 @@ import (
 
 	"gorm.io/gorm"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/infra/repo/convertor"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/infra/repo/dao"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/infra/repo/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/infra/repo/dao"
 )
 
 type RuntimeRepoImpl struct {

@@ -11,9 +11,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/coze-dev/cozeloop/backend/infra/limiter"
-	"github.com/coze-dev/cozeloop/backend/infra/redis"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf/viper"
+	"github.com/coze-dev/coze-loop/backend/infra/limiter"
+	"github.com/coze-dev/coze-loop/backend/infra/redis"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf/viper"
 )
 
 func Test_rateLimiter_AllowN(t *testing.T) {

@@ -7,15 +7,15 @@ import (
 	"context"
 	"io/fs"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/infra/idgen"
-	"github.com/coze-dev/cozeloop/backend/infra/lock"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/vfs"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/component/mq"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-	common_entity "github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/infra/idgen"
+	"github.com/coze-dev/coze-loop/backend/infra/lock"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/component/vfs"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/component/mq"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo"
+	common_entity "github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
 )
 
 //go:generate mockgen -destination=mocks/service.go -package=mocks . IDatasetAPI

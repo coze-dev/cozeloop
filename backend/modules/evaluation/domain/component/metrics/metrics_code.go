@@ -12,7 +12,7 @@ import (
 	"github.com/cloudwego/kitex/pkg/kerrors"
 	"github.com/pkg/errors"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func GetCode(err error) (code int64, isError int64) {

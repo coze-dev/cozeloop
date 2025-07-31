@@ -7,11 +7,11 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/service/llmimpl/eino"
-	"github.com/coze-dev/cozeloop/backend/modules/llm/domain/service/llminterface"
-	llm_errorx "github.com/coze-dev/cozeloop/backend/modules/llm/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/service/llmimpl/eino"
+	"github.com/coze-dev/coze-loop/backend/modules/llm/domain/service/llminterface"
+	llm_errorx "github.com/coze-dev/coze-loop/backend/modules/llm/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 //go:generate mockgen -destination=mocks/factory.go -package=mocks . IFactory

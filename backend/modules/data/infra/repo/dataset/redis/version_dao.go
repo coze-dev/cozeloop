@@ -8,9 +8,9 @@ import (
 
 	"github.com/bytedance/gg/gptr"
 
-	"github.com/coze-dev/cozeloop/backend/infra/redis"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/rediskey"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/infra/redis"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/rediskey"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
 )
 
 type VersionDAO interface {

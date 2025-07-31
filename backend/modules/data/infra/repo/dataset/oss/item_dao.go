@@ -13,12 +13,12 @@ import (
 	multierror "github.com/hashicorp/go-multierror"
 	"github.com/pkg/errors"
 
-	"github.com/coze-dev/cozeloop/backend/infra/fileserver"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	entity2 "github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/item_dao"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/oss/model"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/infra/fileserver"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	entity2 "github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/item_dao"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/oss/model"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
 )
 
 type ItemDAOImpl struct {

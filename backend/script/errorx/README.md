@@ -74,7 +74,7 @@ Where:
    # Generate code for evaluation domain
    ./code_gen.py evaluation --output-dir backend/module/evaluation/pkg/errno
 
-   # Or use default output directory (GOPATH/src/github.com/coze-dev/backend/module/{biz}/pkg/errno)
+   # Or use default output directory ({project_path}/backend/module/{biz}/pkg/errno)
    ./code_gen.py evaluation
    ```
 

@@ -6,7 +6,7 @@ package entity
 import (
 	"fmt"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
 )
 
 type IOJob struct {

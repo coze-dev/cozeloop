@@ -8,41 +8,40 @@ package apis
 
 import (
 	"context"
-
 	"github.com/cloudwego/kitex/pkg/endpoint"
-	"github.com/coze-dev/cozeloop/backend/infra/ck"
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/infra/external/audit"
-	"github.com/coze-dev/cozeloop/backend/infra/external/benefit"
-	"github.com/coze-dev/cozeloop/backend/infra/fileserver"
-	"github.com/coze-dev/cozeloop/backend/infra/idgen"
-	"github.com/coze-dev/cozeloop/backend/infra/limiter"
-	"github.com/coze-dev/cozeloop/backend/infra/metrics"
-	"github.com/coze-dev/cozeloop/backend/infra/mq"
-	"github.com/coze-dev/cozeloop/backend/infra/redis"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/apis/promptexecuteservice"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/dataset/datasetservice"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/auth/authservice"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/file/fileservice"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/user/userservice"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/llm/runtime/llmruntimeservice"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/prompt/promptmanageservice"
-	"github.com/coze-dev/cozeloop/backend/loop_gen/coze/loop/foundation/loauth"
-	application5 "github.com/coze-dev/cozeloop/backend/modules/data/application"
-	application4 "github.com/coze-dev/cozeloop/backend/modules/evaluation/application"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/rpc/data"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/rpc/prompt"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/application"
-	application3 "github.com/coze-dev/cozeloop/backend/modules/llm/application"
-	application6 "github.com/coze-dev/cozeloop/backend/modules/observability/application"
-	application2 "github.com/coze-dev/cozeloop/backend/modules/prompt/application"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
+	"github.com/coze-dev/coze-loop/backend/infra/ck"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/infra/external/audit"
+	"github.com/coze-dev/coze-loop/backend/infra/external/benefit"
+	"github.com/coze-dev/coze-loop/backend/infra/fileserver"
+	"github.com/coze-dev/coze-loop/backend/infra/idgen"
+	"github.com/coze-dev/coze-loop/backend/infra/limiter"
+	"github.com/coze-dev/coze-loop/backend/infra/metrics"
+	"github.com/coze-dev/coze-loop/backend/infra/mq"
+	"github.com/coze-dev/coze-loop/backend/infra/redis"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/apis/promptexecuteservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/data/dataset/datasetservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/auth/authservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/file/fileservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/user/userservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/llm/runtime/llmruntimeservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/prompt/promptmanageservice"
+	"github.com/coze-dev/coze-loop/backend/loop_gen/coze/loop/foundation/loauth"
+	application5 "github.com/coze-dev/coze-loop/backend/modules/data/application"
+	application4 "github.com/coze-dev/coze-loop/backend/modules/evaluation/application"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/rpc/data"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/rpc/prompt"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/application"
+	application3 "github.com/coze-dev/coze-loop/backend/modules/llm/application"
+	application6 "github.com/coze-dev/coze-loop/backend/modules/observability/application"
+	application2 "github.com/coze-dev/coze-loop/backend/modules/prompt/application"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
 	"github.com/google/wire"
 )
 
 // Injectors from wire.go:
 
-func InitFoundationHandler(idgen2 idgen.IIDGenerator, db2 db.Provider, objectStorage fileserver.BatchObjectStorage) (*FoundationHandler, error) {
+func InitFoundationHandler(idgen2 idgen.IIDGenerator, db2 db.Provider, objectStorage fileserver.BatchObjectStorage, configFactory conf.IConfigLoaderFactory) (*FoundationHandler, error) {
 	authService, err := application.InitAuthApplication(idgen2, db2)
 	if err != nil {
 		return nil, err
@@ -55,7 +54,7 @@ func InitFoundationHandler(idgen2 idgen.IIDGenerator, db2 db.Provider, objectSto
 	if err != nil {
 		return nil, err
 	}
-	userService, err := application.InitUserApplication(idgen2, db2)
+	userService, err := application.InitUserApplication(idgen2, db2, configFactory)
 	if err != nil {
 		return nil, err
 	}

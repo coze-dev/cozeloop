@@ -12,12 +12,12 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	metricsMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	repoMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo/mocks"
-	svcMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	metricsMocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/metrics/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	repoMocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/repo/mocks"
+	svcMocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/service/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 func TestExptAggrResultServiceImpl_CreateExptAggrResult(t *testing.T) {

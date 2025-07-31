@@ -9,13 +9,13 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/coze-dev/cozeloop/backend/infra/idgen"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/authn/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/domain/authn/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/infra/repo/mysql"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/infra/repo/mysql/convertor"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/infra/idgen"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/authn/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/domain/authn/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/infra/repo/mysql"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/infra/repo/mysql/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
 )
 
 type AuthNRepoImpl struct {

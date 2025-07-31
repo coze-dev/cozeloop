@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔧 Question/Help
+    url: https://github.com/coze-dev/coze-loop/discussions
+    about: Ask questions or get help from the community

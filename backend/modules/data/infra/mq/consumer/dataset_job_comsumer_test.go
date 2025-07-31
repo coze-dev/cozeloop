@@ -10,9 +10,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/mq"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/conf"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/mq"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/component/conf"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf/mocks"
 )
 
 func TestDatasetJobConsumer_ConsumerCfg(t *testing.T) {

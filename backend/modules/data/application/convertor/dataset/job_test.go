@@ -9,10 +9,10 @@ import (
 	"github.com/bytedance/gg/gptr"
 	"github.com/stretchr/testify/assert"
 
-	kitexDataset "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset"
-	jobPKG "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset_job"
-	datasetEntity "github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	domainEntity "github.com/coze-dev/cozeloop/backend/modules/data/domain/entity"
+	kitexDataset "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/data/domain/dataset"
+	jobPKG "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/data/domain/dataset_job"
+	datasetEntity "github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	domainEntity "github.com/coze-dev/coze-loop/backend/modules/data/domain/entity"
 )
 
 // TestDatasetIOEndpointDO2DTO 用于测试 DatasetIOEndpointDO2DTO 函数的转换逻辑

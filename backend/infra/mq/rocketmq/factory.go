@@ -13,7 +13,7 @@ import (
 	"github.com/apache/rocketmq-client-go/v2/primitive"
 	"github.com/apache/rocketmq-client-go/v2/producer"
 
-	"github.com/coze-dev/cozeloop/backend/infra/mq"
+	"github.com/coze-dev/coze-loop/backend/infra/mq"
 )
 
 type Factory struct{}

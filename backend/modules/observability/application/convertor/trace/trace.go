@@ -4,8 +4,8 @@
 package trace
 
 import (
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/observability/trace"
-	"github.com/coze-dev/cozeloop/backend/modules/observability/domain/trace/entity/loop_span"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/observability/trace"
+	"github.com/coze-dev/coze-loop/backend/modules/observability/domain/trace/entity/loop_span"
 )
 
 func AdvanceInfoDO2DTO(info *loop_span.TraceAdvanceInfo) *trace.TraceAdvanceInfo {

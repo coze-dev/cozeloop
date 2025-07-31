@@ -50,17 +50,17 @@ jobs:
             ${{ runner.os }}-rush-store-main
             ${{ runner.os }}-rush-store
 
-      - name: Branch Diff
-        id: branch-diff
-        run: |
-          TARGET_BRANCH="${GITHUB_BASE_REF:-main}"
-          git fetch origin $TARGET_BRANCH
-          sh .github/scripts/branch-diff.sh origin/$TARGET_BRANCH > changed.json
-          echo "file=changed.json" >> "$GITHUB_OUTPUT"
+      - name: Changed Files
+        uses: tj-actions/changed-files@v46.0.5
+        with:
+          files: |
+            frontend/**
+          json: true
+          write_output_files: true
 
       - name: Install Dependencies
         run: |
-          node common/scripts/install-run-rush.js increment --action install -p ${{ steps.branch-diff.outputs.file }}
+          node common/scripts/install-run-rush.js increment --action install -p .github/outputs/all_changed_files.json
 
       - name: Prepare Basic Packages
         run: |
@@ -68,4 +68,4 @@ jobs:
 
       - name: TS Check
         run: |
-          node common/scripts/install-run-rush.js increment --action ts-check -p ${{ steps.branch-diff.outputs.file }}
+          node common/scripts/install-run-rush.js increment --action ts-check -p .github/outputs/all_changed_files.json

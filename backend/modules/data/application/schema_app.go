@@ -10,15 +10,15 @@ import (
 	"github.com/bytedance/gg/gptr"
 	"github.com/bytedance/gg/gslice"
 
-	"github.com/coze-dev/cozeloop/backend/infra/external/audit"
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/dataset"
-	idl "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/data/domain/dataset"
-	convertor "github.com/coze-dev/cozeloop/backend/modules/data/application/convertor/dataset"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/component/rpc"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/encoding"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/external/audit"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/data/dataset"
+	idl "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/data/domain/dataset"
+	convertor "github.com/coze-dev/coze-loop/backend/modules/data/application/convertor/dataset"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/component/rpc"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/encoding"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 func (h *DatasetApplicationImpl) GetDatasetSchema(ctx context.Context, req *dataset.GetDatasetSchemaRequest) (resp *dataset.GetDatasetSchemaResponse, err error) {

@@ -10,14 +10,14 @@ import (
 
 	"golang.org/x/exp/maps"
 
-	"github.com/coze-dev/cozeloop/backend/infra/idgen"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/domain/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/repo/mysql"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/repo/mysql/convertor"
-	"github.com/coze-dev/cozeloop/backend/modules/prompt/infra/repo/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
-	loopslices "github.com/coze-dev/cozeloop/backend/pkg/lang/slices"
+	"github.com/coze-dev/coze-loop/backend/infra/idgen"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/domain/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/infra/repo/mysql"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/infra/repo/mysql/convertor"
+	"github.com/coze-dev/coze-loop/backend/modules/prompt/infra/repo/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
+	loopslices "github.com/coze-dev/coze-loop/backend/pkg/lang/slices"
 )
 
 type DebugLogRepoImpl struct {

@@ -11,7 +11,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/coze-dev/cozeloop/backend/script/kitex/loopgen/internal"
+	"github.com/coze-dev/coze-loop/backend/script/kitex/loopgen/internal"
 )
 
 const (
@@ -49,7 +49,7 @@ func init() {
 
 	fs := rootCmd.Flags()
 
-	fs.StringVarP(&cfg.GoMod, "gomod", "g", "github.com/coze-dev/cozeloop/cozeloop_gen", "go mod")
+	fs.StringVarP(&cfg.GoMod, "gomod", "g", "github.com/coze-dev/coze-loop/backend/loop_gen", "go mod")
 	fs.StringVarP(&cfg.KitexPrefix, "kitex-prefix", "k", "kitex_gen", "kitex prefix")
 	fs.StringVarP(&cfg.PackagePrefix, "package-prefix", "p", "lo", "package prefix")
 	fs.StringVarP(&cfg.ImportPrefix, "import-prefix", "i", "loop_gen", "import prefix")

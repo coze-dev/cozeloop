@@ -11,7 +11,7 @@ export const COZELOOP_DOC_URL =
   'https://loop.coze.cn/open/docs/cozeloop/what-is-cozeloop';
 
 /** github url */
-export const COZELOOP_GITHUB_URL = 'https://github.com/coze-dev/cozeloop';
+export const COZELOOP_GITHUB_URL = 'https://github.com/coze-dev/coze-loop';
 
 /** discord url */
 export const COZELOOP_DISCORD_URL = 'https://discord.gg/a6YtkysB';

@@ -9,14 +9,14 @@ import (
 
 	"gorm.io/gorm/clause"
 
-	"github.com/coze-dev/cozeloop/backend/infra/db"
-	"github.com/coze-dev/cozeloop/backend/infra/platestwrite"
-	"github.com/coze-dev/cozeloop/backend/infra/redis"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/modules/data/pkg/pagination"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
-	"github.com/coze-dev/cozeloop/backend/pkg/vdutil"
+	"github.com/coze-dev/coze-loop/backend/infra/db"
+	"github.com/coze-dev/coze-loop/backend/infra/platestwrite"
+	"github.com/coze-dev/coze-loop/backend/infra/redis"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/modules/data/pkg/pagination"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/pkg/vdutil"
 )
 
 //go:generate mockgen -destination=mocks/version_dao.go -package=mocks . IVersionDAO

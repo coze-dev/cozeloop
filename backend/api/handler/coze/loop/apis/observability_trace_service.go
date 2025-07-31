@@ -10,7 +10,7 @@ import (
 
 	"github.com/cloudwego/hertz/pkg/app"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/apis/observabilitytraceservice"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/apis/observabilitytraceservice"
 )
 
 var observabilityClient observabilitytraceservice.Client

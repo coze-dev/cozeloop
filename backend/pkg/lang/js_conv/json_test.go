@@ -10,7 +10,7 @@ import (
 	jsoniter "github.com/json-iterator/go"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/expt"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/expt"
 )
 
 func BenchmarkJsonIterExtension_UpdateStructDescriptor(b *testing.B) {

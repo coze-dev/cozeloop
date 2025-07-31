@@ -7,8 +7,8 @@ import (
 	"errors"
 	client "github.com/cloudwego/kitex/client"
 	kitex "github.com/cloudwego/kitex/pkg/serviceinfo"
-	apis "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/apis"
-	eval_target "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/eval_target"
+	apis "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/apis"
+	eval_target "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/eval_target"
 )
 
 var errInvalidMessageType = errors.New("invalid message type for service method handler")

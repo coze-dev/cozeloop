@@ -10,9 +10,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	componentMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	repoMocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo/mocks"
+	componentMocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	repoMocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/repo/mocks"
 )
 
 func TestQuotaServiceImpl_ReleaseExptRun(t *testing.T) {

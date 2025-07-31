@@ -13,12 +13,12 @@ import (
 	"github.com/stretchr/testify/assert" // 新增 testify/assert
 	"go.uber.org/mock/gomock"
 
-	idgenmocks "github.com/coze-dev/cozeloop/backend/infra/idgen/mocks"
-	"github.com/coze-dev/cozeloop/backend/infra/middleware/session"
-	userinfo_mocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/userinfo/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/events/mocks"
-	repo_mocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo/mocks" // 假设gomock生成的mock在此路径
+	idgenmocks "github.com/coze-dev/coze-loop/backend/infra/idgen/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/middleware/session"
+	userinfo_mocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/userinfo/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/events/mocks"
+	repo_mocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/repo/mocks" // 假设gomock生成的mock在此路径
 )
 
 // TestEvaluatorRecordServiceImpl_CorrectEvaluatorRecord 用于测试 CorrectEvaluatorRecord 方法

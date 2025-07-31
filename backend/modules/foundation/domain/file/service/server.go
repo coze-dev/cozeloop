@@ -16,12 +16,12 @@ import (
 
 	errors2 "github.com/pkg/errors"
 
-	"github.com/coze-dev/cozeloop/backend/infra/fileserver"
-	"github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/foundation/file"
-	"github.com/coze-dev/cozeloop/backend/modules/foundation/pkg/errno"
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx"
-	"github.com/coze-dev/cozeloop/backend/pkg/localos"
-	"github.com/coze-dev/cozeloop/backend/pkg/logs"
+	"github.com/coze-dev/coze-loop/backend/infra/fileserver"
+	"github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/foundation/file"
+	"github.com/coze-dev/coze-loop/backend/modules/foundation/pkg/errno"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx"
+	"github.com/coze-dev/coze-loop/backend/pkg/localos"
+	"github.com/coze-dev/coze-loop/backend/pkg/logs"
 )
 
 //go:generate mockgen -destination=mocks/file_service.go -package=mocks . FileService

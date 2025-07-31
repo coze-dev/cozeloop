@@ -108,7 +108,7 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
           <span> · </span>
           <Text
             link={{
-              href: 'https://github.com/coze-dev/cozeloop?tab=Apache-2.0-1-ov-file',
+              href: 'https://github.com/coze-dev/coze-loop?tab=Apache-2.0-1-ov-file',
               target: '_blank',
             }}
           >
@@ -117,14 +117,14 @@ export function LoginPanel({ loading, onLogin, onRegister }: Props) {
           <span> | </span>
           <Text
             link={{
-              href: 'https://github.com/coze-dev/cozeloop',
+              href: 'https://github.com/coze-dev/coze-loop',
               target: '_blank',
             }}
             icon={
               <IconGithub className="w-[14px] h-[14px] translate-y-[1px]" />
             }
           >
-            coze-dev/cozeloop
+            coze-dev/coze-loop
           </Text>
         </Text>
       </div>

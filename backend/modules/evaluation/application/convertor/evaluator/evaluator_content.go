@@ -6,8 +6,8 @@ package evaluator
 import (
 	"github.com/bytedance/gg/gptr"
 
-	evaluatordto "github.com/coze-dev/cozeloop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
-	commonentity "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
+	evaluatordto "github.com/coze-dev/coze-loop/backend/kitex_gen/coze/loop/evaluation/domain/evaluator"
+	commonentity "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
 )
 
 // ConvertToolDTO2DO 将 DTO 转换为 Tool 结构体

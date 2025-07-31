@@ -43,3 +43,8 @@ error_code:
     code: 2007
     message: account overdraft
     no_affect_stability: true
+
+  - name: UserRegistrationControlBlock
+    code: 2008
+    message: email address is restricted from registration based on account security protocols
+    no_affect_stability: true

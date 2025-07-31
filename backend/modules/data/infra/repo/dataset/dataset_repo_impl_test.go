@@ -11,11 +11,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/data/domain/dataset/repo"
-	"github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
-	mysqlmocks "github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/mysql/mocks"
-	redismocks "github.com/coze-dev/cozeloop/backend/modules/data/infra/repo/dataset/redis/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/data/domain/dataset/repo"
+	"github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/gorm_gen/model"
+	mysqlmocks "github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/mysql/mocks"
+	redismocks "github.com/coze-dev/coze-loop/backend/modules/data/infra/repo/dataset/redis/mocks"
 )
 
 func TestDatasetRepo_SetItemCount(t *testing.T) {

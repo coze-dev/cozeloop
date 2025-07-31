@@ -4,7 +4,7 @@
 package errno
 
 import (
-	"github.com/coze-dev/cozeloop/backend/pkg/errorx/code"
+	"github.com/coze-dev/coze-loop/backend/pkg/errorx/code"
 )
 
 const (
@@ -79,6 +79,10 @@ const (
 	AccountOverdraftCodeCode              = 602002007
 	accountOverdraftCodeMessage           = "account overdraft"
 	accountOverdraftCodeNoAffectStability = true
+
+	UserRegistrationControlBlockCode              = 602002008
+	userRegistrationControlBlockMessage           = "email address is restricted from registration based on account security protocols"
+	userRegistrationControlBlockNoAffectStability = true
 )
 
 func init() {
@@ -189,6 +193,12 @@ func init() {
 		AccountOverdraftCodeCode,
 		accountOverdraftCodeMessage,
 		code.WithAffectStability(!accountOverdraftCodeNoAffectStability),
+	)
+
+	code.Register(
+		UserRegistrationControlBlockCode,
+		userRegistrationControlBlockMessage,
+		code.WithAffectStability(!userRegistrationControlBlockNoAffectStability),
 	)
 
 }

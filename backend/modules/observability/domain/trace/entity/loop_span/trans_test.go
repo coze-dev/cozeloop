@@ -10,7 +10,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/coze-dev/cozeloop/backend/pkg/lang/ptr"
+	"github.com/coze-dev/coze-loop/backend/pkg/lang/ptr"
 )
 
 func TestTrans(t *testing.T) {

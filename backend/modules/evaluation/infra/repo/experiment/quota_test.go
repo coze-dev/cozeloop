@@ -11,9 +11,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/lock/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	daomocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/repo/experiment/redis/dao/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/lock/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	daomocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/repo/experiment/redis/dao/mocks"
 )
 
 func TestQuotaRepoImpl_CreateOrUpdate(t *testing.T) {

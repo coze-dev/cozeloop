@@ -4,12 +4,12 @@
 package main
 
 import (
-	"github.com/coze-dev/cozeloop/backend/infra/mq"
-	dataapp "github.com/coze-dev/cozeloop/backend/modules/data/application"
-	dataconsumer "github.com/coze-dev/cozeloop/backend/modules/data/infra/mq/consumer"
-	exptapp "github.com/coze-dev/cozeloop/backend/modules/evaluation/application"
-	evalconsumer "github.com/coze-dev/cozeloop/backend/modules/evaluation/infra/mq/rocket/consumer"
-	"github.com/coze-dev/cozeloop/backend/pkg/conf"
+	"github.com/coze-dev/coze-loop/backend/infra/mq"
+	dataapp "github.com/coze-dev/coze-loop/backend/modules/data/application"
+	dataconsumer "github.com/coze-dev/coze-loop/backend/modules/data/infra/mq/consumer"
+	exptapp "github.com/coze-dev/coze-loop/backend/modules/evaluation/application"
+	evalconsumer "github.com/coze-dev/coze-loop/backend/modules/evaluation/infra/mq/rocket/consumer"
+	"github.com/coze-dev/coze-loop/backend/pkg/conf"
 )
 
 func mustInitConsumerWorkers(

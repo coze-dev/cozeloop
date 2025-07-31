@@ -13,16 +13,16 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
-	"github.com/coze-dev/cozeloop/backend/infra/external/benefit"
-	benefitmocks "github.com/coze-dev/cozeloop/backend/infra/external/benefit/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics"
-	metricsmocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/metrics/mocks"
-	configermocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/component/mocks"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/entity"
-	"github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo"
-	repomocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/repo/mocks"
-	servicemocks "github.com/coze-dev/cozeloop/backend/modules/evaluation/domain/service/mocks"
+	"github.com/coze-dev/coze-loop/backend/infra/external/benefit"
+	benefitmocks "github.com/coze-dev/coze-loop/backend/infra/external/benefit/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/metrics"
+	metricsmocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/metrics/mocks"
+	configermocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/component/mocks"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/entity"
+	"github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/repo"
+	repomocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/repo/mocks"
+	servicemocks "github.com/coze-dev/coze-loop/backend/modules/evaluation/domain/service/mocks"
 )
 
 func Test_NewExptItemEvaluation(t *testing.T) {
